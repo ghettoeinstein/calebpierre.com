@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity for Los Angeles Businesses: What Actually Matters | Caleb Pierre</title>
+<meta name="description" content="A practical cybersecurity guide for LA businesses from a former Tinder Security Engineer. SOAR, SIEM, HIPAA compliance, Zero Trust, and what to do before you get breached.">
+<meta name="keywords" content="cybersecurity Los Angeles, HIPAA compliance LA, security engineer Los Angeles, SIEM SOAR, zero trust architecture LA">
+<meta name="author" content="Caleb Pierre">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calebpierre.com/articles/cybersecurity-los-angeles.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cybersecurity for Los Angeles Businesses: What Actually Matters | Caleb Pierre">
+<meta property="og:description" content="A practical cybersecurity guide for LA businesses from a former Tinder Security Engineer. SOAR, SIEM, HIPAA compliance, Zero Trust, and what to do before you get breached.">
+<meta property="og:url" content="https://calebpierre.com/articles/cybersecurity-los-angeles.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cybersecurity for Los Angeles Businesses: What Actually Matters | Caleb Pierre">
+<meta name="twitter:description" content="A practical cybersecurity guide for LA businesses from a former Tinder Security Engineer. SOAR, SIEM, HIPAA compliance, Zero Trust, and what to do before you get breached.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Cybersecurity for Los Angeles Businesses: What Actually Matters",
+  "description": "A practical cybersecurity guide for LA businesses from a former Tinder Security Engineer. SOAR, SIEM, HIPAA compliance, Zero Trust, and what to do before you get breached.",
+  "author": { "@type": "Person", "name": "Caleb Pierre", "sameAs": "https://linkedin.com/in/calebpierre" },
+  "publisher": { "@type": "Organization", "name": "Caleb Pierre Ventures" },
+  "datePublished": "2026-07-10",
+  "dateModified": "2026-07-10"
+}
+</script>
+<style>
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --paper: #FAFAF8; --panel: #F1F0EA; --ink: #0B0B0B; --red: #E10600;
+  --steel: #5C5C5C; --line: rgba(11,11,11,0.14);
+  --display: 'Space Grotesk', system-ui, sans-serif;
+  --body: 'IBM Plex Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); background: var(--paper); color: var(--ink); line-height: 1.75; }
+a { color: inherit; text-decoration: none; }
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+.nav { position: sticky; top: 0; z-index: 50; background: rgba(250,250,248,0.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+.nav-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; }
+.nav-brand { display: flex; align-items: center; gap: 10px; }
+.nav-mark { font-family: var(--mono); font-weight: 700; font-size: 0.9rem; color: var(--ink); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 1.5px solid var(--ink); letter-spacing: -0.05em; }
+.nav-name { font-family: var(--body); font-weight: 600; font-size: 0.85rem; color: var(--ink); }
+.nav-sub { font-family: var(--mono); font-size: 0.58rem; color: var(--steel); letter-spacing: 0.1em; }
+.nav-cta { background: var(--red); color: #fff; font-family: var(--body); font-weight: 600; font-size: 0.78rem; padding: 8px 16px; }
+.hero { padding: 100px 24px 40px; }
+.eyebrow { font-family: var(--mono); color: var(--red); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; }
+h1 { font-family: var(--display); font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 700; line-height: 1.15; color: var(--ink); margin-bottom: 16px; }
+.meta { font-family: var(--mono); font-size: 0.72rem; color: var(--steel); margin-bottom: 32px; }
+h2 { font-family: var(--display); font-size: 1.5rem; font-weight: 700; color: var(--ink); margin: 40px 0 12px; }
+h3 { font-family: var(--display); font-size: 1.15rem; font-weight: 600; color: var(--ink); margin: 28px 0 10px; }
+p { font-size: 1rem; color: var(--steel); line-height: 1.8; margin-bottom: 16px; }
+ul, ol { padding-left: 24px; margin-bottom: 20px; }
+li { font-size: 0.95rem; color: var(--steel); line-height: 1.7; margin-bottom: 8px; }
+strong { color: var(--ink); font-weight: 600; }
+blockquote { border-left: 3px solid var(--red); padding-left: 20px; margin: 24px 0; font-style: italic; color: var(--steel); }
+.cta-box { background: var(--ink); padding: 40px 32px; margin: 48px 0; text-align: center; }
+.cta-box h2 { color: #fff; margin: 0 0 12px; }
+.cta-box p { color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem; }
+.cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--red); color: #fff; font-family: var(--body); font-weight: 600; font-size: 0.9rem; padding: 12px 24px; }
+footer { background: var(--ink); padding: 32px 24px; text-align: center; }
+footer p { font-family: var(--mono); color: #8A8A8A; font-size: 0.72rem; }
+.links { display: flex; gap: 20px; justify-content: center; margin-bottom: 12px; }
+.links a { font-family: var(--mono); color: #8A8A8A; font-size: 0.72rem; }
+@media (max-width: 640px) { .wrap { padding: 0 16px; } .hero { padding: 80px 16px 32px; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="https://calebpierre.com/" class="nav-brand">
+      <span class="nav-mark">CP</span>
+      <div>
+        <div class="nav-name">Caleb Pierre</div>
+        <div class="nav-sub">REMOTE SYSTEMS AGENCY</div>
+      </div>
+    </a>
+    <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <article class="hero">
+    <p class="eyebrow">Security Engineering</p>
+    <h1>Cybersecurity for Los Angeles Businesses: What Actually Matters</h1>
+    <p class="meta">By Caleb Pierre · 2026-07-10 · Los Angeles, CA</p>
+  </article>
+
+  
+<h2>Most LA businesses have a security hole they don't know about</h2>
+<p>I spent two years as Security Engineer II at Tinder in West Hollywood. Before that, I managed bug bounty programs at Verizon Media, ran HIPAA compliance at Children's Hospital Los Angeles, and did vulnerability remediation across 5,000+ assets at UCLA Health. I've seen what happens when security is an afterthought — and when it's built in from day one.</p>
+<p>Here's the truth most Los Angeles businesses don't want to hear: <strong>you're probably one bad day away from a breach, and you don't know where the hole is.</strong></p>
+
+<h2>The 5 things that actually matter</h2>
+<p>Forget the jargon. Here's what I check first when I audit a Los Angeles business:</p>
+
+<h3>1. Access control</h3>
+<p>Who has access to what? Most businesses have no idea. Former employees still have access. Shared passwords. Admin rights handed out like candy. <strong>Zero Trust Architecture</strong> means verifying every access request, every time — not trusting someone because they're "inside the network."</p>
+
+<h3>2. Visibility (SIEM)</h3>
+<p>If you're not logging and monitoring, you can't detect a breach until it's too late. I deploy Splunk SIEM with custom detection rules so you see threats in real time, not three months later in a news article.</p>
+
+<h3>3. Automated response (SOAR)</h3>
+<p>At Tinder, I built SOAR playbooks that automated threat detection and incident response end-to-end. When a threat is detected, the system responds automatically — isolating the asset, blocking the IP, alerting the team. <strong>Increased SOC efficiency by 50%.</strong></p>
+
+<h3>4. Compliance (HIPAA)</h3>
+<p>If you're a healthcare business in Los Angeles — a dental office, a clinic, a therapy practice — HIPAA compliance isn't optional. I've maintained 100% HIPAA audit compliance at Children's Hospital Los Angeles through precision SIEM tuning. The fines for non-compliance can destroy a practice.</p>
+
+<h3>5. Vulnerability management</h3>
+<p>You can't fix what you don't know about. I use Rapid7 and Tenable to find every hole in your environment, then prioritize remediation by risk level. At UCLA Health, I executed vulnerability remediation across 5,000+ assets ensuring HIPAA compliance across critical healthcare infrastructure.</p>
+
+<h2>The LA healthcare problem</h2>
+<p>Los Angeles has one of the highest concentrations of healthcare businesses in the country. From small dental practices in Torrance to therapy offices in Santa Monica — most are not HIPAA compliant and don't know it. The gap between "we have a privacy policy" and "we actually pass a HIPAA audit" is enormous.</p>
+<blockquote>A system you can't audit isn't a system you can trust. That's the whole reason I do security the way I do — documented, verifiable, and built for the real world.</blockquote>
+
+<h2>What to do before you get breached</h2>
+<p>Don't wait for a breach to take security seriously. I offer a free 30-minute security assessment for Los Angeles businesses. I'll look at your environment, identify the biggest holes, and give you a written remediation plan. No scare tactics — just a straight answer about what's exposed and what to fix first.</p>
+
+
+  <div class="cta-box">
+    <h2>Want this for your business?</h2>
+    <p>Book a free 30-minute systems audit. I'll take real notes and hand you a written game plan.</p>
+    <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="cta-btn">Book Your Free Audit →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="links">
+    <a href="https://calebpierre.com/">Home</a>
+    <a href="https://calebpierre.com/resume.html">Resume</a>
+    <a href="https://calebpierre.com/llms.txt">llms.txt</a>
+    <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <p>CALEB PIERRE · LOS ANGELES · REMOTE-FIRST · © 2026</p>
+</footer>
+
+</body>
+</html>

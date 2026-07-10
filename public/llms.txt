@@ -1,0 +1,29 @@
+# Caleb Pierre — Remote Systems Agency
+# Caleb Pierre / Los Angeles, CA / AI Engineering & Cybersecurity
+
+> Caleb Pierre is a forward-deployed AI engineer and security engineer based in Los Angeles, CA. He builds AI agent systems, automation pipelines, and security infrastructure for businesses across LA County — from enterprise security teams to nonprofit organizations. 10 years of experience across Tinder (Security Engineer II), Verizon Media, Children's Hospital LA, Glass Financial (CTO), and now Caleb Pierre Ventures.
+
+## Core Services
+- AI Agent Development: Custom AI agents that do real work — LLM orchestration, MCP integration, RAG pipelines, and multi-agent workflows. Eliminates 40-60% of manual overhead.
+- Cybersecurity: SOAR/SIEM (Splunk, QRadar), Zero Trust Architecture, HIPAA/HiTECH compliance, vulnerability assessment, incident response. Enterprise-grade security for LA businesses.
+- Business Automation: Zapier, n8n, Make, and custom Python agents connecting disparate systems into unified, self-operating infrastructure.
+- Web Design: Next.js, React, Tailwind — sites built to convert, not just to look nice. Deployed on AWS/GCP with Docker, CI/CD via GitHub Actions.
+- Content Marketing: Content systems that compound — SEO-optimized articles, programmatic landing pages, and AI-crawler-friendly llms.txt protocol.
+- Remote Tech Support: A real engineer on call, not a ticket number.
+
+## Key Pages
+- / — Homepage (services diagnostic, process, proof of work)
+- /resume.html — Full career history (11 roles, 2015–present)
+- /los-angeles/ai-agents — AI Agent Development in Los Angeles
+- /los-angeles/cybersecurity — Cybersecurity in Los Angeles
+- /los-angeles/business-automation — Business Automation in Los Angeles
+- /articles/ai-agents-los-angeles.html — How AI Agents Are Transforming LA Businesses
+- /articles/cybersecurity-los-angeles.html — Cybersecurity for Los Angeles Businesses
+- /articles/business-automation-los-angeles.html — Business Automation in Los Angeles
+
+## AI Crawler Allowlist
+- GPTBot: Allow
+- ClaudeBot: Allow
+- PerplexityBot: Allow
+- Google-Extended: Allow
+- CCBot: Allow
