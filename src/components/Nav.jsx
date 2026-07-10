@@ -5,7 +5,14 @@ import GlitchMark from "./GlitchMark.jsx";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
-  const links = ["Diagnostic", "Services", "Process", "Resume", "About", "Contact"];
+  const links = [
+    { label: "Diagnostic", href: "#diagnostic" },
+    { label: "Services", href: "#services" },
+    { label: "Process", href: "#process" },
+    { label: "Resume", href: "./resume.html" },
+    { label: "About", href: "#about" },
+    { label: "Contact", href: "#contact" },
+  ];
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50"
@@ -42,8 +49,8 @@ export default function Nav() {
         <div className="hidden md:flex items-center gap-7">
           {links.map((l) => (
             <a
-              key={l}
-              href={`#${l.toLowerCase()}`}
+              key={l.label}
+              href={l.href}
               style={{
                 fontFamily: F.mono,
                 fontSize: "0.78rem",
@@ -51,7 +58,7 @@ export default function Nav() {
                 textDecoration: "none",
               }}
             >
-              {l}
+              {l.label}
             </a>
           ))}
           <a
@@ -91,15 +98,15 @@ export default function Nav() {
         <div className="md:hidden flex flex-col px-6 pb-4 gap-3">
           {links.map((l) => (
             <a
-              key={l}
-              href={`#${l.toLowerCase()}`}
+              key={l.label}
+              href={l.href}
               style={{
                 fontFamily: F.mono,
                 color: C.steel,
                 fontSize: "0.85rem",
               }}
             >
-              {l}
+              {l.label}
             </a>
           ))}
         </div>

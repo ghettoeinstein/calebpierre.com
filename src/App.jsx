@@ -6,7 +6,6 @@ import Diagnostic from "./components/Diagnostic.jsx";
 import Services from "./components/Services.jsx";
 import Process from "./components/Process.jsx";
 import Proof from "./components/Proof.jsx";
-import Resume from "./components/Resume.jsx";
 import About from "./components/About.jsx";
 import FinalCTA from "./components/FinalCTA.jsx";
 import Footer from "./components/Footer.jsx";
@@ -21,7 +20,6 @@ export default function App() {
       <Services />
       <Process />
       <Proof />
-      <Resume />
       <About />
       <FinalCTA />
       <Footer />

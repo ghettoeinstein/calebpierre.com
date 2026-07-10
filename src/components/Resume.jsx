@@ -469,7 +469,7 @@ export default function Resume() {
   const [heroRef, heroOffset] = useParallax(0.12);
 
   return (
-    <section id="resume" className="px-6 py-24" style={{ backgroundColor: C.paper }}>
+    <section className="px-6 py-24" style={{ backgroundColor: C.paper }}>
       {/* Parallax background decorative elements */}
       <ParallaxLayer speed={0.08} className="resume-bg-layer">
         <div
