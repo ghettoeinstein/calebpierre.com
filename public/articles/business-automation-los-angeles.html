@@ -73,6 +73,13 @@ footer p { font-family: var(--mono); color: #8A8A8A; font-size: 0.72rem; }
 </head>
 <body>
 
+<script>
+function toggleMobile() {
+  var el = document.getElementById('nav-mobile');
+  el.classList.toggle('open');
+}
+</script>
+
 <nav class="nav">
   <div class="nav-inner">
     <a href="https://calebpierre.com/" class="nav-brand">
@@ -82,6 +89,35 @@ footer p { font-family: var(--mono); color: #8A8A8A; font-size: 0.72rem; }
         <div class="nav-sub">REMOTE SYSTEMS AGENCY</div>
       </div>
     </a>
+    <div class="nav-links">
+      <a href="https://calebpierre.com/#diagnostic">Diagnostic</a>
+      <a href="https://calebpierre.com/#services">Services</a>
+      <a href="https://calebpierre.com/#process">Process</a>
+      <a href="https://calebpierre.com/#proof">Proof</a>
+      <a href="https://calebpierre.com/resume.html">Resume</a>
+      <a href="https://calebpierre.com/#about">About</a>
+      <a href="https://calebpierre.com/#contact">Contact</a>
+      <a href="https://calebpierre.com/los-angeles/ai-agents.html">AI Agents</a>
+      <a href="https://calebpierre.com/los-angeles/cybersecurity.html">Cybersecurity</a>
+      <a href="https://calebpierre.com/articles/ai-agents-los-angeles.html">Articles</a>
+      <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="nav-cta">Book a Call</a>
+    </div>
+    <button class="nav-mobile-btn" onclick="toggleMobile()">Menu</button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="https://calebpierre.com/#diagnostic">Diagnostic</a>
+    <a href="https://calebpierre.com/#services">Services</a>
+    <a href="https://calebpierre.com/#process">Process</a>
+    <a href="https://calebpierre.com/#proof">Proof</a>
+    <a href="https://calebpierre.com/resume.html">Resume</a>
+    <a href="https://calebpierre.com/#about">About</a>
+    <a href="https://calebpierre.com/#contact">Contact</a>
+    <a href="https://calebpierre.com/los-angeles/ai-agents.html">AI Agents</a>
+    <a href="https://calebpierre.com/los-angeles/cybersecurity.html">Cybersecurity</a>
+    <a href="https://calebpierre.com/los-angeles/business-automation.html">Automation</a>
+    <a href="https://calebpierre.com/articles/ai-agents-los-angeles.html">Articles</a>
+    <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="nav-cta">Book a Call</a>
   </div>
 </nav>
@@ -138,14 +174,59 @@ footer p { font-family: var(--mono); color: #8A8A8A; font-size: 0.72rem; }
   </div>
 </div>
 
-<footer>
-  <div class="links">
-    <a href="https://calebpierre.com/">Home</a>
-    <a href="https://calebpierre.com/resume.html">Resume</a>
-    <a href="https://calebpierre.com/llms.txt">llms.txt</a>
-    <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="https://calebpierre.com/los-angeles/ai-agents.html">AI Agent Development</a>
+      <a href="https://calebpierre.com/los-angeles/cybersecurity.html">Cybersecurity</a>
+      <a href="https://calebpierre.com/los-angeles/business-automation.html">Business Automation</a>
+      <a href="https://calebpierre.com/#services">All Services</a>
+    </div>
+    <div class="footer-col">
+      <h4>Articles</h4>
+      <a href="https://calebpierre.com/articles/ai-agents-los-angeles.html">AI Agents in LA</a>
+      <a href="https://calebpierre.com/articles/cybersecurity-los-angeles.html">Cybersecurity for LA</a>
+      <a href="https://calebpierre.com/articles/business-automation-los-angeles.html">Automation in LA</a>
+    </div>
+    <div class="footer-col">
+      <h4>Cities Served</h4>
+      <a href="https://calebpierre.com/los-angeles/ai-agents.html">Los Angeles, CA</a>
+      <a href="https://calebpierre.com/long-beach/ai-agents.html">Long Beach, CA</a>
+      <a href="https://calebpierre.com/torrance/ai-agents.html">Torrance, CA</a>
+      <a href="https://calebpierre.com/carson/ai-agents.html">Carson, CA</a>
+      <a href="https://calebpierre.com/compton/ai-agents.html">Compton, CA</a>
+      <a href="https://calebpierre.com/hawthorne/ai-agents.html">Hawthorne, CA</a>
+      <a href="https://calebpierre.com/inglewood/ai-agents.html">Inglewood, CA</a>
+      <a href="https://calebpierre.com/gardena/ai-agents.html">Gardena, CA</a>
+      <a href="https://calebpierre.com/santa-monica/ai-agents.html">Santa Monica, CA</a>
+      <a href="https://calebpierre.com/pasadena/ai-agents.html">Pasadena, CA</a>
+      <a href="https://calebpierre.com/glendale/ai-agents.html">Glendale, CA</a>
+      <a href="https://calebpierre.com/burbank/ai-agents.html">Burbank, CA</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="https://calebpierre.com/">Home</a>
+      <a href="https://calebpierre.com/resume.html">Resume</a>
+      <a href="https://calebpierre.com/#diagnostic">Systems Diagnostic</a>
+      <a href="https://calebpierre.com/#process">Process</a>
+      <a href="https://calebpierre.com/#proof">Proof of Work</a>
+      <a href="https://calebpierre.com/#about">About</a>
+      <a href="https://calebpierre.com/#contact">Contact</a>
+      <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener">Book a Call</a>
+      <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://calebpierre.com/sitemap.xml">Sitemap</a>
+      <a href="https://calebpierre.com/llms.txt">llms.txt</a>
+      <a href="https://calebpierre.com/robots.txt">robots.txt</a>
+    </div>
   </div>
-  <p>CALEB PIERRE · LOS ANGELES · REMOTE-FIRST · © 2026</p>
+  <div class="footer-seo">
+    <p>Caleb Pierre is a forward-deployed AI engineer and security engineer based in Los Angeles, CA. He builds AI agent systems, cybersecurity infrastructure, and business automation pipelines for organizations across LA County — from nonprofits in Gardena to healthcare practices in Torrance to tech companies in Santa Monica. 10 years of experience across Tinder (Security Engineer II), Verizon Media, Children's Hospital Los Angeles, Glass Financial (CTO), and Caleb Pierre Ventures. Serving Los Angeles, Long Beach, Torrance, Carson, Compton, Hawthorne, Inglewood, Gardena, Santa Monica, Pasadena, Glendale, and Burbank. HIPAA compliant. Remote-first. Book a free systems audit.</p>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Caleb Pierre Ventures LLC &middot; Los Angeles, CA &middot; Remote-First &middot; <a href="https://calebpierre.com/llms.txt">llms.txt</a> &middot; <a href="https://calebpierre.com/sitemap.xml">sitemap.xml</a> &middot; <a href="https://calebpierre.com/robots.txt">robots.txt</a></p>
+    <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener" style="font-family: var(--mono); color: #8A8A8A; font-size: 0.7rem; text-decoration: none;">linkedin.com/in/calebpierre</a>
+  </div>
 </footer>
 
 </body>

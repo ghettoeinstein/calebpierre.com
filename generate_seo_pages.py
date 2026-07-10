@@ -218,7 +218,15 @@ a {{ color: inherit; text-decoration: none; }}
 .nav-mark {{ font-family: var(--mono); font-weight: 700; font-size: 0.9rem; color: var(--ink); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 1.5px solid var(--ink); letter-spacing: -0.05em; }}
 .nav-name {{ font-family: var(--body); font-weight: 600; font-size: 0.85rem; color: var(--ink); }}
 .nav-sub {{ font-family: var(--mono); font-size: 0.58rem; color: var(--steel); letter-spacing: 0.1em; }}
+.nav-links {{ display: flex; align-items: center; gap: 20px; }}
+.nav-links a {{ font-family: var(--mono); font-size: 0.72rem; color: var(--steel); transition: color 0.15s; }}
+.nav-links a:hover {{ color: var(--red); }}
 .nav-cta {{ background: var(--red); color: #fff; font-family: var(--body); font-weight: 600; font-size: 0.78rem; padding: 8px 16px; }}
+.nav-mobile-btn {{ display: none; background: none; border: none; cursor: pointer; color: var(--ink); font-family: var(--mono); font-size: 0.8rem; }}
+.nav-mobile {{ display: none; flex-direction: column; gap: 10px; padding: 12px 24px 16px; background: var(--paper); border-top: 1px solid var(--line); }}
+.nav-mobile a {{ font-family: var(--mono); font-size: 0.78rem; color: var(--steel); padding: 4px 0; }}
+.nav-mobile a:hover {{ color: var(--red); }}
+.nav-mobile .nav-cta {{ text-align: center; margin-top: 8px; }}
 .hero {{ padding: 100px 24px 60px; }}
 .eyebrow {{ font-family: var(--mono); color: var(--red); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; }}
 h1 {{ font-family: var(--display); font-size: clamp(1.8rem, 4.5vw, 3rem); font-weight: 700; line-height: 1.1; color: var(--ink); margin-bottom: 20px; max-width: 18ch; }}
@@ -227,7 +235,7 @@ h1 {{ font-family: var(--display); font-size: clamp(1.8rem, 4.5vw, 3rem); font-w
 h2 {{ font-family: var(--display); font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: var(--ink); margin: 48px 0 16px; }}
 .features {{ list-style: none; padding: 0; margin: 0 0 32px; }}
 .features li {{ padding: 14px 14px 14px 36px; position: relative; font-size: 0.92rem; color: var(--ink); border-bottom: 1px solid var(--line); line-height: 1.6; }}
-.features li::before {{ content: "▸"; position: absolute; left: 12px; top: 14px; color: var(--red); font-weight: 700; }}
+.features li::before {{ content: "\u25b8"; position: absolute; left: 12px; top: 14px; color: var(--red); font-weight: 700; }}
 .body-text {{ font-size: 0.95rem; color: var(--steel); line-height: 1.75; max-width: 64ch; margin-bottom: 24px; }}
 .cta-box {{ background: var(--ink); padding: 40px 32px; margin: 48px 0; text-align: center; }}
 .cta-box h2 {{ color: #fff; margin: 0 0 12px; }}
@@ -240,25 +248,72 @@ h2 {{ font-family: var(--display); font-size: clamp(1.4rem, 3vw, 2rem); font-wei
 .faq-schema {{ display: none; }}
 .about-city {{ background: var(--panel); padding: 32px; margin: 32px 0; }}
 .about-city p {{ font-size: 0.92rem; color: var(--steel); line-height: 1.7; }}
-footer {{ background: var(--ink); padding: 32px 24px; text-align: center; }}
-footer p {{ font-family: var(--mono); color: #8A8A8A; font-size: 0.72rem; }}
-footer a {{ color: #8A8A8A; }}
-.links {{ display: flex; gap: 20px; justify-content: center; margin-bottom: 12px; }}
-.links a {{ font-family: var(--mono); color: #8A8A8A; font-size: 0.72rem; }}
+.site-footer {{ background: var(--ink); border-top: 2px solid var(--red); padding: 48px 24px; }}
+.footer-grid {{ max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-bottom: 32px; }}
+.footer-col h4 {{ font-family: var(--mono); color: var(--red); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; font-weight: 700; }}
+.footer-col a {{ display: block; font-family: var(--mono); color: #8A8A8A; font-size: 0.7rem; padding: 3px 0; line-height: 1.6; transition: color 0.15s; }}
+.footer-col a:hover {{ color: var(--red); }}
+.footer-seo {{ max-width: 960px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; margin-bottom: 24px; }}
+.footer-seo p {{ font-family: var(--body); color: #6A6A6A; font-size: 0.76rem; line-height: 1.8; max-width: 72ch; }}
+.footer-bottom {{ max-width: 960px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }}
+.footer-bottom p {{ font-family: var(--mono); color: #6A6A6A; font-size: 0.68rem; }}
+.footer-bottom a {{ color: #8A8A8A; }}
+@media (max-width: 768px) {{
+  .nav-links {{ display: none; }}
+  .nav-mobile-btn {{ display: block; }}
+  .nav-mobile.open {{ display: flex; }}
+  .footer-grid {{ grid-template-columns: repeat(2, 1fr); gap: 20px; }}
+}}
 @media (max-width: 640px) {{ .wrap {{ padding: 0 16px; }} .hero {{ padding: 80px 16px 40px; }} }}
 </style>
 </head>
 <body>
 
+<script>
+function toggleMobile() {{
+  var el = document.getElementById('nav-mobile');
+  el.classList.toggle('open');
+}}
+</script>
+
 <nav class="nav">
   <div class="nav-inner">
-    <a href="https://calebpierre.com/" class="nav-brand">
+    <a href="{base_url}/" class="nav-brand">
       <span class="nav-mark">CP</span>
       <div>
         <div class="nav-name">Caleb Pierre</div>
         <div class="nav-sub">REMOTE SYSTEMS AGENCY</div>
       </div>
     </a>
+    <div class="nav-links">
+      <a href="{base_url}/#diagnostic">Diagnostic</a>
+      <a href="{base_url}/#services">Services</a>
+      <a href="{base_url}/#process">Process</a>
+      <a href="{base_url}/#proof">Proof</a>
+      <a href="{base_url}/resume.html">Resume</a>
+      <a href="{base_url}/#about">About</a>
+      <a href="{base_url}/#contact">Contact</a>
+      <a href="{base_url}/los-angeles/ai-agents.html">AI Agents</a>
+      <a href="{base_url}/los-angeles/cybersecurity.html">Cybersecurity</a>
+      <a href="{base_url}/articles/ai-agents-los-angeles.html">Articles</a>
+      <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="nav-cta">Book a Call</a>
+    </div>
+    <button class="nav-mobile-btn" onclick="toggleMobile()">Menu</button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="{base_url}/#diagnostic">Diagnostic</a>
+    <a href="{base_url}/#services">Services</a>
+    <a href="{base_url}/#process">Process</a>
+    <a href="{base_url}/#proof">Proof</a>
+    <a href="{base_url}/resume.html">Resume</a>
+    <a href="{base_url}/#about">About</a>
+    <a href="{base_url}/#contact">Contact</a>
+    <a href="{base_url}/los-angeles/ai-agents.html">AI Agents</a>
+    <a href="{base_url}/los-angeles/cybersecurity.html">Cybersecurity</a>
+    <a href="{base_url}/los-angeles/business-automation.html">Automation</a>
+    <a href="{base_url}/articles/ai-agents-los-angeles.html">Articles</a>
+    <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="nav-cta">Book a Call</a>
   </div>
 </nav>
@@ -314,14 +369,59 @@ footer a {{ color: #8A8A8A; }}
   </section>
 </div>
 
-<footer>
-  <div class="links">
-    <a href="https://calebpierre.com/">Home</a>
-    <a href="https://calebpierre.com/resume.html">Resume</a>
-    <a href="https://calebpierre.com/llms.txt">llms.txt</a>
-    <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="{base_url}/los-angeles/ai-agents.html">AI Agent Development</a>
+      <a href="{base_url}/los-angeles/cybersecurity.html">Cybersecurity</a>
+      <a href="{base_url}/los-angeles/business-automation.html">Business Automation</a>
+      <a href="{base_url}/#services">All Services</a>
+    </div>
+    <div class="footer-col">
+      <h4>Articles</h4>
+      <a href="{base_url}/articles/ai-agents-los-angeles.html">AI Agents in LA</a>
+      <a href="{base_url}/articles/cybersecurity-los-angeles.html">Cybersecurity for LA</a>
+      <a href="{base_url}/articles/business-automation-los-angeles.html">Automation in LA</a>
+    </div>
+    <div class="footer-col">
+      <h4>Cities Served</h4>
+      <a href="{base_url}/los-angeles/ai-agents.html">Los Angeles, CA</a>
+      <a href="{base_url}/long-beach/ai-agents.html">Long Beach, CA</a>
+      <a href="{base_url}/torrance/ai-agents.html">Torrance, CA</a>
+      <a href="{base_url}/carson/ai-agents.html">Carson, CA</a>
+      <a href="{base_url}/compton/ai-agents.html">Compton, CA</a>
+      <a href="{base_url}/hawthorne/ai-agents.html">Hawthorne, CA</a>
+      <a href="{base_url}/inglewood/ai-agents.html">Inglewood, CA</a>
+      <a href="{base_url}/gardena/ai-agents.html">Gardena, CA</a>
+      <a href="{base_url}/santa-monica/ai-agents.html">Santa Monica, CA</a>
+      <a href="{base_url}/pasadena/ai-agents.html">Pasadena, CA</a>
+      <a href="{base_url}/glendale/ai-agents.html">Glendale, CA</a>
+      <a href="{base_url}/burbank/ai-agents.html">Burbank, CA</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="{base_url}/">Home</a>
+      <a href="{base_url}/resume.html">Resume</a>
+      <a href="{base_url}/#diagnostic">Systems Diagnostic</a>
+      <a href="{base_url}/#process">Process</a>
+      <a href="{base_url}/#proof">Proof of Work</a>
+      <a href="{base_url}/#about">About</a>
+      <a href="{base_url}/#contact">Contact</a>
+      <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener">Book a Call</a>
+      <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="{base_url}/sitemap.xml">Sitemap</a>
+      <a href="{base_url}/llms.txt">llms.txt</a>
+      <a href="{base_url}/robots.txt">robots.txt</a>
+    </div>
   </div>
-  <p>CALEB PIERRE · LOS ANGELES · REMOTE-FIRST · © {year}</p>
+  <div class="footer-seo">
+    <p>Caleb Pierre is a forward-deployed AI engineer and security engineer based in Los Angeles, CA. He builds AI agent systems, cybersecurity infrastructure, and business automation pipelines for organizations across LA County — from nonprofits in Gardena to healthcare practices in Torrance to tech companies in Santa Monica. 10 years of experience across Tinder (Security Engineer II), Verizon Media, Children's Hospital Los Angeles, Glass Financial (CTO), and Caleb Pierre Ventures. Serving Los Angeles, Long Beach, Torrance, Carson, Compton, Hawthorne, Inglewood, Gardena, Santa Monica, Pasadena, Glendale, and Burbank. HIPAA compliant. Remote-first. Book a free systems audit.</p>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; {year} Caleb Pierre Ventures LLC &middot; Los Angeles, CA &middot; Remote-First &middot; <a href="{base_url}/llms.txt">llms.txt</a> &middot; <a href="{base_url}/sitemap.xml">sitemap.xml</a> &middot; <a href="{base_url}/robots.txt">robots.txt</a></p>
+    <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener" style="font-family: var(--mono); color: #8A8A8A; font-size: 0.7rem; text-decoration: none;">linkedin.com/in/calebpierre</a>
+  </div>
 </footer>
 
 </body>
@@ -403,15 +503,51 @@ footer p {{ font-family: var(--mono); color: #8A8A8A; font-size: 0.72rem; }}
 </head>
 <body>
 
+<script>
+function toggleMobile() {{
+  var el = document.getElementById('nav-mobile');
+  el.classList.toggle('open');
+}}
+</script>
+
 <nav class="nav">
   <div class="nav-inner">
-    <a href="https://calebpierre.com/" class="nav-brand">
+    <a href="{base_url}/" class="nav-brand">
       <span class="nav-mark">CP</span>
       <div>
         <div class="nav-name">Caleb Pierre</div>
         <div class="nav-sub">REMOTE SYSTEMS AGENCY</div>
       </div>
     </a>
+    <div class="nav-links">
+      <a href="{base_url}/#diagnostic">Diagnostic</a>
+      <a href="{base_url}/#services">Services</a>
+      <a href="{base_url}/#process">Process</a>
+      <a href="{base_url}/#proof">Proof</a>
+      <a href="{base_url}/resume.html">Resume</a>
+      <a href="{base_url}/#about">About</a>
+      <a href="{base_url}/#contact">Contact</a>
+      <a href="{base_url}/los-angeles/ai-agents.html">AI Agents</a>
+      <a href="{base_url}/los-angeles/cybersecurity.html">Cybersecurity</a>
+      <a href="{base_url}/articles/ai-agents-los-angeles.html">Articles</a>
+      <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="nav-cta">Book a Call</a>
+    </div>
+    <button class="nav-mobile-btn" onclick="toggleMobile()">Menu</button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="{base_url}/#diagnostic">Diagnostic</a>
+    <a href="{base_url}/#services">Services</a>
+    <a href="{base_url}/#process">Process</a>
+    <a href="{base_url}/#proof">Proof</a>
+    <a href="{base_url}/resume.html">Resume</a>
+    <a href="{base_url}/#about">About</a>
+    <a href="{base_url}/#contact">Contact</a>
+    <a href="{base_url}/los-angeles/ai-agents.html">AI Agents</a>
+    <a href="{base_url}/los-angeles/cybersecurity.html">Cybersecurity</a>
+    <a href="{base_url}/los-angeles/business-automation.html">Automation</a>
+    <a href="{base_url}/articles/ai-agents-los-angeles.html">Articles</a>
+    <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="nav-cta">Book a Call</a>
   </div>
 </nav>
@@ -432,14 +568,59 @@ footer p {{ font-family: var(--mono); color: #8A8A8A; font-size: 0.72rem; }}
   </div>
 </div>
 
-<footer>
-  <div class="links">
-    <a href="https://calebpierre.com/">Home</a>
-    <a href="https://calebpierre.com/resume.html">Resume</a>
-    <a href="https://calebpierre.com/llms.txt">llms.txt</a>
-    <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="{base_url}/los-angeles/ai-agents.html">AI Agent Development</a>
+      <a href="{base_url}/los-angeles/cybersecurity.html">Cybersecurity</a>
+      <a href="{base_url}/los-angeles/business-automation.html">Business Automation</a>
+      <a href="{base_url}/#services">All Services</a>
+    </div>
+    <div class="footer-col">
+      <h4>Articles</h4>
+      <a href="{base_url}/articles/ai-agents-los-angeles.html">AI Agents in LA</a>
+      <a href="{base_url}/articles/cybersecurity-los-angeles.html">Cybersecurity for LA</a>
+      <a href="{base_url}/articles/business-automation-los-angeles.html">Automation in LA</a>
+    </div>
+    <div class="footer-col">
+      <h4>Cities Served</h4>
+      <a href="{base_url}/los-angeles/ai-agents.html">Los Angeles, CA</a>
+      <a href="{base_url}/long-beach/ai-agents.html">Long Beach, CA</a>
+      <a href="{base_url}/torrance/ai-agents.html">Torrance, CA</a>
+      <a href="{base_url}/carson/ai-agents.html">Carson, CA</a>
+      <a href="{base_url}/compton/ai-agents.html">Compton, CA</a>
+      <a href="{base_url}/hawthorne/ai-agents.html">Hawthorne, CA</a>
+      <a href="{base_url}/inglewood/ai-agents.html">Inglewood, CA</a>
+      <a href="{base_url}/gardena/ai-agents.html">Gardena, CA</a>
+      <a href="{base_url}/santa-monica/ai-agents.html">Santa Monica, CA</a>
+      <a href="{base_url}/pasadena/ai-agents.html">Pasadena, CA</a>
+      <a href="{base_url}/glendale/ai-agents.html">Glendale, CA</a>
+      <a href="{base_url}/burbank/ai-agents.html">Burbank, CA</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="{base_url}/">Home</a>
+      <a href="{base_url}/resume.html">Resume</a>
+      <a href="{base_url}/#diagnostic">Systems Diagnostic</a>
+      <a href="{base_url}/#process">Process</a>
+      <a href="{base_url}/#proof">Proof of Work</a>
+      <a href="{base_url}/#about">About</a>
+      <a href="{base_url}/#contact">Contact</a>
+      <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener">Book a Call</a>
+      <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="{base_url}/sitemap.xml">Sitemap</a>
+      <a href="{base_url}/llms.txt">llms.txt</a>
+      <a href="{base_url}/robots.txt">robots.txt</a>
+    </div>
   </div>
-  <p>CALEB PIERRE · LOS ANGELES · REMOTE-FIRST · © {year}</p>
+  <div class="footer-seo">
+    <p>Caleb Pierre is a forward-deployed AI engineer and security engineer based in Los Angeles, CA. He builds AI agent systems, cybersecurity infrastructure, and business automation pipelines for organizations across LA County — from nonprofits in Gardena to healthcare practices in Torrance to tech companies in Santa Monica. 10 years of experience across Tinder (Security Engineer II), Verizon Media, Children's Hospital Los Angeles, Glass Financial (CTO), and Caleb Pierre Ventures. Serving Los Angeles, Long Beach, Torrance, Carson, Compton, Hawthorne, Inglewood, Gardena, Santa Monica, Pasadena, Glendale, and Burbank. HIPAA compliant. Remote-first. Book a free systems audit.</p>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; {year} Caleb Pierre Ventures LLC &middot; Los Angeles, CA &middot; Remote-First &middot; <a href="{base_url}/llms.txt">llms.txt</a> &middot; <a href="{base_url}/sitemap.xml">sitemap.xml</a> &middot; <a href="{base_url}/robots.txt">robots.txt</a></p>
+    <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener" style="font-family: var(--mono); color: #8A8A8A; font-size: 0.7rem; text-decoration: none;">linkedin.com/in/calebpierre</a>
+  </div>
 </footer>
 
 </body>
@@ -612,6 +793,7 @@ def generate_service_pages(output_dir: str = "public"):
                 price=price,
                 price_clean=price_clean,
                 year=datetime.now().year,
+                base_url=BASE_URL,
             )
 
             file_path = city_dir / f"{svc['slug']}.html"
@@ -639,6 +821,7 @@ def generate_articles(output_dir: str = "public/articles"):
             canonical_url=canonical,
             date_published=art["date"],
             year=datetime.now().year,
+            base_url=BASE_URL,
         )
 
         file_path = out / art["slug"]
