@@ -130,3 +130,19 @@ button:focus-visible {
   overflow: hidden;
   z-index: 0;
 }
+
+/* ---------- nav: dropdown item hover ---------- */
+.dropdown-item {
+  transition: background-color 0.15s ease;
+}
+.dropdown-item:hover {
+  background-color: rgba(225, 6, 0, 0.08);
+}
+
+/* ---------- footer: link hover ---------- */
+.footer-link {
+  transition: color 0.15s ease;
+}
+.footer-link:hover {
+  color: #E10600 !important;
+}
