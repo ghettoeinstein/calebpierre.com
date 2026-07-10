@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Linkedin } from "lucide-react";
 import { C, F } from "../constants.js";
 import GlitchMark from "./GlitchMark.jsx";
 
@@ -54,6 +54,14 @@ export default function Nav() {
               {l}
             </a>
           ))}
+          <a
+            href="https://linkedin.com/in/calebpierre"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: C.steel, display: "inline-flex", alignItems: "center" }}
+          >
+            <Linkedin size={16} />
+          </a>
           <a
             href="https://calendly.com/calebpierre"
             target="_blank"

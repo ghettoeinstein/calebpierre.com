@@ -1,4 +1,4 @@
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Linkedin, ArrowUpRight } from "lucide-react";
 import { C, F } from "../constants.js";
 import { Reveal } from "../hooks/useReveal.jsx";
 
@@ -7,6 +7,7 @@ export default function About() {
     "Security-engineering background — I look for the hole before someone else finds it.",
     "Remote-first by design — your team gets the same attention wherever you're based.",
     "Everything I build comes with documentation you can actually read.",
+    "Full-stack operator — frontend, backend, infrastructure, AI, and security under one roof.",
   ];
   return (
     <section id="about" className="px-6 py-24">
@@ -47,7 +48,7 @@ export default function About() {
             work behind a black box — a system you can't audit isn't a system you
             can trust, and that's the whole reason I do this the way I do.
           </p>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3" style={{ marginBottom: "2.5rem" }}>
             {points.map((p) => (
               <div key={p} className="flex items-start gap-3">
                 <CheckCircle2
@@ -68,6 +69,25 @@ export default function About() {
               </div>
             ))}
           </div>
+          {/* LinkedIn */}
+          <a
+            href="https://linkedin.com/in/calebpierre"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2"
+            style={{
+              fontFamily: F.mono,
+              color: C.ink,
+              fontSize: "0.82rem",
+              border: `1px solid ${C.line}`,
+              padding: "0.6rem 1rem",
+              textDecoration: "none",
+            }}
+          >
+            <Linkedin size={16} color={C.red} />
+            linkedin.com/in/calebpierre
+            <ArrowUpRight size={14} color={C.steel} />
+          </a>
         </Reveal>
       </div>
     </section>

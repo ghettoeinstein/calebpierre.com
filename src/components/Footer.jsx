@@ -1,3 +1,4 @@
+import { Linkedin } from "lucide-react";
 import { C, F } from "../constants.js";
 
 export default function Footer() {
@@ -7,7 +8,7 @@ export default function Footer() {
         <p style={{ fontFamily: F.mono, color: "#8A8A8A", fontSize: "0.75rem" }}>
           CALEB PIERRE · LOS ANGELES · REMOTE-FIRST · © {new Date().getFullYear()}
         </p>
-        <div className="flex gap-6">
+        <div className="flex items-center gap-6">
           {["Diagnostic", "Services", "Process", "About"].map((l) => (
             <a
               key={l}
@@ -22,6 +23,19 @@ export default function Footer() {
               {l}
             </a>
           ))}
+          <a
+            href="https://linkedin.com/in/calebpierre"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "#8A8A8A",
+              display: "inline-flex",
+              alignItems: "center",
+              textDecoration: "none",
+            }}
+          >
+            <Linkedin size={16} />
+          </a>
         </div>
       </div>
     </footer>

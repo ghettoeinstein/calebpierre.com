@@ -5,6 +5,7 @@ import Agitation from "./components/Agitation.jsx";
 import Diagnostic from "./components/Diagnostic.jsx";
 import Services from "./components/Services.jsx";
 import Process from "./components/Process.jsx";
+import Proof from "./components/Proof.jsx";
 import About from "./components/About.jsx";
 import FinalCTA from "./components/FinalCTA.jsx";
 import Footer from "./components/Footer.jsx";
@@ -18,6 +19,7 @@ export default function App() {
       <Diagnostic />
       <Services />
       <Process />
+      <Proof />
       <About />
       <FinalCTA />
       <Footer />
