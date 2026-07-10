@@ -5,7 +5,7 @@ import GlitchMark from "./GlitchMark.jsx";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
-  const links = ["Diagnostic", "Services", "Process", "About", "Contact"];
+  const links = ["Diagnostic", "Services", "Process", "Resume", "About", "Contact"];
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50"
