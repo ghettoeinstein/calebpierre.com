@@ -44,7 +44,7 @@ const PAGES = [
 
 const linkStyle = {
   fontFamily: F.mono,
-  color: "#8A8A8A",
+  color: C.steel,
   fontSize: "0.72rem",
   textDecoration: "none",
   display: "block",
@@ -66,48 +66,36 @@ export default function Footer() {
   return (
     <footer
       className="px-6 py-12"
-      style={{ backgroundColor: C.ink, borderTop: `2px solid ${C.red}` }}
+      style={{ background: C.bg, borderTop: `1px solid rgba(225, 6, 0, 0.2)` }}
     >
       <div className="max-w-5xl mx-auto">
-        {/* ---- Top: link columns ---- */}
+        {/* Link columns */}
         <div
           className="grid grid-cols-2 md:grid-cols-4 gap-8"
           style={{ marginBottom: "2rem" }}
         >
-          {/* Services */}
           <div>
             <p style={headingStyle}>Services</p>
             {SERVICES.map((s) => (
-              <a key={s.href} href={s.href} style={linkStyle} className="footer-link">
-                {s.label}
-              </a>
+              <a key={s.href} href={s.href} style={linkStyle} className="footer-link">{s.label}</a>
             ))}
-            <a href="./index.html#services" style={linkStyle} className="footer-link">
-              All Services →
-            </a>
+            <a href="./index.html#services" style={linkStyle} className="footer-link">All Services →</a>
           </div>
 
-          {/* Articles */}
           <div>
             <p style={headingStyle}>Articles</p>
             {ARTICLES.map((a) => (
-              <a key={a.href} href={a.href} style={linkStyle} className="footer-link">
-                {a.label}
-              </a>
+              <a key={a.href} href={a.href} style={linkStyle} className="footer-link">{a.label}</a>
             ))}
           </div>
 
-          {/* Cities Served */}
           <div>
             <p style={headingStyle}>Cities Served</p>
             {CITIES.map((c) => (
-              <a key={c.href} href={c.href} style={linkStyle} className="footer-link">
-                {c.label}, CA
-              </a>
+              <a key={c.href} href={c.href} style={linkStyle} className="footer-link">{c.label}, CA</a>
             ))}
           </div>
 
-          {/* Pages / Quick Links */}
           <div>
             <p style={headingStyle}>Quick Links</p>
             {PAGES.map((p) => (
@@ -125,10 +113,10 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ---- Middle: SEO description block ---- */}
+        {/* SEO description */}
         <div
           style={{
-            borderTop: `1px solid rgba(255,255,255,0.08)`,
+            borderTop: `1px solid ${C.line}`,
             paddingTop: "1.5rem",
             marginBottom: "1.5rem",
           }}
@@ -136,7 +124,7 @@ export default function Footer() {
           <p
             style={{
               fontFamily: F.body,
-              color: "#6A6A6A",
+              color: C.steelDark,
               fontSize: "0.78rem",
               lineHeight: 1.8,
               maxWidth: "72ch",
@@ -154,35 +142,30 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* ---- Bottom: legal + social ---- */}
+        {/* Legal + social */}
         <div
           className="flex flex-col md:flex-row justify-between items-center gap-4"
           style={{
-            borderTop: `1px solid rgba(255,255,255,0.08)`,
+            borderTop: `1px solid ${C.line}`,
             paddingTop: "1.5rem",
           }}
         >
-          <p style={{ fontFamily: F.mono, color: "#6A6A6A", fontSize: "0.7rem" }}>
+          <p style={{ fontFamily: F.mono, color: C.steelDark, fontSize: "0.7rem" }}>
             © {new Date().getFullYear()} Caleb Pierre Ventures LLC · Los Angeles, CA ·
-            Remote-First · <a href="./llms.txt" style={{ color: "#8A8A8A" }}>llms.txt</a> ·{" "}
-            <a href="./sitemap.xml" style={{ color: "#8A8A8A" }}>sitemap.xml</a> ·{" "}
-            <a href="./robots.txt" style={{ color: "#8A8A8A" }}>robots.txt</a>
+            Remote-First · <a href="./llms.txt" style={{ color: C.steel }}>llms.txt</a> ·{" "}
+            <a href="./sitemap.xml" style={{ color: C.steel }}>sitemap.xml</a> ·{" "}
+            <a href="./robots.txt" style={{ color: C.steel }}>robots.txt</a>
           </p>
           <a
             href="https://linkedin.com/in/calebpierre"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2"
-            style={{
-              fontFamily: F.mono,
-              color: "#8A8A8A",
-              fontSize: "0.72rem",
-              textDecoration: "none",
-            }}
+            style={{ fontFamily: F.mono, color: C.steel, fontSize: "0.72rem", textDecoration: "none" }}
           >
             <Linkedin size={14} />
             linkedin.com/in/calebpierre
-            <ArrowUpRight size={12} color="#6A6A6A" />
+            <ArrowUpRight size={12} color={C.steelDark} />
           </a>
         </div>
       </div>

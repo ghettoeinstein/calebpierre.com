@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from "react";
-import { Menu, X, Linkedin, ChevronDown, ArrowUpRight } from "lucide-react";
-import { C, F } from "../constants.js";
+import { useState, useEffect, useRef } from "react";
+import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
+import { C, F, EASE } from "../constants.js";
 import GlitchMark from "./GlitchMark.jsx";
 
 export default function Nav() {
@@ -8,7 +8,6 @@ export default function Nav() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Close dropdown on outside click
   useEffect(() => {
     const handler = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -40,242 +39,168 @@ export default function Nav() {
   ];
 
   return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-50"
-      style={{
-        backgroundColor: "rgba(250,250,248,0.92)",
-        backdropFilter: "blur(6px)",
-        borderBottom: `1px solid ${C.line}`,
-      }}
-    >
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
-        {/* Brand */}
-        <a href="./index.html" className="flex items-center gap-3" style={{ textDecoration: "none" }}>
-          <GlitchMark size={38} />
-          <div
-            style={{
-              fontFamily: F.body,
-              fontSize: "0.9rem",
-              color: C.ink,
-              fontWeight: 600,
-            }}
-          >
-            Caleb Pierre
-            <div
-              style={{
-                fontFamily: F.mono,
-                fontSize: "0.62rem",
-                color: C.steel,
-                letterSpacing: "0.1em",
-              }}
-            >
-              REMOTE SYSTEMS AGENCY
+    <>
+      {/* Floating glass pill nav */}
+      <nav
+        className="fixed top-0 left-0 right-0 z-50"
+        style={{ padding: "0 1rem" }}
+      >
+        <div
+          className="max-w-5xl mx-auto"
+          style={{
+            marginTop: "1rem",
+            borderRadius: "999px",
+            background: "rgba(10, 10, 10, 0.7)",
+            backdropFilter: "blur(24px)",
+            WebkitBackdropFilter: "blur(24px)",
+            border: "1px solid rgba(255, 255, 255, 0.08)",
+            padding: "0.5rem 0.5rem 0.5rem 1.25rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          {/* Brand */}
+          <a href="./index.html" className="flex items-center gap-3" style={{ textDecoration: "none" }}>
+            <GlitchMark size={36} />
+            <div style={{ fontFamily: F.body, fontSize: "0.88rem", color: C.ink, fontWeight: 600 }}>
+              Caleb Pierre
+              <div style={{ fontFamily: F.mono, fontSize: "0.58rem", color: C.steel, letterSpacing: "0.1em" }}>
+                SYSTEMS · AI · SECURITY
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-6">
-          {/* Services Dropdown */}
-          <div ref={dropdownRef} style={{ position: "relative" }}>
-            <button
-              onClick={() => setServicesOpen(!servicesOpen)}
-              className="inline-flex items-center gap-1"
-              style={{
-                fontFamily: F.mono,
-                fontSize: "0.78rem",
-                color: servicesOpen ? C.ink : C.steel,
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-              }}
-            >
-              Services
-              <ChevronDown size={12} style={{ transition: "transform 0.2s", transform: servicesOpen ? "rotate(180deg)" : "none" }} />
-            </button>
-            {servicesOpen && (
-              <div
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-5">
+            {/* Services dropdown */}
+            <div ref={dropdownRef} style={{ position: "relative" }}>
+              <button
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className="inline-flex items-center gap-1 nav-link"
                 style={{
-                  position: "absolute",
-                  top: "100%",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  marginTop: "8px",
-                  backgroundColor: C.paper,
-                  border: `1px solid ${C.line}`,
-                  minWidth: "220px",
-                  zIndex: 100,
+                  fontFamily: F.mono,
+                  fontSize: "0.75rem",
+                  color: servicesOpen ? C.ink : C.steel,
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
                 }}
               >
-                <div style={{ padding: "8px 0" }}>
-                  <p style={{ fontFamily: F.mono, fontSize: "0.6rem", color: C.red, letterSpacing: "0.12em", padding: "4px 16px", textTransform: "uppercase" }}>
-                    Los Angeles Services
-                  </p>
-                  {serviceLinks.map((s) => (
-                    <a
-                      key={s.href}
-                      href={s.href}
-                      style={{
-                        display: "block",
-                        fontFamily: F.body,
-                        fontSize: "0.82rem",
-                        color: C.ink,
-                        padding: "8px 16px",
-                        textDecoration: "none",
-                      }}
-                      className="dropdown-item"
-                    >
-                      {s.label}
-                    </a>
-                  ))}
-                  <div style={{ height: 1, backgroundColor: C.line, margin: "4px 0" }} />
-                  <p style={{ fontFamily: F.mono, fontSize: "0.6rem", color: C.red, letterSpacing: "0.12em", padding: "4px 16px", textTransform: "uppercase" }}>
-                    Articles
-                  </p>
-                  {articleLinks.map((a) => (
-                    <a
-                      key={a.href}
-                      href={a.href}
-                      style={{
-                        display: "block",
-                        fontFamily: F.body,
-                        fontSize: "0.82rem",
-                        color: C.ink,
-                        padding: "8px 16px",
-                        textDecoration: "none",
-                      }}
-                      className="dropdown-item"
-                    >
-                      {a.label}
-                    </a>
-                  ))}
+                Services
+                <ChevronDown
+                  size={12}
+                  style={{ transition: "transform 0.3s ease", transform: servicesOpen ? "rotate(180deg)" : "none" }}
+                />
+              </button>
+              {servicesOpen && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "100%",
+                    right: 0,
+                    marginTop: "12px",
+                    borderRadius: "16px",
+                    background: "rgba(10, 10, 10, 0.95)",
+                    backdropFilter: "blur(24px)",
+                    WebkitBackdropFilter: "blur(24px)",
+                    border: "1px solid rgba(255, 255, 255, 0.08)",
+                    minWidth: "220px",
+                    zIndex: 100,
+                    overflow: "hidden",
+                  }}
+                >
+                  <div style={{ padding: "8px 0" }}>
+                    <p className="eyebrow" style={{ padding: "4px 16px" }}>Los Angeles Services</p>
+                    {serviceLinks.map((s) => (
+                      <a key={s.href} href={s.href} className="dropdown-item"
+                        style={{ display: "block", fontFamily: F.body, fontSize: "0.82rem", color: C.inkSoft, padding: "8px 16px", textDecoration: "none" }}>
+                        {s.label}
+                      </a>
+                    ))}
+                    <div style={{ height: 1, background: C.line, margin: "4px 0" }} />
+                    <p className="eyebrow" style={{ padding: "4px 16px" }}>Articles</p>
+                    {articleLinks.map((a) => (
+                      <a key={a.href} href={a.href} className="dropdown-item"
+                        style={{ display: "block", fontFamily: F.body, fontSize: "0.82rem", color: C.inkSoft, padding: "8px 16px", textDecoration: "none" }}>
+                        {a.label}
+                      </a>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
 
-          {/* Page Links */}
-          {pageLinks.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              style={{
-                fontFamily: F.mono,
-                fontSize: "0.78rem",
-                color: C.steel,
-                textDecoration: "none",
-              }}
-            >
-              {l.label}
-            </a>
-          ))}
-
-          {/* Resume */}
-          <a
-            href="./resume.html"
-            style={{
-              fontFamily: F.mono,
-              fontSize: "0.78rem",
-              color: C.steel,
-              textDecoration: "none",
-            }}
-          >
-            Resume
-          </a>
-
-          {/* LinkedIn */}
-          <a
-            href="https://linkedin.com/in/calebpierre"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: C.steel, display: "inline-flex", alignItems: "center" }}
-          >
-            <Linkedin size={16} />
-          </a>
-
-          {/* CTA */}
-          <a
-            href="https://calendly.com/calebpierre"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              backgroundColor: C.red,
-              color: "#fff",
-              fontFamily: F.body,
-              fontWeight: 600,
-              fontSize: "0.82rem",
-              padding: "0.55rem 1.1rem",
-              textDecoration: "none",
-            }}
-          >
-            Book a Call
-          </a>
-        </div>
-
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden"
-          onClick={() => setOpen(!open)}
-          style={{ color: C.ink }}
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {open && (
-        <div className="md:hidden" style={{ backgroundColor: C.paper, borderTop: `1px solid ${C.line}` }}>
-          <div style={{ padding: "16px 24px", display: "flex", flexDirection: "column", gap: "12px" }}>
-            {/* Services section */}
-            <p style={{ fontFamily: F.mono, fontSize: "0.6rem", color: C.red, letterSpacing: "0.12em", textTransform: "uppercase" }}>
-              Services in Los Angeles
-            </p>
-            {serviceLinks.map((s) => (
-              <a key={s.href} href={s.href} style={{ fontFamily: F.body, color: C.ink, fontSize: "0.88rem", textDecoration: "none" }}>
-                {s.label}
-              </a>
-            ))}
-            <div style={{ height: 1, backgroundColor: C.line, margin: "4px 0" }} />
-            {/* Articles */}
-            <p style={{ fontFamily: F.mono, fontSize: "0.6rem", color: C.red, letterSpacing: "0.12em", textTransform: "uppercase" }}>
-              Articles
-            </p>
-            {articleLinks.map((a) => (
-              <a key={a.href} href={a.href} style={{ fontFamily: F.body, color: C.ink, fontSize: "0.88rem", textDecoration: "none" }}>
-                {a.label}
-              </a>
-            ))}
-            <div style={{ height: 1, backgroundColor: C.line, margin: "4px 0" }} />
             {/* Page links */}
             {pageLinks.map((l) => (
-              <a key={l.label} href={l.href} style={{ fontFamily: F.mono, color: C.steel, fontSize: "0.85rem", textDecoration: "none" }}>
+              <a key={l.label} href={l.href} className="nav-link"
+                style={{ fontFamily: F.mono, fontSize: "0.75rem", color: C.steel, textDecoration: "none" }}>
                 {l.label}
               </a>
             ))}
-            <a href="./resume.html" style={{ fontFamily: F.mono, color: C.steel, fontSize: "0.85rem", textDecoration: "none" }}>
+
+            {/* Resume */}
+            <a href="./resume.html" className="nav-link"
+              style={{ fontFamily: F.mono, fontSize: "0.75rem", color: C.steel, textDecoration: "none" }}>
               Resume
             </a>
+
+            {/* CTA */}
             <a
               href="https://calendly.com/calebpierre"
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                backgroundColor: C.red,
-                color: "#fff",
-                fontFamily: F.body,
-                fontWeight: 600,
-                fontSize: "0.82rem",
-                padding: "0.55rem 1.1rem",
-                textDecoration: "none",
-                textAlign: "center",
-                marginTop: "8px",
-              }}
+              className="cta-pill cta-pill-primary"
+              style={{ fontSize: "0.8rem", padding: "0.5rem 1rem" }}
             >
               Book a Call
+              <span className="cta-icon-circle" style={{ width: 22, height: 22 }}>
+                <ArrowUpRight size={13} />
+              </span>
             </a>
           </div>
+
+          {/* Mobile toggle */}
+          <button className="md:hidden" onClick={() => setOpen(!open)} style={{ color: C.ink, background: "none", border: "none", cursor: "pointer" }}>
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
-      )}
-    </nav>
+
+        {/* Mobile menu */}
+        {open && (
+          <div className="md:hidden" style={{ marginTop: "0.5rem", borderRadius: "20px", background: "rgba(10, 10, 10, 0.95)", backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
+            <div style={{ padding: "16px 20px", display: "flex", flexDirection: "column", gap: "12px" }}>
+              <p className="eyebrow">Services in Los Angeles</p>
+              {serviceLinks.map((s) => (
+                <a key={s.href} href={s.href} style={{ fontFamily: F.body, color: C.inkSoft, fontSize: "0.88rem", textDecoration: "none" }}>
+                  {s.label}
+                </a>
+              ))}
+              <div style={{ height: 1, background: C.line, margin: "4px 0" }} />
+              <p className="eyebrow">Articles</p>
+              {articleLinks.map((a) => (
+                <a key={a.href} href={a.href} style={{ fontFamily: F.body, color: C.inkSoft, fontSize: "0.88rem", textDecoration: "none" }}>
+                  {a.label}
+                </a>
+              ))}
+              <div style={{ height: 1, background: C.line, margin: "4px 0" }} />
+              {pageLinks.map((l) => (
+                <a key={l.label} href={l.href} style={{ fontFamily: F.mono, color: C.steel, fontSize: "0.85rem", textDecoration: "none" }}>
+                  {l.label}
+                </a>
+              ))}
+              <a href="./resume.html" style={{ fontFamily: F.mono, color: C.steel, fontSize: "0.85rem", textDecoration: "none" }}>
+                Resume
+              </a>
+              <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener noreferrer"
+                className="cta-pill cta-pill-primary" style={{ marginTop: "8px", justifyContent: "center" }}>
+                Book a Call
+                <span className="cta-icon-circle"><ArrowUpRight size={14} /></span>
+              </a>
+            </div>
+          </div>
+        )}
+      </nav>
+    </>
   );
 }

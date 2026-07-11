@@ -5,11 +5,12 @@ const BOOT_LINES = [
   "> establishing secure connection...",
   "> verifying client credentials...",
   "> access granted",
-  "> welcome — caleb pierre / remote systems agency",
+  "> welcome — caleb pierre / systems · ai · security",
 ];
 
 export default function BootSequence({ onDone }) {
   const [lines, setLines] = useState([]);
+
   useEffect(() => {
     let i = 0;
     const iv = setInterval(() => {
@@ -22,11 +23,12 @@ export default function BootSequence({ onDone }) {
     }, 420);
     return () => clearInterval(iv);
   }, [onDone]);
+
   return (
     <div
       style={{
         fontFamily: F.mono,
-        fontSize: "0.85rem",
+        fontSize: "0.82rem",
         color: C.red,
         lineHeight: 1.9,
         minHeight: "7.6rem",
@@ -35,11 +37,9 @@ export default function BootSequence({ onDone }) {
       {lines.map((l, i) => (
         <div
           key={i}
+          className="boot-line"
           style={{
-            color:
-              i === lines.length - 1 && l.includes("welcome")
-                ? C.ink
-                : undefined,
+            color: i === lines.length - 1 && l.includes("welcome") ? C.ink : undefined,
           }}
         >
           {l}

@@ -6,35 +6,35 @@ const STATS = [
   { value: "50+", label: "Systems Shipped", sub: "Web apps, automations, AI agents, security audits" },
   { value: "99.9%", label: "Uptime Maintained", sub: "Across all deployed infrastructure" },
   { value: "6", label: "Service Modules", sub: "Full-stack coverage under one operator" },
-  { value: "0", label: "Black Boxes", sub: "Everything I build comes with documentation" },
+  { value: "0", label: "Black Boxes", sub: "Everything comes with documentation" },
 ];
 
 const STACK = [
   "React", "Next.js", "TypeScript", "Python", "FastAPI", "Node.js",
-  "PostgreSQL", "Redis", "Docker", "Tailwind CSS", "Vite", "GSAP",
+  "PostgreSQL", "Redis", "Docker", "Tailwind CSS", "Vite", "p5.js",
   "OpenAI", "Claude", "Ollama", "GitHub Actions", "AWS", "Cloudflare",
 ];
 
 const CREDENTIALS = [
   {
     icon: Shield,
-    title: "Security-First Engineering",
-    body: "Background in security engineering — vulnerability assessment, hardening, and audit documentation. I find the hole before someone else does.",
+    title: "Security-First",
+    body: "I find the holes before someone else does. Real security background, not just a label.",
   },
   {
     icon: Code2,
     title: "Full-Stack Builder",
-    body: "From React frontends to Python backends to Docker infrastructure. One operator, full stack, no handoffs lost in translation.",
+    body: "Frontend, backend, infrastructure, AI, security — one person, no handoffs lost in translation.",
   },
   {
     icon: Zap,
     title: "AI & Automation",
-    body: "Custom AI agents that do real work — not chatbot toys. Automations that run on schedule without you in the loop.",
+    body: "Custom AI agents that do real work. Automations that run without you watching them.",
   },
   {
     icon: Terminal,
     title: "Documented & Auditable",
-    body: "Every system ships with readable documentation, architecture diagrams, and DevSecOps field guides. You can audit what I build.",
+    body: "Every system ships with readable docs. You can audit what I build. No black boxes.",
   },
 ];
 
@@ -42,7 +42,7 @@ const CASE_STUDIES = [
   {
     tag: "WEB + AUTOMATION",
     title: "OutsideTonight",
-    body: "FastAPI + Next.js platform with 28 database tables, 126 tests, 3D parallax homepage, AI agent swarm, and a messaging system. Built solo, end to end.",
+    body: "Full platform with 28 database tables, 126 tests, 3D parallax homepage, AI agent swarm, and a messaging system. Built solo, end to end.",
     stack: ["React", "FastAPI", "PostgreSQL", "Redis", "Docker"],
   },
   {
@@ -52,37 +52,27 @@ const CASE_STUDIES = [
     stack: ["Python", "Ollama", "OpenAI", "Claude", "Telegram API"],
   },
   {
-    tag: "BUSINESS SYSTEMS",
+    tag: "BUSINESS FRAMEWORK",
     title: "CalebOS 8.0",
-    body: "Sovereign operating framework — 95% profit + 95% automation filter on every decision. Formal state machine for business growth from Ω0 to Ω∞.",
+    body: "Operating framework with a 95% profit + 95% automation filter on every decision. State machine for business growth from zero to infinity.",
     stack: ["Strategy", "Automation", "Documentation"],
   },
 ];
 
 export default function Proof() {
   return (
-    <section id="proof" className="px-6 py-24" style={{ backgroundColor: C.panel }}>
+    <section id="proof" className="px-6 section-pad">
       <div className="max-w-5xl mx-auto">
-        {/* Header */}
         <Reveal>
-          <p
-            style={{
-              fontFamily: F.mono,
-              color: C.red,
-              fontSize: "0.78rem",
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-            }}
-          >
-            Proof of Work
-          </p>
           <h2
             style={{
               fontFamily: F.display,
               color: C.ink,
               fontSize: "clamp(1.7rem, 4vw, 2.4rem)",
-              margin: "0.75rem 0 1rem",
+              fontWeight: 700,
+              marginBottom: "1rem",
               maxWidth: "22ch",
+              letterSpacing: "-0.01em",
             }}
           >
             Don't take my word for it. Read the work.
@@ -90,47 +80,47 @@ export default function Proof() {
           <p
             style={{
               fontFamily: F.body,
-              color: C.steel,
-              fontSize: "1rem",
+              color: C.inkSoft,
+              fontSize: "1.05rem",
               lineHeight: 1.7,
               maxWidth: "52ch",
               marginBottom: "3rem",
             }}
           >
             Every claim here is backed by shipped code, running systems, or
-            documentation you can read yourself. No portfolio fluff — real
-            infrastructure, real results.
+            documentation you can read yourself. No portfolio fluff.
           </p>
         </Reveal>
 
-        {/* Stats Grid */}
+        {/* Stats — full-width glass strip */}
         <Reveal>
           <div
+            className="glass"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-              gap: "1px",
-              backgroundColor: C.line,
-              border: `1px solid ${C.line}`,
               marginBottom: "3.5rem",
+              borderRadius: "24px",
+              overflow: "hidden",
             }}
           >
             {STATS.map((s) => (
               <div
                 key={s.label}
                 style={{
-                  backgroundColor: C.paper,
-                  padding: "1.75rem 1.5rem",
+                  padding: "2rem 1.75rem",
+                  borderRight: `1px solid ${C.line}`,
                 }}
               >
                 <p
                   style={{
                     fontFamily: F.display,
                     color: C.red,
-                    fontSize: "2.2rem",
+                    fontSize: "2.4rem",
                     fontWeight: 700,
                     lineHeight: 1,
                     marginBottom: "0.5rem",
+                    letterSpacing: "-0.02em",
                   }}
                 >
                   {s.value}
@@ -139,7 +129,7 @@ export default function Proof() {
                   style={{
                     fontFamily: F.mono,
                     color: C.ink,
-                    fontSize: "0.78rem",
+                    fontSize: "0.75rem",
                     letterSpacing: "0.05em",
                     marginBottom: "0.4rem",
                   }}
@@ -161,30 +151,21 @@ export default function Proof() {
           </div>
         </Reveal>
 
-        {/* Case Studies */}
+        {/* Case studies */}
         <Reveal>
-          <p
-            style={{
-              fontFamily: F.mono,
-              color: C.red,
-              fontSize: "0.72rem",
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              marginBottom: "1.5rem",
-            }}
-          >
+          <p className="eyebrow" style={{ marginBottom: "1.5rem" }}>
             Deployed Systems
           </p>
           <div className="flex flex-col gap-4" style={{ marginBottom: "3.5rem" }}>
             {CASE_STUDIES.map((cs) => (
               <div
                 key={cs.title}
+                className="glass glass-hover"
                 style={{
-                  border: `1px solid ${C.line}`,
-                  backgroundColor: C.paper,
                   padding: "1.75rem",
                   position: "relative",
                   overflow: "hidden",
+                  borderRadius: "20px",
                 }}
               >
                 <div className="flex items-center gap-2 mb-3">
@@ -195,14 +176,15 @@ export default function Proof() {
                       backgroundColor: C.red,
                       display: "inline-block",
                       borderRadius: "50%",
+                      boxShadow: "0 0 8px rgba(225, 6, 0, 0.5)",
                     }}
                   />
                   <span
                     style={{
                       fontFamily: F.mono,
-                      fontSize: "0.68rem",
+                      fontSize: "0.62rem",
                       color: C.steel,
-                      letterSpacing: "0.08em",
+                      letterSpacing: "0.1em",
                     }}
                   >
                     {cs.tag}
@@ -212,9 +194,10 @@ export default function Proof() {
                   style={{
                     fontFamily: F.display,
                     color: C.ink,
-                    fontSize: "1.2rem",
+                    fontSize: "1.25rem",
                     fontWeight: 700,
                     marginBottom: "0.6rem",
+                    letterSpacing: "-0.01em",
                   }}
                 >
                   {cs.title}
@@ -222,8 +205,8 @@ export default function Proof() {
                 <p
                   style={{
                     fontFamily: F.body,
-                    color: C.steel,
-                    fontSize: "0.92rem",
+                    color: C.inkSoft,
+                    fontSize: "0.95rem",
                     lineHeight: 1.65,
                     marginBottom: "1rem",
                   }}
@@ -237,9 +220,11 @@ export default function Proof() {
                       style={{
                         fontFamily: F.mono,
                         fontSize: "0.68rem",
-                        color: C.ink,
+                        color: C.inkSoft,
                         border: `1px solid ${C.line}`,
+                        background: "rgba(255,255,255,0.02)",
                         padding: "0.3rem 0.6rem",
+                        borderRadius: "6px",
                         letterSpacing: "0.03em",
                       }}
                     >
@@ -254,28 +239,19 @@ export default function Proof() {
 
         {/* Credentials */}
         <Reveal>
-          <p
-            style={{
-              fontFamily: F.mono,
-              color: C.red,
-              fontSize: "0.72rem",
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              marginBottom: "1.5rem",
-            }}
-          >
+          <p className="eyebrow" style={{ marginBottom: "1.5rem" }}>
             What You're Actually Getting
           </p>
-          <div className="grid md:grid-cols-2 gap-4" style={{ marginBottom: "3.5rem" }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ marginBottom: "3.5rem" }}>
             {CREDENTIALS.map((cred) => {
               const Icon = cred.icon;
               return (
                 <div
                   key={cred.title}
+                  className="glass glass-hover"
                   style={{
-                    border: `1px solid ${C.line}`,
-                    backgroundColor: C.paper,
                     padding: "1.5rem",
+                    borderRadius: "18px",
                   }}
                 >
                   <div className="flex items-start gap-3">
@@ -285,9 +261,10 @@ export default function Proof() {
                         style={{
                           fontFamily: F.display,
                           color: C.ink,
-                          fontSize: "1rem",
+                          fontSize: "1.05rem",
                           fontWeight: 700,
                           marginBottom: "0.4rem",
+                          letterSpacing: "-0.01em",
                         }}
                       >
                         {cred.title}
@@ -295,8 +272,8 @@ export default function Proof() {
                       <p
                         style={{
                           fontFamily: F.body,
-                          color: C.steel,
-                          fontSize: "0.88rem",
+                          color: C.inkSoft,
+                          fontSize: "0.92rem",
                           lineHeight: 1.6,
                         }}
                       >
@@ -310,18 +287,9 @@ export default function Proof() {
           </div>
         </Reveal>
 
-        {/* Tech Stack */}
+        {/* Tech stack */}
         <Reveal>
-          <p
-            style={{
-              fontFamily: F.mono,
-              color: C.red,
-              fontSize: "0.72rem",
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              marginBottom: "1.25rem",
-            }}
-          >
+          <p className="eyebrow" style={{ marginBottom: "1.25rem" }}>
             Tech Stack
           </p>
           <div className="flex flex-wrap gap-2" style={{ marginBottom: "3rem" }}>
@@ -331,10 +299,11 @@ export default function Proof() {
                 style={{
                   fontFamily: F.mono,
                   fontSize: "0.72rem",
-                  color: C.ink,
+                  color: C.inkSoft,
                   border: `1px solid ${C.line}`,
-                  backgroundColor: C.paper,
+                  background: "rgba(255,255,255,0.02)",
                   padding: "0.45rem 0.75rem",
+                  borderRadius: "8px",
                   letterSpacing: "0.03em",
                 }}
               >
@@ -347,33 +316,25 @@ export default function Proof() {
         {/* LinkedIn CTA */}
         <Reveal>
           <div
+            className="glass"
             style={{
-              backgroundColor: C.ink,
               padding: "2rem 2.25rem",
+              borderRadius: "24px",
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
               gap: "1rem",
             }}
           >
-            <p
-              style={{
-                fontFamily: F.mono,
-                color: C.red,
-                fontSize: "0.72rem",
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-              }}
-            >
-              Verify the Operator
-            </p>
+            <p className="eyebrow">Verify the Operator</p>
             <h3
               style={{
                 fontFamily: F.display,
-                color: "#fff",
+                color: C.ink,
                 fontSize: "1.4rem",
                 fontWeight: 700,
                 maxWidth: "30ch",
+                letterSpacing: "-0.01em",
               }}
             >
               Check the background. Read the history. Then book the call.
@@ -381,8 +342,8 @@ export default function Proof() {
             <p
               style={{
                 fontFamily: F.body,
-                color: "#C9C9C9",
-                fontSize: "0.92rem",
+                color: C.inkSoft,
+                fontSize: "0.95rem",
                 lineHeight: 1.65,
                 maxWidth: "52ch",
               }}
@@ -394,19 +355,11 @@ export default function Proof() {
               href="https://linkedin.com/in/calebpierre"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3"
-              style={{
-                backgroundColor: C.red,
-                color: "#fff",
-                fontFamily: F.body,
-                fontWeight: 600,
-                fontSize: "0.88rem",
-                textDecoration: "none",
-              }}
+              className="cta-pill cta-pill-ghost"
             >
               <Linkedin size={18} />
               linkedin.com/in/calebpierre
-              <ArrowUpRight size={16} />
+              <span className="cta-icon-circle"><ArrowUpRight size={14} /></span>
             </a>
           </div>
         </Reveal>

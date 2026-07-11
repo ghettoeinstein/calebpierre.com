@@ -6,101 +6,84 @@ import Ticker from "./Ticker.jsx";
 
 export default function Hero() {
   const [booted, setBooted] = useState(false);
+
   return (
-    <section className="px-6 pt-28 pb-0">
-      <div className="max-w-4xl mx-auto">
+    <section style={{ paddingTop: "7rem", paddingBottom: "0", minHeight: "100dvh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+      <div className="max-w-4xl mx-auto px-6 w-full">
+        {/* Boot terminal */}
         <div
-          style={{
-            border: `1px solid ${C.line}`,
-            backgroundColor: C.panel,
-            padding: "1.5rem 1.75rem",
-            marginBottom: "2.5rem",
-          }}
+          className="glass"
+          style={{ padding: "1.5rem 1.75rem", marginBottom: "2.5rem", maxWidth: "32rem" }}
         >
           <BootSequence onDone={() => setBooted(true)} />
         </div>
 
+        {/* Main hero content */}
         <div
           style={{
             opacity: booted ? 1 : 0,
-            transform: booted ? "translateY(0)" : "translateY(10px)",
-            transition: "opacity .6s ease, transform .6s ease",
+            transform: booted ? "translateY(0)" : "translateY(16px)",
+            transition: "opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
         >
           <p
-            style={{
-              fontFamily: F.mono,
-              color: C.red,
-              fontSize: "0.78rem",
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              marginBottom: "1.25rem",
-            }}
+            className="eyebrow"
+            style={{ marginBottom: "1.25rem" }}
           >
             Los Angeles · Remote-First
           </p>
+
           <h1
             className="glitch-headline"
-            data-text="Most businesses are one bad system away from losing everything."
+            data-text="Stop doing it by hand. I'll build the systems that do it for you."
             style={{
               fontFamily: F.display,
               color: C.ink,
-              fontSize: "clamp(2.1rem, 5.5vw, 3.6rem)",
-              lineHeight: 1.08,
+              fontSize: "clamp(2.2rem, 6vw, 4rem)",
+              lineHeight: 1.05,
               fontWeight: 700,
               marginBottom: "1.75rem",
-              maxWidth: "18ch",
+              maxWidth: "20ch",
+              letterSpacing: "-0.02em",
             }}
           >
-            Most businesses are one bad system away from losing everything.
+            Stop doing it by hand. I'll build the systems that do it for you.
           </h1>
+
           <p
             style={{
               fontFamily: F.body,
-              color: C.steel,
-              fontSize: "1.08rem",
+              color: C.inkSoft,
+              fontSize: "1.1rem",
               lineHeight: 1.7,
-              maxWidth: "56ch",
-              marginBottom: "2.25rem",
+              maxWidth: "50ch",
+              marginBottom: "2.5rem",
             }}
           >
-            I build the web, AI, and security infrastructure that keeps yours
-            running — while your competitors are still doing it by hand. Get on a
-            call, I take real notes, you get a written game plan. No guesswork, no
-            black boxes.
+            I build websites, AI agents, and security systems that run your
+            business while you sleep. Book a free call. I'll look at what you
+            have, tell you what's broken, and give you a plan to fix it.
           </p>
+
           <div className="flex flex-wrap gap-4">
             <a
               href="#diagnostic"
-              className="inline-flex items-center gap-2 px-6 py-3"
-              style={{
-                backgroundColor: C.red,
-                color: "#fff",
-                fontFamily: F.body,
-                fontWeight: 600,
-                fontSize: "0.9rem",
-                textDecoration: "none",
-              }}
+              className="cta-pill cta-pill-primary"
             >
-              Run My Systems Diagnostic <ArrowUpRight size={16} />
+              Find What's Broken
+              <span className="cta-icon-circle">
+                <ArrowUpRight size={16} />
+              </span>
             </a>
-            <a
-              href="#services"
-              className="inline-flex items-center gap-2 px-6 py-3"
-              style={{
-                border: `1px solid ${C.ink}`,
-                color: C.ink,
-                fontFamily: F.body,
-                fontSize: "0.9rem",
-                textDecoration: "none",
-              }}
-            >
+            <a href="#services" className="cta-pill cta-pill-ghost">
               See the Work
             </a>
           </div>
         </div>
       </div>
-      <div className="mt-14">
+
+      {/* Ticker at the bottom of hero */}
+      <div style={{ marginTop: "auto" }}>
         <Ticker />
       </div>
     </section>

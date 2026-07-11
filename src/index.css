@@ -4,37 +4,176 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
+  background-color: #050505;
+  color: #F5F5F5;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
+/* ---------- Selection ---------- */
+::selection {
+  background: rgba(225, 6, 0, 0.3);
+  color: #fff;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: #2A2A2A; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #E10600; }
+
+/* ---------- Focus ---------- */
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid #E10600;
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
-/* ---------- cursor blink ---------- */
-.cursor-blink {
-  animation: blink 1s step-start infinite;
+/* ---------- Fluid Canvas (fixed bg) ---------- */
+#fluid-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ---------- Glass Card ---------- */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 50%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+.glass-hover {
+  transition: background 0.5s cubic-bezier(0.32, 0.72, 0, 1), border-color 0.5s cubic-bezier(0.32, 0.72, 0, 1), transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+.glass-hover:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(225, 6, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ---------- Double-bezel container ---------- */
+.bezel {
+  padding: 2px;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.bezel > .bezel-inner {
+  border-radius: 24px;
+  background: #0A0A0A;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+/* ---------- Eyebrow tag ---------- */
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   color: #E10600;
-}
-@keyframes blink {
-  50% { opacity: 0; }
+  font-weight: 500;
 }
 
-/* ---------- ticker ---------- */
-.ticker-track {
-  animation: scrollTicker 22s linear infinite;
+/* ---------- CTA button (pill, button-in-button) ---------- */
+.cta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+  cursor: pointer;
+  border: none;
 }
-@keyframes scrollTicker {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+.cta-pill-primary {
+  background: #E10600;
+  color: #fff;
+}
+.cta-pill-primary:hover {
+  background: #FF1500;
+  transform: scale(1.02);
+  box-shadow: 0 8px 32px rgba(225, 6, 0, 0.3);
+}
+.cta-pill-primary:active {
+  transform: scale(0.98);
+}
+.cta-pill-ghost {
+  background: rgba(255, 255, 255, 0.04);
+  color: #F5F5F5;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.cta-pill-ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.cta-icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+}
+.cta-pill:hover .cta-icon-circle {
+  transform: translate(2px, -1px) scale(1.05);
 }
 
-/* ---------- glitch headline ---------- */
+/* ---------- Section spacing ---------- */
+.section-pad {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+@media (max-width: 768px) {
+  .section-pad {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+/* ---------- Noise overlay ---------- */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E");
+}
+
+/* ---------- Glitch headline (kept, refined) ---------- */
 .glitch-headline {
   position: relative;
   cursor: default;
@@ -54,95 +193,156 @@ button:focus-visible {
   transform: translate(-2px, -1px);
 }
 .glitch-headline:hover::after {
-  color: #5C5C5C;
+  color: #6A6A6A;
   clip-path: inset(55% 0 0 0);
   transform: translate(2px, 1px);
 }
 
-/* ---------- glitch CP mark ---------- */
-.glitch-mark {
-  transition: transform 0.15s ease;
+/* ---------- Ticker (dark) ---------- */
+.ticker-track {
+  animation: scrollTicker 30s linear infinite;
 }
-.glitch-mark:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 2px 2px 0 #E10600;
+@keyframes scrollTicker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
-/* ---------- diagnostic options ---------- */
+/* ---------- Cursor blink ---------- */
+.cursor-blink {
+  animation: blink 1s step-start infinite;
+  color: #E10600;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ---------- Diagnostic options ---------- */
 .diag-option {
-  transition: background-color 0.15s ease, border-color 0.15s ease;
+  transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+  border-radius: 12px;
 }
 .diag-option:hover {
-  background-color: rgba(225, 6, 0, 0.12) !important;
-  border-color: #E10600 !important;
+  background-color: rgba(225, 6, 0, 0.08) !important;
+  border-color: rgba(225, 6, 0, 0.4) !important;
+  transform: translateX(4px);
 }
 
-/* ---------- service card ---------- */
-.service-card {
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-.service-card:hover {
-  transform: translateY(-3px);
-  border-color: #E10600 !important;
-}
+/* ---------- Scan sweep (kept, dark) ---------- */
 .scan-sweep {
   position: absolute;
   left: 0;
   top: -100%;
   width: 100%;
   height: 40%;
-  background: linear-gradient(180deg, transparent, rgba(225, 6, 0, 0.12), transparent);
-  transition: top 0.6s ease;
+  background: linear-gradient(180deg, transparent, rgba(225, 6, 0, 0.08), transparent);
+  transition: top 0.6s cubic-bezier(0.32, 0.72, 0, 1);
   pointer-events: none;
 }
 .service-card:hover .scan-sweep {
   top: 100%;
 }
 
-/* ---------- reduced motion ---------- */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
+/* ---------- Service card ---------- */
+.service-card {
+  transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1), border-color 0.4s ease, background 0.4s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(225, 6, 0, 0.3) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
 }
 
-/* ---------- resume: skill fade-in ---------- */
-@keyframes fadeInSkill {
-  from { opacity: 0; transform: translateX(-8px); }
-  to   { opacity: 1; transform: translateX(0); }
+/* ---------- Nav link hover ---------- */
+.nav-link {
+  transition: color 0.3s ease;
+}
+.nav-link:hover {
+  color: #F5F5F5 !important;
 }
 
-/* ---------- resume: timeline card hover ---------- */
-.timeline-card {
-  transition: border-color 0.2s ease, transform 0.2s ease;
-}
-.timeline-card:hover {
-  border-color: #E10600 !important;
-  transform: translateX(4px);
-}
-
-/* ---------- resume: parallax bg layers ---------- */
-.resume-bg-layer {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  z-index: 0;
-}
-
-/* ---------- nav: dropdown item hover ---------- */
+/* ---------- Dropdown item ---------- */
 .dropdown-item {
-  transition: background-color 0.15s ease;
+  transition: background-color 0.2s ease;
 }
 .dropdown-item:hover {
   background-color: rgba(225, 6, 0, 0.08);
 }
 
-/* ---------- footer: link hover ---------- */
+/* ---------- Footer link ---------- */
 .footer-link {
-  transition: color 0.15s ease;
+  transition: color 0.2s ease;
 }
 .footer-link:hover {
   color: #E10600 !important;
+}
+
+/* ---------- Glow text ---------- */
+.glow-red {
+  text-shadow: 0 0 20px rgba(225, 6, 0, 0.4);
+}
+
+/* ---------- Boot sequence ---------- */
+.boot-line {
+  animation: fadeInBoot 0.3s ease forwards;
+  opacity: 0;
+}
+@keyframes fadeInBoot {
+  to { opacity: 1; }
+}
+
+/* ---------- Magnetic entrance ---------- */
+.enter-fade {
+  animation: enterFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+@keyframes enterFade {
+  from { opacity: 0; transform: translateY(24px); filter: blur(8px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+/* ---------- Staggered children ---------- */
+.stagger > * {
+  animation: enterFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+.stagger > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger > *:nth-child(4) { animation-delay: 0.2s; }
+.stagger > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger > *:nth-child(6) { animation-delay: 0.3s; }
+
+/* ---------- Glass mark ---------- */
+.glass-mark {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.glass-mark:hover {
+  transform: translate(-1px, -1px) scale(1.05);
+  box-shadow: 0 4px 20px rgba(225, 6, 0, 0.3);
+}
+
+/* ---------- Resume timeline (kept) ---------- */
+.timeline-card {
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.timeline-card:hover {
+  border-color: #E10600 !important;
+  transform: translateX(4px);
+}
+@keyframes fadeInSkill {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  .enter-fade, .stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
 }

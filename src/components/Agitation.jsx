@@ -4,57 +4,74 @@ import { Reveal } from "../hooks/useReveal.jsx";
 export default function Agitation() {
   const logs = [
     {
-      tag: "[ERROR]",
-      text: "Your website was built once, three years ago, and forgotten.",
+      tag: "[SLOW]",
+      text: "Your website was built once and never fixed. It's losing you money.",
     },
     {
-      tag: "[WARNING]",
-      text: "Your \u201cautomation\u201d is three people copy-pasting into a spreadsheet.",
+      tag: "[MANUAL]",
+      text: "Your team is doing the same task over and over. A machine should be doing it.",
     },
     {
-      tag: "[ALERT]",
-      text: "Nobody has actually checked your systems for a hole big enough to walk a hacker through.",
+      tag: "[RISK]",
+      text: "Nobody has checked your systems for security holes. One bad day costs everything.",
     },
   ];
   return (
-    <section className="px-6 py-20">
+    <section className="px-6 section-pad">
       <div className="max-w-3xl mx-auto">
         <Reveal>
-          {logs.map((l, i) => (
-            <div
-              key={i}
-              style={{
-                display: "flex",
-                gap: "1rem",
-                padding: "1rem 0",
-                borderBottom:
-                  i < logs.length - 1 ? `1px solid ${C.line}` : "none",
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: F.mono,
-                  color: C.red,
-                  fontSize: "0.85rem",
-                  fontWeight: 700,
-                  minWidth: "6.5ch",
-                }}
-              >
-                {l.tag}
-              </span>
-              <span
-                style={{
-                  fontFamily: F.body,
-                  color: C.ink,
-                  fontSize: "1.02rem",
-                  lineHeight: 1.6,
-                }}
-              >
-                {l.text}
-              </span>
-            </div>
-          ))}
+          <h2
+            style={{
+              fontFamily: F.display,
+              color: C.ink,
+              fontSize: "clamp(1.6rem, 4vw, 2.4rem)",
+              fontWeight: 700,
+              marginBottom: "2.5rem",
+              maxWidth: "22ch",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            If any of this sounds like you, we should talk.
+          </h2>
         </Reveal>
+        <div className="flex flex-col gap-4">
+          {logs.map((l, i) => (
+            <Reveal key={i} delay={i * 0.08}>
+              <div
+                className="glass glass-hover"
+                style={{
+                  display: "flex",
+                  gap: "1rem",
+                  padding: "1.25rem 1.5rem",
+                  borderRadius: "16px",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: F.mono,
+                    color: C.red,
+                    fontSize: "0.78rem",
+                    fontWeight: 700,
+                    minWidth: "5.5ch",
+                    flexShrink: 0,
+                  }}
+                >
+                  {l.tag}
+                </span>
+                <span
+                  style={{
+                    fontFamily: F.body,
+                    color: C.ink,
+                    fontSize: "1.05rem",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {l.text}
+                </span>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
