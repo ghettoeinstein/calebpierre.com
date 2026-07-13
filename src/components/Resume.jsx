@@ -7,7 +7,7 @@ import { C, F } from "../constants.js";
 import { Reveal } from "../hooks/useReveal.jsx";
 
 /* =========================================================
-   PARALLAX HOOK — depth layers move at different scroll speeds
+   PARALLAX HOOK
    ========================================================= */
 function useParallax(speed = 0.3) {
   const ref = useRef(null);
@@ -75,7 +75,7 @@ const PILLARS = [
 ];
 
 /* =========================================================
-   EXPERIENCE TIMELINE — 11 roles, narratively ordered
+   EXPERIENCE TIMELINE
    ========================================================= */
 const EXPERIENCE = [
   {
@@ -203,7 +203,7 @@ const EXPERIENCE = [
 ];
 
 /* =========================================================
-   PARALLAX LAYER — wraps children with scroll-driven Y offset
+   PARALLAX LAYER
    ========================================================= */
 function ParallaxLayer({ children, speed = 0.15, className = "" }) {
   const [ref, offset] = useParallax(speed);
@@ -230,7 +230,7 @@ function SkillPillar({ pillar, index }) {
     <Reveal delay={index * 0.1}>
       <div
         style={{
-          backgroundColor: C.paper,
+          backgroundColor: C.panel,
           border: `1px solid ${C.line}`,
           padding: "2rem 1.75rem",
           position: "relative",
@@ -238,14 +238,14 @@ function SkillPillar({ pillar, index }) {
           height: "100%",
         }}
       >
-        {/* glow accent */}
+        {/* accent bar */}
         <div
           style={{
             position: "absolute",
             top: 0,
             left: 0,
             right: 0,
-            height: 4,
+            height: 3,
             backgroundColor: pillar.color,
           }}
         />
@@ -260,6 +260,7 @@ function SkillPillar({ pillar, index }) {
               fontSize: "1.25rem",
               fontWeight: 700,
               color: C.ink,
+              letterSpacing: "-0.02em",
             }}
           >
             {pillar.title}
@@ -280,7 +281,6 @@ function SkillPillar({ pillar, index }) {
                   width: 5,
                   height: 5,
                   backgroundColor: C.red,
-                  borderRadius: "50%",
                   flexShrink: 0,
                 }}
               />
@@ -307,7 +307,6 @@ function SkillPillar({ pillar, index }) {
    ========================================================= */
 function TimelineEntry({ exp, index }) {
   const Icon = exp.icon;
-  const isEven = index % 2 === 0;
   return (
     <Reveal delay={0.05}>
       <div
@@ -332,9 +331,8 @@ function TimelineEntry({ exp, index }) {
             style={{
               width: 44,
               height: 44,
-              borderRadius: "50%",
               border: `2px solid ${C.red}`,
-              backgroundColor: C.paper,
+              backgroundColor: C.bg,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -363,7 +361,7 @@ function TimelineEntry({ exp, index }) {
         <div
           style={{
             flex: 1,
-            backgroundColor: C.paper,
+            backgroundColor: C.panel,
             border: `1px solid ${C.line}`,
             padding: "1.5rem 1.75rem",
             position: "relative",
@@ -413,6 +411,7 @@ function TimelineEntry({ exp, index }) {
               color: C.ink,
               marginBottom: "0.25rem",
               lineHeight: 1.3,
+              letterSpacing: "-0.02em",
             }}
           >
             {exp.role}
@@ -469,37 +468,7 @@ export default function Resume() {
   const [heroRef, heroOffset] = useParallax(0.12);
 
   return (
-    <section className="px-6 py-24" style={{ backgroundColor: C.paper }}>
-      {/* Parallax background decorative elements */}
-      <ParallaxLayer speed={0.08} className="resume-bg-layer">
-        <div
-          style={{
-            position: "absolute",
-            top: "5%",
-            right: "-5%",
-            width: "400px",
-            height: "400px",
-            borderRadius: "50%",
-            background: `radial-gradient(circle, rgba(225,6,0,0.04) 0%, transparent 70%)`,
-            pointerEvents: "none",
-          }}
-        />
-      </ParallaxLayer>
-      <ParallaxLayer speed={0.15} className="resume-bg-layer">
-        <div
-          style={{
-            position: "absolute",
-            top: "40%",
-            left: "-8%",
-            width: "350px",
-            height: "350px",
-            borderRadius: "50%",
-            background: `radial-gradient(circle, rgba(11,11,11,0.03) 0%, transparent 70%)`,
-            pointerEvents: "none",
-          }}
-        />
-      </ParallaxLayer>
-
+    <section className="px-6 py-24" style={{ backgroundColor: C.bg }}>
       <div className="max-w-4xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
         {/* ---- Hero header ---- */}
         <div ref={heroRef} style={{ transform: `translateY(${heroOffset}px)` }}>
@@ -525,6 +494,7 @@ export default function Resume() {
                 lineHeight: 1.1,
                 marginBottom: "1.5rem",
                 maxWidth: "18ch",
+                letterSpacing: "-0.03em",
               }}
             >
               From securing Tinder to building AI agents that run themselves.
@@ -557,7 +527,10 @@ export default function Resume() {
                 padding: "0.6rem 1rem",
                 textDecoration: "none",
                 marginBottom: "3.5rem",
+                transition: "border-color 0.3s ease, background 0.3s ease",
               }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = C.ink; e.currentTarget.style.background = C.panel; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = C.line; e.currentTarget.style.background = "transparent"; }}
             >
               <Linkedin size={16} color={C.red} />
               Full history on LinkedIn
@@ -646,7 +619,10 @@ export default function Resume() {
                 fontSize: "0.88rem",
                 textDecoration: "none",
                 alignSelf: "flex-start",
+                transition: "background 0.3s ease",
               }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = C.red; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = C.ink; }}
             >
               <Linkedin size={16} />
               Verify on LinkedIn

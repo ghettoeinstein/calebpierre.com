@@ -14,10 +14,10 @@ export default function Ticker() {
   return (
     <div
       style={{
-        backgroundColor: C.bg,
+        backgroundColor: C.ink,
         overflow: "hidden",
-        borderTop: `1px solid ${C.red}`,
-        borderBottom: `1px solid rgba(225, 6, 0, 0.2)`,
+        borderTop: "2px solid #E10600",
+        borderBottom: "1px solid #E10600",
       }}
     >
       <div className="ticker-track" style={{ display: "flex", width: "max-content" }}>
@@ -27,13 +27,13 @@ export default function Ticker() {
             style={{
               fontFamily: F.mono,
               fontSize: "0.75rem",
-              color: i % items.length === 0 ? C.red : C.steel,
+              color: i % items.length === 0 ? "#E10600" : "#888888",
               padding: "0.9rem 2rem",
               whiteSpace: "nowrap",
               letterSpacing: "0.1em",
             }}
           >
-            {t} <span style={{ color: C.red, margin: "0 1.5rem" }}>·</span>
+            {t} <span style={{ color: "#E10600", margin: "0 1.5rem" }}>·</span>
           </span>
         ))}
       </div>

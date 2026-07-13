@@ -40,21 +40,20 @@ export default function Nav() {
 
   return (
     <>
-      {/* Floating glass pill nav */}
+      {/* Fixed Swiss nav bar */}
       <nav
         className="fixed top-0 left-0 right-0 z-50"
-        style={{ padding: "0 1rem" }}
+        style={{
+          background: "rgba(255, 255, 255, 0.92)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+          borderBottom: "1px solid #E5E5E5",
+        }}
       >
         <div
-          className="max-w-5xl mx-auto"
+          className="max-w-6xl mx-auto"
           style={{
-            marginTop: "1rem",
-            borderRadius: "999px",
-            background: "rgba(10, 10, 10, 0.7)",
-            backdropFilter: "blur(24px)",
-            WebkitBackdropFilter: "blur(24px)",
-            border: "1px solid rgba(255, 255, 255, 0.08)",
-            padding: "0.5rem 0.5rem 0.5rem 1.25rem",
+            padding: "0.75rem 1.5rem",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -99,12 +98,9 @@ export default function Nav() {
                     position: "absolute",
                     top: "100%",
                     right: 0,
-                    marginTop: "12px",
-                    borderRadius: "16px",
-                    background: "rgba(10, 10, 10, 0.95)",
-                    backdropFilter: "blur(24px)",
-                    WebkitBackdropFilter: "blur(24px)",
-                    border: "1px solid rgba(255, 255, 255, 0.08)",
+                    marginTop: "8px",
+                    background: "#FFFFFF",
+                    border: "1px solid #E5E5E5",
                     minWidth: "220px",
                     zIndex: 100,
                     overflow: "hidden",
@@ -168,8 +164,8 @@ export default function Nav() {
 
         {/* Mobile menu */}
         {open && (
-          <div className="md:hidden" style={{ marginTop: "0.5rem", borderRadius: "20px", background: "rgba(10, 10, 10, 0.95)", backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
-            <div style={{ padding: "16px 20px", display: "flex", flexDirection: "column", gap: "12px" }}>
+          <div className="md:hidden" style={{ background: "#FFFFFF", borderTop: "1px solid #E5E5E5" }}>
+            <div style={{ padding: "16px 24px", display: "flex", flexDirection: "column", gap: "12px" }}>
               <p className="eyebrow">Services in Los Angeles</p>
               {serviceLinks.map((s) => (
                 <a key={s.href} href={s.href} style={{ fontFamily: F.body, color: C.inkSoft, fontSize: "0.88rem", textDecoration: "none" }}>

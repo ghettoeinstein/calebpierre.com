@@ -3,7 +3,6 @@ import { C, F } from "../constants.js";
 export default function GlitchMark({ size = 40 }) {
   return (
     <div
-      className="glass-mark"
       style={{
         fontFamily: F.mono,
         fontWeight: 700,
@@ -14,11 +13,10 @@ export default function GlitchMark({ size = 40 }) {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        border: `1.5px solid ${C.ink}`,
-        borderRadius: "8px",
+        border: `2px solid ${C.ink}`,
         position: "relative",
         letterSpacing: "-0.05em",
-        background: "rgba(255, 255, 255, 0.02)",
+        background: "#FFFFFF",
       }}
       data-text="CP"
     >

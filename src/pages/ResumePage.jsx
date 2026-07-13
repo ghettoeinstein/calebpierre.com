@@ -67,13 +67,14 @@ export default function ResumePage() {
   ];
 
   return (
-    <div style={{ backgroundColor: C.paper, minHeight: "100vh" }}>
+    <div style={{ backgroundColor: C.bg, minHeight: "100vh" }}>
       {/* ---- Nav ---- */}
       <nav
         className="fixed top-0 left-0 right-0 z-50"
         style={{
-          backgroundColor: "rgba(250,250,248,0.92)",
-          backdropFilter: "blur(6px)",
+          backgroundColor: "rgba(255,255,255,0.92)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
           borderBottom: `1px solid ${C.line}`,
         }}
       >
@@ -94,7 +95,7 @@ export default function ResumePage() {
             <div ref={dropdownRef} style={{ position: "relative" }}>
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
-                className="inline-flex items-center gap-1"
+                className="inline-flex items-center gap-1 nav-link"
                 style={{
                   fontFamily: F.mono,
                   fontSize: "0.78rem",
@@ -115,14 +116,14 @@ export default function ResumePage() {
                     left: "50%",
                     transform: "translateX(-50%)",
                     marginTop: "8px",
-                    backgroundColor: C.paper,
+                    backgroundColor: C.bg,
                     border: `1px solid ${C.line}`,
                     minWidth: "220px",
                     zIndex: 100,
                   }}
                 >
                   <div style={{ padding: "8px 0" }}>
-                    <p style={{ fontFamily: F.mono, fontSize: "0.6rem", color: C.red, letterSpacing: "0.12em", padding: "4px 16px", textTransform: "uppercase" }}>
+                    <p className="eyebrow" style={{ padding: "4px 16px" }}>
                       Los Angeles Services
                     </p>
                     {serviceLinks.map((s) => (
@@ -131,7 +132,7 @@ export default function ResumePage() {
                       </a>
                     ))}
                     <div style={{ height: 1, backgroundColor: C.line, margin: "4px 0" }} />
-                    <p style={{ fontFamily: F.mono, fontSize: "0.6rem", color: C.red, letterSpacing: "0.12em", padding: "4px 16px", textTransform: "uppercase" }}>
+                    <p className="eyebrow" style={{ padding: "4px 16px" }}>
                       Articles
                     </p>
                     {articleLinks.map((a) => (
@@ -145,46 +146,39 @@ export default function ResumePage() {
             </div>
 
             {pageLinks.map((l) => (
-              <a key={l.label} href={l.href} style={{ fontFamily: F.mono, fontSize: "0.78rem", color: C.steel, textDecoration: "none" }}>
+              <a key={l.label} href={l.href} className="nav-link" style={{ fontFamily: F.mono, fontSize: "0.78rem", color: C.steel, textDecoration: "none" }}>
                 {l.label}
               </a>
             ))}
 
-            <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener noreferrer" style={{ color: C.steel, display: "inline-flex", alignItems: "center" }}>
+            <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener noreferrer" className="nav-link" style={{ color: C.steel, display: "inline-flex", alignItems: "center" }}>
               <Linkedin size={16} />
             </a>
             <a
               href="https://calendly.com/calebpierre"
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                backgroundColor: C.red,
-                color: "#fff",
-                fontFamily: F.body,
-                fontWeight: 600,
-                fontSize: "0.82rem",
-                padding: "0.55rem 1.1rem",
-                textDecoration: "none",
-              }}
+              className="cta-pill cta-pill-primary"
+              style={{ fontSize: "0.82rem" }}
             >
               Book a Call
             </a>
           </div>
 
           {/* Mobile toggle */}
-          <button className="md:hidden" onClick={() => setOpen(!open)} style={{ color: C.ink }}>
+          <button className="md:hidden" onClick={() => setOpen(!open)} style={{ color: C.ink, background: "none", border: "none", cursor: "pointer" }}>
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {open && (
-          <div className="md:hidden" style={{ backgroundColor: C.paper, borderTop: `1px solid ${C.line}` }}>
+          <div className="md:hidden" style={{ backgroundColor: C.bg, borderTop: `1px solid ${C.line}` }}>
             <div style={{ padding: "16px 24px", display: "flex", flexDirection: "column", gap: "12px" }}>
               <a href="./index.html" className="inline-flex items-center gap-1" style={{ fontFamily: F.mono, color: C.red, fontSize: "0.85rem", textDecoration: "none" }}>
                 <ArrowLeft size={14} /> Home
               </a>
-              <p style={{ fontFamily: F.mono, fontSize: "0.6rem", color: C.red, letterSpacing: "0.12em", textTransform: "uppercase" }}>
+              <p className="eyebrow">
                 Services in Los Angeles
               </p>
               {serviceLinks.map((s) => (
@@ -193,7 +187,7 @@ export default function ResumePage() {
                 </a>
               ))}
               <div style={{ height: 1, backgroundColor: C.line, margin: "4px 0" }} />
-              <p style={{ fontFamily: F.mono, fontSize: "0.6rem", color: C.red, letterSpacing: "0.12em", textTransform: "uppercase" }}>
+              <p className="eyebrow">
                 Articles
               </p>
               {articleLinks.map((a) => (
@@ -211,17 +205,8 @@ export default function ResumePage() {
                 href="https://calendly.com/calebpierre"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  backgroundColor: C.red,
-                  color: "#fff",
-                  fontFamily: F.body,
-                  fontWeight: 600,
-                  fontSize: "0.82rem",
-                  padding: "0.55rem 1.1rem",
-                  textDecoration: "none",
-                  textAlign: "center",
-                  marginTop: "8px",
-                }}
+                className="cta-pill cta-pill-primary"
+                style={{ justifyContent: "center", marginTop: "8px" }}
               >
                 Book a Call
               </a>
@@ -235,44 +220,36 @@ export default function ResumePage() {
         <Resume />
       </div>
 
-      {/* ---- Comprehensive Footer ---- */}
-      <footer className="px-6 py-12" style={{ backgroundColor: C.ink, borderTop: `2px solid ${C.red}` }}>
+      {/* ---- Footer ---- */}
+      <footer className="px-6 py-12" style={{ backgroundColor: C.bg, borderTop: "1px solid #E5E5E5" }}>
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8" style={{ marginBottom: "2rem" }}>
             <div>
-              <p style={{ fontFamily: F.mono, color: C.red, fontSize: "0.62rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "8px", fontWeight: 700 }}>
-                Services
-              </p>
+              <p className="eyebrow" style={{ marginBottom: "8px" }}>Services</p>
               {footerServices.map((s) => (
-                <a key={s.href} href={s.href} className="footer-link" style={{ fontFamily: F.mono, color: "#8A8A8A", fontSize: "0.72rem", textDecoration: "none", display: "block", padding: "3px 0", lineHeight: 1.6 }}>
+                <a key={s.href} href={s.href} className="footer-link" style={{ fontFamily: F.mono, color: C.steel, fontSize: "0.72rem", textDecoration: "none", display: "block", padding: "3px 0", lineHeight: 1.6 }}>
                   {s.label}
                 </a>
               ))}
             </div>
             <div>
-              <p style={{ fontFamily: F.mono, color: C.red, fontSize: "0.62rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "8px", fontWeight: 700 }}>
-                Articles
-              </p>
+              <p className="eyebrow" style={{ marginBottom: "8px" }}>Articles</p>
               {footerArticles.map((a) => (
-                <a key={a.href} href={a.href} className="footer-link" style={{ fontFamily: F.mono, color: "#8A8A8A", fontSize: "0.72rem", textDecoration: "none", display: "block", padding: "3px 0", lineHeight: 1.6 }}>
+                <a key={a.href} href={a.href} className="footer-link" style={{ fontFamily: F.mono, color: C.steel, fontSize: "0.72rem", textDecoration: "none", display: "block", padding: "3px 0", lineHeight: 1.6 }}>
                   {a.label}
                 </a>
               ))}
             </div>
             <div>
-              <p style={{ fontFamily: F.mono, color: C.red, fontSize: "0.62rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "8px", fontWeight: 700 }}>
-                Cities Served
-              </p>
+              <p className="eyebrow" style={{ marginBottom: "8px" }}>Cities Served</p>
               {footerCities.map((c) => (
-                <a key={c} href={`./${c.toLowerCase().replace(" ", "-")}/ai-agents.html`} className="footer-link" style={{ fontFamily: F.mono, color: "#8A8A8A", fontSize: "0.72rem", textDecoration: "none", display: "block", padding: "3px 0", lineHeight: 1.6 }}>
+                <a key={c} href={`./${c.toLowerCase().replace(" ", "-")}/ai-agents.html`} className="footer-link" style={{ fontFamily: F.mono, color: C.steel, fontSize: "0.72rem", textDecoration: "none", display: "block", padding: "3px 0", lineHeight: 1.6 }}>
                   {c}, CA
                 </a>
               ))}
             </div>
             <div>
-              <p style={{ fontFamily: F.mono, color: C.red, fontSize: "0.62rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "8px", fontWeight: 700 }}>
-                Quick Links
-              </p>
+              <p className="eyebrow" style={{ marginBottom: "8px" }}>Quick Links</p>
               {footerQuick.map((q) => (
                 <a
                   key={q.label}
@@ -280,7 +257,7 @@ export default function ResumePage() {
                   target={q.href.startsWith("http") ? "_blank" : undefined}
                   rel={q.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="footer-link"
-                  style={{ fontFamily: F.mono, color: "#8A8A8A", fontSize: "0.72rem", textDecoration: "none", display: "block", padding: "3px 0", lineHeight: 1.6 }}
+                  style={{ fontFamily: F.mono, color: C.steel, fontSize: "0.72rem", textDecoration: "none", display: "block", padding: "3px 0", lineHeight: 1.6 }}
                 >
                   {q.label}
                 </a>
@@ -288,8 +265,8 @@ export default function ResumePage() {
             </div>
           </div>
 
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "1.5rem", marginBottom: "1.5rem" }}>
-            <p style={{ fontFamily: F.body, color: "#6A6A6A", fontSize: "0.78rem", lineHeight: 1.8, maxWidth: "72ch" }}>
+          <div style={{ borderTop: `1px solid ${C.line}`, paddingTop: "1.5rem", marginBottom: "1.5rem" }}>
+            <p style={{ fontFamily: F.body, color: C.steel, fontSize: "0.78rem", lineHeight: 1.8, maxWidth: "72ch" }}>
               Caleb Pierre is a forward-deployed AI engineer and security engineer based in
               Los Angeles, CA. He builds AI agent systems, cybersecurity infrastructure, and
               business automation pipelines for organizations across LA County. 10 years of
@@ -300,23 +277,23 @@ export default function ResumePage() {
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4" style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "1.5rem" }}>
-            <p style={{ fontFamily: F.mono, color: "#6A6A6A", fontSize: "0.7rem" }}>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4" style={{ borderTop: `1px solid ${C.line}`, paddingTop: "1.5rem" }}>
+            <p style={{ fontFamily: F.mono, color: C.steel, fontSize: "0.7rem" }}>
               © {new Date().getFullYear()} Caleb Pierre Ventures LLC · Los Angeles, CA ·
-              <a href="./llms.txt" style={{ color: "#8A8A8A" }}> llms.txt</a> ·
-              <a href="./sitemap.xml" style={{ color: "#8A8A8A" }}> sitemap.xml</a> ·
-              <a href="./robots.txt" style={{ color: "#8A8A8A" }}> robots.txt</a>
+              <a href="./llms.txt" style={{ color: C.steel }}> llms.txt</a> ·
+              <a href="./sitemap.xml" style={{ color: C.steel }}> sitemap.xml</a> ·
+              <a href="./robots.txt" style={{ color: C.steel }}> robots.txt</a>
             </p>
             <a
               href="https://linkedin.com/in/calebpierre"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2"
-              style={{ fontFamily: F.mono, color: "#8A8A8A", fontSize: "0.72rem", textDecoration: "none" }}
+              style={{ fontFamily: F.mono, color: C.steel, fontSize: "0.72rem", textDecoration: "none" }}
             >
               <Linkedin size={14} />
               linkedin.com/in/calebpierre
-              <ArrowUpRight size={12} color="#6A6A6A" />
+              <ArrowUpRight size={12} color={C.steel} />
             </a>
           </div>
         </div>

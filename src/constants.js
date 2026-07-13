@@ -1,36 +1,37 @@
-// Design tokens — trillion-dollar dark palette
-// OLED black base, fluid accent reds, glass surfaces
+// Design tokens — Swiss design system
+// Minimal palette, strong typography hierarchy, generous whitespace
 
 export const C = {
   // Backgrounds
-  bg: "#050505",
-  bgSoft: "#0A0A0A",
-  panel: "#0E0E0E",
-  panelRaised: "#131313",
+  bg: "#FFFFFF",
+  bgSoft: "#F5F5F5",
+  panel: "#FAFAFA",
+  panelRaised: "#F0F0F0",
+  paper: "#FAFAFA",
   // Text
-  ink: "#F5F5F5",
-  inkSoft: "#C4C4C4",
-  steel: "#6A6A6A",
-  steelDark: "#3A3A3A",
+  ink: "#111111",
+  inkSoft: "#444444",
+  steel: "#777777",
+  steelDark: "#AAAAAA",
   // Accents
   red: "#E10600",
-  redGlow: "rgba(225, 6, 0, 0.4)",
-  redDeep: "#7A0000",
-  // Lines / glass
-  line: "rgba(255, 255, 255, 0.06)",
-  lineBright: "rgba(255, 255, 255, 0.12)",
-  glass: "rgba(255, 255, 255, 0.03)",
-  glassHover: "rgba(255, 255, 255, 0.06)",
-  glassBorder: "rgba(255, 255, 255, 0.08)",
+  redGlow: "rgba(225, 6, 0, 0.08)",
+  redDeep: "#990400",
+  // Lines
+  line: "#E5E5E5",
+  lineBright: "#D0D0D0",
+  glass: "rgba(0, 0, 0, 0.02)",
+  glassHover: "rgba(0, 0, 0, 0.04)",
+  glassBorder: "#E5E5E5",
 };
 
 export const F = {
-  display: "'Space Grotesk', system-ui, sans-serif",
-  body: "'IBM Plex Sans', system-ui, sans-serif",
+  display: "'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+  body: "'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif",
   mono: "'IBM Plex Mono', ui-monospace, monospace",
 };
 
-// Easing curves — spring physics, not browser defaults
+// Easing curves
 export const EASE = {
   smooth: "cubic-bezier(0.32, 0.72, 0, 1)",
   swift: "cubic-bezier(0.16, 1, 0.3, 1)",

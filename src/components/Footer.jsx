@@ -66,7 +66,7 @@ export default function Footer() {
   return (
     <footer
       className="px-6 py-12"
-      style={{ background: C.bg, borderTop: `1px solid rgba(225, 6, 0, 0.2)` }}
+      style={{ background: C.bg, borderTop: "1px solid #E5E5E5" }}
     >
       <div className="max-w-5xl mx-auto">
         {/* Link columns */}
@@ -124,7 +124,7 @@ export default function Footer() {
           <p
             style={{
               fontFamily: F.body,
-              color: C.steelDark,
+              color: C.steel,
               fontSize: "0.78rem",
               lineHeight: 1.8,
               maxWidth: "72ch",
@@ -150,7 +150,7 @@ export default function Footer() {
             paddingTop: "1.5rem",
           }}
         >
-          <p style={{ fontFamily: F.mono, color: C.steelDark, fontSize: "0.7rem" }}>
+          <p style={{ fontFamily: F.mono, color: C.steel, fontSize: "0.7rem" }}>
             © {new Date().getFullYear()} Caleb Pierre Ventures LLC · Los Angeles, CA ·
             Remote-First · <a href="./llms.txt" style={{ color: C.steel }}>llms.txt</a> ·{" "}
             <a href="./sitemap.xml" style={{ color: C.steel }}>sitemap.xml</a> ·{" "}
@@ -165,7 +165,7 @@ export default function Footer() {
           >
             <Linkedin size={14} />
             linkedin.com/in/calebpierre
-            <ArrowUpRight size={12} color={C.steelDark} />
+            <ArrowUpRight size={12} color={C.steel} />
           </a>
         </div>
       </div>

@@ -23,7 +23,7 @@ export default function Services() {
               fontWeight: 700,
               margin: "0 0 3rem",
               maxWidth: "18ch",
-              letterSpacing: "-0.01em",
+              letterSpacing: "-0.02em",
             }}
           >
             Six things. One person running all of them.
@@ -35,12 +35,11 @@ export default function Services() {
           {items.map((it, i) => (
             <Reveal key={it.title} delay={i * 0.05}>
               <div
-                className={`service-card glass ${it.span}`}
+                className={`service-card swiss-card ${it.span}`}
                 style={{
                   padding: "1.75rem",
                   position: "relative",
                   overflow: "hidden",
-                  borderRadius: "20px",
                 }}
               >
                 <div className="flex items-center gap-2 mb-4">
@@ -50,8 +49,6 @@ export default function Services() {
                       height: 7,
                       backgroundColor: C.red,
                       display: "inline-block",
-                      borderRadius: "50%",
-                      boxShadow: "0 0 8px rgba(225, 6, 0, 0.5)",
                     }}
                   />
                   <span
@@ -72,7 +69,7 @@ export default function Services() {
                     fontSize: "1.2rem",
                     marginBottom: "0.6rem",
                     fontWeight: 700,
-                    letterSpacing: "-0.01em",
+                    letterSpacing: "-0.02em",
                   }}
                 >
                   {it.title}
@@ -87,7 +84,6 @@ export default function Services() {
                 >
                   {it.body}
                 </p>
-                <div className="scan-sweep" />
               </div>
             </Reveal>
           ))}

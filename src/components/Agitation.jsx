@@ -28,7 +28,7 @@ export default function Agitation() {
               fontWeight: 700,
               marginBottom: "2.5rem",
               maxWidth: "22ch",
-              letterSpacing: "-0.01em",
+              letterSpacing: "-0.02em",
             }}
           >
             If any of this sounds like you, we should talk.
@@ -38,12 +38,11 @@ export default function Agitation() {
           {logs.map((l, i) => (
             <Reveal key={i} delay={i * 0.08}>
               <div
-                className="glass glass-hover"
+                className="swiss-card swiss-card-hover"
                 style={{
                   display: "flex",
                   gap: "1rem",
                   padding: "1.25rem 1.5rem",
-                  borderRadius: "16px",
                 }}
               >
                 <span

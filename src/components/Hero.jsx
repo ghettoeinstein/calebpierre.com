@@ -8,11 +8,11 @@ export default function Hero() {
   const [booted, setBooted] = useState(false);
 
   return (
-    <section style={{ paddingTop: "7rem", paddingBottom: "0", minHeight: "100dvh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+    <section style={{ paddingTop: "8rem", paddingBottom: "0", minHeight: "100dvh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
       <div className="max-w-4xl mx-auto px-6 w-full">
         {/* Boot terminal */}
         <div
-          className="glass"
+          className="swiss-card"
           style={{ padding: "1.5rem 1.75rem", marginBottom: "2.5rem", maxWidth: "32rem" }}
         >
           <BootSequence onDone={() => setBooted(true)} />
@@ -34,8 +34,6 @@ export default function Hero() {
           </p>
 
           <h1
-            className="glitch-headline"
-            data-text="Stop doing it by hand. I'll build the systems that do it for you."
             style={{
               fontFamily: F.display,
               color: C.ink,
@@ -44,7 +42,7 @@ export default function Hero() {
               fontWeight: 700,
               marginBottom: "1.75rem",
               maxWidth: "20ch",
-              letterSpacing: "-0.02em",
+              letterSpacing: "-0.03em",
             }}
           >
             Stop doing it by hand. I'll build the systems that do it for you.

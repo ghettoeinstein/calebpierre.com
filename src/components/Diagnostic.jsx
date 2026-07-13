@@ -93,151 +93,148 @@ export default function Diagnostic() {
             fontWeight: 700,
             marginBottom: "2rem",
             maxWidth: "24ch",
-            letterSpacing: "-0.01em",
+            letterSpacing: "-0.02em",
           }}
         >
           Three questions. One honest answer about what's costing you money.
         </h2>
 
-        {/* Glass card container */}
-        <div className="bezel" style={{ maxWidth: "36rem" }}>
-          <div className="bezel-inner" style={{ overflow: "hidden" }}>
-            {/* Progress bar */}
-            <div style={{ height: 3, background: "rgba(255,255,255,0.04)" }}>
-              <div
-                style={{
-                  height: "100%",
-                  width: `${progress}%`,
-                  background: `linear-gradient(90deg, ${C.red}, #FF3000)`,
-                  transition: "width 0.5s cubic-bezier(0.32, 0.72, 0, 1)",
-                  boxShadow: "0 0 12px rgba(225, 6, 0, 0.4)",
-                }}
-              />
-            </div>
+        {/* Swiss card container */}
+        <div className="swiss-card" style={{ maxWidth: "36rem" }}>
+          {/* Progress bar */}
+          <div style={{ height: 2, background: "#E5E5E5" }}>
+            <div
+              style={{
+                height: "100%",
+                width: `${progress}%`,
+                background: C.red,
+                transition: "width 0.5s cubic-bezier(0.32, 0.72, 0, 1)",
+              }}
+            />
+          </div>
 
-            <div style={{ padding: "2rem 1.75rem" }}>
-              {!result ? (
-                <>
-                  <p
+          <div style={{ padding: "2rem 1.75rem" }}>
+            {!result ? (
+              <>
+                <p
+                  style={{
+                    fontFamily: F.mono,
+                    color: C.steel,
+                    fontSize: "0.72rem",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  QUESTION {step + 1} / {QUESTIONS.length}
+                </p>
+                <h3
+                  style={{
+                    fontFamily: F.body,
+                    color: C.ink,
+                    fontSize: "1.25rem",
+                    fontWeight: 600,
+                    marginBottom: "1.5rem",
+                    lineHeight: 1.4,
+                  }}
+                >
+                  {QUESTIONS[step].q}
+                </h3>
+                <div className="flex flex-col gap-3">
+                  {QUESTIONS[step].options.map((o) => (
+                    <button
+                      key={o.label}
+                      onClick={() => choose(o.tag)}
+                      className="diag-option"
+                      style={{
+                        fontFamily: F.body,
+                        color: C.inkSoft,
+                        fontSize: "0.95rem",
+                        border: "1px solid #E5E5E5",
+                        background: "#FAFAFA",
+                        padding: "0.9rem 1.1rem",
+                        cursor: "pointer",
+                        textAlign: "left",
+                      }}
+                    >
+                      {o.label}
+                    </button>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <div>
+                <p
+                  style={{
+                    fontFamily: F.mono,
+                    color: C.red,
+                    fontSize: "0.72rem",
+                    marginBottom: "0.75rem",
+                  }}
+                >
+                  DIAGNOSIS COMPLETE
+                </p>
+                <h3
+                  style={{
+                    fontFamily: F.display,
+                    color: C.ink,
+                    fontSize: "1.5rem",
+                    fontWeight: 700,
+                    marginBottom: "0.9rem",
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  {result.title}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: F.body,
+                    color: C.inkSoft,
+                    fontSize: "1rem",
+                    lineHeight: 1.7,
+                    marginBottom: "1rem",
+                  }}
+                >
+                  {result.body}
+                </p>
+                <p
+                  style={{
+                    fontFamily: F.body,
+                    color: C.inkSoft,
+                    fontSize: "1rem",
+                    lineHeight: 1.7,
+                    marginBottom: "1.75rem",
+                  }}
+                >
+                  Get on a free call. I'll look at everything and give you a
+                  written plan. No pressure, no guesswork.
+                </p>
+                <div className="flex flex-wrap gap-3 items-center">
+                  <a
+                    href="https://calendly.com/calebpierre"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cta-pill cta-pill-primary"
+                  >
+                    Book My {result.service} Call
+                    <span className="cta-icon-circle">
+                      <ArrowUpRight size={16} />
+                    </span>
+                  </a>
+                  <button
+                    onClick={reset}
                     style={{
                       fontFamily: F.mono,
                       color: C.steel,
-                      fontSize: "0.72rem",
-                      marginBottom: "0.5rem",
+                      fontSize: "0.78rem",
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
                     }}
                   >
-                    QUESTION {step + 1} / {QUESTIONS.length}
-                  </p>
-                  <h3
-                    style={{
-                      fontFamily: F.body,
-                      color: C.ink,
-                      fontSize: "1.25rem",
-                      fontWeight: 600,
-                      marginBottom: "1.5rem",
-                      lineHeight: 1.4,
-                    }}
-                  >
-                    {QUESTIONS[step].q}
-                  </h3>
-                  <div className="flex flex-col gap-3">
-                    {QUESTIONS[step].options.map((o) => (
-                      <button
-                        key={o.label}
-                        onClick={() => choose(o.tag)}
-                        className="diag-option"
-                        style={{
-                          fontFamily: F.body,
-                          color: C.inkSoft,
-                          fontSize: "0.95rem",
-                          border: "1px solid rgba(255,255,255,0.08)",
-                          background: "rgba(255,255,255,0.02)",
-                          padding: "0.9rem 1.1rem",
-                          cursor: "pointer",
-                          textAlign: "left",
-                        }}
-                      >
-                        {o.label}
-                      </button>
-                    ))}
-                  </div>
-                </>
-              ) : (
-                <div>
-                  <p
-                    style={{
-                      fontFamily: F.mono,
-                      color: C.red,
-                      fontSize: "0.72rem",
-                      marginBottom: "0.75rem",
-                    }}
-                  >
-                    DIAGNOSIS COMPLETE
-                  </p>
-                  <h3
-                    style={{
-                      fontFamily: F.display,
-                      color: C.ink,
-                      fontSize: "1.5rem",
-                      fontWeight: 700,
-                      marginBottom: "0.9rem",
-                      letterSpacing: "-0.01em",
-                    }}
-                  >
-                    {result.title}
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: F.body,
-                      color: C.inkSoft,
-                      fontSize: "1rem",
-                      lineHeight: 1.7,
-                      marginBottom: "1rem",
-                    }}
-                  >
-                    {result.body}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: F.body,
-                      color: C.inkSoft,
-                      fontSize: "1rem",
-                      lineHeight: 1.7,
-                      marginBottom: "1.75rem",
-                    }}
-                  >
-                    Get on a free call. I'll look at everything and give you a
-                    written plan. No pressure, no guesswork.
-                  </p>
-                  <div className="flex flex-wrap gap-3 items-center">
-                    <a
-                      href="https://calendly.com/calebpierre"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="cta-pill cta-pill-primary"
-                    >
-                      Book My {result.service} Call
-                      <span className="cta-icon-circle">
-                        <ArrowUpRight size={16} />
-                      </span>
-                    </a>
-                    <button
-                      onClick={reset}
-                      style={{
-                        fontFamily: F.mono,
-                        color: C.steel,
-                        fontSize: "0.78rem",
-                        background: "none",
-                        border: "none",
-                        cursor: "pointer",
-                      }}
-                    >
-                      Retake diagnostic
-                    </button>
-                  </div>
+                    Retake diagnostic
+                  </button>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

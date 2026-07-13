@@ -8,29 +8,14 @@ export default function FinalCTA() {
       <div className="max-w-3xl mx-auto">
         <Reveal>
           <div
-            className="glass"
+            className="swiss-card"
             style={{
               padding: "3rem 2.5rem",
-              borderRadius: "28px",
               textAlign: "center",
               position: "relative",
               overflow: "hidden",
             }}
           >
-            {/* Glow orb */}
-            <div
-              style={{
-                position: "absolute",
-                top: "-50%",
-                left: "50%",
-                transform: "translateX(-50%)",
-                width: "600px",
-                height: "400px",
-                background: "radial-gradient(ellipse at center, rgba(225, 6, 0, 0.15), transparent 70%)",
-                pointerEvents: "none",
-              }}
-            />
-
             <div style={{ position: "relative", zIndex: 1 }}>
               <h2
                 style={{
@@ -39,7 +24,7 @@ export default function FinalCTA() {
                   fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
                   fontWeight: 700,
                   marginBottom: "1.25rem",
-                  letterSpacing: "-0.02em",
+                  letterSpacing: "-0.03em",
                 }}
               >
                 Get on the call. Get a real plan. That's it.

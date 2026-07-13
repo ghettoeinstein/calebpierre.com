@@ -10,7 +10,7 @@ export default function Process() {
   ];
 
   return (
-    <section id="process" className="px-6 section-pad" style={{ background: "rgba(255,255,255,0.01)" }}>
+    <section id="process" className="px-6 section-pad" style={{ background: "#F5F5F5" }}>
       <div className="max-w-5xl mx-auto">
         <Reveal>
           <h2
@@ -20,21 +20,20 @@ export default function Process() {
               fontSize: "clamp(1.7rem, 4vw, 2.4rem)",
               fontWeight: 700,
               marginBottom: "3rem",
-              letterSpacing: "-0.01em",
+              letterSpacing: "-0.02em",
             }}
           >
             Four steps. No mystery in between.
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {steps.map((s, i) => (
             <Reveal key={s.n} delay={i * 0.08}>
               <div
-                className="glass"
+                className="swiss-card"
                 style={{
                   padding: "1.75rem",
-                  borderRadius: "20px",
                   height: "100%",
                 }}
               >
@@ -56,7 +55,7 @@ export default function Process() {
                     fontSize: "1.15rem",
                     fontWeight: 700,
                     marginBottom: "0.5rem",
-                    letterSpacing: "-0.01em",
+                    letterSpacing: "-0.02em",
                   }}
                 >
                   {s.t}

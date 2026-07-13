@@ -72,7 +72,7 @@ export default function Proof() {
               fontWeight: 700,
               marginBottom: "1rem",
               maxWidth: "22ch",
-              letterSpacing: "-0.01em",
+              letterSpacing: "-0.02em",
             }}
           >
             Don't take my word for it. Read the work.
@@ -92,15 +92,14 @@ export default function Proof() {
           </p>
         </Reveal>
 
-        {/* Stats — full-width glass strip */}
+        {/* Stats — full-width strip */}
         <Reveal>
           <div
-            className="glass"
+            className="swiss-card"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
               marginBottom: "3.5rem",
-              borderRadius: "24px",
               overflow: "hidden",
             }}
           >
@@ -120,7 +119,7 @@ export default function Proof() {
                     fontWeight: 700,
                     lineHeight: 1,
                     marginBottom: "0.5rem",
-                    letterSpacing: "-0.02em",
+                    letterSpacing: "-0.03em",
                   }}
                 >
                   {s.value}
@@ -160,12 +159,11 @@ export default function Proof() {
             {CASE_STUDIES.map((cs) => (
               <div
                 key={cs.title}
-                className="glass glass-hover"
+                className="swiss-card swiss-card-hover"
                 style={{
                   padding: "1.75rem",
                   position: "relative",
                   overflow: "hidden",
-                  borderRadius: "20px",
                 }}
               >
                 <div className="flex items-center gap-2 mb-3">
@@ -175,8 +173,6 @@ export default function Proof() {
                       height: 7,
                       backgroundColor: C.red,
                       display: "inline-block",
-                      borderRadius: "50%",
-                      boxShadow: "0 0 8px rgba(225, 6, 0, 0.5)",
                     }}
                   />
                   <span
@@ -197,7 +193,7 @@ export default function Proof() {
                     fontSize: "1.25rem",
                     fontWeight: 700,
                     marginBottom: "0.6rem",
-                    letterSpacing: "-0.01em",
+                    letterSpacing: "-0.02em",
                   }}
                 >
                   {cs.title}
@@ -222,9 +218,8 @@ export default function Proof() {
                         fontSize: "0.68rem",
                         color: C.inkSoft,
                         border: `1px solid ${C.line}`,
-                        background: "rgba(255,255,255,0.02)",
+                        background: "#FAFAFA",
                         padding: "0.3rem 0.6rem",
-                        borderRadius: "6px",
                         letterSpacing: "0.03em",
                       }}
                     >
@@ -248,10 +243,9 @@ export default function Proof() {
               return (
                 <div
                   key={cred.title}
-                  className="glass glass-hover"
+                  className="swiss-card swiss-card-hover"
                   style={{
                     padding: "1.5rem",
-                    borderRadius: "18px",
                   }}
                 >
                   <div className="flex items-start gap-3">
@@ -264,7 +258,7 @@ export default function Proof() {
                           fontSize: "1.05rem",
                           fontWeight: 700,
                           marginBottom: "0.4rem",
-                          letterSpacing: "-0.01em",
+                          letterSpacing: "-0.02em",
                         }}
                       >
                         {cred.title}
@@ -301,9 +295,8 @@ export default function Proof() {
                   fontSize: "0.72rem",
                   color: C.inkSoft,
                   border: `1px solid ${C.line}`,
-                  background: "rgba(255,255,255,0.02)",
+                  background: "#FAFAFA",
                   padding: "0.45rem 0.75rem",
-                  borderRadius: "8px",
                   letterSpacing: "0.03em",
                 }}
               >
@@ -316,10 +309,9 @@ export default function Proof() {
         {/* LinkedIn CTA */}
         <Reveal>
           <div
-            className="glass"
+            className="swiss-card"
             style={{
               padding: "2rem 2.25rem",
-              borderRadius: "24px",
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
@@ -334,7 +326,7 @@ export default function Proof() {
                 fontSize: "1.4rem",
                 fontWeight: 700,
                 maxWidth: "30ch",
-                letterSpacing: "-0.01em",
+                letterSpacing: "-0.02em",
               }}
             >
               Check the background. Read the history. Then book the call.

@@ -22,7 +22,7 @@ export default function About() {
               fontWeight: 700,
               marginBottom: "1.5rem",
               maxWidth: "24ch",
-              letterSpacing: "-0.01em",
+              letterSpacing: "-0.02em",
             }}
           >
             I'm Caleb Pierre. I build the systems, and I show you exactly how they work.
