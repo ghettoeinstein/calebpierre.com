@@ -235,7 +235,7 @@ h1 {{ font-family: var(--display); font-size: clamp(1.8rem, 4.5vw, 3rem); font-w
 h2 {{ font-family: var(--display); font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: var(--ink); margin: 48px 0 16px; }}
 .features {{ list-style: none; padding: 0; margin: 0 0 32px; }}
 .features li {{ padding: 14px 14px 14px 36px; position: relative; font-size: 0.92rem; color: var(--ink); border-bottom: 1px solid var(--line); line-height: 1.6; }}
-.features li::before {{ content: "\u25b8"; position: absolute; left: 12px; top: 14px; color: var(--red); font-weight: 700; }}
+.features li::before {{ content: "\\25b8"; position: absolute; left: 12px; top: 14px; color: var(--red); font-weight: 700; }}
 .body-text {{ font-size: 0.95rem; color: var(--steel); line-height: 1.75; max-width: 64ch; margin-bottom: 24px; }}
 .cta-box {{ background: var(--ink); padding: 40px 32px; margin: 48px 0; text-align: center; }}
 .cta-box h2 {{ color: #fff; margin: 0 0 12px; }}
