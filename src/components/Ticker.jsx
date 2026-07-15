@@ -12,30 +12,26 @@ export default function Ticker() {
     "OPERATIONS ON AUTOPILOT",
     "CONTROL BY DESIGN",
   ];
+  // Double the items for seamless loop
   const loop = [...items, ...items];
+
   return (
-    <div
-      style={{
-        backgroundColor: C.ink,
-        overflow: "hidden",
-        borderTop: "2px solid #E10600",
-        borderBottom: "1px solid #E10600",
-      }}
-    >
-      <div className="ticker-track" style={{ display: "flex", width: "max-content" }}>
+    <div className="ticker-container">
+      <div className="ticker-track">
         {loop.map((t, i) => (
           <span
             key={i}
             style={{
               fontFamily: F.mono,
               fontSize: "0.75rem",
-              color: i % items.length === 0 ? "#E10600" : "#888888",
+              color: i % items.length === 0 ? C.red : "#888888",
               padding: "0.9rem 2rem",
               whiteSpace: "nowrap",
               letterSpacing: "0.1em",
+              flexShrink: 0,
             }}
           >
-            {t} <span style={{ color: "#E10600", margin: "0 1.5rem" }}>·</span>
+            {t} <span style={{ color: C.red, margin: "0 1.5rem" }}>·</span>
           </span>
         ))}
       </div>

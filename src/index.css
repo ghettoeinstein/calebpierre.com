@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   calebpierre.com — Responsive Design System
+   Strict spec: white/red/black retro-futuristic identity
+   Breakpoints: xs (0-479) / sm (480-767) / md (768-1023) / lg (1024+)
+   ============================================================ */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,7 +20,7 @@ html {
 
 body {
   background-color: #FFFFFF;
-  color: #111111;
+  color: #0A0A0A;
   font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -23,27 +29,82 @@ body {
 
 /* ---------- Selection ---------- */
 ::selection {
-  background: #E10600;
+  background: #E8382D;
   color: #fff;
 }
 
 /* ---------- Scrollbar ---------- */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #fff; }
-::-webkit-scrollbar-thumb { background: #D0D0D0; }
-::-webkit-scrollbar-thumb:hover { background: #E10600; }
+::-webkit-scrollbar-thumb { background: #D8D6D2; }
+::-webkit-scrollbar-thumb:hover { background: #E8382D; }
 
 /* ---------- Focus ---------- */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid #E10600;
+  outline: 2px solid #E8382D;
   outline-offset: 3px;
 }
 
+/* ---------- Breakpoint System ---------- */
+/* xs: 0-479px — Single column, hamburger nav, truncated ticker */
+/* sm: 480-767px — Single column, more space, hamburger nav */
+/* md: 768-1023px — Nav shows priority links + More, or hamburger */
+/* lg: 1024px+ — Full horizontal nav, no hamburger */
+
+/* ---------- Type Scale (responsive) ---------- */
+/* Mobile base, tablet step, desktop — never skip tablet */
+h1 {
+  font-size: 34px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+h2 {
+  font-size: 26px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+p, body {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@media (min-width: 480px) {
+  h1 { font-size: 42px; }
+  h2 { font-size: 30px; }
+  p, body { font-size: 17px; line-height: 1.55; }
+}
+
+@media (min-width: 768px) {
+  h1 { font-size: 52px; line-height: 1.02; }
+  h2 { font-size: 34px; line-height: 1.05; }
+  p, body { font-size: 17px; line-height: 1.55; }
+}
+
+@media (min-width: 1024px) {
+  h1 { font-size: 76px; line-height: 0.98; letter-spacing: -0.04em; }
+  h2 { font-size: 44px; line-height: 1.0; letter-spacing: -0.03em; }
+  p, body { font-size: 18px; line-height: 1.6; }
+}
+
+/* ---------- Eyebrow / mono labels ---------- */
+.eyebrow {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #E8382D;
+  font-weight: 500;
+}
+@media (min-width: 480px) { .eyebrow { font-size: 12px; } }
+@media (min-width: 1024px) { .eyebrow { font-size: 13px; } }
+
 /* ---------- Swiss Card ---------- */
 .swiss-card {
-  background: #FAFAFA;
-  border: 1px solid #E5E5E5;
+  background: #F5F4F2;
+  border: 1px solid #D8D6D2;
   position: relative;
   overflow: hidden;
 }
@@ -51,18 +112,8 @@ button:focus-visible {
   transition: border-color 0.3s ease, background 0.3s ease;
 }
 .swiss-card-hover:hover {
-  border-color: #111111;
-  background: #F5F5F5;
-}
-
-/* ---------- Eyebrow tag ---------- */
-.eyebrow {
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #E10600;
-  font-weight: 500;
+  border-color: #0A0A0A;
+  background: #ECEAE8;
 }
 
 /* ---------- CTA button ---------- */
@@ -75,16 +126,16 @@ button:focus-visible {
   font-weight: 600;
   font-size: 0.9rem;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
   cursor: pointer;
   border: none;
 }
 .cta-pill-primary {
-  background: #E10600;
+  background: #E8382D;
   color: #fff;
 }
 .cta-pill-primary:hover {
-  background: #111111;
+  background: #0A0A0A;
   transform: translateY(-1px);
 }
 .cta-pill-primary:active {
@@ -92,11 +143,11 @@ button:focus-visible {
 }
 .cta-pill-ghost {
   background: transparent;
-  color: #111111;
-  border: 1px solid #111111;
+  color: #0A0A0A;
+  border: 1px solid #0A0A0A;
 }
 .cta-pill-ghost:hover {
-  background: #111111;
+  background: #0A0A0A;
   color: #fff;
 }
 .cta-icon-circle {
@@ -113,21 +164,57 @@ button:focus-visible {
   transform: translate(2px, -1px);
 }
 
-/* ---------- Section spacing ---------- */
+/* ---------- Section spacing (8px base, responsive steps) ---------- */
 .section-pad {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
-@media (max-width: 768px) {
+@media (min-width: 480px) {
   .section-pad {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+@media (min-width: 768px) {
+  .section-pad {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+@media (min-width: 1024px) {
+  .section-pad {
+    padding-top: 96px;
+    padding-bottom: 96px;
   }
 }
 
-/* ---------- Ticker ---------- */
+/* ---------- Ticker (the signature element) ---------- */
+/* Status bar that never breaks on any device */
+.ticker-container {
+  background-color: #0A0A0A;
+  overflow: hidden;
+  border-top: 2px solid #E8382D;
+  border-bottom: 1px solid #E8382D;
+  width: 100%;
+  max-width: 100vw;
+}
 .ticker-track {
+  display: flex;
+  width: max-content;
   animation: scrollTicker 30s linear infinite;
+}
+@media (max-width: 479px) {
+  .ticker-track {
+    animation: scrollTicker 20s linear infinite;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+    transform: none;
+    flex-wrap: wrap;
+    width: 100%;
+  }
 }
 @keyframes scrollTicker {
   from { transform: translateX(0); }
@@ -137,7 +224,7 @@ button:focus-visible {
 /* ---------- Cursor blink ---------- */
 .cursor-blink {
   animation: blink 1s step-start infinite;
-  color: #E10600;
+  color: #E8382D;
 }
 @keyframes blink {
   50% { opacity: 0; }
@@ -149,8 +236,8 @@ button:focus-visible {
   border-radius: 0;
 }
 .diag-option:hover {
-  background-color: #F5F5F5 !important;
-  border-color: #111111 !important;
+  background-color: #F5F4F2 !important;
+  border-color: #0A0A0A !important;
   transform: translateX(4px);
 }
 
@@ -159,8 +246,8 @@ button:focus-visible {
   transition: border-color 0.3s ease, background 0.3s ease;
 }
 .service-card:hover {
-  border-color: #111111 !important;
-  background: #F5F5F5 !important;
+  border-color: #0A0A0A !important;
+  background: #F5F4F2 !important;
 }
 
 /* ---------- Nav link hover ---------- */
@@ -168,7 +255,7 @@ button:focus-visible {
   transition: color 0.2s ease;
 }
 .nav-link:hover {
-  color: #111111 !important;
+  color: #0A0A0A !important;
 }
 
 /* ---------- Dropdown item ---------- */
@@ -176,7 +263,7 @@ button:focus-visible {
   transition: background-color 0.2s ease;
 }
 .dropdown-item:hover {
-  background-color: #F5F5F5;
+  background-color: #F5F4F2;
 }
 
 /* ---------- Footer link ---------- */
@@ -184,7 +271,7 @@ button:focus-visible {
   transition: color 0.2s ease;
 }
 .footer-link:hover {
-  color: #E10600 !important;
+  color: #E8382D !important;
 }
 
 /* ---------- Boot sequence ---------- */
@@ -211,12 +298,34 @@ button:focus-visible {
   transition: border-color 0.3s ease, transform 0.3s ease;
 }
 .timeline-card:hover {
-  border-color: #111111 !important;
+  border-color: #0A0A0A !important;
   transform: translateX(4px);
 }
 @keyframes fadeInSkill {
   from { opacity: 0; transform: translateX(-8px); }
   to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ---------- Responsive utilities ---------- */
+/* Prevent any element from overflowing viewport */
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Container that respects viewport bounds */
+.cp-container {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+@media (min-width: 480px) {
+  .cp-container { padding-left: 24px; padding-right: 24px; }
+}
+@media (min-width: 1024px) {
+  .cp-container { padding-left: 32px; padding-right: 32px; }
 }
 
 /* ---------- Reduced motion ---------- */
@@ -227,6 +336,10 @@ button:focus-visible {
   }
   .enter-fade {
     opacity: 1 !important;
+    transform: none !important;
+  }
+  .ticker-track {
+    animation: none !important;
     transform: none !important;
   }
 }

@@ -70,8 +70,8 @@ export default function Nav() {
             </div>
           </a>
 
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-5">
+          {/* Desktop nav — lg:1024px+ only (strict spec) */}
+          <div className="hidden lg:flex items-center gap-5">
             {/* Services dropdown */}
             <div ref={dropdownRef} style={{ position: "relative" }}>
               <button
@@ -156,15 +156,15 @@ export default function Nav() {
             </a>
           </div>
 
-          {/* Mobile toggle */}
-          <button className="md:hidden" onClick={() => setOpen(!open)} style={{ color: C.ink, background: "none", border: "none", cursor: "pointer" }}>
+          {/* Mobile toggle — visible below lg:1024px */}
+          <button className="lg:hidden" onClick={() => setOpen(!open)} style={{ color: C.ink, background: "none", border: "none", cursor: "pointer" }}>
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
-        {/* Mobile menu */}
+        {/* Mobile menu — visible below lg:1024px */}
         {open && (
-          <div className="md:hidden" style={{ background: "#FFFFFF", borderTop: "1px solid #E5E5E5" }}>
+          <div className="lg:hidden" style={{ background: "#FFFFFF", borderTop: "1px solid #D8D6D2" }}>
             <div style={{ padding: "16px 24px", display: "flex", flexDirection: "column", gap: "12px" }}>
               <p className="eyebrow">Services in Los Angeles</p>
               {serviceLinks.map((s) => (
