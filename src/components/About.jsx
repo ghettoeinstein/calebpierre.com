@@ -6,8 +6,8 @@ export default function About() {
   const points = [
     "Security background — I look for the hole before someone else finds it.",
     "Remote-first — same attention wherever you're based.",
-    "Everything I build comes with docs you can actually read.",
-    "Full-stack — frontend, backend, AI, and security under one roof.",
+    "Everything I build comes with documentation you can actually read.",
+    "Full-stack — operations, automation, and security under one roof. No handoffs lost in translation.",
   ];
 
   return (
@@ -25,7 +25,7 @@ export default function About() {
               letterSpacing: "-0.02em",
             }}
           >
-            I'm Caleb Pierre. I build the systems, and I show you exactly how they work.
+            I build the machine that replaces the babysitting.
           </h2>
           <p
             style={{
@@ -36,9 +36,12 @@ export default function About() {
               marginBottom: "2rem",
             }}
           >
-            Los Angeles-based, remote-first. I don't sell hype and I don't hide
-            the work behind a black box. A system you can't check isn't a system
-            you can trust. That's the whole reason I do this the way I do.
+            I'm Caleb Pierre. I don't sell hope and I don't hide behind
+            jargon. I look at your business, find the places where human effort
+            is propping up something a system should handle, and I replace it
+            with something that works without you watching it. A system you
+            can't inspect isn't a system you can trust. That's why everything
+            I build comes documented, auditable, and owned by you.
           </p>
 
           <div className="flex flex-col gap-3" style={{ marginBottom: "2.5rem" }}>

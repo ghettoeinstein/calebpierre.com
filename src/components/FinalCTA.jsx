@@ -23,11 +23,11 @@ export default function FinalCTA() {
                   color: C.ink,
                   fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
                   fontWeight: 700,
-                  marginBottom: "1.25rem",
+                  marginBottom: "1.5rem",
                   letterSpacing: "-0.03em",
                 }}
               >
-                Get on the call. Get a real plan. That's it.
+                The Next Choice Is Entirely Yours
               </h2>
               <p
                 style={{
@@ -35,21 +35,28 @@ export default function FinalCTA() {
                   color: C.inkSoft,
                   fontSize: "1.05rem",
                   lineHeight: 1.7,
-                  marginBottom: "0.75rem",
+                  marginBottom: "1rem",
+                  maxWidth: "48ch",
+                  margin: "0 auto 1rem",
                 }}
               >
-                No pressure, no vague advice. I'll look at what you have and
-                tell you exactly what's broken and how to fix it.
+                You can keep managing chaos — paying people to do what systems
+                should do, watching revenue leak through gaps you already know
+                about, hoping today isn't the day something breaks.
               </p>
               <p
                 style={{
                   fontFamily: F.body,
-                  color: C.steel,
-                  fontSize: "0.95rem",
-                  marginBottom: "2rem",
+                  color: C.ink,
+                  fontSize: "1.05rem",
+                  lineHeight: 1.7,
+                  marginBottom: "0.5rem",
+                  maxWidth: "48ch",
+                  margin: "0 auto 2rem",
+                  fontWeight: 600,
                 }}
               >
-                Free systems audit. No obligation. Just a straight answer.
+                Or you can decide you've paid that tax for the last time.
               </p>
               <a
                 href="https://calendly.com/calebpierre"
@@ -58,7 +65,7 @@ export default function FinalCTA() {
                 className="cta-pill cta-pill-primary"
                 style={{ fontSize: "1rem", padding: "1rem 2rem" }}
               >
-                Book Your Free Audit
+                Start the Discovery
                 <span className="cta-icon-circle">
                   <ArrowUpRight size={18} />
                 </span>

@@ -3,12 +3,14 @@ import { Reveal } from "../hooks/useReveal.jsx";
 
 export default function Ticker() {
   const items = [
-    "WEB DESIGN",
-    "AI AGENTS",
-    "BUSINESS AUTOMATION",
-    "SECURITY AUDITS",
-    "CONTENT SYSTEMS",
-    "TECH SUPPORT",
+    "NO BABYSITTING",
+    "ZERO MANUAL ENTRY",
+    "SYSTEMS THAT NEVER SLEEP",
+    "CERTAINTY OVER CHAOS",
+    "DATA WITHOUT FRICTION",
+    "SECURITY WITHOUT WORRY",
+    "OPERATIONS ON AUTOPILOT",
+    "CONTROL BY DESIGN",
   ];
   const loop = [...items, ...items];
   return (

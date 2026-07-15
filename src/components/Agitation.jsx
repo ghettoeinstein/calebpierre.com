@@ -4,16 +4,16 @@ import { Reveal } from "../hooks/useReveal.jsx";
 export default function Agitation() {
   const logs = [
     {
-      tag: "[SLOW]",
-      text: "Your website was built once and never fixed. It's losing you money.",
+      tag: "[DRAIN]",
+      text: "Every missed follow-up, every broken handoff, every task that falls through the cracks — that's money walking out the door while you watch.",
     },
     {
       tag: "[MANUAL]",
-      text: "Your team is doing the same task over and over. A machine should be doing it.",
+      text: "You're paying capable people to do work a system could do in seconds. Not because they're lazy — because nobody built the system.",
     },
     {
       tag: "[RISK]",
-      text: "Nobody has checked your systems for security holes. One bad day costs everything.",
+      text: "One person leaves and your operations collapse. One bad day and your data is gone. You cannot build a predictable business on unpredictable human behavior.",
     },
   ];
   return (
@@ -31,7 +31,7 @@ export default function Agitation() {
               letterSpacing: "-0.02em",
             }}
           >
-            If any of this sounds like you, we should talk.
+            You don't have a growth problem. You have a people problem.
           </h2>
         </Reveal>
         <div className="flex flex-col gap-4">

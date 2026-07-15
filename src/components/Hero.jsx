@@ -45,7 +45,7 @@ export default function Hero() {
               letterSpacing: "-0.03em",
             }}
           >
-            Stop doing it by hand. I'll build the systems that do it for you.
+            The Hidden Drain inside Your Business that You Are Constantly Trying to Ignore
           </h1>
 
           <p
@@ -58,9 +58,11 @@ export default function Hero() {
               marginBottom: "2.5rem",
             }}
           >
-            I build websites, AI agents, and security systems that run your
-            business while you sleep. Book a free call. I'll look at what you
-            have, tell you what's broken, and give you a plan to fix it.
+            Every day, human error quietly drains revenue from your business.
+            Missed follow-ups. Broken handoffs. Tasks that should take minutes
+            but consume hours. I replace that uncertainty with systems that run
+            themselves — so you stop managing people and start owning a business
+            that works without you watching it.
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -68,7 +70,7 @@ export default function Hero() {
               href="#diagnostic"
               className="cta-pill cta-pill-primary"
             >
-              Find What's Broken
+              UNCOVER THE 7-MINUTE DISCOVERY
               <span className="cta-icon-circle">
                 <ArrowUpRight size={16} />
               </span>

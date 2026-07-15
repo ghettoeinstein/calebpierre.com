@@ -19,19 +19,19 @@ export default function Nav() {
   }, []);
 
   const serviceLinks = [
-    { label: "AI Agents", href: "./los-angeles/ai-agents.html" },
+    { label: "Autonomous Systems", href: "./los-angeles/ai-agents.html" },
     { label: "Cybersecurity", href: "./los-angeles/cybersecurity.html" },
     { label: "Business Automation", href: "./los-angeles/business-automation.html" },
   ];
 
   const articleLinks = [
-    { label: "AI Agents in LA", href: "./articles/ai-agents-los-angeles.html" },
+    { label: "Autonomous Systems in LA", href: "./articles/ai-agents-los-angeles.html" },
     { label: "Cybersecurity in LA", href: "./articles/cybersecurity-los-angeles.html" },
     { label: "Automation in LA", href: "./articles/business-automation-los-angeles.html" },
   ];
 
   const pageLinks = [
-    { label: "Diagnostic", href: "#diagnostic" },
+    { label: "Discovery", href: "#diagnostic" },
     { label: "Process", href: "#process" },
     { label: "Proof", href: "#proof" },
     { label: "About", href: "#about" },
@@ -65,7 +65,7 @@ export default function Nav() {
             <div style={{ fontFamily: F.body, fontSize: "0.88rem", color: C.ink, fontWeight: 600 }}>
               Caleb Pierre
               <div style={{ fontFamily: F.mono, fontSize: "0.58rem", color: C.steel, letterSpacing: "0.1em" }}>
-                SYSTEMS · AI · SECURITY
+                SYSTEMS · AUTOMATION · SECURITY
               </div>
             </div>
           </a>
@@ -149,7 +149,7 @@ export default function Nav() {
               className="cta-pill cta-pill-primary"
               style={{ fontSize: "0.8rem", padding: "0.5rem 1rem" }}
             >
-              Book a Call
+              Start the Discovery
               <span className="cta-icon-circle" style={{ width: 22, height: 22 }}>
                 <ArrowUpRight size={13} />
               </span>
@@ -190,7 +190,7 @@ export default function Nav() {
               </a>
               <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener noreferrer"
                 className="cta-pill cta-pill-primary" style={{ marginTop: "8px", justifyContent: "center" }}>
-                Book a Call
+                Start the Discovery
                 <span className="cta-icon-circle"><ArrowUpRight size={14} /></span>
               </a>
             </div>
