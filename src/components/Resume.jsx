@@ -30,7 +30,7 @@ function useParallax(speed = 0.3) {
 }
 
 /* =========================================================
-   SKILL PILLAR DATA
+   SKILL PILLAR DATA — Schwartz: outcomes, not skill lists
    ========================================================= */
 const PILLARS = [
   {
@@ -38,12 +38,12 @@ const PILLARS = [
     title: "AI & Automation",
     color: C.red,
     skills: [
-      "AI Agent Development",
-      "LLM Orchestration",
-      "MCP Integration",
-      "Zapier · n8n · Make",
-      "Prompt Engineering",
-      "RAG Pipelines",
+      "AI agents that do the work, not just answer questions",
+      "LLM orchestration across GPT-4, Claude, and local models",
+      "RAG pipelines that ground answers in your data",
+      "MCP integration — your systems talking to each other",
+      "Zapier, n8n, Make — the right tool for the job",
+      "Source code and documentation you actually own",
     ],
   },
   {
@@ -51,12 +51,12 @@ const PILLARS = [
     title: "Security Engineering",
     color: C.ink,
     skills: [
-      "SOAR / SIEM (Splunk, QRadar)",
-      "Zero Trust Architecture",
-      "HIPAA · HiTECH Compliance",
-      "Rapid7 · Tenable",
-      "Incident Response",
-      "Bug Bounty (HackerOne)",
+      "Threats contained in seconds, not days (SOAR/SIEM)",
+      "Zero Trust — every access verified, every time",
+      "HIPAA audits you actually pass",
+      "Vulnerability findings prioritized by real risk",
+      "Incident response rehearsed, not improvised",
+      "Bug bounty programs that surface holes on your terms",
     ],
   },
   {
@@ -64,18 +64,18 @@ const PILLARS = [
     title: "Build & Deploy",
     color: C.steel,
     skills: [
-      "Python · Go · Bash",
-      "Next.js · React · Node",
-      "AWS · GCP · Docker",
-      "CI/CD · GitHub Actions",
-      "PostgreSQL · MongoDB",
-      "REST · GraphQL APIs",
+      "Python, Go, Bash — the tools that get it done",
+      "Next.js, React, Node — full-stack, not half-stack",
+      "AWS, GCP, Docker — your cloud, your terms",
+      "CI/CD that cuts deployment time by 60%",
+      "PostgreSQL, MongoDB — data that doesn't disappear",
+      "REST, GraphQL APIs — systems that talk to each other",
     ],
   },
 ];
 
 /* =========================================================
-   EXPERIENCE TIMELINE
+   EXPERIENCE TIMELINE — Schwartz: what changed, not what was
    ========================================================= */
 const EXPERIENCE = [
   {
@@ -86,11 +86,11 @@ const EXPERIENCE = [
     icon: Brain,
     tag: "CURRENT",
     highlights: [
-      "Architect and deploy end-to-end AI agent systems embedded directly inside client environments — scoping ambiguous operational problems on day one and owning them through production.",
-      "Built agentic workflows integrating LLMs, MCP servers, and business APIs (CRM, EHR-adjacent, communication channels) that eliminated 40–60% of manual overhead for nonprofit and enterprise clients.",
-      "Designed multi-stack automation pipelines using Zapier, n8n, Python agents, and REST/GraphQL integrations connecting disparate systems into unified, self-operating infrastructure.",
-      "Deployed production AI systems on Next.js + Docker + AWS/GCP including NLP-powered intake automation, intelligent knowledge bases, and AI-native customer interaction layers.",
-      "Conducted HIPAA/HiTECH security audits for healthcare organizations — delivering technical remediation roadmaps and automated compliance monitoring pipelines.",
+      "Walk into ambiguous operational problems on day one and own them through production — scoping, building, deploying, documenting.",
+      "Agentic workflows that eliminated 40–60% of manual overhead for nonprofit and enterprise clients — not by replacing people, by taking robotic work off their plates.",
+      "Automation pipelines using Zapier, n8n, Python agents, and REST/GraphQL that turned disparate tools into one self-operating system.",
+      "Production AI systems on Next.js + Docker + AWS/GCP — NLP-powered intake automation, intelligent knowledge bases, AI-native customer interaction layers.",
+      "HIPAA/HiTECH security audits for healthcare organizations — delivering remediation roadmaps and automated compliance monitoring, not checkbox exercises.",
     ],
   },
   {
@@ -101,10 +101,10 @@ const EXPERIENCE = [
     icon: Cloud,
     tag: "CURRENT",
     highlights: [
-      "Serve as embedded IT Director for a nonprofit serving justice-impacted individuals — owning the full technical environment including infrastructure, compliance, security policy, and workflow automation.",
-      "Implemented GCP and Google Workspace across the organization with HIPAA-aligned data privacy controls, access governance, and encryption policies — bringing the environment into full compliance.",
-      "Authored and enforced organization-wide security policies covering data handling, acceptable use, incident response, and user access management — establishing the first formal security posture in the organization's history.",
-      "Automated administrative and case management workflows using no-code and AI-native tools to eliminate manual data entry, reduce staff overhead, and create auditable, repeatable operational processes.",
+      "Embedded IT Director for a nonprofit serving justice-impacted individuals — owning the full technical environment, not just the helpdesk.",
+      "Implemented GCP and Google Workspace with HIPAA-aligned data privacy controls — bringing the environment into full compliance for the first time.",
+      "Authored and enforced the first formal security policies in the organization's history — data handling, acceptable use, incident response, access management.",
+      "Automated administrative and case management workflows — eliminating manual data entry, reducing staff overhead, creating auditable, repeatable processes.",
     ],
   },
   {
@@ -114,8 +114,8 @@ const EXPERIENCE = [
     location: "Los Angeles, CA",
     icon: Zap,
     highlights: [
-      "Deployed Zapier-driven automation pipelines connecting CRM, email, and social channels via REST API orchestration, reducing manual workload by 40%.",
-      "Containerized multi-environment WordPress infrastructure (staging / testing / production) with Git-based version control — achieving zero deployment errors.",
+      "Deployed Zapier-driven automation pipelines connecting CRM, email, and social channels — reducing manual workload by 40%. That's 40% of someone's week, given back.",
+      "Containerized multi-environment WordPress infrastructure (staging / testing / production) with Git-based version control — zero deployment errors.",
     ],
   },
   {
@@ -125,7 +125,7 @@ const EXPERIENCE = [
     location: "Remote",
     icon: Code2,
     highlights: [
-      "Shipped 5+ full-stack applications in Python and React deployed to AWS with Docker-based CI/CD via GitHub Actions, cutting deployment cycle time by 60%.",
+      "Shipped 5+ full-stack applications in Python and React deployed to AWS with Docker-based CI/CD — cutting deployment cycle time by 60%.",
     ],
   },
   {
@@ -135,8 +135,8 @@ const EXPERIENCE = [
     location: "West Hollywood, CA",
     icon: Lock,
     highlights: [
-      "Designed and deployed SOAR playbooks integrated with Splunk SIEM — automating threat detection, incident response, and access event handling end-to-end. Increased SOC efficiency by 50%.",
-      "Automated endpoint protection and vulnerability management workflows across the full enterprise, maintaining secure asset identity and access controls at consumer scale.",
+      "Designed and deployed SOAR playbooks integrated with Splunk SIEM — automating threat detection and incident response end-to-end. SOC efficiency up 50%. A human reading an alert takes three days. The playbook takes three seconds.",
+      "Automated endpoint protection and vulnerability management workflows across the full enterprise — maintaining secure asset identity and access controls at consumer scale.",
     ],
   },
   {
@@ -157,7 +157,7 @@ const EXPERIENCE = [
     location: "Los Angeles, CA",
     icon: Activity,
     highlights: [
-      "Deployed and automated enterprise-wide asset discovery via Rapid7, achieving 100% asset visibility for IAM and compliance reporting across the full environment.",
+      "Deployed and automated enterprise-wide asset discovery via Rapid7 — achieving 100% asset visibility for IAM and compliance reporting across the full environment.",
     ],
   },
   {
@@ -167,7 +167,7 @@ const EXPERIENCE = [
     location: "Los Angeles, CA",
     icon: Shield,
     highlights: [
-      "Maintained 100% HIPAA audit compliance through precision SIEM tuning and threat intelligence integration. Reduced security alert noise by 40%.",
+      "Maintained 100% HIPAA audit compliance through precision SIEM tuning and threat intelligence integration. Reduced security alert noise by 40% — so the team could focus on real threats, not false positives.",
     ],
   },
   {
@@ -177,7 +177,7 @@ const EXPERIENCE = [
     location: "Los Angeles, CA",
     icon: Cpu,
     highlights: [
-      "Architected Golang backend API with MongoDB and enterprise-grade security controls for a production fintech application.",
+      "Architected Golang backend API with MongoDB and enterprise-grade security controls for a production fintech application — from zero to live.",
     ],
   },
   {
@@ -187,7 +187,7 @@ const EXPERIENCE = [
     location: "Los Angeles, CA",
     icon: Lock,
     highlights: [
-      "Executed vulnerability remediation across 5,000+ assets ensuring HIPAA compliance across critical healthcare infrastructure.",
+      "Executed vulnerability remediation across 5,000+ assets ensuring HIPAA compliance across critical healthcare infrastructure. You can't fix what you don't know about — so we found everything first.",
     ],
   },
   {
@@ -197,7 +197,7 @@ const EXPERIENCE = [
     location: "Los Angeles, CA",
     icon: Terminal,
     highlights: [
-      "Frontline security support and product guidance for enterprise customers deploying vulnerability management solutions.",
+      "Frontline security support and product guidance for enterprise customers deploying vulnerability management solutions — learning the tools from the inside before building with them.",
     ],
   },
 ];
@@ -462,7 +462,7 @@ function TimelineEntry({ exp, index }) {
 }
 
 /* =========================================================
-   MAIN RESUME SECTION
+   MAIN RESUME SECTION — Schwartz positioning document
    ========================================================= */
 export default function Resume() {
   const [heroRef, heroOffset] = useParallax(0.12);
@@ -483,7 +483,7 @@ export default function Resume() {
                 marginBottom: "0.75rem",
               }}
             >
-              The Record
+              The Record — Not a Resume, a Position
             </p>
             <h2
               style={{
@@ -493,11 +493,11 @@ export default function Resume() {
                 fontWeight: 700,
                 lineHeight: 1.1,
                 marginBottom: "1.5rem",
-                maxWidth: "18ch",
+                maxWidth: "20ch",
                 letterSpacing: "-0.03em",
               }}
             >
-              From securing Tinder to building AI agents that run themselves.
+              I spent a decade securing other people's systems. Now I build the ones that run themselves.
             </h2>
             <p
               style={{
@@ -505,14 +505,16 @@ export default function Resume() {
                 color: C.steel,
                 fontSize: "1.05rem",
                 lineHeight: 1.75,
-                maxWidth: "56ch",
+                maxWidth: "58ch",
                 marginBottom: "2rem",
               }}
             >
-              A decade inside enterprise security teams, startup CTO roles, and
-              nonprofit infrastructure — now building the AI systems that replace
-              the manual work I used to audit. Every role below is a chapter, not
-              a bullet point.
+              Most resumes list jobs. This one tells you what changed at each
+              one. Ten years inside enterprise security teams, startup CTO
+              roles, and nonprofit infrastructure — finding the holes, closing
+              them, then building the AI systems that replace the manual work I
+              used to audit. Every role below is a chapter in how I got here.
+              Not a bullet point. A result.
             </p>
             <a
               href="https://linkedin.com/in/calebpierre"
@@ -533,7 +535,7 @@ export default function Resume() {
               onMouseLeave={(e) => { e.currentTarget.style.borderColor = C.line; e.currentTarget.style.background = "transparent"; }}
             >
               <Linkedin size={16} color={C.red} />
-              Full history on LinkedIn
+              Verify every line on LinkedIn
               <ArrowUpRight size={14} color={C.steel} />
             </a>
           </Reveal>
@@ -551,7 +553,7 @@ export default function Resume() {
               marginBottom: "1.5rem",
             }}
           >
-            Three Disciplines, One Operator
+            Three Disciplines, One Operator — What You Get
           </p>
         </Reveal>
         <div className="grid md:grid-cols-3 gap-5" style={{ marginBottom: "4rem" }}>
@@ -572,7 +574,7 @@ export default function Resume() {
               marginBottom: "2rem",
             }}
           >
-            Professional Experience
+            The Decade — What Changed at Each Stop
           </p>
         </Reveal>
         <div>
@@ -599,12 +601,15 @@ export default function Resume() {
                 color: C.steel,
                 fontSize: "0.95rem",
                 lineHeight: 1.7,
-                maxWidth: "50ch",
+                maxWidth: "52ch",
               }}
             >
               10 years. 11 roles. Enterprise security at Tinder and Verizon.
-              Fintech CTO. Healthcare compliance. AI agent systems for nonprofits.
-              All of it documented, all of it auditable.
+              Fintech CTO. Healthcare compliance. AI agent systems for
+              nonprofits. All of it documented, all of it auditable, all of it
+              built by the same person you'd be talking to. No account managers.
+              No black boxes. The engineer who builds it is the one who picks
+              up the phone.
             </p>
             <a
               href="https://linkedin.com/in/calebpierre"

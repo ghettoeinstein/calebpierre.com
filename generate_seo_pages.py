@@ -4,6 +4,12 @@ SEO Page Generator for calebpierre.com
 Generates city × service landing pages + article pages optimized for
 traditional search (Google) and AI crawlers (GPTBot, ClaudeBot, PerplexityBot).
 
+All copy is written in the Eugene Schwartz direct-psychological style:
+  - Frustration-to-relief framing
+  - Outcomes instead of feature lists
+  - No-bullshit FAQ tone
+  - Provocation → proof → call to action
+
 Design tokens match the calebpierre.com brand:
   paper: #FAFAF8, ink: #0B0B0B, red: #E10600, steel: #5C5C5C
   Fonts: Space Grotesk (display), IBM Plex Sans (body), IBM Plex Mono (mono)
@@ -47,58 +53,58 @@ CITIES = [
      "desc": "the media and entertainment capital of LA"},
 ]
 
-# ============ SERVICES ============
+# ============ SERVICES (Schwartz-style: outcomes, not features) ============
 SERVICES = [
     {
         "slug": "ai-agents",
         "name": "AI Agent Development",
         "title": "AI Agent Development in {city}, CA",
-        "desc": "Custom AI agents for {city} businesses — LLM orchestration, MCP integration, RAG pipelines, and multi-agent workflows that eliminate 40-60% of manual overhead.",
+        "desc": "Your {city} business is hemorrhaging hours on work a machine should be doing. AI agents that take over the grunt work — and give you 40-60% of your team's time back.",
         "keywords": ["ai agent development {city}", "ai engineer {city}", "LLM orchestration {city}", "AI automation {city} CA"],
         "price": "Starting at $3,000",
         "features": [
-            "Custom AI agents built on GPT-4, Claude, and local LLMs",
-            "MCP (Model Context Protocol) server integration",
-            "RAG pipelines connecting your business data to AI",
-            "Multi-agent orchestration — propose, validate, execute, log",
-            "Deployment on AWS/GCP with Docker + CI/CD",
-            "Full documentation and source code handover",
+            "Stop paying humans to copy-paste between systems — agents handle intake, routing, and data entry autonomously",
+            "Answers from your data, not the internet — RAG pipelines ground every response in your own documents and CRM",
+            "One agent proposes, another validates, a third executes — guardrails built in so nothing goes out the door unchecked",
+            "Your systems talk to each other — MCP integration connects AI to your existing tools without ripping anything out",
+            "Runs on your cloud, your terms — AWS or GCP with Docker, no vendor lock-in, no black box",
+            "Source code and documentation that a human can actually read — you own it, you understand it, you control it",
         ],
-        "body_extra": "Caleb Pierre has deployed AI agent systems for nonprofit and enterprise clients across Los Angeles County — from NLP-powered intake automation to intelligent knowledge bases. Every system ships with documentation you can actually read.",
+        "body_extra": "Most {city} businesses don't have an AI problem. They have a manual-work problem dressed up as a software problem. Caleb Pierre has walked into nonprofit and enterprise environments across LA County and watched the same pattern: people doing the same task 40 times a day, billing for it, and calling it a job. The AI agents he deploys don't replace your team — they take the robotic work off their plates so your team can do the work that actually requires a human. Every system ships with documentation you can read and source code you own. No black boxes. No subscription hostage situations.",
     },
     {
         "slug": "cybersecurity",
         "name": "Cybersecurity",
         "title": "Cybersecurity Services in {city}, CA",
-        "desc": "Enterprise-grade cybersecurity for {city} businesses — SOAR/SIEM, Zero Trust Architecture, HIPAA compliance, vulnerability assessment, and incident response.",
+        "desc": "You're one bad day away from a breach and you don't know where the hole is. Enterprise-grade security for {city} businesses — find the gaps, close them, sleep at night.",
         "keywords": ["cybersecurity {city}", "cyber security {city} CA", "HIPAA compliance {city}", "security engineer {city}"],
         "price": "Starting at $1,500",
         "features": [
-            "SOAR playbook design + Splunk SIEM integration",
-            "Zero Trust Architecture implementation",
-            "HIPAA / HiTECH compliance audits for healthcare",
-            "Vulnerability assessment with Rapid7 and Tenable",
-            "Incident response planning + tabletop exercises",
-            "Bug bounty program management (HackerOne)",
+            "Threats detected and contained automatically — SOAR playbooks respond in seconds, not the three days it takes a human to read the alert",
+            "Every access request verified, every time — Zero Trust means no one gets a free pass because they're 'inside the network'",
+            "HIPAA audits you actually pass — not a checkbox exercise, real compliance that holds up when an auditor walks in",
+            "Every hole in your environment found and prioritized — stop guessing what's vulnerable and start fixing what actually matters",
+            "When something hits, you have a plan — incident response that's been rehearsed, not improvised in a panic",
+            "External attackers handled before they reach you — bug bounty programs that surface vulnerabilities on your terms, not theirs",
         ],
-        "body_extra": "Caleb Pierre served as Security Engineer II at Tinder, where he designed SOAR playbooks integrated with Splunk SIEM that increased SOC efficiency by 50%. He managed HackerOne bug bounty programs at Verizon Media and maintained 100% HIPAA compliance at Children's Hospital Los Angeles.",
+        "body_extra": "Caleb Pierre spent two years as Security Engineer II at Tinder in West Hollywood. Before that, he ran bug bounty programs at Verizon Media, maintained 100% HIPAA compliance at Children's Hospital Los Angeles, and did vulnerability remediation across 5,000+ assets at UCLA Health. He's seen what happens when security is an afterthought — and when it's built in from day one. The difference is usually one bad day. He makes sure that bad day doesn't happen to you.",
     },
     {
         "slug": "business-automation",
         "name": "Business Automation",
         "title": "Business Automation in {city}, CA",
-        "desc": "Automate your {city} business — Zapier, n8n, Make, and custom Python agents connecting your tools into unified, self-operating infrastructure.",
+        "desc": "Your {city} team is doing work a machine should be doing. Automation that eliminates the repetitive tasks eating your week — and frees your people for work that matters.",
         "keywords": ["business automation {city}", "Zapier automation {city}", "n8n {city}", "workflow automation {city} CA"],
         "price": "Starting at $2,000",
         "features": [
-            "Zapier, n8n, and Make.com pipeline design",
-            "Custom Python agents for complex workflows",
-            "REST/GraphQL API integration across your toolchain",
-            "CRM, email, and social channel orchestration",
-            "Automated case management and data entry",
-            "Auditable, repeatable operational processes",
+            "Stop paying humans to move data between systems — automated pipelines sync your CRM, email, and tools without a single copy-paste",
+            "Complex workflows handled by Python agents — not just 'if this then that,' but systems that read, decide, and act",
+            "Your tools connected into one self-operating system — no more switching between 8 tabs to complete one task",
+            "Every process documented and repeatable — when someone asks 'how does this work,' the answer is written down",
+            "Scale without adding headcount — the automation handles the volume, your team handles the judgment calls",
+            "Workflows you can audit end-to-end — every step logged, every action traceable, nothing happening in the dark",
         ],
-        "body_extra": "At Union Rescue Mission in Los Angeles, Caleb deployed Zapier-driven automation pipelines that reduced manual workload by 40%. As IT Director for Social Service Advocacy in Gardena, he automated administrative workflows that eliminated manual data entry across the organization.",
+        "body_extra": "At Union Rescue Mission in Los Angeles, Caleb deployed automation pipelines that gave staff 40% of their week back. As IT Director for a nonprofit in Gardena, he eliminated manual data entry across the entire organization — not by replacing people, but by removing the robotic work that was burning them out. The result: staff got hours back, every process became auditable, and the organization scaled without adding admin overhead. That's what automation looks like when it's done right.",
     },
 ]
 
@@ -166,10 +172,10 @@ PAGE_TEMPLATE = r"""<!DOCTYPE html>
   "mainEntity": [
     {{
       "@type": "Question",
-      "name": "Do you work with businesses in {city_name} specifically?",
+      "name": "Do you actually work with businesses in {city_name}, or is that just SEO?",
       "acceptedAnswer": {{
         "@type": "Answer",
-        "text": "Yes. Caleb Pierre is based in Los Angeles County and {city_name} is within our primary service area. We offer on-site visits for initial audits and can deploy systems remotely."
+        "text": "No, it's not just SEO. Caleb Pierre is based in LA County and {city_name} is in the primary service area. On-site for audits, remote for deployment. You're not getting a call center — you're getting the engineer who builds the system."
       }}
     }},
     {{
@@ -177,15 +183,15 @@ PAGE_TEMPLATE = r"""<!DOCTYPE html>
       "name": "How much does {service_name_lower} cost in {city_name}?",
       "acceptedAnswer": {{
         "@type": "Answer",
-        "text": "Our {service_name} {price}. We offer a free 30-minute systems audit first to determine if our services are the right fit for your business."
+        "text": "{service_name} {price}. But here's the honest part: not every business needs this. That's why there's a free 30-minute systems audit first. If you don't need it, you'll be told. If you do, you'll know exactly what you're paying for."
       }}
     }},
     {{
       "@type": "Question",
-      "name": "What makes Caleb Pierre different from other agencies in {city_name}?",
+      "name": "What makes Caleb Pierre different from every other agency in {city_name}?",
       "acceptedAnswer": {{
         "@type": "Answer",
-        "text": "Caleb Pierre is not an agency — he's a forward-deployed engineer with 10 years of enterprise security and AI experience. He builds the systems himself, ships documentation, and hands you the source code. No black boxes."
+        "text": "Caleb Pierre is not an agency. He's the engineer who builds the system, writes the documentation, and hands you the source code. No account managers, no offshore teams, no black boxes. The person you talk to is the person who builds it."
       }}
     }},
     {{
@@ -193,7 +199,7 @@ PAGE_TEMPLATE = r"""<!DOCTYPE html>
       "name": "How fast can you deploy in {city_name}?",
       "acceptedAnswer": {{
         "@type": "Answer",
-        "text": "From audit to deployment in 30 days. AI agents go live in week 1. Security assessments complete in week 2. Full system documentation and handover by day 30."
+        "text": "Audit to deployment in 30 days. AI agents live in week 1. Security assessments done in week 2. Full documentation and source code handover by day 30. If anyone tells you faster, ask them what they're skipping."
       }}
     }}
   ]
@@ -327,7 +333,7 @@ function toggleMobile() {{
   </section>
 
   <section>
-    <h2>What's Included</h2>
+    <h2>What You Walk Away With</h2>
     <ul class="features">
 {features_html}
     </ul>
@@ -343,28 +349,28 @@ function toggleMobile() {{
   </div>
 
   <div class="cta-box">
-    <h2>Ready to deploy in {city_name}?</h2>
-    <p>Get a free 30-minute systems audit. No obligation, no pitch — just a straight answer.</p>
+    <h2>Stop bleeding hours. Start getting them back.</h2>
+    <p>Free 30-minute systems audit. No pitch, no obligation — just a straight answer about what's costing you and what to fix first.</p>
     <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="cta-btn">Book Your Free Audit →</a>
   </div>
 
   <section class="faq">
-    <h2>Frequently Asked Questions</h2>
+    <h2>Questions You Should Be Asking</h2>
     <div class="faq-item">
-      <h3>Do you work with businesses in {city_name} specifically?</h3>
-      <p>Yes. Caleb Pierre is based in Los Angeles County and {city_name} is within our primary service area. We offer on-site visits for initial audits and can deploy systems remotely.</p>
+      <h3>Do you actually work with businesses in {city_name}, or is that just SEO?</h3>
+      <p>No, it's not just SEO. Caleb Pierre is based in LA County and {city_name} is in the primary service area. On-site for audits, remote for deployment. You're not getting a call center — you're getting the engineer who builds the system.</p>
     </div>
     <div class="faq-item">
       <h3>How much does {service_name_lower} cost in {city_name}?</h3>
-      <p>Our {service_name} {price}. We offer a free 30-minute systems audit first to determine if our services are the right fit for your business.</p>
+      <p>{service_name} {price}. But here's the honest part: not every business needs this. That's why there's a free 30-minute systems audit first. If you don't need it, you'll be told. If you do, you'll know exactly what you're paying for.</p>
     </div>
     <div class="faq-item">
-      <h3>What makes Caleb Pierre different from other agencies in {city_name}?</h3>
-      <p>Caleb Pierre is not an agency — he's a forward-deployed engineer with 10 years of enterprise security and AI experience. He builds the systems himself, ships documentation, and hands you the source code. No black boxes.</p>
+      <h3>What makes Caleb Pierre different from every other agency in {city_name}?</h3>
+      <p>Caleb Pierre is not an agency. He's the engineer who builds the system, writes the documentation, and hands you the source code. No account managers, no offshore teams, no black boxes. The person you talk to is the person who builds it.</p>
     </div>
     <div class="faq-item">
       <h3>How fast can you deploy in {city_name}?</h3>
-      <p>From audit to deployment in 30 days. AI agents go live in week 1. Security assessments complete in week 2. Full system documentation and handover by day 30.</p>
+      <p>Audit to deployment in 30 days. AI agents live in week 1. Security assessments done in week 2. Full documentation and source code handover by day 30. If anyone tells you faster, ask them what they're skipping.</p>
     </div>
   </section>
 </div>
@@ -563,7 +569,7 @@ function toggleMobile() {{
 
   <div class="cta-box">
     <h2>Want this for your business?</h2>
-    <p>Book a free 30-minute systems audit. I'll take real notes and hand you a written game plan.</p>
+    <p>Book a free 30-minute systems audit. I'll take real notes and hand you a written game plan — no pitch, no pressure.</p>
     <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="cta-btn">Book Your Free Audit →</a>
   </div>
 </div>
@@ -626,37 +632,35 @@ function toggleMobile() {{
 </body>
 </html>"""
 
-# ============ ARTICLES ============
+# ============ ARTICLES (Schwartz-style: frustration → proof → relief) ============
 ARTICLES = [
     {
         "slug": "ai-agents-los-angeles.html",
         "title": "How AI Agents Are Transforming Los Angeles Businesses",
-        "desc": "A practical guide to deploying AI agents for LA businesses — from LLM orchestration to RAG pipelines to MCP integration. Built by a Los Angeles AI engineer.",
+        "desc": "Most LA businesses are playing with ChatGPT and calling it AI integration. Here's what actually works — from an LA engineer who deploys it.",
         "keywords": "AI agents Los Angeles, AI automation LA, LLM orchestration, AI engineer Los Angeles, business automation AI",
         "category": "AI & Automation",
         "date": "2026-07-10",
         "body": """
 <h2>Most LA businesses are doing AI wrong</h2>
 <p>Everyone in Los Angeles is talking about AI. Very few are actually deploying it. Most businesses are either playing with ChatGPT and calling it "AI integration," or they're paralyzed by the complexity and doing nothing.</p>
-<p>The businesses winning right now aren't the ones with the most advanced AI — they're the ones who deployed <strong>simple, targeted AI agents</strong> that eliminated specific manual workflows. An AI agent that handles after-hours calls. An agent that qualifies leads and books appointments. An agent that monitors your systems and alerts you before something breaks.</p>
+<p>Here's the frustration nobody talks about: you don't have an AI problem. You have a manual-work problem. Your team is spending hours every day on tasks a machine should be handling — and you're paying for that time. The businesses winning right now aren't the ones with the most advanced AI. They're the ones who deployed <strong>simple, targeted AI agents</strong> that eliminated specific manual workflows and gave their people time back.</p>
 
-<h2>What an AI agent actually is (and isn't)</h2>
+<h2>What an AI agent actually is (and what it isn't)</h2>
 <p>An AI agent is not a chatbot. A chatbot answers questions. An AI agent <strong>does work</strong>. It reads your CRM, makes decisions, takes actions, and logs what it did. It connects to your business systems through APIs and operates autonomously on a schedule or in response to triggers.</p>
-<p>The stack I deploy for Los Angeles businesses typically includes:</p>
+<p>The stack I deploy for Los Angeles businesses does three things:</p>
 <ul>
-  <li><strong>LLM Orchestration</strong> — routing between GPT-4, Claude, and local models based on cost and capability</li>
-  <li><strong>RAG Pipelines</strong> — connecting your business data (documents, CRM, knowledge base) to the LLM so it answers from your context, not generic internet data</li>
-  <li><strong>MCP Integration</strong> — Model Context Protocol servers that let the agent read from and write to your business systems</li>
-  <li><strong>Multi-Agent Workflows</strong> — specialized agents that propose, validate, execute, and log — with guardrails</li>
-  <li><strong>Deployment</strong> — Docker on AWS/GCP with CI/CD, full documentation, source code handover</li>
+  <li><strong>Grounds every answer in your data</strong> — RAG pipelines connect your documents, CRM, and knowledge base to the LLM so it answers from your context, not generic internet data. No more AI that hallucinates about your own business.</li>
+  <li><strong>Makes your systems talk to each other</strong> — MCP integration lets the agent read from and write to your existing tools without ripping anything out. No migration project required.</li>
+  <li><strong>Checks its own work</strong> — one agent proposes, another validates, a third executes. Guardrails built in so nothing goes out the door unchecked. You get the speed of AI with the safety of human oversight.</li>
 </ul>
 
-<h2>Real deployment: Los Angeles nonprofit</h2>
-<p>For a nonprofit serving justice-impacted individuals in Gardena, CA, I deployed an AI system that eliminated 40-60% of manual overhead. The system handles intake automation, case management data entry, and knowledge base queries — all documented, all auditable.</p>
-<blockquote>The question isn't "can AI help your business?" It's "which manual workflow is costing you the most, and can an agent do it for $200/month instead of a $60k/year hire?"</blockquote>
+<h2>What this looks like when it's running</h2>
+<p>For a nonprofit serving justice-impacted individuals in Gardena, CA, I deployed an AI system that eliminated 40-60% of manual overhead. Intake automation. Case management data entry. Knowledge base queries. All documented, all auditable, all owned by the organization.</p>
+<blockquote>The question isn't "can AI help your business?" It's "which manual workflow is costing you the most, and can an agent do it for a fraction of what you're paying a human to do it?"</blockquote>
 
-<h2>The Los Angeles advantage</h2>
-<p>LA is uniquely positioned for AI adoption. You have:</p>
+<h2>Why Los Angeles is the right place to do this now</h2>
+<p>LA has three things that make it ground zero for AI adoption:</p>
 <ol>
   <li><strong>Dense business networks</strong> — from Santa Monica tech to DTLA finance to South Bay manufacturing, there's a concentration of businesses that can benefit from AI automation</li>
   <li><strong>Talent proximity</strong> — but you don't need to hire an AI team. You need one engineer who can deploy and hand over the system</li>
@@ -671,31 +675,31 @@ ARTICLES = [
     {
         "slug": "cybersecurity-los-angeles.html",
         "title": "Cybersecurity for Los Angeles Businesses: What Actually Matters",
-        "desc": "A practical cybersecurity guide for LA businesses from a former Tinder Security Engineer. SOAR, SIEM, HIPAA compliance, Zero Trust, and what to do before you get breached.",
+        "desc": "You're one bad day away from a breach and you don't know where the hole is. A former Tinder Security Engineer breaks down what to fix first.",
         "keywords": "cybersecurity Los Angeles, HIPAA compliance LA, security engineer Los Angeles, SIEM SOAR, zero trust architecture LA",
         "category": "Security Engineering",
         "date": "2026-07-10",
         "body": """
-<h2>Most LA businesses have a security hole they don't know about</h2>
+<h2>You're probably one bad day away from a breach</h2>
 <p>I spent two years as Security Engineer II at Tinder in West Hollywood. Before that, I managed bug bounty programs at Verizon Media, ran HIPAA compliance at Children's Hospital Los Angeles, and did vulnerability remediation across 5,000+ assets at UCLA Health. I've seen what happens when security is an afterthought — and when it's built in from day one.</p>
-<p>Here's the truth most Los Angeles businesses don't want to hear: <strong>you're probably one bad day away from a breach, and you don't know where the hole is.</strong></p>
+<p>Here's the truth most Los Angeles businesses don't want to hear: <strong>you're probably one bad day away from a breach, and you don't know where the hole is.</strong> The gap between "we have a privacy policy" and "we actually pass a security audit" is enormous. And most businesses don't find out until it's too late.</p>
 
 <h2>The 5 things that actually matter</h2>
 <p>Forget the jargon. Here's what I check first when I audit a Los Angeles business:</p>
 
-<h3>1. Access control</h3>
-<p>Who has access to what? Most businesses have no idea. Former employees still have access. Shared passwords. Admin rights handed out like candy. <strong>Zero Trust Architecture</strong> means verifying every access request, every time — not trusting someone because they're "inside the network."</p>
+<h3>1. Who has access to what?</h3>
+<p>Most businesses have no idea. Former employees still have access. Shared passwords. Admin rights handed out like candy. <strong>Zero Trust Architecture</strong> means verifying every access request, every time — not trusting someone because they're "inside the network." The fix is simple. Most businesses just haven't done it.</p>
 
-<h3>2. Visibility (SIEM)</h3>
-<p>If you're not logging and monitoring, you can't detect a breach until it's too late. I deploy Splunk SIEM with custom detection rules so you see threats in real time, not three months later in a news article.</p>
+<h3>2. Can you see a threat before it's too late?</h3>
+<p>If you're not logging and monitoring, you can't detect a breach until it's already in the news. I deploy Splunk SIEM with custom detection rules so you see threats in real time, not three months later when a reporter calls.</p>
 
-<h3>3. Automated response (SOAR)</h3>
-<p>At Tinder, I built SOAR playbooks that automated threat detection and incident response end-to-end. When a threat is detected, the system responds automatically — isolating the asset, blocking the IP, alerting the team. <strong>Increased SOC efficiency by 50%.</strong></p>
+<h3>3. Can you respond in seconds, not days?</h3>
+<p>At Tinder, I built SOAR playbooks that automated threat detection and incident response end-to-end. When a threat is detected, the system responds automatically — isolating the asset, blocking the IP, alerting the team. <strong>Increased SOC efficiency by 50%.</strong> A human reading an alert and deciding what to do takes three days. The playbook takes three seconds.</p>
 
-<h3>4. Compliance (HIPAA)</h3>
-<p>If you're a healthcare business in Los Angeles — a dental office, a clinic, a therapy practice — HIPAA compliance isn't optional. I've maintained 100% HIPAA audit compliance at Children's Hospital Los Angeles through precision SIEM tuning. The fines for non-compliance can destroy a practice.</p>
+<h3>4. Can you pass a real HIPAA audit?</h3>
+<p>If you're a healthcare business in Los Angeles — a dental office, a clinic, a therapy practice — HIPAA compliance isn't optional. I've maintained 100% HIPAA audit compliance at Children's Hospital Los Angeles through precision SIEM tuning. The fines for non-compliance can destroy a practice. "We have a privacy policy" is not the same as "we pass an audit."</p>
 
-<h3>5. Vulnerability management</h3>
+<h3>5. Do you know where your holes are?</h3>
 <p>You can't fix what you don't know about. I use Rapid7 and Tenable to find every hole in your environment, then prioritize remediation by risk level. At UCLA Health, I executed vulnerability remediation across 5,000+ assets ensuring HIPAA compliance across critical healthcare infrastructure.</p>
 
 <h2>The LA healthcare problem</h2>
@@ -709,23 +713,22 @@ ARTICLES = [
     {
         "slug": "business-automation-los-angeles.html",
         "title": "Business Automation in Los Angeles: Stop Paying Humans to Do a Machine's Job",
-        "desc": "A practical guide to business automation for LA companies — Zapier, n8n, Python agents, and how to identify which workflows to automate first.",
+        "desc": "Every LA business has at least one workflow eating hours every week that could be automated for $200/month. Here's how to find it and fix it.",
         "keywords": "business automation Los Angeles, Zapier automation LA, n8n Los Angeles, workflow automation LA, Python automation",
         "category": "Business Automation",
         "date": "2026-07-10",
         "body": """
-<h2>Your team is doing work that a machine should be doing</h2>
+<h2>Your team is doing work a machine should be doing</h2>
 <p>Every Los Angeles business has at least one workflow that's eating hours of human time every week — and could be automated for $200/month. Data entry. Copy-pasting between systems. Manually sending the same emails. Updating spreadsheets that nobody reads. Triaging the same support tickets over and over.</p>
-<p>This isn't about replacing people. It's about <strong>freeing your team to do the work that actually requires a human</strong> — while the machines handle the repetitive stuff.</p>
+<p>This isn't about replacing people. It's about <strong>freeing your team to do the work that actually requires a human</strong> — while the machines handle the repetitive stuff. The frustration isn't that the work is hard. It's that it's mindless, and you're paying human wages for it.</p>
 
-<h2>The automation stack I deploy in LA</h2>
-<p>Every business is different, but the tools are the same. Here's what I use:</p>
+<h2>The tools I use (and when to use each one)</h2>
 
-<h3>Zapier — the gateway drug</h3>
-<p>Zapier is the fastest way to connect your tools. If you're in Los Angeles and you're not using Zapier to connect your CRM, email, and calendar, you're losing hours every week. At Union Rescue Mission, I deployed Zapier-driven pipelines connecting CRM, email, and social channels via REST API orchestration — <strong>reducing manual workload by 40%</strong>.</p>
+<h3>Zapier — the fastest way to stop bleeding hours</h3>
+<p>If you're in Los Angeles and you're not using Zapier to connect your CRM, email, and calendar, you're losing hours every week. At Union Rescue Mission, I deployed Zapier-driven pipelines connecting CRM, email, and social channels via REST API orchestration — <strong>reducing manual workload by 40%</strong>. That's 40% of someone's week, given back.</p>
 
-<h3>n8n — when you need more control</h3>
-<p>n8n is open-source and self-hostable. When Zapier gets too expensive or you need complex branching logic, n8n is the answer. I deploy n8n on Docker for LA businesses that have outgrown Zapier's pricing model.</p>
+<h3>n8n — when Zapier gets too expensive</h3>
+<p>Zapier pricing scales with usage, and successful automation generates a lot of usage. n8n is open-source and self-hostable. When Zapier gets too expensive or you need complex branching logic, n8n is the answer. I deploy n8n on Docker for LA businesses that have outgrown Zapier's pricing model.</p>
 
 <h3>Python agents — when you need real intelligence</h3>
 <p>Sometimes you need more than "if this then that." You need a system that reads a document, understands it, makes a decision, and takes action. That's where Python agents come in — combined with LLMs, they can handle complex workflows that no-code tools can't touch.</p>
@@ -743,7 +746,7 @@ ARTICLES = [
 </ol>
 <p>The best candidates are usually: intake forms, lead qualification, appointment scheduling, data sync between CRM and accounting, report generation, and notification routing.</p>
 
-<h2>Real deployment: Gardena nonprofit</h2>
+<h2>What this looks like when it's done</h2>
 <p>As IT Director for a nonprofit in Gardena, CA, I automated administrative and case management workflows that eliminated manual data entry across the organization. The result: staff got hours back every week, every process became auditable and repeatable, and the organization could scale without hiring more admin staff.</p>
 <blockquote>The best automation isn't the most complex one — it's the one that saves the most hours for the least cost and never breaks.</blockquote>
 
