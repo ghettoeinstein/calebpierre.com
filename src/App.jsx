@@ -1,12 +1,11 @@
 import Nav from "./components/Nav.jsx";
 import Hero from "./components/Hero.jsx";
+import Work from "./components/Work.jsx";
 import Agitation from "./components/Agitation.jsx";
 import Diagnostic from "./components/Diagnostic.jsx";
 import Services from "./components/Services.jsx";
-import Process from "./components/Process.jsx";
 import Proof from "./components/Proof.jsx";
-import About from "./components/About.jsx";
-import FinalCTA from "./components/FinalCTA.jsx";
+import Closing from "./components/Closing.jsx";
 import Footer from "./components/Footer.jsx";
 
 export default function App() {
@@ -14,13 +13,12 @@ export default function App() {
     <div style={{ position: "relative", minHeight: "100vh" }}>
       <Nav />
       <Hero />
+      <Work />
       <Agitation />
       <Diagnostic />
       <Services />
-      <Process />
       <Proof />
-      <About />
-      <FinalCTA />
+      <Closing />
       <Footer />
     </div>
   );

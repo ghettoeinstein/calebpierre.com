@@ -9,7 +9,7 @@ export default function Hero() {
 
   return (
     <section style={{
-      paddingTop: "3rem",
+      paddingTop: "2rem",
       paddingBottom: "0",
       minHeight: "100dvh",
       display: "flex",
@@ -17,7 +17,6 @@ export default function Hero() {
       justifyContent: "center",
       position: "relative",
     }}>
-      {/* Haring background dots */}
       <div className="haring-bg" />
 
       <div className="cp-container" style={{ position: "relative", zIndex: 2, width: "100%" }}>
@@ -25,9 +24,9 @@ export default function Hero() {
         <div
           className="swiss-card"
           style={{
-            padding: "1.5rem 1.75rem",
-            marginBottom: "2.5rem",
-            maxWidth: "32rem",
+            padding: "1.25rem 1.5rem",
+            marginBottom: "2rem",
+            maxWidth: "28rem",
             background: "#FFFFFF",
           }}
         >
@@ -38,62 +37,50 @@ export default function Hero() {
         <div
           style={{
             opacity: booted ? 1 : 0,
-            transform: booted ? "translateY(0)" : "translateY(16px)",
+            transform: booted ? "translateY(0)" : "translateY(12px)",
             transition: "opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
         >
-          {/* Eyebrow — one line at all breakpoints */}
-          <p
-            className="eyebrow"
-            style={{
-              marginBottom: "1.25rem",
-              whiteSpace: "nowrap",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
+          <p className="eyebrow" style={{ marginBottom: "0.75rem" }}>
             Los Angeles · Remote-First
           </p>
 
-          {/* Headline — responsive max-width in ch units */}
           <h1
             style={{
               fontFamily: F.display,
               color: C.ink,
-              fontSize: "clamp(2.2rem, 6vw, 4.75rem)",
+              fontSize: "clamp(2rem, 5.5vw, 4rem)",
               lineHeight: 1.0,
-              fontWeight: 400, // Archivo Black is already heavy
-              marginBottom: "1.75rem",
-              maxWidth: "18ch",
+              fontWeight: 400,
+              marginBottom: "1.25rem",
+              maxWidth: "16ch",
               letterSpacing: "-0.03em",
             }}
           >
-            The Hidden Drain inside Your Business that You Are Constantly Trying to Ignore
+            The Hidden Drain Inside Your Business
           </h1>
 
           <p
             style={{
               fontFamily: F.body,
               color: C.inkSoft,
-              fontSize: "clamp(1rem, 2.5vw, 1.15rem)",
-              lineHeight: 1.7,
-              maxWidth: "50ch",
-              marginBottom: "2.5rem",
+              fontSize: "clamp(0.95rem, 2vw, 1.1rem)",
+              lineHeight: 1.6,
+              maxWidth: "46ch",
+              marginBottom: "1.75rem",
             }}
           >
-            Every day, human error quietly drains revenue from your business.
-            Missed follow-ups. Broken handoffs. Tasks that should take minutes
-            but consume hours. I replace that uncertainty with systems that run
-            themselves — so you stop managing people and start owning a business
-            that works without you watching it.
+            Every day, human error quietly drains revenue. Missed follow-ups,
+            broken handoffs, tasks that should take minutes but consume hours.
+            I replace that uncertainty with systems that run themselves.
           </p>
 
-          {/* CTA row — stacked on xs/sm, side-by-side md+ */}
+          {/* CTA row */}
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
-              gap: "1rem",
+              gap: "0.75rem",
+              flexWrap: "wrap",
             }}
           >
             <a
@@ -101,34 +88,24 @@ export default function Hero() {
               className="cta-pill cta-pill-primary"
               style={{ justifyContent: "center" }}
             >
-              UNCOVER THE 7-MINUTE DISCOVERY
+              UNCOVER THE DRAIN
               <span className="cta-icon-circle">
                 <ArrowUpRight size={16} />
               </span>
             </a>
             <a
-              href="#services"
+              href="#work"
               className="cta-pill cta-pill-ghost"
               style={{ justifyContent: "center" }}
             >
               See the Work
             </a>
           </div>
-
-          {/* Side-by-side from md up */}
-          <style>{`
-            @media (min-width: 768px) {
-              section > div > div:last-of-type > div[style*="flex-direction: column"] {
-                flex-direction: row !important;
-                flex-wrap: wrap;
-              }
-            }
-          `}</style>
         </div>
       </div>
 
-      {/* Ticker at the bottom — true infinite marquee */}
-      <div style={{ marginTop: "auto", paddingTop: "2.5rem" }}>
+      {/* Ticker at the bottom */}
+      <div style={{ marginTop: "auto", paddingTop: "2rem" }}>
         <Ticker />
       </div>
     </section>

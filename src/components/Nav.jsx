@@ -38,11 +38,11 @@ export default function Nav() {
   ];
 
   const pageLinks = [
+    { label: "Work", href: "#work" },
     { label: "Discovery", href: "#diagnostic" },
-    { label: "Process", href: "#process" },
+    { label: "Services", href: "#services" },
     { label: "Proof", href: "#proof" },
     { label: "About", href: "#about" },
-    { label: "Contact", href: "#contact" },
   ];
 
   const allLinks = [
