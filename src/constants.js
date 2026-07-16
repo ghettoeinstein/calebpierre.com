@@ -1,53 +1,55 @@
-// Design tokens — calebpierre.com Responsive Design System
-// Strict spec: white/red/black retro-futuristic identity
-// Token names follow the spec exactly
+// Design tokens — calebpierre.com
+// Keith Haring inspired: bold black lines, primary colors, street-art energy
+// Same Schwartz copy, completely new visual skin
 
 export const C = {
-  // Color tokens (spec-exact)
-  black: "#0A0A0A",       // primary text, ticker background
+  // Keith Haring palette — bold, primary, unapologetic
+  black: "#0A0A0A",       // primary text, bold outlines, ticker bg
   white: "#FFFFFF",       // page background
-  red: "#E8382D",         // primary CTA, accents, eyebrow labels
-  paper: "#F5F4F2",       // secondary surface (cards, input fields)
-  line: "#D8D6D2",        // hairline borders/dividers
-  redDim: "#F6D9D6",      // hover/disabled tint of red (never a solid substitute)
-
-  // Legacy aliases (for backward compat with existing components)
+  red: "#E8382D",         // primary CTA, energy accent
+  yellow: "#FFD93D",      // Haring yellow — highlights, hover states, accents
+  blue: "#0EA5E9",        // Haring blue — secondary accents, links
+  green: "#22C55E",       // Haring green — success states, active items
+  paper: "#FAFAF8",       // warm off-white secondary surface
+  line: "#0A0A0A",        // bold black lines (Haring's signature)
+  redDim: "#F6D9D6",
+  
+  // Legacy aliases
   bg: "#FFFFFF",
-  bgSoft: "#F5F4F2",
-  panel: "#F5F4F2",
-  panelRaised: "#ECEAE8",
+  bgSoft: "#FAFAF8",
+  panel: "#FAFAF8",
+  panelRaised: "#F0F0EE",
   ink: "#0A0A0A",
   inkSoft: "#444444",
   steel: "#777777",
   steelDark: "#AAAAAA",
-  redGlow: "rgba(232, 56, 45, 0.08)",
+  redGlow: "rgba(232, 56, 45, 0.12)",
   redDeep: "#990400",
-  glass: "rgba(0, 0, 0, 0.02)",
-  glassHover: "rgba(0, 0, 0, 0.04)",
-  glassBorder: "#D8D6D2",
-  // Keep old red alias pointing to new token
-  red: "#E8382D",
-  line: "#D8D6D2",
-  lineBright: "#C0BEBA",
+  glass: "rgba(0, 0, 0, 0.03)",
+  glassHover: "rgba(0, 0, 0, 0.06)",
+  glassBorder: "#0A0A0A",
+  yellowGlow: "rgba(255, 217, 61, 0.15)",
+  blueGlow: "rgba(14, 165, 233, 0.12)",
 };
 
 export const F = {
-  // Display: condensed grotesk for H1/H2 only (tight tracking)
-  display: "'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif",
-  // Body: workhorse humanist sans for paragraphs, nav, buttons
+  // Display: bold, heavy, condensed — Haring's lettering energy
+  display: "'Archivo Black', 'Inter', 'Helvetica Neue', sans-serif",
+  // Body: clean workhorse
   body: "'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif",
-  // Utility/mono: the signature monospace for eyebrows and ticker
+  // Mono: terminal energy
   mono: "'IBM Plex Mono', ui-monospace, monospace",
 };
 
-// Easing curves — Apple-caliber, no linear, no bounce/elastic defaults
+// Easing — playful but controlled
 export const EASE = {
-  smooth: "cubic-bezier(0.32, 0.72, 0, 1)",  // Apple feel
-  swift: "cubic-bezier(0.16, 1, 0.3, 1)",     // Fast out
-  bounce: "cubic-bezier(0.34, 1.56, 0.64, 1)", // Used sparingly
+  smooth: "cubic-bezier(0.32, 0.72, 0, 1)",
+  swift: "cubic-bezier(0.16, 1, 0.3, 1)",
+  bounce: "cubic-bezier(0.34, 1.56, 0.64, 1)",
+  // Haring energy — quick, springy, alive
+  pop: "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
 };
 
-// Breakpoint constants (for JS conditional rendering if needed)
 export const BP = {
   xs: 0,
   sm: 480,
