@@ -17,7 +17,7 @@ export default function Agitation() {
     },
   ];
   return (
-    <section className="px-6 section-pad">
+    <section className="px-6 section-pad" style={{ paddingTop: "4rem" }}>
       <div className="max-w-3xl mx-auto">
         <Reveal>
           <h2

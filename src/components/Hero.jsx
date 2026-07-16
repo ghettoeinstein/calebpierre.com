@@ -128,7 +128,7 @@ export default function Hero() {
       </div>
 
       {/* Ticker at the bottom — true infinite marquee */}
-      <div style={{ marginTop: "auto" }}>
+      <div style={{ marginTop: "auto", paddingTop: "2.5rem" }}>
         <Ticker />
       </div>
     </section>
