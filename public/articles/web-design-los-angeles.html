@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Design for Los Angeles Businesses: Why Most Sites Are Losing You Money | Caleb Pierre</title>
+<meta name="description" content="Your LA business's website was built once and forgotten. Here's what a site that actually converts looks like — from an engineer who builds them.">
+<meta name="keywords" content="web design Los Angeles, website redesign LA, Next.js developer Los Angeles, small business website LA">
+<meta name="author" content="Caleb Pierre">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calebpierre.com/articles/web-design-los-angeles.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web Design for Los Angeles Businesses: Why Most Sites Are Losing You Money | Caleb Pierre">
+<meta property="og:description" content="Your LA business's website was built once and forgotten. Here's what a site that actually converts looks like — from an engineer who builds them.">
+<meta property="og:url" content="https://calebpierre.com/articles/web-design-los-angeles.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Web Design for Los Angeles Businesses: Why Most Sites Are Losing You Money | Caleb Pierre">
+<meta name="twitter:description" content="Your LA business's website was built once and forgotten. Here's what a site that actually converts looks like — from an engineer who builds them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Web Design for Los Angeles Businesses: Why Most Sites Are Losing You Money",
+  "description": "Your LA business's website was built once and forgotten. Here's what a site that actually converts looks like — from an engineer who builds them.",
+  "author": { "@type": "Person", "name": "Caleb Pierre", "sameAs": "https://linkedin.com/in/calebpierre" },
+  "publisher": { "@type": "Organization", "name": "Caleb Pierre Ventures" },
+  "datePublished": "2026-07-20",
+  "dateModified": "2026-07-20"
+}
+</script>
+<style>
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --paper: #FAFAFA; --panel: #F0F0F0; --ink: #0A0A0A; --red: #E8382D;
+  --steel: #6B6B6B; --line: #D9D9D9; --lineDark: rgba(255,255,255,0.15);
+  --display: 'Inter', system-ui, sans-serif;
+  --body: 'Inter', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); background: var(--paper); color: var(--ink); line-height: 1.75; }
+a { color: var(--red); text-decoration: none; }
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+.nav { position: sticky; top: 0; z-index: 50; background: rgba(250,250,250,0.94); backdrop-filter: blur(6px); border-bottom: 2px solid var(--ink); }
+.nav-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; }
+.nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-mark { font-family: var(--mono); font-weight: 700; font-size: 0.9rem; color: var(--ink); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 2px solid var(--ink); letter-spacing: -0.05em; background: #fff; }
+.nav-name { font-family: var(--body); font-weight: 700; font-size: 0.85rem; color: var(--ink); }
+.nav-sub { font-family: var(--mono); font-size: 0.58rem; color: var(--steel); letter-spacing: 0.1em; }
+.nav-cta { background: var(--red); color: #fff; font-family: var(--body); font-weight: 700; font-size: 0.78rem; padding: 8px 16px; }
+.hero { padding: 100px 24px 40px; }
+.eyebrow { font-family: var(--mono); color: var(--red); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; font-weight: 600; }
+h1 { font-family: var(--display); font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 900; line-height: 1.15; color: var(--ink); margin-bottom: 16px; letter-spacing: -0.02em; }
+.meta { font-family: var(--mono); font-size: 0.72rem; color: var(--steel); margin-bottom: 32px; }
+h2 { font-family: var(--display); font-size: 1.5rem; font-weight: 800; color: var(--ink); margin: 40px 0 12px; }
+h3 { font-family: var(--display); font-size: 1.15rem; font-weight: 700; color: var(--ink); margin: 28px 0 10px; }
+p { font-size: 1rem; color: var(--steel); line-height: 1.8; margin-bottom: 16px; }
+ul, ol { padding-left: 24px; margin-bottom: 20px; }
+li { font-size: 0.95rem; color: var(--steel); line-height: 1.7; margin-bottom: 8px; }
+strong { color: var(--ink); font-weight: 700; }
+blockquote { border-left: 3px solid var(--red); padding-left: 20px; margin: 24px 0; font-style: italic; color: var(--ink); }
+.cta-box { background: var(--ink); padding: 40px 32px; margin: 48px 0; text-align: center; }
+.cta-box h2 { color: #fff; margin: 0 0 12px; }
+.cta-box p { color: rgba(255,255,255,0.75); margin-bottom: 20px; font-size: 0.95rem; }
+.cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--red); color: #fff; font-family: var(--body); font-weight: 700; font-size: 0.9rem; padding: 12px 24px; }
+.site-footer { background: var(--ink); border-top: 3px solid var(--red); padding: 48px 24px; }
+.footer-grid { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-bottom: 32px; }
+.footer-col h4 { font-family: var(--mono); color: var(--red); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; font-weight: 700; }
+.footer-col a { display: block; font-family: var(--mono); color: #A8A8A8; font-size: 0.68rem; padding: 3px 0; line-height: 1.6; transition: color 0.15s; }
+.footer-col a:hover { color: var(--red); }
+.footer-seo { max-width: 960px; margin: 0 auto; border-top: 1px solid var(--lineDark); padding-top: 24px; margin-bottom: 24px; }
+.footer-seo p { font-family: var(--body); color: #8A8A8A; font-size: 0.76rem; line-height: 1.8; max-width: 72ch; }
+.footer-bottom { max-width: 960px; margin: 0 auto; border-top: 1px solid var(--lineDark); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-bottom p { font-family: var(--mono); color: #8A8A8A; font-size: 0.68rem; }
+.footer-bottom a { color: var(--red); }
+@media (max-width: 640px) { .wrap { padding: 0 16px; } .hero { padding: 80px 16px 32px; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="https://calebpierre.com/" class="nav-brand">
+      <span class="nav-mark">CP</span>
+      <div>
+        <div class="nav-name">Caleb Pierre</div>
+        <div class="nav-sub">BUSINESS AUTOMATION ENGINEER</div>
+      </div>
+    </a>
+    <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <article class="hero">
+    <p class="eyebrow">Web Design</p>
+    <h1>Web Design for Los Angeles Businesses: Why Most Sites Are Losing You Money</h1>
+    <p class="meta">By Caleb Pierre · 2026-07-20 · Los Angeles, CA</p>
+  </article>
+
+  
+<h2>Your website is either an asset or a liability. There's no neutral.</h2>
+<p>Most Los Angeles businesses treat their website like a business card: built once, hung on the wall, never looked at again. Meanwhile it's either quietly bringing in leads every day, or quietly losing them — slow load times, no clear call to action, copy nobody proofread since 2019. There's no such thing as a website that just sits there doing nothing. It's always doing <em>something</em> to your pipeline. The question is which direction.</p>
+
+<h2>What a site that converts actually has</h2>
+<p>Forget "modern design." Here's what actually moves the needle for an LA business:</p>
+<ul>
+  <li><strong>One job per page</strong> — a homepage that tries to say everything says nothing. Every page should get one visitor to do one thing.</li>
+  <li><strong>Speed</strong> — Google penalizes slow sites in search rankings, and visitors bounce within seconds. Next.js and proper image optimization aren't nice-to-haves, they're the difference between showing up on page one and page three.</li>
+  <li><strong>Editability</strong> — if updating a price or a photo requires a developer and an invoice, the site will go stale again in six months. It should be built so you can touch it yourself.</li>
+  <li><strong>Structured data</strong> — the schema markup that tells Google (and now ChatGPT and Perplexity) exactly what your business is and does, built in from day one, not bolted on as an afterthought.</li>
+</ul>
+
+<h2>What this looks like when it's done right</h2>
+<p>Eden's Candy needed more than a fresh coat of paint — a full digital identity and store experience redesign for a women's wellness brand. Hummingbyrd Apparel & Print needed the opposite: a greenfield build, zero to launch, full Shopify architecture with print-on-demand integration baked in from the first commit. Different starting points, same standard: fast, clean, and built by one person who owns the whole stack, not a project manager relaying requests to an offshore team.</p>
+<blockquote>A website isn't a brochure. It's the first employee your business hires that never sleeps — it should be built like it.</blockquote>
+
+<h2>Why LA businesses specifically get this wrong</h2>
+<p>Los Angeles has more agencies per capita than almost anywhere in the country, and most of them are selling templates with your logo pasted on top. The businesses that win online aren't the ones who spent the most — they're the ones whose site was built around an actual conversion goal instead of "looking nice for the portfolio."</p>
+
+<h2>What to do next</h2>
+<p>If your site hasn't been touched since it launched, it's costing you leads right now, today, while you read this. I offer a free 30-minute audit for LA businesses — I'll look at your actual site and tell you exactly what's costing you conversions and what to fix first. No pitch, just a straight answer.</p>
+
+
+  <div class="cta-box">
+    <h2>Want this for your business?</h2>
+    <p>Book a free 30-minute systems audit. I'll take real notes and hand you a written game plan — no pitch, no pressure.</p>
+    <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="cta-btn">Book Your Free Audit →</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="https://calebpierre.com/los-angeles/web-design.html">Web Design</a>
+      <a href="https://calebpierre.com/los-angeles/ai-programming.html">AI Programming</a>
+      <a href="https://calebpierre.com/los-angeles/business-automation.html">Business Automation</a>
+      <a href="https://calebpierre.com/los-angeles/content-marketing.html">Content Marketing</a>
+      <a href="https://calebpierre.com/los-angeles/remote-tech-support.html">Remote Tech Support</a>
+      <a href="https://calebpierre.com/los-angeles/event-design.html">Experience / Event Design</a>
+      <a href="https://calebpierre.com/los-angeles/cybersecurity.html">Cybersecurity</a>
+    </div>
+    <div class="footer-col">
+      <h4>Articles</h4>
+      <a href="https://calebpierre.com/articles/web-design-los-angeles.html">Web Design in LA</a>
+      <a href="https://calebpierre.com/articles/ai-programming-los-angeles.html">AI Programming in LA</a>
+      <a href="https://calebpierre.com/articles/business-automation-los-angeles.html">Automation in LA</a>
+      <a href="https://calebpierre.com/articles/content-marketing-los-angeles.html">Content Marketing in LA</a>
+      <a href="https://calebpierre.com/articles/remote-tech-support-los-angeles.html">Remote Tech Support in LA</a>
+      <a href="https://calebpierre.com/articles/event-design-los-angeles.html">Event Design in LA</a>
+      <a href="https://calebpierre.com/articles/cybersecurity-los-angeles.html">Cybersecurity for LA</a>
+    </div>
+    <div class="footer-col">
+      <h4>Cities Served</h4>
+      <a href="https://calebpierre.com/los-angeles/business-automation.html">Los Angeles, CA</a>
+      <a href="https://calebpierre.com/long-beach/business-automation.html">Long Beach, CA</a>
+      <a href="https://calebpierre.com/torrance/business-automation.html">Torrance, CA</a>
+      <a href="https://calebpierre.com/carson/business-automation.html">Carson, CA</a>
+      <a href="https://calebpierre.com/compton/business-automation.html">Compton, CA</a>
+      <a href="https://calebpierre.com/hawthorne/business-automation.html">Hawthorne, CA</a>
+      <a href="https://calebpierre.com/inglewood/business-automation.html">Inglewood, CA</a>
+      <a href="https://calebpierre.com/gardena/business-automation.html">Gardena, CA</a>
+      <a href="https://calebpierre.com/santa-monica/business-automation.html">Santa Monica, CA</a>
+      <a href="https://calebpierre.com/pasadena/business-automation.html">Pasadena, CA</a>
+      <a href="https://calebpierre.com/glendale/business-automation.html">Glendale, CA</a>
+      <a href="https://calebpierre.com/burbank/business-automation.html">Burbank, CA</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="https://calebpierre.com/">Home</a>
+      <a href="https://calebpierre.com/resume.html">Resume</a>
+      <a href="https://calebpierre.com/#diagnostic">Systems Diagnostic</a>
+      <a href="https://calebpierre.com/#work">Work</a>
+      <a href="https://calebpierre.com/#proof">Proof of Work</a>
+      <a href="https://calebpierre.com/#about">About</a>
+      <a href="https://calebpierre.com/#contact">Contact</a>
+      <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener">Book a Call</a>
+      <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://calebpierre.com/sitemap.xml">Sitemap</a>
+      <a href="https://calebpierre.com/llms.txt">llms.txt</a>
+      <a href="https://calebpierre.com/robots.txt">robots.txt</a>
+    </div>
+  </div>
+  <div class="footer-seo">
+    <p>Caleb Pierre is a Business Automation Engineer based in Los Angeles, CA. He builds the web, AI, automation, marketing, and support systems that let a business run itself — for organizations across LA County, from nonprofits in Gardena to healthcare practices in Torrance to tech companies in Santa Monica. 10 years of experience across Tinder (Security Engineer II), Verizon Media, Children's Hospital Los Angeles, Glass Financial (CTO), and Caleb Pierre Ventures. Serving Los Angeles, Long Beach, Torrance, Carson, Compton, Hawthorne, Inglewood, Gardena, Santa Monica, Pasadena, Glendale, and Burbank. HIPAA compliant. Remote-first. Book a free systems audit.</p>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Caleb Pierre Ventures LLC &middot; Los Angeles, CA &middot; Remote-First &middot; <a href="https://calebpierre.com/llms.txt">llms.txt</a> &middot; <a href="https://calebpierre.com/sitemap.xml">sitemap.xml</a> &middot; <a href="https://calebpierre.com/robots.txt">robots.txt</a></p>
+    <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener" style="font-family: var(--mono); color: #A8A8A8; font-size: 0.7rem; text-decoration: none;">linkedin.com/in/calebpierre</a>
+  </div>
+</footer>
+
+</body>
+</html>

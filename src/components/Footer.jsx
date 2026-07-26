@@ -1,31 +1,40 @@
 import { Linkedin, ArrowUpRight } from "lucide-react";
 import { C, F } from "../constants.js";
+import FooterParticles from "./FooterParticles.jsx";
 
 const SERVICES = [
-  { label: "AI Agent Development", href: "./los-angeles/ai-agents.html" },
-  { label: "Cybersecurity", href: "./los-angeles/cybersecurity.html" },
+  { label: "Web Design", href: "./los-angeles/web-design.html" },
+  { label: "AI Programming", href: "./los-angeles/ai-programming.html" },
   { label: "Business Automation", href: "./los-angeles/business-automation.html" },
+  { label: "Content Marketing", href: "./los-angeles/content-marketing.html" },
+  { label: "Remote Tech Support", href: "./los-angeles/remote-tech-support.html" },
+  { label: "Experience / Event Design", href: "./los-angeles/event-design.html" },
+  { label: "Cybersecurity", href: "./los-angeles/cybersecurity.html" },
 ];
 
 const ARTICLES = [
-  { label: "AI Agents in Los Angeles", href: "./articles/ai-agents-los-angeles.html" },
-  { label: "Cybersecurity for LA Businesses", href: "./articles/cybersecurity-los-angeles.html" },
+  { label: "Web Design in Los Angeles", href: "./articles/web-design-los-angeles.html" },
+  { label: "AI Programming in Los Angeles", href: "./articles/ai-programming-los-angeles.html" },
   { label: "Business Automation in LA", href: "./articles/business-automation-los-angeles.html" },
+  { label: "Content Marketing in LA", href: "./articles/content-marketing-los-angeles.html" },
+  { label: "Remote Tech Support in LA", href: "./articles/remote-tech-support-los-angeles.html" },
+  { label: "Event Design in LA", href: "./articles/event-design-los-angeles.html" },
+  { label: "Cybersecurity for LA Businesses", href: "./articles/cybersecurity-los-angeles.html" },
 ];
 
 const CITIES = [
-  { label: "Los Angeles", href: "./los-angeles/ai-agents.html" },
-  { label: "Long Beach", href: "./long-beach/ai-agents.html" },
-  { label: "Torrance", href: "./torrance/ai-agents.html" },
-  { label: "Carson", href: "./carson/ai-agents.html" },
-  { label: "Compton", href: "./compton/ai-agents.html" },
-  { label: "Hawthorne", href: "./hawthorne/ai-agents.html" },
-  { label: "Inglewood", href: "./inglewood/ai-agents.html" },
-  { label: "Gardena", href: "./gardena/ai-agents.html" },
-  { label: "Santa Monica", href: "./santa-monica/ai-agents.html" },
-  { label: "Pasadena", href: "./pasadena/ai-agents.html" },
-  { label: "Glendale", href: "./glendale/ai-agents.html" },
-  { label: "Burbank", href: "./burbank/ai-agents.html" },
+  { label: "Los Angeles", href: "./los-angeles/ai-programming.html" },
+  { label: "Long Beach", href: "./long-beach/ai-programming.html" },
+  { label: "Torrance", href: "./torrance/ai-programming.html" },
+  { label: "Carson", href: "./carson/ai-programming.html" },
+  { label: "Compton", href: "./compton/ai-programming.html" },
+  { label: "Hawthorne", href: "./hawthorne/ai-programming.html" },
+  { label: "Inglewood", href: "./inglewood/ai-programming.html" },
+  { label: "Gardena", href: "./gardena/ai-programming.html" },
+  { label: "Santa Monica", href: "./santa-monica/ai-programming.html" },
+  { label: "Pasadena", href: "./pasadena/ai-programming.html" },
+  { label: "Glendale", href: "./glendale/ai-programming.html" },
+  { label: "Burbank", href: "./burbank/ai-programming.html" },
 ];
 
 const PAGES = [
@@ -45,7 +54,7 @@ const PAGES = [
 
 const linkStyle = {
   fontFamily: F.mono,
-  color: C.steel,
+  color: "#B0B0B0",
   fontSize: "0.72rem",
   textDecoration: "none",
   display: "block",
@@ -67,9 +76,18 @@ export default function Footer() {
   return (
     <footer
       className="px-6 py-12"
-      style={{ background: C.bg, borderTop: "1px solid #E5E5E5" }}
+      style={{
+        position: "relative",
+        background: C.dark,
+        borderTop: `3px solid ${C.dark}`,
+        overflow: "hidden",
+      }}
     >
-      <div className="max-w-5xl mx-auto">
+      {/* Particle layer — red network on black */}
+      <FooterParticles />
+
+      {/* Content */}
+      <div className="max-w-5xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
         {/* Link columns */}
         <div
           className="grid grid-cols-2 md:grid-cols-4 gap-8"
@@ -116,7 +134,7 @@ export default function Footer() {
         {/* SEO description */}
         <div
           style={{
-            borderTop: `1px solid ${C.line}`,
+            borderTop: "1px solid rgba(255, 255, 255, 0.15)",
             paddingTop: "1.5rem",
             marginBottom: "1.5rem",
           }}
@@ -124,21 +142,22 @@ export default function Footer() {
           <p
             style={{
               fontFamily: F.body,
-              color: C.steel,
+              color: "#A8A8A8",
               fontSize: "0.78rem",
               lineHeight: 1.8,
               maxWidth: "72ch",
             }}
           >
-            Caleb Pierre is a forward-deployed AI engineer and security engineer based in
-            Los Angeles, CA. He builds AI agent systems, cybersecurity infrastructure, and
-            business automation pipelines for organizations across LA County — from
-            nonprofits in Gardena to healthcare practices in Torrance to tech companies in
-            Santa Monica. 10 years of experience across Tinder (Security Engineer II),
-            Verizon Media, Children's Hospital Los Angeles, Glass Financial (CTO), and
-            Caleb Pierre Ventures. Serving Los Angeles, Long Beach, Torrance, Carson,
-            Compton, Hawthorne, Inglewood, Gardena, Santa Monica, Pasadena, Glendale,
-            and Burbank. HIPAA compliant. Remote-first. Book a free systems audit.
+            Caleb Pierre is a Business Automation Engineer based in Los Angeles, CA —
+            web design, AI programming, business automation, content marketing, remote
+            tech support, experience/event design, and cybersecurity, all built by one
+            operator for organizations across LA County — from nonprofits in Gardena to
+            healthcare practices in Torrance to tech companies in Santa Monica. 10 years
+            of experience across Tinder (Security Engineer II), Verizon Media, Children's
+            Hospital Los Angeles, Glass Financial (CTO), and Caleb Pierre Ventures. Serving
+            Los Angeles, Long Beach, Torrance, Carson, Compton, Hawthorne, Inglewood,
+            Gardena, Santa Monica, Pasadena, Glendale, and Burbank. HIPAA compliant.
+            Remote-first. Book a free systems audit.
           </p>
         </div>
 
@@ -146,26 +165,26 @@ export default function Footer() {
         <div
           className="flex flex-col md:flex-row justify-between items-center gap-4"
           style={{
-            borderTop: `1px solid ${C.line}`,
+            borderTop: "1px solid rgba(255, 255, 255, 0.15)",
             paddingTop: "1.5rem",
           }}
         >
-          <p style={{ fontFamily: F.mono, color: C.steel, fontSize: "0.7rem" }}>
+          <p style={{ fontFamily: F.mono, color: "#A8A8A8", fontSize: "0.7rem" }}>
             © {new Date().getFullYear()} Caleb Pierre Ventures LLC · Los Angeles, CA ·
-            Remote-First · <a href="./llms.txt" style={{ color: C.steel }}>llms.txt</a> ·{" "}
-            <a href="./sitemap.xml" style={{ color: C.steel }}>sitemap.xml</a> ·{" "}
-            <a href="./robots.txt" style={{ color: C.steel }}>robots.txt</a>
+            Remote-First · <a href="./llms.txt" style={{ color: C.red }}>llms.txt</a> ·{" "}
+            <a href="./sitemap.xml" style={{ color: C.red }}>sitemap.xml</a> ·{" "}
+            <a href="./robots.txt" style={{ color: C.red }}>robots.txt</a>
           </p>
           <a
             href="https://linkedin.com/in/calebpierre"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2"
-            style={{ fontFamily: F.mono, color: C.steel, fontSize: "0.72rem", textDecoration: "none" }}
+            style={{ fontFamily: F.mono, color: C.red, fontSize: "0.72rem", textDecoration: "none" }}
           >
             <Linkedin size={14} />
             linkedin.com/in/calebpierre
-            <ArrowUpRight size={12} color={C.steel} />
+            <ArrowUpRight size={12} color={C.red} />
           </a>
         </div>
       </div>

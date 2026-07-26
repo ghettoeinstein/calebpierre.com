@@ -31,7 +31,8 @@ export default function Closing() {
                 }}
               >
                 Caleb Pierre. 10 years across Tinder, Verizon Media, CHLA, Glass Financial.
-                Security-first, full-stack, documented. No black boxes.
+                Web, AI, automation, marketing, support, events — full-stack,
+                documented. No black boxes.
               </p>
             </div>
             <div className="swiss-card" style={{ padding: "1.25rem" }}>

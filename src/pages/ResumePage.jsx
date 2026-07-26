@@ -20,15 +20,23 @@ export default function ResumePage() {
   }, []);
 
   const serviceLinks = [
-    { label: "AI Agents", href: "./los-angeles/ai-agents.html" },
-    { label: "Cybersecurity", href: "./los-angeles/cybersecurity.html" },
+    { label: "Web Design", href: "./los-angeles/web-design.html" },
+    { label: "AI Programming", href: "./los-angeles/ai-programming.html" },
     { label: "Business Automation", href: "./los-angeles/business-automation.html" },
+    { label: "Content Marketing", href: "./los-angeles/content-marketing.html" },
+    { label: "Remote Tech Support", href: "./los-angeles/remote-tech-support.html" },
+    { label: "Event Design", href: "./los-angeles/event-design.html" },
+    { label: "Cybersecurity", href: "./los-angeles/cybersecurity.html" },
   ];
 
   const articleLinks = [
-    { label: "AI Agents in LA", href: "./articles/ai-agents-los-angeles.html" },
-    { label: "Cybersecurity in LA", href: "./articles/cybersecurity-los-angeles.html" },
+    { label: "Web Design in LA", href: "./articles/web-design-los-angeles.html" },
+    { label: "AI Programming in LA", href: "./articles/ai-programming-los-angeles.html" },
     { label: "Automation in LA", href: "./articles/business-automation-los-angeles.html" },
+    { label: "Content Marketing in LA", href: "./articles/content-marketing-los-angeles.html" },
+    { label: "Remote Tech Support in LA", href: "./articles/remote-tech-support-los-angeles.html" },
+    { label: "Event Design in LA", href: "./articles/event-design-los-angeles.html" },
+    { label: "Cybersecurity in LA", href: "./articles/cybersecurity-los-angeles.html" },
   ];
 
   const pageLinks = [
@@ -45,17 +53,9 @@ export default function ResumePage() {
     "Hawthorne", "Inglewood", "Gardena", "Santa Monica", "Pasadena", "Glendale", "Burbank",
   ];
 
-  const footerServices = [
-    { label: "AI Agent Development", href: "./los-angeles/ai-agents.html" },
-    { label: "Cybersecurity", href: "./los-angeles/cybersecurity.html" },
-    { label: "Business Automation", href: "./los-angeles/business-automation.html" },
-  ];
+  const footerServices = serviceLinks;
 
-  const footerArticles = [
-    { label: "AI Agents in LA", href: "./articles/ai-agents-los-angeles.html" },
-    { label: "Cybersecurity for LA", href: "./articles/cybersecurity-los-angeles.html" },
-    { label: "Automation in LA", href: "./articles/business-automation-los-angeles.html" },
-  ];
+  const footerArticles = articleLinks;
 
   const footerQuick = [
     { label: "Home", href: "./index.html" },
@@ -84,7 +84,7 @@ export default function ResumePage() {
             <div style={{ fontFamily: F.body, fontSize: "0.9rem", color: C.ink, fontWeight: 600 }}>
               Caleb Pierre
               <div style={{ fontFamily: F.mono, fontSize: "0.62rem", color: C.steel, letterSpacing: "0.1em" }}>
-                REMOTE SYSTEMS AGENCY
+                BUSINESS AUTOMATION ENGINEER
               </div>
             </div>
           </a>
@@ -243,7 +243,7 @@ export default function ResumePage() {
             <div>
               <p className="eyebrow" style={{ marginBottom: "8px" }}>Cities Served</p>
               {footerCities.map((c) => (
-                <a key={c} href={`./${c.toLowerCase().replace(" ", "-")}/ai-agents.html`} className="footer-link" style={{ fontFamily: F.mono, color: C.steel, fontSize: "0.72rem", textDecoration: "none", display: "block", padding: "3px 0", lineHeight: 1.6 }}>
+                <a key={c} href={`./${c.toLowerCase().replace(" ", "-")}/ai-programming.html`} className="footer-link" style={{ fontFamily: F.mono, color: C.steel, fontSize: "0.72rem", textDecoration: "none", display: "block", padding: "3px 0", lineHeight: 1.6 }}>
                   {c}, CA
                 </a>
               ))}
@@ -267,13 +267,14 @@ export default function ResumePage() {
 
           <div style={{ borderTop: `1px solid ${C.line}`, paddingTop: "1.5rem", marginBottom: "1.5rem" }}>
             <p style={{ fontFamily: F.body, color: C.steel, fontSize: "0.78rem", lineHeight: 1.8, maxWidth: "72ch" }}>
-              Caleb Pierre is a forward-deployed AI engineer and security engineer based in
-              Los Angeles, CA. He builds AI agent systems, cybersecurity infrastructure, and
-              business automation pipelines for organizations across LA County. 10 years of
-              experience across Tinder, Verizon Media, Children's Hospital Los Angeles, Glass
-              Financial, and Caleb Pierre Ventures. Serving Los Angeles, Long Beach, Torrance,
-              Carson, Compton, Hawthorne, Inglewood, Gardena, Santa Monica, Pasadena,
-              Glendale, and Burbank. HIPAA compliant. Remote-first. Book a free systems audit.
+              Caleb Pierre is a Business Automation Engineer based in Los Angeles, CA — web
+              design, AI programming, business automation, content marketing, remote tech
+              support, experience/event design, and cybersecurity, all built by one operator
+              for organizations across LA County. 10 years of experience across Tinder,
+              Verizon Media, Children's Hospital Los Angeles, Glass Financial, and Caleb
+              Pierre Ventures. Serving Los Angeles, Long Beach, Torrance, Carson, Compton,
+              Hawthorne, Inglewood, Gardena, Santa Monica, Pasadena, Glendale, and Burbank.
+              HIPAA compliant. Remote-first. Book a free systems audit.
             </p>
           </div>
 

@@ -1,17 +1,19 @@
+/* ---------- Fonts (must precede all other rules, including @tailwind) ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ============================================================
-   calebpierre.com — Keith Haring Inspired Design System
-   Bold black lines, primary colors, street-art energy
-   Same Schwartz copy, completely new visual skin
+   calebpierre.com — Business-Card-Matched Design System
+   White / black / red. Bold, clean, high-contrast, no drift into
+   pastel or soft-slate territory. One type system throughout:
+   Inter (display + body) + JetBrains Mono (tracked labels).
    Breakpoints: xs (0-479) / sm (480-767) / md (768-1023) / lg (1024+)
    ============================================================ */
 
-/* ---------- Fonts ---------- */
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
-
+/* ---------- Reset ---------- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -22,169 +24,210 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ---------- Body ---------- */
 body {
   background-color: #FFFFFF;
   color: #0A0A0A;
   font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-/* ---------- Keith Haring Background Pattern ---------- */
-/* Bold cross-hatch dots, subtle, behind content */
-.haring-bg {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image: 
-    radial-gradient(circle, #0A0A0A 1px, transparent 1px);
-  background-size: 32px 32px;
-  background-position: 0 0;
-  opacity: 0.03;
-}
-
-/* ---------- Type Scale (responsive, strict spec) ---------- */
+/* ---------- Type Scale — bold, stark black headlines ---------- */
 h1 {
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 34px;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+  color: #0A0A0A;
 }
-h2 {
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 26px;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-p, body { font-size: 16px; line-height: 1.5; }
 
-@media (min-width: 480px) {
-  h1 { font-size: 42px; }
-  h2 { font-size: 30px; }
-  p, body { font-size: 17px; line-height: 1.55; }
+h2 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: #0A0A0A;
 }
-@media (min-width: 768px) {
-  h1 { font-size: 52px; line-height: 1.02; }
-  h2 { font-size: 34px; line-height: 1.05; }
+
+h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #0A0A0A;
 }
-@media (min-width: 1024px) {
-  h1 { font-size: 76px; line-height: 0.98; letter-spacing: -0.04em; }
-  h2 { font-size: 44px; line-height: 1.0; letter-spacing: -0.03em; }
-  p, body { font-size: 18px; line-height: 1.6; }
+
+h4 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: #0A0A0A;
+}
+
+p {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #0A0A0A;
+}
+
+/* Mobile: never below 16px */
+@media (max-width: 479px) {
+  body, p { font-size: 16px; line-height: 1.6; }
 }
 
 /* ---------- Selection ---------- */
 ::selection {
-  background: #FFD93D;
-  color: #0A0A0A;
+  background: #E8382D;
+  color: #FFFFFF;
 }
 
 /* ---------- Scrollbar ---------- */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #FFFFFF; }
-::-webkit-scrollbar-thumb { background: #0A0A0A; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #FAFAFA; }
+::-webkit-scrollbar-thumb {
+  background: #0A0A0A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: #E8382D; }
 
-/* ---------- Focus ---------- */
+/* ---------- Focus — 3px solid red ---------- */
 a:focus-visible,
-button:focus-visible {
-  outline: 3px solid #FFD93D;
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #E8382D;
   outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* ---------- Eyebrow / mono labels ---------- */
 .eyebrow {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #E8382D;
   font-weight: 600;
+  line-height: 1.4;
 }
-@media (min-width: 480px) { .eyebrow { font-size: 12px; } }
-@media (min-width: 1024px) { .eyebrow { font-size: 13px; } }
 
-/* ---------- Haring Card — bold black border, no radius ---------- */
-.haring-card {
+@media (min-width: 768px) {
+  .eyebrow { font-size: 14px; }
+}
+
+/* ---------- Card — stark border, true-black hairline ---------- */
+.card {
   background: #FFFFFF;
-  border: 3px solid #0A0A0A;
+  border-radius: 12px;
+  border: 1.5px solid #0A0A0A;
+  box-shadow: 3px 3px 0 rgba(10, 10, 10, 0.08);
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
-}
-.haring-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #0A0A0A;
-}
-.haring-card-accent {
-  border-color: #0A0A0A;
-  background: #FFD93D;
-}
-.haring-card-accent:hover {
-  box-shadow: 6px 6px 0 #E8382D;
+  will-change: transform;
 }
 
-/* Swiss card (legacy compat) */
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 5px 6px 0 rgba(10, 10, 10, 0.12);
+  border-color: #E8382D;
+}
+
+/* ---------- Swiss-card — same system as .card, used by Diagnostic/Proof/Closing ---------- */
 .swiss-card {
   background: #FFFFFF;
-  border: 3px solid #0A0A0A;
+  border-radius: 12px;
+  border: 1.5px solid #0A0A0A;
+  box-shadow: 3px 3px 0 rgba(10, 10, 10, 0.08);
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-}
-.swiss-card-hover {
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
-}
-.swiss-card-hover:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #0A0A0A;
+  will-change: transform;
 }
 
-/* ---------- CTA button — Haring bold ---------- */
+.swiss-card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 5px 6px 0 rgba(10, 10, 10, 0.12);
+  border-color: #E8382D;
+}
+
+/* ---------- Badge ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.4;
+}
+
+/* ---------- CTA Buttons ---------- */
 .cta-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.85rem 1.5rem;
+  padding: 0.875rem 1.75rem;
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1rem;
   text-decoration: none;
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.2s ease;
   cursor: pointer;
-  border: 3px solid #0A0A0A;
+  border-radius: 10px;
+  border: none;
+  line-height: 1;
 }
+
 .cta-pill-primary {
   background: #E8382D;
-  color: #fff;
-  box-shadow: 4px 4px 0 #0A0A0A;
+  color: #FFFFFF;
+  box-shadow: 3px 3px 0 #0A0A0A;
 }
 .cta-pill-primary:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #0A0A0A;
+  background: #0A0A0A;
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 #E8382D;
 }
 .cta-pill-primary:active {
   transform: translate(0, 0);
-  box-shadow: 0 0 0 #0A0A0A;
+  box-shadow: 1px 1px 0 #E8382D;
 }
+
 .cta-pill-ghost {
   background: transparent;
   color: #0A0A0A;
-  box-shadow: 4px 4px 0 #0A0A0A;
+  border: 2px solid #0A0A0A;
+  box-shadow: none;
 }
 .cta-pill-ghost:hover {
-  background: #FFD93D;
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #0A0A0A;
+  background: #0A0A0A;
+  color: #FFFFFF;
+  transform: translateY(-1px);
 }
+.cta-pill-ghost:active {
+  transform: translateY(0);
+}
+
 .cta-icon-circle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  background: rgba(255, 255, 255, 0.2);
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  width: 24px;
+  height: 24px;
+  transition: transform 0.25s ease;
 }
 .cta-pill:hover .cta-icon-circle {
   transform: translateX(4px);
@@ -192,108 +235,54 @@ button:focus-visible {
 
 /* ---------- Section spacing ---------- */
 .section-pad {
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
-@media (min-width: 480px) { .section-pad { padding-top: 32px; padding-bottom: 32px; } }
-@media (min-width: 768px) { .section-pad { padding-top: 48px; padding-bottom: 48px; } }
-@media (min-width: 1024px) { .section-pad { padding-top: 96px; padding-bottom: 96px; } }
-
-/* ---------- Ticker — the signature element ---------- */
-/* True infinite marquee, never clips */
-.ticker-container {
-  background-color: #0A0A0A;
-  overflow: hidden;
-  border-top: 3px solid #0A0A0A;
-  border-bottom: 3px solid #0A0A0A;
-  width: 100%;
-  max-width: 100vw;
-  position: relative;
+@media (min-width: 480px) {
+  .section-pad { padding-top: 48px; padding-bottom: 48px; }
 }
-.ticker-track {
-  display: flex;
-  width: max-content;
-  animation: scrollTicker 28s linear infinite;
+@media (min-width: 768px) {
+  .section-pad { padding-top: 64px; padding-bottom: 64px; }
 }
-@media (max-width: 479px) {
-  .ticker-track { animation: scrollTicker 18s linear infinite; }
-}
-@keyframes scrollTicker {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .ticker-track {
-    animation: none;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-/* ---------- Cursor blink ---------- */
-.cursor-blink {
-  animation: blink 1s step-start infinite;
-  color: #E8382D;
-}
-@keyframes blink { 50% { opacity: 0; } }
-
-/* ---------- Diagnostic options ---------- */
-.diag-option {
-  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-  border: 3px solid #0A0A0A !important;
-}
-.diag-option:hover {
-  background-color: #FFD93D !important;
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 #0A0A0A;
-}
-
-/* ---------- Service card ---------- */
-.service-card {
-  border: 3px solid #0A0A0A !important;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
-}
-.service-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #0A0A0A;
+@media (min-width: 1024px) {
+  .section-pad { padding-top: 96px; padding-bottom: 96px; }
 }
 
 /* ---------- Nav ---------- */
 .nav-link {
   transition: color 0.2s ease;
   font-weight: 600;
+  font-size: 15px;
+  color: #0A0A0A;
 }
 .nav-link:hover {
-  color: #E8382D !important;
+  color: #E8382D;
 }
 
 /* ---------- Dropdown ---------- */
 .dropdown-item {
   transition: background 0.15s ease;
-  border-bottom: 2px solid #0A0A0A;
+  border-bottom: 1px solid #D9D9D9;
+  font-size: 15px;
+  color: #0A0A0A;
 }
 .dropdown-item:hover {
-  background: #FFD93D;
+  background: #FAFAFA;
+  color: #E8382D;
 }
 
-/* ---------- Footer link ---------- */
+/* ---------- Footer link (footer runs on the dark surface) ---------- */
 .footer-link {
   transition: color 0.2s ease;
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 15px;
+  color: #B0B0B0;
 }
 .footer-link:hover {
-  color: #E8382D !important;
+  color: #E8382D;
 }
 
-/* ---------- Boot sequence ---------- */
-.boot-line {
-  animation: fadeInBoot 0.3s ease forwards;
-  opacity: 0;
-}
-@keyframes fadeInBoot { to { opacity: 1; } }
-
-/* ---------- Entrance animation ---------- */
+/* ---------- Entrance animation (fallback / no-JS) ---------- */
 .enter-fade {
   animation: enterFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   opacity: 0;
@@ -303,18 +292,19 @@ button:focus-visible {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------- Timeline ---------- */
-.timeline-card {
-  border: 3px solid #0A0A0A;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+/* ---------- Boot sequence ---------- */
+.boot-line {
+  animation: fadeInBoot 0.3s ease forwards;
+  opacity: 0;
 }
-.timeline-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #0A0A0A;
-}
+@keyframes fadeInBoot { to { opacity: 1; } }
 
 /* ---------- Responsive utilities ---------- */
-img, video, canvas, svg { max-width: 100%; height: auto; }
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
 .cp-container {
   width: 100%;
   max-width: 1080px;
@@ -322,8 +312,12 @@ img, video, canvas, svg { max-width: 100%; height: auto; }
   padding-left: 16px;
   padding-right: 16px;
 }
-@media (min-width: 480px) { .cp-container { padding-left: 24px; padding-right: 24px; } }
-@media (min-width: 1024px) { .cp-container { padding-left: 32px; padding-right: 32px; } }
+@media (min-width: 480px) {
+  .cp-container { padding-left: 24px; padding-right: 24px; }
+}
+@media (min-width: 1024px) {
+  .cp-container { padding-left: 32px; padding-right: 32px; }
+}
 
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
@@ -331,6 +325,9 @@ img, video, canvas, svg { max-width: 100%; height: auto; }
     animation: none !important;
     transition: none !important;
   }
-  .enter-fade { opacity: 1 !important; transform: none !important; }
-  .ticker-track { animation: none !important; transform: none !important; flex-wrap: wrap; }
+  .enter-fade {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  html { scroll-behavior: auto; }
 }

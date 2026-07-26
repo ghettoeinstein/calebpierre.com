@@ -17,6 +17,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cybersecurity for Los Angeles Businesses: What Actually Matters | Caleb Pierre">
 <meta name="twitter:description" content="You're one bad day away from a breach and you don't know where the hole is. A former Tinder Security Engineer breaks down what to fix first.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -32,53 +35,52 @@
 <style>
 *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --paper: #FAFAF8; --panel: #F1F0EA; --ink: #0B0B0B; --red: #E10600;
-  --steel: #5C5C5C; --line: rgba(11,11,11,0.14);
-  --display: 'Space Grotesk', system-ui, sans-serif;
-  --body: 'IBM Plex Sans', system-ui, sans-serif;
-  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --paper: #FAFAFA; --panel: #F0F0F0; --ink: #0A0A0A; --red: #E8382D;
+  --steel: #6B6B6B; --line: #D9D9D9; --lineDark: rgba(255,255,255,0.15);
+  --display: 'Inter', system-ui, sans-serif;
+  --body: 'Inter', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 html { scroll-behavior: smooth; }
 body { font-family: var(--body); background: var(--paper); color: var(--ink); line-height: 1.75; }
-a { color: inherit; text-decoration: none; }
+a { color: var(--red); text-decoration: none; }
 .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-.nav { position: sticky; top: 0; z-index: 50; background: rgba(250,250,248,0.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+.nav { position: sticky; top: 0; z-index: 50; background: rgba(250,250,250,0.94); backdrop-filter: blur(6px); border-bottom: 2px solid var(--ink); }
 .nav-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; }
-.nav-brand { display: flex; align-items: center; gap: 10px; }
-.nav-mark { font-family: var(--mono); font-weight: 700; font-size: 0.9rem; color: var(--ink); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 1.5px solid var(--ink); letter-spacing: -0.05em; }
-.nav-name { font-family: var(--body); font-weight: 600; font-size: 0.85rem; color: var(--ink); }
+.nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-mark { font-family: var(--mono); font-weight: 700; font-size: 0.9rem; color: var(--ink); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 2px solid var(--ink); letter-spacing: -0.05em; background: #fff; }
+.nav-name { font-family: var(--body); font-weight: 700; font-size: 0.85rem; color: var(--ink); }
 .nav-sub { font-family: var(--mono); font-size: 0.58rem; color: var(--steel); letter-spacing: 0.1em; }
-.nav-cta { background: var(--red); color: #fff; font-family: var(--body); font-weight: 600; font-size: 0.78rem; padding: 8px 16px; }
+.nav-cta { background: var(--red); color: #fff; font-family: var(--body); font-weight: 700; font-size: 0.78rem; padding: 8px 16px; }
 .hero { padding: 100px 24px 40px; }
-.eyebrow { font-family: var(--mono); color: var(--red); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; }
-h1 { font-family: var(--display); font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 700; line-height: 1.15; color: var(--ink); margin-bottom: 16px; }
+.eyebrow { font-family: var(--mono); color: var(--red); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; font-weight: 600; }
+h1 { font-family: var(--display); font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 900; line-height: 1.15; color: var(--ink); margin-bottom: 16px; letter-spacing: -0.02em; }
 .meta { font-family: var(--mono); font-size: 0.72rem; color: var(--steel); margin-bottom: 32px; }
-h2 { font-family: var(--display); font-size: 1.5rem; font-weight: 700; color: var(--ink); margin: 40px 0 12px; }
-h3 { font-family: var(--display); font-size: 1.15rem; font-weight: 600; color: var(--ink); margin: 28px 0 10px; }
+h2 { font-family: var(--display); font-size: 1.5rem; font-weight: 800; color: var(--ink); margin: 40px 0 12px; }
+h3 { font-family: var(--display); font-size: 1.15rem; font-weight: 700; color: var(--ink); margin: 28px 0 10px; }
 p { font-size: 1rem; color: var(--steel); line-height: 1.8; margin-bottom: 16px; }
 ul, ol { padding-left: 24px; margin-bottom: 20px; }
 li { font-size: 0.95rem; color: var(--steel); line-height: 1.7; margin-bottom: 8px; }
-strong { color: var(--ink); font-weight: 600; }
-blockquote { border-left: 3px solid var(--red); padding-left: 20px; margin: 24px 0; font-style: italic; color: var(--steel); }
+strong { color: var(--ink); font-weight: 700; }
+blockquote { border-left: 3px solid var(--red); padding-left: 20px; margin: 24px 0; font-style: italic; color: var(--ink); }
 .cta-box { background: var(--ink); padding: 40px 32px; margin: 48px 0; text-align: center; }
 .cta-box h2 { color: #fff; margin: 0 0 12px; }
-.cta-box p { color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem; }
-.cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--red); color: #fff; font-family: var(--body); font-weight: 600; font-size: 0.9rem; padding: 12px 24px; }
-footer { background: var(--ink); padding: 32px 24px; text-align: center; }
-footer p { font-family: var(--mono); color: #8A8A8A; font-size: 0.72rem; }
-.links { display: flex; gap: 20px; justify-content: center; margin-bottom: 12px; }
-.links a { font-family: var(--mono); color: #8A8A8A; font-size: 0.72rem; }
+.cta-box p { color: rgba(255,255,255,0.75); margin-bottom: 20px; font-size: 0.95rem; }
+.cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--red); color: #fff; font-family: var(--body); font-weight: 700; font-size: 0.9rem; padding: 12px 24px; }
+.site-footer { background: var(--ink); border-top: 3px solid var(--red); padding: 48px 24px; }
+.footer-grid { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-bottom: 32px; }
+.footer-col h4 { font-family: var(--mono); color: var(--red); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; font-weight: 700; }
+.footer-col a { display: block; font-family: var(--mono); color: #A8A8A8; font-size: 0.68rem; padding: 3px 0; line-height: 1.6; transition: color 0.15s; }
+.footer-col a:hover { color: var(--red); }
+.footer-seo { max-width: 960px; margin: 0 auto; border-top: 1px solid var(--lineDark); padding-top: 24px; margin-bottom: 24px; }
+.footer-seo p { font-family: var(--body); color: #8A8A8A; font-size: 0.76rem; line-height: 1.8; max-width: 72ch; }
+.footer-bottom { max-width: 960px; margin: 0 auto; border-top: 1px solid var(--lineDark); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-bottom p { font-family: var(--mono); color: #8A8A8A; font-size: 0.68rem; }
+.footer-bottom a { color: var(--red); }
 @media (max-width: 640px) { .wrap { padding: 0 16px; } .hero { padding: 80px 16px 32px; } }
 </style>
 </head>
 <body>
-
-<script>
-function toggleMobile() {
-  var el = document.getElementById('nav-mobile');
-  el.classList.toggle('open');
-}
-</script>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -86,38 +88,9 @@ function toggleMobile() {
       <span class="nav-mark">CP</span>
       <div>
         <div class="nav-name">Caleb Pierre</div>
-        <div class="nav-sub">REMOTE SYSTEMS AGENCY</div>
+        <div class="nav-sub">BUSINESS AUTOMATION ENGINEER</div>
       </div>
     </a>
-    <div class="nav-links">
-      <a href="https://calebpierre.com/#diagnostic">Diagnostic</a>
-      <a href="https://calebpierre.com/#services">Services</a>
-      <a href="https://calebpierre.com/#process">Process</a>
-      <a href="https://calebpierre.com/#proof">Proof</a>
-      <a href="https://calebpierre.com/resume.html">Resume</a>
-      <a href="https://calebpierre.com/#about">About</a>
-      <a href="https://calebpierre.com/#contact">Contact</a>
-      <a href="https://calebpierre.com/los-angeles/ai-agents.html">AI Agents</a>
-      <a href="https://calebpierre.com/los-angeles/cybersecurity.html">Cybersecurity</a>
-      <a href="https://calebpierre.com/articles/ai-agents-los-angeles.html">Articles</a>
-      <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="nav-cta">Book a Call</a>
-    </div>
-    <button class="nav-mobile-btn" onclick="toggleMobile()">Menu</button>
-  </div>
-  <div class="nav-mobile" id="nav-mobile">
-    <a href="https://calebpierre.com/#diagnostic">Diagnostic</a>
-    <a href="https://calebpierre.com/#services">Services</a>
-    <a href="https://calebpierre.com/#process">Process</a>
-    <a href="https://calebpierre.com/#proof">Proof</a>
-    <a href="https://calebpierre.com/resume.html">Resume</a>
-    <a href="https://calebpierre.com/#about">About</a>
-    <a href="https://calebpierre.com/#contact">Contact</a>
-    <a href="https://calebpierre.com/los-angeles/ai-agents.html">AI Agents</a>
-    <a href="https://calebpierre.com/los-angeles/cybersecurity.html">Cybersecurity</a>
-    <a href="https://calebpierre.com/los-angeles/business-automation.html">Automation</a>
-    <a href="https://calebpierre.com/articles/ai-agents-los-angeles.html">Articles</a>
-    <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="nav-cta">Book a Call</a>
   </div>
 </nav>
@@ -171,38 +144,45 @@ function toggleMobile() {
   <div class="footer-grid">
     <div class="footer-col">
       <h4>Services</h4>
-      <a href="https://calebpierre.com/los-angeles/ai-agents.html">AI Agent Development</a>
-      <a href="https://calebpierre.com/los-angeles/cybersecurity.html">Cybersecurity</a>
+      <a href="https://calebpierre.com/los-angeles/web-design.html">Web Design</a>
+      <a href="https://calebpierre.com/los-angeles/ai-programming.html">AI Programming</a>
       <a href="https://calebpierre.com/los-angeles/business-automation.html">Business Automation</a>
-      <a href="https://calebpierre.com/#services">All Services</a>
+      <a href="https://calebpierre.com/los-angeles/content-marketing.html">Content Marketing</a>
+      <a href="https://calebpierre.com/los-angeles/remote-tech-support.html">Remote Tech Support</a>
+      <a href="https://calebpierre.com/los-angeles/event-design.html">Experience / Event Design</a>
+      <a href="https://calebpierre.com/los-angeles/cybersecurity.html">Cybersecurity</a>
     </div>
     <div class="footer-col">
       <h4>Articles</h4>
-      <a href="https://calebpierre.com/articles/ai-agents-los-angeles.html">AI Agents in LA</a>
-      <a href="https://calebpierre.com/articles/cybersecurity-los-angeles.html">Cybersecurity for LA</a>
+      <a href="https://calebpierre.com/articles/web-design-los-angeles.html">Web Design in LA</a>
+      <a href="https://calebpierre.com/articles/ai-programming-los-angeles.html">AI Programming in LA</a>
       <a href="https://calebpierre.com/articles/business-automation-los-angeles.html">Automation in LA</a>
+      <a href="https://calebpierre.com/articles/content-marketing-los-angeles.html">Content Marketing in LA</a>
+      <a href="https://calebpierre.com/articles/remote-tech-support-los-angeles.html">Remote Tech Support in LA</a>
+      <a href="https://calebpierre.com/articles/event-design-los-angeles.html">Event Design in LA</a>
+      <a href="https://calebpierre.com/articles/cybersecurity-los-angeles.html">Cybersecurity for LA</a>
     </div>
     <div class="footer-col">
       <h4>Cities Served</h4>
-      <a href="https://calebpierre.com/los-angeles/ai-agents.html">Los Angeles, CA</a>
-      <a href="https://calebpierre.com/long-beach/ai-agents.html">Long Beach, CA</a>
-      <a href="https://calebpierre.com/torrance/ai-agents.html">Torrance, CA</a>
-      <a href="https://calebpierre.com/carson/ai-agents.html">Carson, CA</a>
-      <a href="https://calebpierre.com/compton/ai-agents.html">Compton, CA</a>
-      <a href="https://calebpierre.com/hawthorne/ai-agents.html">Hawthorne, CA</a>
-      <a href="https://calebpierre.com/inglewood/ai-agents.html">Inglewood, CA</a>
-      <a href="https://calebpierre.com/gardena/ai-agents.html">Gardena, CA</a>
-      <a href="https://calebpierre.com/santa-monica/ai-agents.html">Santa Monica, CA</a>
-      <a href="https://calebpierre.com/pasadena/ai-agents.html">Pasadena, CA</a>
-      <a href="https://calebpierre.com/glendale/ai-agents.html">Glendale, CA</a>
-      <a href="https://calebpierre.com/burbank/ai-agents.html">Burbank, CA</a>
+      <a href="https://calebpierre.com/los-angeles/business-automation.html">Los Angeles, CA</a>
+      <a href="https://calebpierre.com/long-beach/business-automation.html">Long Beach, CA</a>
+      <a href="https://calebpierre.com/torrance/business-automation.html">Torrance, CA</a>
+      <a href="https://calebpierre.com/carson/business-automation.html">Carson, CA</a>
+      <a href="https://calebpierre.com/compton/business-automation.html">Compton, CA</a>
+      <a href="https://calebpierre.com/hawthorne/business-automation.html">Hawthorne, CA</a>
+      <a href="https://calebpierre.com/inglewood/business-automation.html">Inglewood, CA</a>
+      <a href="https://calebpierre.com/gardena/business-automation.html">Gardena, CA</a>
+      <a href="https://calebpierre.com/santa-monica/business-automation.html">Santa Monica, CA</a>
+      <a href="https://calebpierre.com/pasadena/business-automation.html">Pasadena, CA</a>
+      <a href="https://calebpierre.com/glendale/business-automation.html">Glendale, CA</a>
+      <a href="https://calebpierre.com/burbank/business-automation.html">Burbank, CA</a>
     </div>
     <div class="footer-col">
       <h4>Quick Links</h4>
       <a href="https://calebpierre.com/">Home</a>
       <a href="https://calebpierre.com/resume.html">Resume</a>
       <a href="https://calebpierre.com/#diagnostic">Systems Diagnostic</a>
-      <a href="https://calebpierre.com/#process">Process</a>
+      <a href="https://calebpierre.com/#work">Work</a>
       <a href="https://calebpierre.com/#proof">Proof of Work</a>
       <a href="https://calebpierre.com/#about">About</a>
       <a href="https://calebpierre.com/#contact">Contact</a>
@@ -214,11 +194,11 @@ function toggleMobile() {
     </div>
   </div>
   <div class="footer-seo">
-    <p>Caleb Pierre is a forward-deployed AI engineer and security engineer based in Los Angeles, CA. He builds AI agent systems, cybersecurity infrastructure, and business automation pipelines for organizations across LA County — from nonprofits in Gardena to healthcare practices in Torrance to tech companies in Santa Monica. 10 years of experience across Tinder (Security Engineer II), Verizon Media, Children's Hospital Los Angeles, Glass Financial (CTO), and Caleb Pierre Ventures. Serving Los Angeles, Long Beach, Torrance, Carson, Compton, Hawthorne, Inglewood, Gardena, Santa Monica, Pasadena, Glendale, and Burbank. HIPAA compliant. Remote-first. Book a free systems audit.</p>
+    <p>Caleb Pierre is a Business Automation Engineer based in Los Angeles, CA. He builds the web, AI, automation, marketing, and support systems that let a business run itself — for organizations across LA County, from nonprofits in Gardena to healthcare practices in Torrance to tech companies in Santa Monica. 10 years of experience across Tinder (Security Engineer II), Verizon Media, Children's Hospital Los Angeles, Glass Financial (CTO), and Caleb Pierre Ventures. Serving Los Angeles, Long Beach, Torrance, Carson, Compton, Hawthorne, Inglewood, Gardena, Santa Monica, Pasadena, Glendale, and Burbank. HIPAA compliant. Remote-first. Book a free systems audit.</p>
   </div>
   <div class="footer-bottom">
     <p>&copy; 2026 Caleb Pierre Ventures LLC &middot; Los Angeles, CA &middot; Remote-First &middot; <a href="https://calebpierre.com/llms.txt">llms.txt</a> &middot; <a href="https://calebpierre.com/sitemap.xml">sitemap.xml</a> &middot; <a href="https://calebpierre.com/robots.txt">robots.txt</a></p>
-    <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener" style="font-family: var(--mono); color: #8A8A8A; font-size: 0.7rem; text-decoration: none;">linkedin.com/in/calebpierre</a>
+    <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener" style="font-family: var(--mono); color: #A8A8A8; font-size: 0.7rem; text-decoration: none;">linkedin.com/in/calebpierre</a>
   </div>
 </footer>
 

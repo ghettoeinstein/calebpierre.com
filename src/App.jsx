@@ -1,5 +1,6 @@
 import Nav from "./components/Nav.jsx";
 import Hero from "./components/Hero.jsx";
+import Interlude from "./components/Interlude.jsx";
 import Work from "./components/Work.jsx";
 import Agitation from "./components/Agitation.jsx";
 import Diagnostic from "./components/Diagnostic.jsx";
@@ -13,6 +14,7 @@ export default function App() {
     <div style={{ position: "relative", minHeight: "100vh" }}>
       <Nav />
       <Hero />
+      <Interlude />
       <Work />
       <Agitation />
       <Diagnostic />

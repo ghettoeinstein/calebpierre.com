@@ -1,55 +1,73 @@
 // Design tokens — calebpierre.com
-// Keith Haring inspired: bold black lines, primary colors, street-art energy
-// Same Schwartz copy, completely new visual skin
+// Business-card-matched design: white / black / red
+// Bold, clean, high-contrast. One type system: Inter + JetBrains Mono.
 
 export const C = {
-  // Keith Haring palette — bold, primary, unapologetic
-  black: "#0A0A0A",       // primary text, bold outlines, ticker bg
-  white: "#FFFFFF",       // page background
-  red: "#E8382D",         // primary CTA, energy accent
-  yellow: "#FFD93D",      // Haring yellow — highlights, hover states, accents
-  blue: "#0EA5E9",        // Haring blue — secondary accents, links
-  green: "#22C55E",       // Haring green — success states, active items
-  paper: "#FAFAF8",       // warm off-white secondary surface
-  line: "#0A0A0A",        // bold black lines (Haring's signature)
-  redDim: "#F6D9D6",
-  
-  // Legacy aliases
+  // Color palette — stark, business-card primaries
+  black: "#0A0A0A",
+  white: "#FFFFFF",
+  red: "#E8382D",
+  redDark: "#B8241C",
+  yellow: "#FFD93D",
+  blue: "#0EA5E9",
+  green: "#22C55E",
+
+  // Surfaces
+  paper: "#FAFAFA",
   bg: "#FFFFFF",
-  bgSoft: "#FAFAF8",
-  panel: "#FAFAF8",
-  panelRaised: "#F0F0EE",
+  bgSoft: "#F5F5F5",
+  panel: "#FFFFFF",
+  panelRaised: "#F5F5F5",
+
+  // Dark accent surface — reserved for the interlude section + footer only
+  dark: "#0A0A0A",
+  darkPanel: "#141414",
+
+  // Text — true black/white, not softened slate
   ink: "#0A0A0A",
-  inkSoft: "#444444",
-  steel: "#777777",
-  steelDark: "#AAAAAA",
+  inkSoft: "#3A3A3A",
+  steel: "#6B6B6B",
+  steelDark: "#8A8A8A",
+
+  // Borders / lines
+  line: "#D9D9D9",
+  lineStrong: "#0A0A0A",
+  glassBorder: "#D9D9D9",
+
+  // Accent glows (soft) — red only, no pastel system
   redGlow: "rgba(232, 56, 45, 0.12)",
+  yellowGlow: "rgba(255, 217, 61, 0.12)",
+  blueGlow: "rgba(14, 165, 233, 0.10)",
+  glass: "rgba(0, 0, 0, 0.02)",
+  glassHover: "rgba(0, 0, 0, 0.04)",
+
+  // Deep accents
   redDeep: "#990400",
-  glass: "rgba(0, 0, 0, 0.03)",
-  glassHover: "rgba(0, 0, 0, 0.06)",
-  glassBorder: "#0A0A0A",
-  yellowGlow: "rgba(255, 217, 61, 0.15)",
-  blueGlow: "rgba(14, 165, 233, 0.12)",
+  redDim: "#F6D9D6",
+
+  // CTA
+  ctaDark: "#0A0A0A",
+  focusRing: "#E8382D",
 };
 
 export const F = {
-  // Display: bold, heavy, condensed — Haring's lettering energy
-  display: "'Archivo Black', 'Inter', 'Helvetica Neue', sans-serif",
-  // Body: clean workhorse
+  // Display: Inter 800-900 for bold, business-card-energy headlines
+  display: "'Inter', 'Helvetica Neue', sans-serif",
+  // Body: Inter — the workhorse
   body: "'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif",
-  // Mono: terminal energy
-  mono: "'IBM Plex Mono', ui-monospace, monospace",
+  // Mono: JetBrains Mono — ONLY for tiny labels/tags, never body copy
+  mono: "'JetBrains Mono', ui-monospace, monospace",
 };
 
-// Easing — playful but controlled
+// Easing — kept identical
 export const EASE = {
   smooth: "cubic-bezier(0.32, 0.72, 0, 1)",
   swift: "cubic-bezier(0.16, 1, 0.3, 1)",
   bounce: "cubic-bezier(0.34, 1.56, 0.64, 1)",
-  // Haring energy — quick, springy, alive
   pop: "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
 };
 
+// Breakpoints — kept identical
 export const BP = {
   xs: 0,
   sm: 480,

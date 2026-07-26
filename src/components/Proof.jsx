@@ -89,8 +89,8 @@ export default function Proof() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {CASE_STUDIES.map((cs) => (
+              <Reveal key={cs.title} tilt>
               <a
-                key={cs.title}
                 href={cs.url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -172,7 +172,7 @@ export default function Proof() {
                     style={{
                       fontFamily: F.mono,
                       fontSize: "0.65rem",
-                      color: C.blue,
+                      color: C.red,
                     }}
                   >
                     {cs.url.replace("https://", "")}
@@ -180,6 +180,7 @@ export default function Proof() {
                   <ArrowUpRight size={12} color={C.ink} style={{ marginLeft: "auto" }} />
                 </div>
               </a>
+              </Reveal>
             ))}
           </div>
         </Reveal>
