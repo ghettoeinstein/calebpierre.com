@@ -46,7 +46,7 @@ const PAGES = [
   { label: "Proof of Work", href: "./index.html#proof" },
   { label: "About", href: "./index.html#about" },
   { label: "Contact", href: "./index.html#contact" },
-  { label: "Book a Call", href: "https://calendly.com/calebpierre" },
+  { label: "Start the Discovery", href: "https://calendly.com/calebpierre" },
   { label: "LinkedIn", href: "https://linkedin.com/in/calebpierre" },
   { label: "Sitemap", href: "./sitemap.xml" },
   { label: "llms.txt", href: "./llms.txt" },

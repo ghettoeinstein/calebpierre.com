@@ -82,11 +82,13 @@ export default function Hero() {
           {/* CTAs */}
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
             <a
-              href="#diagnostic"
+              href="https://calendly.com/calebpierre"
+              target="_blank"
+              rel="noopener noreferrer"
               className="cta-pill cta-pill-primary"
               style={{ justifyContent: "center" }}
             >
-              Book a Systems Diagnostic
+              Start the Discovery
               <span className="cta-icon-circle">
                 <ArrowUpRight size={18} />
               </span>
