@@ -11,6 +11,7 @@ export const C = {
   yellow: "#FFD93D",
   blue: "#0EA5E9",
   green: "#22C55E",
+  purple: "#8B5CF6",
 
   // Surfaces
   paper: "#FAFAFA",

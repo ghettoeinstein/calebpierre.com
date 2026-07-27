@@ -13,7 +13,7 @@ const CASE_STUDIES = [
   {
     tag: "REAL-TIME · MULTIPLAYER",
     title: "Last Peg Lose",
-    body: "2D cartoon peg-skirmish game — WebSocket real-time battles, guest + JWT auth, Drizzle/Neon Postgres.",
+    body: "Real-time multiplayer 2D skirmish game — low-latency WebSockets, guest + JWT auth, Drizzle ORM / Neon Postgres, Railway deploy.",
     url: "https://lastpeglose.com",
     stack: ["React", "Express", "WebSocket", "Neon"],
     accent: C.blue,
@@ -21,17 +21,17 @@ const CASE_STUDIES = [
   {
     tag: "SERVICES · COMMERCE",
     title: "Latraderrrs",
-    body: "Trading services marketplace — Diagnose / Calibrate / Execute tiers, Gumroad checkout, anime.js motion.",
+    body: "Elite trading community platform — tiered Diagnose / Calibrate / Execute packages, anime.js motion, Gumroad monetization.",
     url: "https://latraderrrs.com",
     stack: ["HTML", "Gumroad", "anime.js", "GitHub Pages"],
-    accent: C.green,
+    accent: C.purple,
   },
   {
-    tag: "REDESIGN · SHOPIFY",
+    tag: "REDESIGN · SQUARESPACE",
     title: "Eden's Candy",
-    body: "Women's wellness and yoni ritual brand — full digital identity, store experience, sacred commerce.",
+    body: "Squarespace redesign + full digital identity for a women's wellness and yoni ritual brand — sacred commerce platform.",
     url: "https://edenscandy.com",
-    stack: ["Shopify", "Brand", "UX"],
+    stack: ["Squarespace", "Brand", "UX"],
     accent: C.red,
   },
 ];
