@@ -11,25 +11,28 @@ const STATS = [
 
 const CASE_STUDIES = [
   {
-    tag: "LIVE BETA",
-    title: "OutsideTonight",
-    body: "LA nightlife social OS — real-time venue discovery, viral plan coordination, autonomous ingestion.",
-    url: "https://outsidetonight.com",
-    stack: ["FastAPI", "Next.js", "Redis", "H3 Spatial"],
+    tag: "REAL-TIME · MULTIPLAYER",
+    title: "Last Peg Lose",
+    body: "2D cartoon peg-skirmish game — WebSocket real-time battles, guest + JWT auth, Drizzle/Neon Postgres.",
+    url: "https://lastpeglose.com",
+    stack: ["React", "Express", "WebSocket", "Neon"],
+    accent: C.blue,
   },
   {
-    tag: "REDESIGN",
+    tag: "SERVICES · COMMERCE",
+    title: "Latraderrrs",
+    body: "Trading services marketplace — Diagnose / Calibrate / Execute tiers, Gumroad checkout, anime.js motion.",
+    url: "https://latraderrrs.com",
+    stack: ["HTML", "Gumroad", "anime.js", "GitHub Pages"],
+    accent: C.green,
+  },
+  {
+    tag: "REDESIGN · SHOPIFY",
     title: "Eden's Candy",
-    body: "Full visual overhaul of an existing confectionery brand — identity, store, experience.",
+    body: "Women's wellness and yoni ritual brand — full digital identity, store experience, sacred commerce.",
     url: "https://edenscandy.com",
     stack: ["Shopify", "Brand", "UX"],
-  },
-  {
-    tag: "GREENFIELD",
-    title: "Hummingbyrd Apparel",
-    body: "End-to-end Shopify build — print-on-demand, custom theme, zero to launch.",
-    url: "https://hummingbyrdapparelandprint.com",
-    stack: ["Shopify", "Print-on-Demand", "E2E"],
+    accent: C.red,
   },
 ];
 
@@ -106,7 +109,7 @@ export default function Proof() {
                     style={{
                       width: 6,
                       height: 6,
-                      backgroundColor: C.red,
+                      backgroundColor: cs.accent,
                       display: "inline-block",
                     }}
                   />
@@ -172,7 +175,7 @@ export default function Proof() {
                     style={{
                       fontFamily: F.mono,
                       fontSize: "0.65rem",
-                      color: C.red,
+                      color: cs.accent,
                     }}
                   >
                     {cs.url.replace("https://", "")}

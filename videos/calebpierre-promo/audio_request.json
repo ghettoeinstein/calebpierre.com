@@ -1,0 +1,50 @@
+{
+  "lines": [
+    {
+      "id": "01",
+      "sfx": [
+        "impact-soft (on the payoff arrival)"
+      ]
+    },
+    {
+      "id": "02",
+      "sfx": [
+        "chime (soft",
+        "on the title's arrival)"
+      ]
+    },
+    {
+      "id": "03",
+      "sfx": [
+        "soft tick per tile; impact-soft on the payoff line"
+      ]
+    },
+    {
+      "id": "04",
+      "sfx": [
+        "soft whoosh per card"
+      ]
+    },
+    {
+      "id": "05",
+      "sfx": [
+        "riser building into the count-up; impact on \"$250\" landing"
+      ]
+    },
+    {
+      "id": "06",
+      "sfx": [
+        "click (on the button press)"
+      ]
+    },
+    {
+      "id": "07",
+      "sfx": [
+        "soft chime (on the mark completing)"
+      ]
+    }
+  ],
+  "bgm": {
+    "mode": "none"
+  }
+}

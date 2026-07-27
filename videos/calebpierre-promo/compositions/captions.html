@@ -1,0 +1,211 @@
+<template id="captions-template" data-composition-id="captions" data-width="1080" data-height="1080">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+
+
+<style data-brand-tokens="">
+      :root {
+      --black: #0A0A0A;
+      --white: #FFFFFF;
+      --offwhite: #FAFAFA;
+      --pink: #C0C5CE;
+      --blue: #F9C8C5;
+      --green: #F1837C;
+      --yellow: #E8382D;
+      --cream: #E5E7EB;
+      --cap-ink: #0A0A0A;
+      --cap-canvas: #FFFFFF;
+      --cap-accent: #E8382D;
+      --cap-accent-2: #F1837C;
+      --font-display: "Inter", system-ui, serif;
+      --font-body: "Inter", system-ui, sans-serif;
+      --cap-band-top: 900px;
+      --cap-band-height: 180px;
+      }
+    </style>
+
+<style>
+  #captions-root {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .caption-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    pointer-events: none;
+  }
+  /* the keep-out band, from captionBand(H) — frame content stays above it */
+  .caption-stage {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: var(--cap-band-top, 900px);
+    height: var(--cap-band-height, 180px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .caption-group {
+    /* every group is absolutely stacked over the SAME band — exactly one shown at a
+       time via opacity. Must be absolute: in-flow groups would lay out side-by-side. */
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+  }
+
+  /* THE bordered card — 4px black border + 8px hard offset shadow (solid black,
+     zero blur, bottom-right — blockframe's sacred depth), square corners */
+  .caption-pill {
+    max-width: 80%;
+    padding: 18px 40px 22px;
+    background: var(--cap-canvas, #ffffff);
+    border: 4px solid var(--cap-ink, #000000);
+    border-radius: 0;
+    box-shadow: 8px 8px 0 var(--cap-ink, #000000);
+  }
+  .caption-line {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.12em 0.32em;
+    font-family: "Inter", system-ui, sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: clamp(38px, 4.2vw, 56px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+
+  /* upcoming — faded black ink, no stamp */
+  .caption-word {
+    display: inline-block;
+    padding: 0 0.1em;
+    color: color-mix(in srgb, var(--cap-ink, #000000) 40%, var(--cap-canvas, #ffffff));
+  }
+  /* current word — THE yellow stamp-block (box-shadow spread = a hard square block
+     w/o layout shift; no blur), black ink reading on top — blockframe's signature stamp */
+  .caption-word.is-active {
+    color: var(--cap-ink, #000000);
+    background: var(--cap-accent, #f7cb46);
+    box-shadow: 0 0 0 0.08em var(--cap-accent, #f7cb46);
+  }
+  /* already spoken — solid black ink, stamp cleared */
+  .caption-word.is-spoken {
+    color: var(--cap-ink, #000000);
+    background: transparent;
+    box-shadow: none;
+  }
+
+  /* optional per-word accents (dormant until a word-classer tags them) */
+  /* brand / key term — heavier ink weight, blockframe's display is already 900 */
+  .caption-word.cap-brand {
+    color: var(--cap-ink, #000000);
+  }
+  /* numerals / data — the body voice, slightly recessed */
+  .caption-word.cap-num {
+    font-family: "Inter", ui-monospace, monospace;
+    color: color-mix(in srgb, var(--cap-ink, #000000) 74%, var(--cap-canvas, #ffffff));
+  }
+  /* emphasis — a cream hard underline bar (the second-chroma accent) */
+  .caption-word.cap-cta {
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-decoration-color: var(--cap-accent-2, #ffdc8b);
+    text-underline-offset: 0.12em;
+  }
+
+  @media (max-aspect-ratio: 9/16) {
+    .caption-pill {
+      max-width: 92%;
+    }
+    .caption-line {
+      font-size: clamp(34px, 5.4vw, 48px);
+    }
+  }
+</style>
+
+<div data-hf-id="hf-toz9" id="captions-root" data-composition-id="captions" data-timeline-locked="" data-start="0" data-duration="40.15" data-fps="30" data-width="1080" data-height="1080">
+  <div data-hf-id="hf-9flp" class="caption-layer" aria-hidden="true">
+    <div data-hf-id="hf-ajrg" id="caption-stage" class="caption-stage"></div>
+  </div>
+</div>
+
+<script>
+  // captions.mjs injects the engine's scene-aware groups + real duration here.
+  var GROUPS = [{"id":"caption-group-0","frame":1,"start":0.179,"end":0.539,"text":"Is your","words":[{"id":"caption-word-0-0","text":"Is","start":0.179,"end":0.299},{"id":"caption-word-0-1","text":"your","start":0.34,"end":0.459}]},{"id":"caption-group-1","frame":1,"start":0.539,"end":1.62,"text":"website doing nothing","words":[{"id":"caption-word-1-0","text":"website","start":0.539,"end":0.919},{"id":"caption-word-1-1","text":"doing","start":0.939,"end":1.199},{"id":"caption-word-1-2","text":"nothing","start":1.279,"end":1.579}]},{"id":"caption-group-2","frame":1,"start":1.62,"end":2.159,"text":"for you?","words":[{"id":"caption-word-2-0","text":"for","start":1.62,"end":1.759},{"id":"caption-word-2-1","text":"you?","start":1.86,"end":2.039}]},{"id":"caption-group-3","frame":1,"start":2.919,"end":3.939,"text":"Not anymore.","words":[{"id":"caption-word-3-0","text":"Not","start":2.919,"end":3.159},{"id":"caption-word-3-1","text":"anymore.","start":3.24,"end":3.819}]},{"id":"caption-group-4","frame":2,"start":4.374,"end":6.014,"text":"Meet Caleb Pierre.","words":[{"id":"caption-word-4-0","text":"Meet","start":4.374,"end":4.894},{"id":"caption-word-4-1","text":"Caleb","start":4.974,"end":5.354},{"id":"caption-word-4-2","text":"Pierre.","start":5.435,"end":5.894}]},{"id":"caption-group-5","frame":2,"start":6.354,"end":7.794,"text":"Your Business Automation","words":[{"id":"caption-word-5-0","text":"Your","start":6.354,"end":6.575},{"id":"caption-word-5-1","text":"Business","start":6.594,"end":6.954},{"id":"caption-word-5-2","text":"Automation","start":7.114,"end":7.674}]},{"id":"caption-group-6","frame":2,"start":7.795,"end":8.414,"text":"Engineer.","words":[{"id":"caption-word-6-0","text":"Engineer.","start":7.795,"end":8.294}]},{"id":"caption-group-7","frame":3,"start":8.767,"end":9.667,"text":"Web design.","words":[{"id":"caption-word-7-0","text":"Web","start":8.767,"end":8.947},{"id":"caption-word-7-1","text":"design.","start":9.047,"end":9.547}]},{"id":"caption-group-8","frame":3,"start":10.027,"end":10.548,"text":"AI.","words":[{"id":"caption-word-8-0","text":"AI.","start":10.027,"end":10.428}]},{"id":"caption-group-9","frame":3,"start":10.847,"end":11.668,"text":"Automation.","words":[{"id":"caption-word-9-0","text":"Automation.","start":10.847,"end":11.548}]},{"id":"caption-group-10","frame":3,"start":11.967,"end":12.627,"text":"Marketing.","words":[{"id":"caption-word-10-0","text":"Marketing.","start":11.967,"end":12.507}]},{"id":"caption-group-11","frame":3,"start":12.948,"end":13.628,"text":"Support.","words":[{"id":"caption-word-11-0","text":"Support.","start":12.948,"end":13.508}]},{"id":"caption-group-12","frame":3,"start":13.887,"end":14.608,"text":"Events.","words":[{"id":"caption-word-12-0","text":"Events.","start":13.887,"end":14.488}]},{"id":"caption-group-13","frame":3,"start":14.887,"end":15.648,"text":"Security.","words":[{"id":"caption-word-13-0","text":"Security.","start":14.887,"end":15.528}]},{"id":"caption-group-14","frame":3,"start":15.947,"end":16.527,"text":"All from","words":[{"id":"caption-word-14-0","text":"All","start":15.947,"end":16.107},{"id":"caption-word-14-1","text":"from","start":16.247,"end":16.407}]},{"id":"caption-group-15","frame":3,"start":16.528,"end":17.327,"text":"one person.","words":[{"id":"caption-word-15-0","text":"one","start":16.528,"end":16.647},{"id":"caption-word-15-1","text":"person.","start":16.767,"end":17.207}]},{"id":"caption-group-16","frame":4,"start":17.669,"end":18.67,"text":"Real sites.","words":[{"id":"caption-word-16-0","text":"Real","start":17.669,"end":17.889},{"id":"caption-word-16-1","text":"sites.","start":18.029,"end":18.55}]},{"id":"caption-group-17","frame":4,"start":19.07,"end":20.089,"text":"Real results.","words":[{"id":"caption-word-17-0","text":"Real","start":19.07,"end":19.249},{"id":"caption-word-17-1","text":"results.","start":19.329,"end":19.969}]},{"id":"caption-group-18","frame":4,"start":20.829,"end":21.789,"text":"Eden's Candy.","words":[{"id":"caption-word-18-0","text":"Eden's","start":20.829,"end":21.149},{"id":"caption-word-18-1","text":"Candy.","start":21.249,"end":21.669}]},{"id":"caption-group-19","frame":4,"start":22.41,"end":23.189,"text":"Hummingbyrd.","words":[{"id":"caption-word-19-0","text":"Hummingbyrd.","start":22.41,"end":23.069}]},{"id":"caption-group-20","frame":4,"start":23.95,"end":25.129,"text":"OutsideTonight.","words":[{"id":"caption-word-20-0","text":"OutsideTonight.","start":23.95,"end":25.009}]},{"id":"caption-group-21","frame":4,"start":25.769,"end":26.709,"text":"Already live.","words":[{"id":"caption-word-21-0","text":"Already","start":25.769,"end":26.129},{"id":"caption-word-21-1","text":"live.","start":26.25,"end":26.589}]},{"id":"caption-group-22","frame":5,"start":27.145,"end":27.885,"text":"Right now,","words":[{"id":"caption-word-22-0","text":"Right","start":27.145,"end":27.385},{"id":"caption-word-22-1","text":"now,","start":27.545,"end":27.765}]},{"id":"caption-group-23","frame":5,"start":28.285,"end":28.965,"text":"new clients","words":[{"id":"caption-word-23-0","text":"new","start":28.285,"end":28.386},{"id":"caption-word-23-1","text":"clients","start":28.505,"end":28.906}]},{"id":"caption-group-24","frame":5,"start":28.965,"end":29.285,"text":"get a","words":[{"id":"caption-word-24-0","text":"get","start":28.965,"end":29.045},{"id":"caption-word-24-1","text":"a","start":29.106,"end":29.245}]},{"id":"caption-group-25","frame":5,"start":29.285,"end":30.325,"text":"full website for","words":[{"id":"caption-word-25-0","text":"full","start":29.285,"end":29.465},{"id":"caption-word-25-1","text":"website","start":29.565,"end":30.065},{"id":"caption-word-25-2","text":"for","start":30.126,"end":30.245}]},{"id":"caption-group-26","frame":5,"start":30.325,"end":32.665,"text":"just $250.","words":[{"id":"caption-word-26-0","text":"just","start":30.325,"end":30.605},{"id":"caption-word-26-1","text":"$250.","start":30.605,"end":32.545}]},{"id":"caption-group-27","frame":5,"start":33.105,"end":34.305,"text":"No hidden fees.","words":[{"id":"caption-word-27-0","text":"No","start":33.105,"end":33.245},{"id":"caption-word-27-1","text":"hidden","start":33.346,"end":33.585},{"id":"caption-word-27-2","text":"fees.","start":33.745,"end":34.185}]},{"id":"caption-group-28","frame":6,"start":34.747,"end":35.868,"text":"Spots are limited.","words":[{"id":"caption-word-28-0","text":"Spots","start":34.747,"end":35.147},{"id":"caption-word-28-1","text":"are","start":35.207,"end":35.287},{"id":"caption-word-28-2","text":"limited.","start":35.367,"end":35.748}]},{"id":"caption-group-29","frame":6,"start":36.667,"end":37.167,"text":"Book your","words":[{"id":"caption-word-29-0","text":"Book","start":36.667,"end":36.847},{"id":"caption-word-29-1","text":"your","start":36.948,"end":37.127}]},{"id":"caption-group-30","frame":6,"start":37.167,"end":38.207,"text":"free call today.","words":[{"id":"caption-word-30-0","text":"free","start":37.167,"end":37.347},{"id":"caption-word-30-1","text":"call","start":37.447,"end":37.647},{"id":"caption-word-30-2","text":"today.","start":37.748,"end":38.087}]},{"id":"caption-group-31","frame":7,"start":38.493,"end":39.974,"text":"calebpierre.com","words":[{"id":"caption-word-31-0","text":"calebpierre.com","start":38.493,"end":39.854}]}];
+  var DURATION = 40.15;
+
+  (function () {
+    var stage = document.getElementById("caption-stage");
+
+    // build DOM: one .caption-group per group, .caption-word per word
+    GROUPS.forEach(function (group, g) {
+      var groupEl = document.createElement("div");
+      groupEl.className = "caption-group";
+      groupEl.id = "caption-group-" + g;
+      var pill = document.createElement("div");
+      pill.className = "caption-pill";
+      var line = document.createElement("div");
+      line.className = "caption-line";
+      (group.words || []).forEach(function (w, i) {
+        var span = document.createElement("span");
+        span.className = "caption-word";
+        span.id = "caption-word-" + g + "-" + i;
+        span.textContent = String(w.text);
+        line.appendChild(span);
+      });
+      pill.appendChild(line);
+      groupEl.appendChild(pill);
+      stage.appendChild(groupEl);
+    });
+
+    window.__timelines = window.__timelines || {};
+    var tl = gsap.timeline({ paused: true });
+
+    GROUPS.forEach(function (group, g) {
+      var groupEl = document.getElementById("caption-group-" + g);
+      var words = group.words || [];
+      var next = GROUPS[g + 1];
+      var isLast = g === GROUPS.length - 1;
+      var start = Math.max(0, Number(group.start));
+      var end = isLast ? DURATION : Math.min(Number(next.start), Number(group.end) + 0.3);
+      if (end <= start) end = start + 0.01;
+
+      // group on/off — exactly one group visible at a time
+      tl.set(groupEl, { opacity: 1 }, start);
+      tl.set(groupEl, { opacity: 0 }, end);
+
+      // 3-state karaoke via className SETS — seek-safe (gsap.set applies on the
+      // engine's frame-by-frame seek; .call callbacks would NOT fire).
+      words.forEach(function (w, i) {
+        var el = document.getElementById("caption-word-" + g + "-" + i);
+        var at = Math.max(start, Number(w.start));
+        tl.set(el, { className: "caption-word" }, start); // upcoming (also resets on reverse-seek)
+        tl.set(el, { className: "caption-word is-active" }, at); // current
+        tl.fromTo(el, { scale: 0.86 }, { scale: 1, duration: 0.2, ease: "back.out(2.4)" }, at);
+        if (i + 1 < words.length) {
+          var nextAt = Math.max(start, Number(words[i + 1].start));
+          tl.set(el, { className: "caption-word is-spoken" }, nextAt); // demote when next activates
+        }
+      });
+      if (words.length) {
+        var lastEl = document.getElementById("caption-word-" + g + "-" + (words.length - 1));
+        var lastSpoken = Math.min(end, Number(words[words.length - 1].end) + 0.1);
+        tl.set(lastEl, { className: "caption-word is-spoken" }, lastSpoken);
+      }
+    });
+
+    // full-span anchor so the sub-comp timeline spans the whole video
+    tl.to({}, { duration: DURATION }, 0);
+    window.__timelines["captions"] = tl;
+  })();
+</script>
+
+<style>
+  .caption-line { line-height: 1.1 !important; }
+</style>
+</template>

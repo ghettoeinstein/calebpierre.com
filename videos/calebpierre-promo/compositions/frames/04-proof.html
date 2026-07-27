@@ -1,0 +1,230 @@
+<template>
+<style>
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(capture/assets/fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(capture/assets/fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url(capture/assets/fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuDyYMZg.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(capture/assets/fonts/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tjPQ.ttf) format('truetype');
+  }
+
+  #root[data-composition-id="04-proof"] {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* full-bleed ground — never on #root */
+  .h04-bg {
+    position: absolute;
+    inset: 0;
+    background-color: #FAFAFA;
+    background-image: radial-gradient(#0A0A0A 1.2px, transparent 1.2px);
+    background-size: 28px 28px;
+    background-position: -6px -6px;
+    opacity: 1;
+  }
+  .h04-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #FAFAFA;
+    opacity: 0.86; /* dims the dot grid to a faint texture */
+  }
+  .h04-deco {
+    position: absolute;
+    top: 54px;
+    right: 66px;
+    width: 58px;
+    height: 58px;
+    background: #F9C8C5;
+    border: 3px solid #0A0A0A;
+    transform: rotate(9deg);
+  }
+
+  .h04-label {
+    position: absolute;
+    top: 64px;
+    left: 60px;
+    right: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0 18px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 58px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: #E8382D;
+  }
+  .h04-word {
+    display: inline-block;
+    will-change: transform, opacity;
+  }
+
+  .h04-cards {
+    position: absolute;
+    top: 250px;
+    left: 60px;
+    right: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .h04-card {
+    position: relative;
+    height: 180px;
+    background: #FFFFFF;
+    border: 4px solid #0A0A0A;
+    box-shadow: 8px 8px 0 #0A0A0A;
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    padding: 0 34px;
+    will-change: transform, opacity;
+  }
+  .h04-chip {
+    flex: 0 0 auto;
+    width: 56px;
+    height: 56px;
+    border: 3px solid #0A0A0A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    color: #0A0A0A;
+  }
+  .h04-card-1 .h04-chip { background: #C0C5CE; transform: rotate(-6deg); }
+  .h04-card-2 .h04-chip { background: #F9C8C5; transform: rotate(5deg); }
+  .h04-card-3 .h04-chip { background: #F1837C; transform: rotate(-4deg); }
+
+  .h04-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #0A0A0A;
+  }
+</style>
+
+<div data-hf-id="hf-p4b1" id="root" data-composition-id="04-proof" data-width="1080" data-height="1080" data-start="0" data-duration="9.856">
+  <div data-hf-id="hf-p4b2" class="h04-bg clip" data-start="0" data-duration="9.856" data-track-index="0">
+    <div data-hf-id="hf-p4b3" class="h04-deco"></div>
+  </div>
+
+  <div data-hf-id="hf-p4b4" class="h04-label clip" data-start="0" data-duration="9.856" data-track-index="1">
+    <span data-hf-id="hf-p4b5" class="h04-word">Real</span>
+    <span data-hf-id="hf-p4b6" class="h04-word">sites.</span>
+    <span data-hf-id="hf-p4b7" class="h04-word">Real</span>
+    <span data-hf-id="hf-p4b8" class="h04-word">results.</span>
+  </div>
+
+  <div data-hf-id="hf-p4b9" class="h04-cards clip" data-start="0" data-duration="9.856" data-track-index="2">
+    <div data-hf-id="hf-p4ba" class="h04-card h04-card-1">
+      <div data-hf-id="hf-p4bb" class="h04-chip">01</div>
+      <div data-hf-id="hf-p4bc" class="h04-title">Eden's Candy</div>
+    </div>
+    <div data-hf-id="hf-p4bd" class="h04-card h04-card-2">
+      <div data-hf-id="hf-p4be" class="h04-chip">02</div>
+      <div data-hf-id="hf-p4bf" class="h04-title">Hummingbyrd</div>
+    </div>
+    <div data-hf-id="hf-p4bg" class="h04-card h04-card-3">
+      <div data-hf-id="hf-p4bh" class="h04-chip">03</div>
+      <div data-hf-id="hf-p4bi" class="h04-title">OutsideTonight</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.__timelines = window.__timelines || {};
+  var tl04 = gsap.timeline({ paused: true });
+  window.__timelines["04-proof"] = tl04;
+
+  // Scene 1 (0.0–1.4s): red label, per-word staggered reveal, power3 settle.
+  tl04.fromTo(
+    "[data-composition-id='04-proof'] .h04-word",
+    { y: 26, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.5, ease: "power3.out", stagger: 0.14 },
+    0
+  );
+
+  // Scene 2 (1.4–3.4s): "Eden's Candy" — cut-the-curve, rightward entry decelerating to rest.
+  tl04.fromTo(
+    "[data-composition-id='04-proof'] .h04-card-1",
+    { x: -60 },
+    { x: 0, duration: 0.55, ease: "power3.out" },
+    1.4
+  );
+  tl04.fromTo(
+    "[data-composition-id='04-proof'] .h04-card-1",
+    { opacity: 0.35 },
+    { opacity: 1, duration: 0.55, ease: "power1.out" },
+    1.4
+  );
+
+  // Scene 3 (3.4–5.4s): "Hummingbyrd" — same direction, matched velocity/duration.
+  tl04.fromTo(
+    "[data-composition-id='04-proof'] .h04-card-2",
+    { x: -60 },
+    { x: 0, duration: 0.55, ease: "power3.out" },
+    3.4
+  );
+  tl04.fromTo(
+    "[data-composition-id='04-proof'] .h04-card-2",
+    { opacity: 0.35 },
+    { opacity: 1, duration: 0.55, ease: "power1.out" },
+    3.4
+  );
+
+  // Scene 4 (5.4–7.0s): "OutsideTonight" lands, then "Already live" — the stack settles together.
+  tl04.fromTo(
+    "[data-composition-id='04-proof'] .h04-card-3",
+    { x: -60 },
+    { x: 0, duration: 0.55, ease: "power3.out" },
+    5.4
+  );
+  tl04.fromTo(
+    "[data-composition-id='04-proof'] .h04-card-3",
+    { opacity: 0.35 },
+    { opacity: 1, duration: 0.55, ease: "power1.out" },
+    5.4
+  );
+
+  // Subtle collective settle once the stack is complete — near-still, not an exit.
+  tl04.fromTo(
+    "[data-composition-id='04-proof'] .h04-label, [data-composition-id='04-proof'] .h04-card",
+    { y: -3 },
+    { y: 0, duration: 0.3, ease: "power2.out" },
+    7.0
+  );
+</script>
+</template>

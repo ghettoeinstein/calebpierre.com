@@ -4,28 +4,28 @@ import { Reveal } from "../hooks/useReveal.jsx";
 
 const PROJECTS = [
   {
+    name: "Last Peg Lose",
+    url: "https://lastpeglose.com",
+    tag: "REAL-TIME · MULTIPLAYER",
+    desc: "2D cartoon peg-skirmish game — WebSocket real-time battles, guest + JWT auth, Drizzle/Neon Postgres, Railway deploy.",
+    accent: C.blue,
+    badge: "Live",
+  },
+  {
+    name: "Latraderrrs",
+    url: "https://latraderrrs.com",
+    tag: "SERVICES · COMMERCE",
+    desc: "Trading services marketplace — Diagnose / Calibrate / Execute tiers, Gumroad integration, anime.js motion, GitHub Pages.",
+    accent: C.green,
+    badge: "Live",
+  },
+  {
     name: "Eden's Candy",
     url: "https://edenscandy.com",
-    tag: "REDESIGN",
+    tag: "REDESIGN · SHOPIFY",
     desc: "Women's wellness and yoni ritual brand — full digital identity, store experience, and sacred commerce platform.",
     accent: C.red,
     badge: "Live",
-  },
-  {
-    name: "Hummingbyrd Apparel & Print",
-    url: "https://hummingbyrdapparelandprint.com",
-    tag: "GREENFIELD · SHOPIFY",
-    desc: "End-to-end Shopify build — product architecture, print-on-demand integration, custom theme, zero to launch.",
-    accent: C.red,
-    badge: "Live",
-  },
-  {
-    name: "OutsideTonight",
-    url: "https://outsidetonight.com",
-    tag: "LIVE BETA",
-    desc: "LA nightlife social OS — real-time venue discovery, viral plan coordination, autonomous event ingestion.",
-    accent: C.red,
-    badge: "Beta",
   },
 ];
 
