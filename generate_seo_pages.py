@@ -291,20 +291,40 @@ body {{ font-family: var(--body); background: var(--paper); color: var(--ink); l
 a {{ color: inherit; text-decoration: none; }}
 .wrap {{ max-width: 760px; margin: 0 auto; padding: 0 24px; }}
 .nav {{ position: sticky; top: 0; z-index: 50; background: rgba(250,250,250,0.94); backdrop-filter: blur(6px); border-bottom: 2px solid var(--ink); }}
-.nav-inner {{ max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; }}
-.nav-brand {{ display: flex; align-items: center; gap: 10px; }}
+.nav-inner {{ max-width: 1080px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 12px 1rem; }}
+.nav-brand {{ display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }}
 .nav-mark {{ font-family: var(--mono); font-weight: 700; font-size: 0.9rem; color: var(--ink); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 2px solid var(--ink); letter-spacing: -0.05em; background: #fff; }}
 .nav-name {{ font-family: var(--body); font-weight: 700; font-size: 0.85rem; color: var(--ink); }}
 .nav-sub {{ font-family: var(--mono); font-size: 0.58rem; color: var(--steel); letter-spacing: 0.1em; }}
-.nav-links {{ display: flex; align-items: center; gap: 18px; }}
-.nav-links a {{ font-family: var(--mono); font-size: 0.7rem; color: var(--steel); transition: color 0.15s; }}
-.nav-links a:hover {{ color: var(--red); }}
-.nav-cta {{ background: var(--red); color: #fff; font-family: var(--body); font-weight: 700; font-size: 0.78rem; padding: 8px 16px; }}
-.nav-mobile-btn {{ display: none; background: none; border: none; cursor: pointer; color: var(--ink); font-family: var(--mono); font-size: 0.8rem; }}
-.nav-mobile {{ display: none; flex-direction: column; gap: 10px; padding: 12px 24px 16px; background: var(--paper); border-top: 1px solid var(--line); }}
-.nav-mobile a {{ font-family: var(--mono); font-size: 0.78rem; color: var(--steel); padding: 4px 0; }}
-.nav-mobile a:hover {{ color: var(--red); }}
-.nav-mobile .nav-cta {{ text-align: center; margin-top: 8px; }}
+.nav-desktop {{ display: flex; align-items: center; gap: 20px; }}
+.nav-dropdown {{ position: relative; }}
+.nav-drop-btn {{ font-family: var(--mono); font-size: 0.75rem; color: var(--steel); background: none; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; padding: 8px 4px; transition: color 0.15s; letter-spacing: 0.04em; }}
+.nav-drop-btn:hover {{ color: var(--ink); }}
+.nav-drop-btn .chev {{ transition: transform 0.25s; font-size: 10px; }}
+.nav-drop-btn.open .chev {{ transform: rotate(180deg); }}
+.nav-flyout {{ position: absolute; top: calc(100% + 6px); left: 50%; transform: translateX(-50%); background: #fff; border: 3px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); z-index: 100; min-width: 240px; padding: 8px 0; display: none; }}
+.nav-flyout.open {{ display: block; }}
+.nav-flyout-label {{ font-family: var(--mono); font-size: 0.6rem; color: var(--steel); letter-spacing: 0.12em; padding: 6px 16px 8px; margin: 0; }}
+.nav-flyout a {{ display: block; padding: 9px 16px; font-family: var(--body); font-size: 0.82rem; font-weight: 600; color: var(--ink); text-decoration: none; border-left: 3px solid transparent; transition: all 0.12s; }}
+.nav-flyout a:hover {{ background: #F6D9D6; border-left-color: var(--red); }}
+.nav-cta {{ background: var(--red); color: #fff; font-family: var(--body); font-weight: 700; font-size: 0.78rem; padding: 8px 16px; box-shadow: 3px 3px 0 var(--ink); transition: all 0.15s; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }}
+.nav-cta:hover {{ background: var(--ink); box-shadow: 4px 4px 0 var(--red); transform: translate(-1px,-1px); }}
+.nav-mobile-btn {{ display: none; background: var(--red); border: 3px solid var(--ink); cursor: pointer; padding: 8px; box-shadow: 3px 3px 0 var(--ink); }}
+.nav-mobile-btn span {{ color: #fff; font-family: var(--mono); font-size: 0.8rem; }}
+.nav-mobile {{ display: none; position: fixed; top: 0; right: 0; bottom: 0; width: 100%; max-width: 420px; background: var(--ink); z-index: 49; overflow-y: auto; }}
+.nav-mobile.open {{ display: block; }}
+.nav-mobile-overlay {{ display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 48; }}
+.nav-mobile-overlay.open {{ display: block; }}
+.nav-mobile-header {{ display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-bottom: 2px solid #1a1a1a; }}
+.nav-mobile-header span {{ font-family: var(--mono); font-size: 0.65rem; color: #666; letter-spacing: 0.1em; }}
+.nav-mobile-close {{ color: #fff; background: none; border: none; cursor: pointer; padding: 8px; font-size: 1.3rem; }}
+.nav-mobile-section {{ border-bottom: 1px solid #1a1a1a; }}
+.nav-mobile-section-btn {{ width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 16px 1.5rem; background: none; border: none; cursor: pointer; color: var(--red); font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.14em; font-weight: 700; text-transform: uppercase; }}
+.nav-mobile-section-content {{ display: none; padding-bottom: 8px; }}
+.nav-mobile-section-content.open {{ display: block; }}
+.nav-mobile-section-content a {{ display: block; padding: 10px 1.5rem 10px 2rem; font-family: var(--body); font-size: 0.88rem; color: #fff; text-decoration: none; font-weight: 600; }}
+.nav-mobile-cta {{ padding: 24px 1.5rem; }}
+.nav-mobile-cta .nav-cta {{ width: 100%; justify-content: center; padding: 12px; font-size: 0.85rem; }}
 .hero {{ padding: 100px 24px 60px; }}
 .eyebrow {{ font-family: var(--mono); color: var(--red); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; font-weight: 600; }}
 h1 {{ font-family: var(--display); font-size: clamp(1.8rem, 4.5vw, 3rem); font-weight: 900; line-height: 1.1; color: var(--ink); margin-bottom: 20px; max-width: 18ch; letter-spacing: -0.02em; }}
@@ -335,11 +355,9 @@ h2 {{ font-family: var(--display); font-size: clamp(1.4rem, 3vw, 2rem); font-wei
 .footer-bottom {{ max-width: 960px; margin: 0 auto; border-top: 1px solid var(--lineDark); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }}
 .footer-bottom p {{ font-family: var(--mono); color: #8A8A8A; font-size: 0.68rem; }}
 .footer-bottom a {{ color: var(--red); }}
-@media (max-width: 768px) {{
-  .nav-links {{ display: none; }}
-  .nav-mobile-btn {{ display: block; }}
-  .nav-mobile.open {{ display: flex; }}
-  .footer-grid {{ grid-template-columns: repeat(2, 1fr); gap: 20px; }}
+@media (max-width: 1024px) {{
+  .nav-desktop {{ display: none; }}
+  .nav-mobile-btn {{ display: flex; align-items: center; justify-content: center; }}
 }}
 @media (max-width: 640px) {{ .wrap {{ padding: 0 16px; }} .hero {{ padding: 80px 16px 40px; }} }}
 </style>
@@ -347,10 +365,35 @@ h2 {{ font-family: var(--display); font-size: clamp(1.4rem, 3vw, 2rem); font-wei
 <body>
 
 <script>
-function toggleMobile() {{
-  var el = document.getElementById('nav-mobile');
-  el.classList.toggle('open');
+function toggleNavMobile() {{
+  document.getElementById('nav-mobile').classList.toggle('open');
+  document.getElementById('nav-mobile-overlay').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('nav-mobile').classList.contains('open') ? 'hidden' : '';
 }}
+function closeNavMobile() {{
+  document.getElementById('nav-mobile').classList.remove('open');
+  document.getElementById('nav-mobile-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}}
+function toggleDrop(id) {{
+  var el = document.getElementById(id);
+  var btn = document.getElementById(id + '-btn');
+  var isOpen = el.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.nav-flyout').forEach(f => f.classList.remove('open'));
+  document.querySelectorAll('.nav-drop-btn').forEach(b => b.classList.remove('open'));
+  if (!isOpen) {{ el.classList.add('open'); btn.classList.add('open'); }}
+}}
+function toggleMobileSection(id) {{
+  document.getElementById(id).classList.toggle('open');
+}}
+// Close dropdowns on outside click
+document.addEventListener('click', function(e) {{
+  if (!e.target.closest('.nav-dropdown')) {{
+    document.querySelectorAll('.nav-flyout').forEach(f => f.classList.remove('open'));
+    document.querySelectorAll('.nav-drop-btn').forEach(b => b.classList.remove('open'));
+  }}
+}});
 </script>
 
 <nav class="nav">
@@ -362,31 +405,96 @@ function toggleMobile() {{
         <div class="nav-sub">BUSINESS AUTOMATION ENGINEER</div>
       </div>
     </a>
-    <div class="nav-links">
-      <a href="{base_url}/#diagnostic">Diagnostic</a>
-      <a href="{base_url}/#services">Services</a>
-      <a href="{base_url}/#work">Work</a>
-      <a href="{base_url}/#proof">Proof</a>
-      <a href="{base_url}/resume.html">Resume</a>
-      <a href="{base_url}/#about">About</a>
-      <a href="{base_url}/#contact">Contact</a>
-      <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="nav-cta">Book a Call</a>
+    <div class="nav-desktop">
+      <div class="nav-dropdown">
+        <button class="nav-drop-btn" id="drop-services-btn" onclick="toggleDrop('drop-services')">Services <span class="chev">&#9660;</span></button>
+        <div class="nav-flyout" id="drop-services">
+          <p class="nav-flyout-label">SERVICES</p>
+          <a href="{base_url}/los-angeles/web-design.html">Web Design</a>
+          <a href="{base_url}/los-angeles/ai-programming.html">AI Programming</a>
+          <a href="{base_url}/los-angeles/business-automation.html">Business Automation</a>
+          <a href="{base_url}/los-angeles/content-marketing.html">Content Marketing</a>
+          <a href="{base_url}/los-angeles/remote-tech-support.html">Remote Tech Support</a>
+          <a href="{base_url}/los-angeles/event-design.html">Experience / Event Design</a>
+          <a href="{base_url}/los-angeles/cybersecurity.html">Cybersecurity</a>
+          <a href="{base_url}/#services" style="font-family:var(--mono);font-size:0.68rem;color:var(--steel);">ALL SERVICES &rarr;</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-drop-btn" id="drop-articles-btn" onclick="toggleDrop('drop-articles')">Articles <span class="chev">&#9660;</span></button>
+        <div class="nav-flyout" id="drop-articles">
+          <p class="nav-flyout-label">EDITORIALS</p>
+          <a href="{base_url}/articles/web-design-los-angeles.html">Web Design in LA</a>
+          <a href="{base_url}/articles/ai-programming-los-angeles.html">AI Programming in LA</a>
+          <a href="{base_url}/articles/business-automation-los-angeles.html">Automation in LA</a>
+          <a href="{base_url}/articles/content-marketing-los-angeles.html">Content Marketing in LA</a>
+          <a href="{base_url}/articles/remote-tech-support-los-angeles.html">Remote Tech Support in LA</a>
+          <a href="{base_url}/articles/event-design-los-angeles.html">Event Design in LA</a>
+          <a href="{base_url}/articles/cybersecurity-los-angeles.html">Cybersecurity for LA</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-drop-btn" id="drop-company-btn" onclick="toggleDrop('drop-company')">Company <span class="chev">&#9660;</span></button>
+        <div class="nav-flyout" id="drop-company">
+          <p class="nav-flyout-label">SITE</p>
+          <a href="{base_url}/#work">Work</a>
+          <a href="{base_url}/#proof">Proof</a>
+          <a href="{base_url}/#diagnostic">Diagnostic</a>
+          <a href="{base_url}/#about">About</a>
+          <a href="{base_url}/resume.html">Resume</a>
+          <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="nav-cta">Start the Discovery &#8599;</a>
     </div>
-    <button class="nav-mobile-btn" onclick="toggleMobile()">Menu</button>
-  </div>
-  <div class="nav-mobile" id="nav-mobile">
-    <a href="{base_url}/#diagnostic">Diagnostic</a>
-    <a href="{base_url}/#services">Services</a>
-    <a href="{base_url}/#work">Work</a>
-    <a href="{base_url}/#proof">Proof</a>
-    <a href="{base_url}/resume.html">Resume</a>
-    <a href="{base_url}/#about">About</a>
-    <a href="{base_url}/#contact">Contact</a>
-    <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="nav-cta">Book a Call</a>
+    <button class="nav-mobile-btn" onclick="toggleNavMobile()"><span>Menu</span></button>
   </div>
 </nav>
+<div class="nav-mobile-overlay" id="nav-mobile-overlay" onclick="closeNavMobile()"></div>
+<div class="nav-mobile" id="nav-mobile">
+  <div class="nav-mobile-header">
+    <span>BUSINESS AUTOMATION ENGINEER</span>
+    <button class="nav-mobile-close" onclick="closeNavMobile()">&times;</button>
+  </div>
+  <div class="nav-mobile-section">
+    <button class="nav-mobile-section-btn" onclick="toggleMobileSection('m-services')">Services <span>&#9660;</span></button>
+    <div class="nav-mobile-section-content" id="m-services">
+      <a href="{base_url}/los-angeles/web-design.html">Web Design</a>
+      <a href="{base_url}/los-angeles/ai-programming.html">AI Programming</a>
+      <a href="{base_url}/los-angeles/business-automation.html">Business Automation</a>
+      <a href="{base_url}/los-angeles/content-marketing.html">Content Marketing</a>
+      <a href="{base_url}/los-angeles/remote-tech-support.html">Remote Tech Support</a>
+      <a href="{base_url}/los-angeles/event-design.html">Experience / Event Design</a>
+      <a href="{base_url}/los-angeles/cybersecurity.html">Cybersecurity</a>
+    </div>
+  </div>
+  <div class="nav-mobile-section">
+    <button class="nav-mobile-section-btn" onclick="toggleMobileSection('m-articles')">Articles <span>&#9660;</span></button>
+    <div class="nav-mobile-section-content" id="m-articles">
+      <a href="{base_url}/articles/web-design-los-angeles.html">Web Design in LA</a>
+      <a href="{base_url}/articles/ai-programming-los-angeles.html">AI Programming in LA</a>
+      <a href="{base_url}/articles/business-automation-los-angeles.html">Automation in LA</a>
+      <a href="{base_url}/articles/content-marketing-los-angeles.html">Content Marketing in LA</a>
+      <a href="{base_url}/articles/remote-tech-support-los-angeles.html">Remote Tech Support in LA</a>
+      <a href="{base_url}/articles/event-design-los-angeles.html">Event Design in LA</a>
+      <a href="{base_url}/articles/cybersecurity-los-angeles.html">Cybersecurity for LA</a>
+    </div>
+  </div>
+  <div class="nav-mobile-section">
+    <button class="nav-mobile-section-btn" onclick="toggleMobileSection('m-company')">Company <span>&#9660;</span></button>
+    <div class="nav-mobile-section-content" id="m-company">
+      <a href="{base_url}/#work">Work</a>
+      <a href="{base_url}/#proof">Proof</a>
+      <a href="{base_url}/#diagnostic">Diagnostic</a>
+      <a href="{base_url}/#about">About</a>
+      <a href="{base_url}/resume.html">Resume</a>
+      <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="nav-mobile-cta">
+    <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="nav-cta">Start the Discovery &#8599;</a>
+  </div>
+</div>
 
 <div class="wrap">
   <section class="hero">
@@ -415,7 +523,7 @@ function toggleMobile() {{
   <div class="cta-box">
     <h2>Stop bleeding hours. Start getting them back.</h2>
     <p>Free 30-minute systems audit. No pitch, no obligation — just a straight answer about what's costing you and what to fix first.</p>
-    <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="cta-btn">Book Your Free Audit →</a>
+    <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="cta-btn">Start the Discovery &#8599;</a>
   </div>
 
   <section class="faq">
@@ -485,7 +593,7 @@ function toggleMobile() {{
       <a href="{base_url}/#proof">Proof of Work</a>
       <a href="{base_url}/#about">About</a>
       <a href="{base_url}/#contact">Contact</a>
-      <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener">Book a Call</a>
+      <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener">Start the Discovery</a>
       <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
       <a href="{base_url}/sitemap.xml">Sitemap</a>
       <a href="{base_url}/llms.txt">llms.txt</a>
@@ -493,7 +601,7 @@ function toggleMobile() {{
     </div>
   </div>
   <div class="footer-seo">
-    <p>Caleb Pierre is a Business Automation Engineer based in Los Angeles, CA. He builds the web, AI, automation, marketing, and support systems that let a business run itself — for organizations across LA County, from nonprofits in Gardena to healthcare practices in Torrance to tech companies in Santa Monica. 10 years of experience across Tinder (Security Engineer II), Verizon Media, Children's Hospital Los Angeles, Glass Financial (CTO), and Caleb Pierre Ventures. Serving Los Angeles, Long Beach, Torrance, Carson, Compton, Hawthorne, Inglewood, Gardena, Santa Monica, Pasadena, Glendale, and Burbank. HIPAA compliant. Remote-first. Book a free systems audit.</p>
+    <p>Caleb Pierre is a Business Automation Engineer based in Los Angeles, CA. He builds the web, AI, automation, marketing, and support systems that let a business run itself — for organizations across LA County, from nonprofits in Gardena to healthcare practices in Torrance to tech companies in Santa Monica. 10 years of experience across Tinder (Security Engineer II), Verizon Media, Children's Hospital Los Angeles, Glass Financial (CTO), and Caleb Pierre Ventures. Serving Los Angeles, Long Beach, Torrance, Carson, Compton, Hawthorne, Inglewood, Gardena, Santa Monica, Pasadena, Glendale, and Burbank. HIPAA compliant. Remote-first. Start the Discovery.</p>
   </div>
   <div class="footer-bottom">
     <p>&copy; {year} Caleb Pierre Ventures LLC &middot; Los Angeles, CA &middot; Remote-First &middot; <a href="{base_url}/llms.txt">llms.txt</a> &middot; <a href="{base_url}/sitemap.xml">sitemap.xml</a> &middot; <a href="{base_url}/robots.txt">robots.txt</a></p>
@@ -558,7 +666,35 @@ a {{ color: var(--red); text-decoration: none; }}
 .nav-mark {{ font-family: var(--mono); font-weight: 700; font-size: 0.9rem; color: var(--ink); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 2px solid var(--ink); letter-spacing: -0.05em; background: #fff; }}
 .nav-name {{ font-family: var(--body); font-weight: 700; font-size: 0.85rem; color: var(--ink); }}
 .nav-sub {{ font-family: var(--mono); font-size: 0.58rem; color: var(--steel); letter-spacing: 0.1em; }}
-.nav-cta {{ background: var(--red); color: #fff; font-family: var(--body); font-weight: 700; font-size: 0.78rem; padding: 8px 16px; }}
+.nav-cta {{ background: var(--red); color: #fff; font-family: var(--body); font-weight: 700; font-size: 0.78rem; padding: 8px 16px; box-shadow: 3px 3px 0 var(--ink); transition: all 0.15s; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }}
+.nav-cta:hover {{ background: var(--ink); box-shadow: 4px 4px 0 var(--red); transform: translate(-1px,-1px); }}
+.nav-desktop {{ display: flex; align-items: center; gap: 20px; }}
+.nav-dropdown {{ position: relative; }}
+.nav-drop-btn {{ font-family: var(--mono); font-size: 0.75rem; color: var(--steel); background: none; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; padding: 8px 4px; transition: color 0.15s; letter-spacing: 0.04em; }}
+.nav-drop-btn:hover {{ color: var(--ink); }}
+.nav-drop-btn .chev {{ transition: transform 0.25s; font-size: 10px; }}
+.nav-drop-btn.open .chev {{ transform: rotate(180deg); }}
+.nav-flyout {{ position: absolute; top: calc(100% + 6px); left: 50%; transform: translateX(-50%); background: #fff; border: 3px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); z-index: 100; min-width: 240px; padding: 8px 0; display: none; }}
+.nav-flyout.open {{ display: block; }}
+.nav-flyout-label {{ font-family: var(--mono); font-size: 0.6rem; color: var(--steel); letter-spacing: 0.12em; padding: 6px 16px 8px; margin: 0; }}
+.nav-flyout a {{ display: block; padding: 9px 16px; font-family: var(--body); font-size: 0.82rem; font-weight: 600; color: var(--ink); text-decoration: none; border-left: 3px solid transparent; transition: all 0.12s; }}
+.nav-flyout a:hover {{ background: #F6D9D6; border-left-color: var(--red); }}
+.nav-mobile-btn {{ display: none; background: var(--red); border: 3px solid var(--ink); cursor: pointer; padding: 8px; box-shadow: 3px 3px 0 var(--ink); }}
+.nav-mobile-btn span {{ color: #fff; font-family: var(--mono); font-size: 0.8rem; }}
+.nav-mobile {{ display: none; position: fixed; top: 0; right: 0; bottom: 0; width: 100%; max-width: 420px; background: var(--ink); z-index: 49; overflow-y: auto; }}
+.nav-mobile.open {{ display: block; }}
+.nav-mobile-overlay {{ display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 48; }}
+.nav-mobile-overlay.open {{ display: block; }}
+.nav-mobile-header {{ display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-bottom: 2px solid #1a1a1a; }}
+.nav-mobile-header span {{ font-family: var(--mono); font-size: 0.65rem; color: #666; letter-spacing: 0.1em; }}
+.nav-mobile-close {{ color: #fff; background: none; border: none; cursor: pointer; padding: 8px; font-size: 1.3rem; }}
+.nav-mobile-section {{ border-bottom: 1px solid #1a1a1a; }}
+.nav-mobile-section-btn {{ width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 16px 1.5rem; background: none; border: none; cursor: pointer; color: var(--red); font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.14em; font-weight: 700; text-transform: uppercase; }}
+.nav-mobile-section-content {{ display: none; padding-bottom: 8px; }}
+.nav-mobile-section-content.open {{ display: block; }}
+.nav-mobile-section-content a {{ display: block; padding: 10px 1.5rem 10px 2rem; font-family: var(--body); font-size: 0.88rem; color: #fff; text-decoration: none; font-weight: 600; }}
+.nav-mobile-cta {{ padding: 24px 1.5rem; }}
+.nav-mobile-cta .nav-cta {{ width: 100%; justify-content: center; padding: 12px; font-size: 0.85rem; }}
 .hero {{ padding: 100px 24px 40px; }}
 .eyebrow {{ font-family: var(--mono); color: var(--red); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; font-weight: 600; }}
 h1 {{ font-family: var(--display); font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 900; line-height: 1.15; color: var(--ink); margin-bottom: 16px; letter-spacing: -0.02em; }}
@@ -584,10 +720,44 @@ blockquote {{ border-left: 3px solid var(--red); padding-left: 20px; margin: 24p
 .footer-bottom {{ max-width: 960px; margin: 0 auto; border-top: 1px solid var(--lineDark); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }}
 .footer-bottom p {{ font-family: var(--mono); color: #8A8A8A; font-size: 0.68rem; }}
 .footer-bottom a {{ color: var(--red); }}
+@media (max-width: 1024px) {{
+  .nav-desktop {{ display: none; }}
+  .nav-mobile-btn {{ display: flex; align-items: center; justify-content: center; }}
+}}
 @media (max-width: 640px) {{ .wrap {{ padding: 0 16px; }} .hero {{ padding: 80px 16px 32px; }} }}
 </style>
 </head>
 <body>
+
+<script>
+function toggleNavMobile() {{
+  document.getElementById('nav-mobile').classList.toggle('open');
+  document.getElementById('nav-mobile-overlay').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('nav-mobile').classList.contains('open') ? 'hidden' : '';
+}}
+function closeNavMobile() {{
+  document.getElementById('nav-mobile').classList.remove('open');
+  document.getElementById('nav-mobile-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}}
+function toggleDrop(id) {{
+  var el = document.getElementById(id);
+  var btn = document.getElementById(id + '-btn');
+  var isOpen = el.classList.contains('open');
+  document.querySelectorAll('.nav-flyout').forEach(f => f.classList.remove('open'));
+  document.querySelectorAll('.nav-drop-btn').forEach(b => b.classList.remove('open'));
+  if (!isOpen) {{ el.classList.add('open'); btn.classList.add('open'); }}
+}}
+function toggleMobileSection(id) {{
+  document.getElementById(id).classList.toggle('open');
+}}
+document.addEventListener('click', function(e) {{
+  if (!e.target.closest('.nav-dropdown')) {{
+    document.querySelectorAll('.nav-flyout').forEach(f => f.classList.remove('open'));
+    document.querySelectorAll('.nav-drop-btn').forEach(b => b.classList.remove('open'));
+  }}
+}});
+</script>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -598,9 +768,96 @@ blockquote {{ border-left: 3px solid var(--red); padding-left: 20px; margin: 24p
         <div class="nav-sub">BUSINESS AUTOMATION ENGINEER</div>
       </div>
     </a>
-    <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="nav-cta">Book a Call</a>
+    <div class="nav-desktop">
+      <div class="nav-dropdown">
+        <button class="nav-drop-btn" id="drop-services-btn" onclick="toggleDrop('drop-services')">Services <span class="chev">&#9660;</span></button>
+        <div class="nav-flyout" id="drop-services">
+          <p class="nav-flyout-label">SERVICES</p>
+          <a href="{base_url}/los-angeles/web-design.html">Web Design</a>
+          <a href="{base_url}/los-angeles/ai-programming.html">AI Programming</a>
+          <a href="{base_url}/los-angeles/business-automation.html">Business Automation</a>
+          <a href="{base_url}/los-angeles/content-marketing.html">Content Marketing</a>
+          <a href="{base_url}/los-angeles/remote-tech-support.html">Remote Tech Support</a>
+          <a href="{base_url}/los-angeles/event-design.html">Experience / Event Design</a>
+          <a href="{base_url}/los-angeles/cybersecurity.html">Cybersecurity</a>
+          <a href="{base_url}/#services" style="font-family:var(--mono);font-size:0.68rem;color:var(--steel);">ALL SERVICES &rarr;</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-drop-btn" id="drop-articles-btn" onclick="toggleDrop('drop-articles')">Articles <span class="chev">&#9660;</span></button>
+        <div class="nav-flyout" id="drop-articles">
+          <p class="nav-flyout-label">EDITORIALS</p>
+          <a href="{base_url}/articles/web-design-los-angeles.html">Web Design in LA</a>
+          <a href="{base_url}/articles/ai-programming-los-angeles.html">AI Programming in LA</a>
+          <a href="{base_url}/articles/business-automation-los-angeles.html">Automation in LA</a>
+          <a href="{base_url}/articles/content-marketing-los-angeles.html">Content Marketing in LA</a>
+          <a href="{base_url}/articles/remote-tech-support-los-angeles.html">Remote Tech Support in LA</a>
+          <a href="{base_url}/articles/event-design-los-angeles.html">Event Design in LA</a>
+          <a href="{base_url}/articles/cybersecurity-los-angeles.html">Cybersecurity for LA</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-drop-btn" id="drop-company-btn" onclick="toggleDrop('drop-company')">Company <span class="chev">&#9660;</span></button>
+        <div class="nav-flyout" id="drop-company">
+          <p class="nav-flyout-label">SITE</p>
+          <a href="{base_url}/#work">Work</a>
+          <a href="{base_url}/#proof">Proof</a>
+          <a href="{base_url}/#diagnostic">Diagnostic</a>
+          <a href="{base_url}/#about">About</a>
+          <a href="{base_url}/resume.html">Resume</a>
+          <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="nav-cta">Start the Discovery &#8599;</a>
+    </div>
+    <button class="nav-mobile-btn" onclick="toggleNavMobile()"><span>Menu</span></button>
   </div>
 </nav>
+<div class="nav-mobile-overlay" id="nav-mobile-overlay" onclick="closeNavMobile()"></div>
+<div class="nav-mobile" id="nav-mobile">
+  <div class="nav-mobile-header">
+    <span>BUSINESS AUTOMATION ENGINEER</span>
+    <button class="nav-mobile-close" onclick="closeNavMobile()">&times;</button>
+  </div>
+  <div class="nav-mobile-section">
+    <button class="nav-mobile-section-btn" onclick="toggleMobileSection('m-services')">Services <span>&#9660;</span></button>
+    <div class="nav-mobile-section-content" id="m-services">
+      <a href="{base_url}/los-angeles/web-design.html">Web Design</a>
+      <a href="{base_url}/los-angeles/ai-programming.html">AI Programming</a>
+      <a href="{base_url}/los-angeles/business-automation.html">Business Automation</a>
+      <a href="{base_url}/los-angeles/content-marketing.html">Content Marketing</a>
+      <a href="{base_url}/los-angeles/remote-tech-support.html">Remote Tech Support</a>
+      <a href="{base_url}/los-angeles/event-design.html">Experience / Event Design</a>
+      <a href="{base_url}/los-angeles/cybersecurity.html">Cybersecurity</a>
+    </div>
+  </div>
+  <div class="nav-mobile-section">
+    <button class="nav-mobile-section-btn" onclick="toggleMobileSection('m-articles')">Articles <span>&#9660;</span></button>
+    <div class="nav-mobile-section-content" id="m-articles">
+      <a href="{base_url}/articles/web-design-los-angeles.html">Web Design in LA</a>
+      <a href="{base_url}/articles/ai-programming-los-angeles.html">AI Programming in LA</a>
+      <a href="{base_url}/articles/business-automation-los-angeles.html">Automation in LA</a>
+      <a href="{base_url}/articles/content-marketing-los-angeles.html">Content Marketing in LA</a>
+      <a href="{base_url}/articles/remote-tech-support-los-angeles.html">Remote Tech Support in LA</a>
+      <a href="{base_url}/articles/event-design-los-angeles.html">Event Design in LA</a>
+      <a href="{base_url}/articles/cybersecurity-los-angeles.html">Cybersecurity for LA</a>
+    </div>
+  </div>
+  <div class="nav-mobile-section">
+    <button class="nav-mobile-section-btn" onclick="toggleMobileSection('m-company')">Company <span>&#9660;</span></button>
+    <div class="nav-mobile-section-content" id="m-company">
+      <a href="{base_url}/#work">Work</a>
+      <a href="{base_url}/#proof">Proof</a>
+      <a href="{base_url}/#diagnostic">Diagnostic</a>
+      <a href="{base_url}/#about">About</a>
+      <a href="{base_url}/resume.html">Resume</a>
+      <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="nav-mobile-cta">
+    <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="nav-cta">Start the Discovery &#8599;</a>
+  </div>
+</div>
 
 <div class="wrap">
   <article class="hero">
@@ -614,7 +871,7 @@ blockquote {{ border-left: 3px solid var(--red); padding-left: 20px; margin: 24p
   <div class="cta-box">
     <h2>Want this for your business?</h2>
     <p>Book a free 30-minute systems audit. I'll take real notes and hand you a written game plan — no pitch, no pressure.</p>
-    <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="cta-btn">Book Your Free Audit →</a>
+    <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener" class="cta-btn">Start the Discovery &#8599;</a>
   </div>
 </div>
 
@@ -664,7 +921,7 @@ blockquote {{ border-left: 3px solid var(--red); padding-left: 20px; margin: 24p
       <a href="{base_url}/#proof">Proof of Work</a>
       <a href="{base_url}/#about">About</a>
       <a href="{base_url}/#contact">Contact</a>
-      <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener">Book a Call</a>
+      <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener">Start the Discovery</a>
       <a href="https://linkedin.com/in/calebpierre" target="_blank" rel="noopener">LinkedIn</a>
       <a href="{base_url}/sitemap.xml">Sitemap</a>
       <a href="{base_url}/llms.txt">llms.txt</a>
@@ -672,7 +929,7 @@ blockquote {{ border-left: 3px solid var(--red); padding-left: 20px; margin: 24p
     </div>
   </div>
   <div class="footer-seo">
-    <p>Caleb Pierre is a Business Automation Engineer based in Los Angeles, CA. He builds the web, AI, automation, marketing, and support systems that let a business run itself — for organizations across LA County, from nonprofits in Gardena to healthcare practices in Torrance to tech companies in Santa Monica. 10 years of experience across Tinder (Security Engineer II), Verizon Media, Children's Hospital Los Angeles, Glass Financial (CTO), and Caleb Pierre Ventures. Serving Los Angeles, Long Beach, Torrance, Carson, Compton, Hawthorne, Inglewood, Gardena, Santa Monica, Pasadena, Glendale, and Burbank. HIPAA compliant. Remote-first. Book a free systems audit.</p>
+    <p>Caleb Pierre is a Business Automation Engineer based in Los Angeles, CA. He builds the web, AI, automation, marketing, and support systems that let a business run itself — for organizations across LA County, from nonprofits in Gardena to healthcare practices in Torrance to tech companies in Santa Monica. 10 years of experience across Tinder (Security Engineer II), Verizon Media, Children's Hospital Los Angeles, Glass Financial (CTO), and Caleb Pierre Ventures. Serving Los Angeles, Long Beach, Torrance, Carson, Compton, Hawthorne, Inglewood, Gardena, Santa Monica, Pasadena, Glendale, and Burbank. HIPAA compliant. Remote-first. Start the Discovery.</p>
   </div>
   <div class="footer-bottom">
     <p>&copy; {year} Caleb Pierre Ventures LLC &middot; Los Angeles, CA &middot; Remote-First &middot; <a href="{base_url}/llms.txt">llms.txt</a> &middot; <a href="{base_url}/sitemap.xml">sitemap.xml</a> &middot; <a href="{base_url}/robots.txt">robots.txt</a></p>
