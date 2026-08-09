@@ -40,12 +40,12 @@ const CITIES = [
 const PAGES = [
   { label: "Home", href: "./index.html" },
   { label: "Resume", href: "./resume.html" },
-  { label: "Systems Diagnostic", href: "./index.html#diagnostic" },
+  { label: "Leverage", href: "./index.html#leverage" },
+  { label: "Systems", href: "./index.html#systems" },
+  { label: "Evidence", href: "./index.html#evidence" },
   { label: "Work", href: "./index.html#work" },
-  { label: "Process", href: "./index.html#services" },
-  { label: "Proof of Work", href: "./index.html#proof" },
   { label: "About", href: "./index.html#about" },
-  { label: "Contact", href: "./index.html#contact" },
+  { label: "Start", href: "./index.html#start" },
   { label: "Start the Discovery", href: "https://calendly.com/calebpierre" },
   { label: "LinkedIn", href: "https://linkedin.com/in/calebpierre" },
   { label: "Sitemap", href: "./sitemap.xml" },
@@ -98,7 +98,7 @@ export default function Footer() {
             {SERVICES.map((s) => (
               <a key={s.href} href={s.href} style={linkStyle} className="footer-link">{s.label}</a>
             ))}
-            <a href="./index.html#services" style={linkStyle} className="footer-link">All Services →</a>          </div>
+            <a href="./index.html#start" style={linkStyle} className="footer-link">All Services →</a>          </div>
 
           <div>
             <p style={headingStyle}>Articles</p>

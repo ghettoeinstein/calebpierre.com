@@ -1,26 +1,38 @@
 import Nav from "./components/Nav.jsx";
-import Hero from "./components/Hero.jsx";
-import Interlude from "./components/Interlude.jsx";
-import Work from "./components/Work.jsx";
-import Agitation from "./components/Agitation.jsx";
-import Diagnostic from "./components/Diagnostic.jsx";
-import Services from "./components/Services.jsx";
-import Proof from "./components/Proof.jsx";
-import Closing from "./components/Closing.jsx";
 import Footer from "./components/Footer.jsx";
+import ChapterNav from "./components/chapters/ChapterNav.jsx";
+import Reality from "./components/chapters/Reality.jsx";
+import Leakage from "./components/chapters/Leakage.jsx";
+import Economics from "./components/chapters/Economics.jsx";
+import Judgment from "./components/chapters/Judgment.jsx";
+import MasterIdea from "./components/chapters/MasterIdea.jsx";
+import SystemRun from "./components/chapters/SystemRun.jsx";
+import Evidence from "./components/chapters/Evidence.jsx";
+import DeRisk from "./components/chapters/DeRisk.jsx";
+import Method from "./components/chapters/Method.jsx";
+import ValueSlider from "./components/chapters/ValueSlider.jsx";
+import CaseStudies from "./components/chapters/CaseStudies.jsx";
+import Identity from "./components/chapters/Identity.jsx";
+import Offer from "./components/chapters/Offer.jsx";
 
 export default function App() {
   return (
     <div style={{ position: "relative", minHeight: "100vh" }}>
       <Nav />
-      <Hero />
-      <Interlude />
-      <Work />
-      <Agitation />
-      <Diagnostic />
-      <Services />
-      <Proof />
-      <Closing />
+      <ChapterNav />
+      <Reality />
+      <Leakage />
+      <Economics />
+      <Judgment />
+      <MasterIdea />
+      <SystemRun />
+      <Evidence />
+      <DeRisk />
+      <Method />
+      <ValueSlider />
+      <CaseStudies />
+      <Identity />
+      <Offer />
       <Footer />
     </div>
   );

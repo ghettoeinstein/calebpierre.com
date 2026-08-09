@@ -49,6 +49,33 @@ export const C = {
   // CTA
   ctaDark: "#0A0A0A",
   focusRing: "#E8382D",
+
+  // ── Cinematic system layer (chapters 1-12) ──────────────
+  // Deep navy — live system / execution / machinery
+  navy: "#0A1628",
+  navyLight: "#122036",
+  navyPanel: "#0F1D33",
+  navyLine: "rgba(255,255,255,0.10)",
+  navyLineBright: "rgba(120,170,255,0.35)",
+  navyText: "#EAF0FA",
+  navyTextSoft: "#8FA3C4",
+
+  // Off-white — case studies / evidence
+  offWhite: "#F6F3EC",
+  offWhiteLine: "#E4DFD2",
+
+  // Verified value / economic gain
+  green: "#1A9E5C",
+  greenGlow: "rgba(26, 158, 92, 0.10)",
+  greenDim: "#D8EFE1",
+
+  // Leakage / failure / risk (reuses brand red)
+  riskRed: "#E8382D",
+  riskRedGlow: "rgba(232, 56, 45, 0.10)",
+
+  // Thin lines — systems / relationships / data movement
+  wire: "#2B6CB0",
+  wireGlow: "rgba(43, 108, 176, 0.15)",
 };
 
 export const F = {

@@ -319,6 +319,50 @@ img, video, canvas, svg {
   .cp-container { padding-left: 32px; padding-right: 32px; }
 }
 
+/* ---------- Cinematic chapter system ---------- */
+.chapter {
+  position: relative;
+}
+
+.chapter-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.mono-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.wire-line {
+  background: linear-gradient(180deg, transparent, rgba(43,108,176,0.55), transparent);
+}
+
+.count-up {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+.pulse-dot { animation: pulseDot 1.8s ease-in-out infinite; }
+
+@keyframes scanSweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes logIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.log-line { animation: logIn 0.35s ease forwards; opacity: 0; }
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -329,5 +373,7 @@ img, video, canvas, svg {
     opacity: 1 !important;
     transform: none !important;
   }
+  .log-line { opacity: 1 !important; transform: none !important; }
+  .pulse-dot { animation: none !important; }
   html { scroll-behavior: auto; }
 }
