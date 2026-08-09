@@ -10,6 +10,9 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         resume: resolve(__dirname, 'resume.html'),
+        glossary: resolve(__dirname, 'glossary.html'),
+        tools: resolve(__dirname, 'tools.html'),
+        insights: resolve(__dirname, 'insights.html'),
       },
     },
   },

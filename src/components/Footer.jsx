@@ -37,6 +37,12 @@ const CITIES = [
   { label: "Burbank", href: "./burbank/ai-programming.html" },
 ];
 
+const KNOWLEDGE = [
+  { label: "Insights — field notes", href: "./insights.html" },
+  { label: "Tools — free calculators", href: "./tools.html" },
+  { label: "Glossary — every term", href: "./glossary.html" },
+];
+
 const PAGES = [
   { label: "Home", href: "./index.html" },
   { label: "Resume", href: "./resume.html" },
@@ -90,7 +96,7 @@ export default function Footer() {
       <div className="max-w-5xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
         {/* Link columns */}
         <div
-          className="grid grid-cols-2 md:grid-cols-4 gap-8"
+          className="grid grid-cols-2 md:grid-cols-5 gap-8"
           style={{ marginBottom: "2rem" }}
         >
           <div>
@@ -99,6 +105,13 @@ export default function Footer() {
               <a key={s.href} href={s.href} style={linkStyle} className="footer-link">{s.label}</a>
             ))}
             <a href="./index.html#start" style={linkStyle} className="footer-link">All Services →</a>          </div>
+
+          <div>
+            <p style={headingStyle}>Knowledge</p>
+            {KNOWLEDGE.map((k) => (
+              <a key={k.href} href={k.href} style={linkStyle} className="footer-link">{k.label}</a>
+            ))}
+          </div>
 
           <div>
             <p style={headingStyle}>Articles</p>

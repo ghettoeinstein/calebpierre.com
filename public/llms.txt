@@ -13,8 +13,11 @@
 - Cybersecurity: SOAR/SIEM (Splunk, QRadar), Zero Trust Architecture, HIPAA/HiTECH compliance, vulnerability assessment, incident response.
 
 ## Key Pages
-- / — Homepage (services, diagnostic quiz, process, proof of work)
+- / — Homepage: a 12-chapter narrative — reality, leverage, live systems, evidence, de-risking, method, value, case studies, identity, and the offer.
 - /resume.html — Full career history (11 roles, 2015–present)
+- /glossary.html — 40+ AI/automation/systems-engineering terms, plain-English definitions, categorized (Foundations, Architecture, Evaluation & Trust, Economics & Value, Security & Risk, Data & Integration)
+- /tools.html — Free interactive tools: workflow cost calculator, automation readiness diagnostic, software/intelligence/human judgment classifier
+- /insights.html — Long-form field notes: why automation projects fail, demo vs. deployed systems, pricing an operations problem, build vs. buy, human-in-the-loop design, AI-ready data
 - /los-angeles/web-design.html — Web Design in Los Angeles
 - /los-angeles/ai-programming.html — AI Programming in Los Angeles
 - /los-angeles/business-automation.html — Business Automation in Los Angeles
