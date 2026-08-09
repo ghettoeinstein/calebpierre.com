@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown, ChevronRight, ArrowUpRight } from "lucide-react";
 import { C, F, EASE } from "../constants.js";
+import { GLOSSARY } from "../data/glossary.js";
 import GlitchMark from "./GlitchMark.jsx";
 
 /* ────────────────────────────────────────────────────────────
@@ -53,6 +54,12 @@ const COMPANY = [
   { label: "Work",       href: "#work" },
   { label: "About",      href: "#about" },
   { label: "Resume",     href: "./resume.html" },
+];
+
+const KNOWLEDGE = [
+  { label: "Insights — field notes", href: "./insights.html" },
+  { label: "Tools — free calculators", href: "./tools.html" },
+  { label: "Glossary — every term", href: "./glossary.html" },
 ];
 
 /* ─────────── Desktop flyout ─────────── */
@@ -166,6 +173,73 @@ function ServicesFlyout({ onNavigate }) {
             </a>
           ))}
         </div>
+      </div>
+    </div>
+  );
+}
+
+function GlossaryFlyout() {
+  return (
+    <div
+      className="nav-flyout"
+      style={{
+        position: "absolute",
+        top: "calc(100% + 6px)",
+        left: "50%",
+        transform: "translateX(-50%)",
+        background: C.white,
+        border: `3px solid ${C.black}`,
+        boxShadow: `8px 8px 0 ${C.black}`,
+        zIndex: 100,
+        minWidth: 640,
+        maxWidth: 720,
+        padding: "16px 8px",
+        display: "grid",
+        gridTemplateColumns: "repeat(3, 1fr)",
+        gap: "0 8px",
+      }}
+    >
+      {GLOSSARY.map((cat) => (
+        <div key={cat.slug} style={{ padding: "8px" }}>
+          <p className="eyebrow" style={{ fontFamily: F.mono, fontSize: "0.58rem", letterSpacing: "0.12em", color: C.steel, marginBottom: "4px" }}>
+            {cat.category.toUpperCase()}
+          </p>
+          {cat.terms.slice(0, 6).map((t) => (
+            <a
+              key={t.slug}
+              href={`./glossary.html#${t.slug}`}
+              className="nav-city-link"
+              style={{
+                display: "block",
+                padding: "5px 8px",
+                fontFamily: F.body,
+                fontSize: "0.78rem",
+                fontWeight: 600,
+                color: C.ink,
+                textDecoration: "none",
+                borderLeft: "3px solid transparent",
+              }}
+            >
+              {t.term}
+            </a>
+          ))}
+        </div>
+      ))}
+      <div style={{ gridColumn: "1 / -1", borderTop: `2px solid ${C.black}`, marginTop: "6px", paddingTop: "8px" }}>
+        <a
+          href="./glossary.html"
+          style={{
+            display: "block",
+            padding: "6px 12px",
+            fontFamily: F.mono,
+            fontSize: "0.68rem",
+            color: C.steel,
+            letterSpacing: "0.06em",
+            textDecoration: "none",
+          }}
+        >
+          ALL {GLOSSARY.reduce((n, c) => n + c.terms.length, 0)} TERMS →
+        </a>
       </div>
     </div>
   );
@@ -376,6 +450,14 @@ export default function Nav() {
               <ServicesFlyout onNavigate={navigate} />
             </NavItem>
 
+            <NavItem label="Glossary">
+              <GlossaryFlyout />
+            </NavItem>
+
+            <NavItem label="Knowledge">
+              <SimpleFlyout items={KNOWLEDGE} label="TOOLS & INSIGHTS" />
+            </NavItem>
+
             <NavItem label="Articles">
               <SimpleFlyout items={ARTICLES} label="EDITORIALS" />
             </NavItem>
@@ -494,6 +576,53 @@ export default function Nav() {
                     ))}
                   </div>
                 </MobileSubSection>
+              ))}
+            </MobileSection>
+
+            <MobileSection title="Glossary">
+              {GLOSSARY.map((cat) => (
+                <MobileSubSection key={cat.slug} title={cat.category}>
+                  <div style={{ padding: "0 1rem 0 2.25rem" }}>
+                    {cat.terms.map((t) => (
+                      <a
+                        key={t.slug}
+                        href={`./glossary.html#${t.slug}`}
+                        onClick={() => setOpen(false)}
+                        style={{
+                          display: "block",
+                          padding: "7px 0",
+                          fontFamily: F.mono,
+                          fontSize: "0.72rem",
+                          color: "#bbb",
+                          textDecoration: "none",
+                        }}
+                      >
+                        {t.term}
+                      </a>
+                    ))}
+                  </div>
+                </MobileSubSection>
+              ))}
+            </MobileSection>
+
+            <MobileSection title="Knowledge">
+              {KNOWLEDGE.map((k) => (
+                <a
+                  key={k.href}
+                  href={k.href}
+                  onClick={() => setOpen(false)}
+                  style={{
+                    display: "block",
+                    padding: "12px 1.5rem 12px 2rem",
+                    fontFamily: F.body,
+                    fontSize: "0.88rem",
+                    color: "#fff",
+                    textDecoration: "none",
+                    fontWeight: 600,
+                  }}
+                >
+                  {k.label}
+                </a>
               ))}
             </MobileSection>
 

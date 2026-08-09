@@ -1,3 +1,4 @@
+import { useHashScroll } from "./hooks/useHashScroll.jsx";
 import Nav from "./components/Nav.jsx";
 import Footer from "./components/Footer.jsx";
 import ChapterNav from "./components/chapters/ChapterNav.jsx";
@@ -16,6 +17,7 @@ import Identity from "./components/chapters/Identity.jsx";
 import Offer from "./components/chapters/Offer.jsx";
 
 export default function App() {
+  useHashScroll();
   return (
     <div style={{ position: "relative", minHeight: "100vh" }}>
       <Nav />

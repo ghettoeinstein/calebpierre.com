@@ -31,6 +31,9 @@ const CITIES = [
 const QUICK_LINKS = [
   { label: "Home", href: "./index.html" },
   { label: "Resume", href: "./resume.html" },
+  { label: "Insights", href: "./insights.html" },
+  { label: "Tools", href: "./tools.html" },
+  { label: "Glossary", href: "./glossary.html" },
   { label: "Start the Discovery", href: "https://calendly.com/calebpierre" },
   { label: "LinkedIn", href: "https://linkedin.com/in/calebpierre" },
   { label: "Sitemap", href: "./sitemap.xml" },
