@@ -47,9 +47,10 @@ const ARTICLES = [
 ];
 
 const COMPANY = [
+  { label: "Leverage",   href: "#leverage" },
+  { label: "Systems",    href: "#systems" },
+  { label: "Evidence",   href: "#evidence" },
   { label: "Work",       href: "#work" },
-  { label: "Proof",      href: "#proof" },
-  { label: "Diagnostic", href: "#diagnostic" },
   { label: "About",      href: "#about" },
   { label: "Resume",     href: "./resume.html" },
 ];
@@ -113,7 +114,7 @@ function ServicesFlyout({ onNavigate }) {
         })}
         <div style={{ height: 2, background: C.black, margin: "6px 12px" }} />
         <button
-          onClick={() => onNavigate("#services")}
+          onClick={() => onNavigate("#start")}
           style={{
             display: "block",
             width: "100%",

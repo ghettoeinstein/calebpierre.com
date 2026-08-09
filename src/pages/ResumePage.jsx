@@ -77,7 +77,7 @@ export default function ResumePage() {
               {SERVICES.map((s) => (
                 <a key={s.href} href={s.href} style={linkStyle} className="footer-link">{s.label}</a>
               ))}
-              <a href="./index.html#services" style={linkStyle} className="footer-link">All Services →</a>
+              <a href="./index.html#start" style={linkStyle} className="footer-link">All Services →</a>
             </div>
             <div>
               <p style={headingStyle}>Articles</p>
