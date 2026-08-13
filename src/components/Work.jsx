@@ -7,7 +7,7 @@ const PROJECTS = [
     name: "Eden's Candy",
     url: "https://edenscandy.com",
     tag: "REDESIGN",
-    desc: "Full visual overhaul of an existing confectionery brand — new identity, new store experience, same sweet soul.",
+    desc: "Women's wellness and yoni ritual brand — full digital identity, store experience, and sacred commerce platform.",
     accent: C.red,
     badge: "Live",
   },
@@ -23,7 +23,7 @@ const PROJECTS = [
     name: "OutsideTonight",
     url: "https://outsidetonight.com",
     tag: "LIVE BETA",
-    desc: "LA nightlife social OS — real-time venue discovery, viral plan coordination, autonomous event ingestion. The empire's flagship.",
+    desc: "LA nightlife social OS — real-time venue discovery, viral plan coordination, autonomous event ingestion.",
     accent: C.green,
     badge: "Beta",
   },
@@ -31,24 +31,21 @@ const PROJECTS = [
 
 export default function Work() {
   return (
-    <section id="work" className="px-6" style={{ paddingTop: "3rem", paddingBottom: "3rem" }}>
+    <section id="work" className="px-6" style={{ paddingTop: "4rem", paddingBottom: "4rem" }}>
       <div className="max-w-5xl mx-auto">
         <Reveal>
-          <p
-            className="eyebrow"
-            style={{ marginBottom: "1rem" }}
-          >
+          <p className="eyebrow" style={{ marginBottom: "0.75rem" }}>
             The Ecosystem
           </p>
           <h2
             style={{
               fontFamily: F.display,
               color: C.ink,
-              fontSize: "clamp(1.5rem, 4vw, 2.2rem)",
-              fontWeight: 700,
+              fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
+              fontWeight: 800,
               marginBottom: "0.75rem",
-              maxWidth: "20ch",
-              letterSpacing: "-0.02em",
+              letterSpacing: "-0.03em",
+              lineHeight: 1.1,
             }}
           >
             Things I Built That Are Running Right Now
@@ -57,8 +54,8 @@ export default function Work() {
             style={{
               fontFamily: F.body,
               color: C.inkSoft,
-              fontSize: "1rem",
-              lineHeight: 1.65,
+              fontSize: "1.05rem",
+              lineHeight: 1.6,
               maxWidth: "48ch",
               marginBottom: "2.5rem",
             }}
@@ -69,54 +66,43 @@ export default function Work() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {PROJECTS.map((p, i) => (
-            <Reveal key={p.name} delay={i * 0.08}>
+            <Reveal key={p.name} delay={i * 0.1}>
               <a
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="swiss-card swiss-card-hover"
+                className="card card-hover"
                 style={{
                   display: "block",
-                  padding: "1.75rem",
+                  padding: "1.5rem",
                   textDecoration: "none",
                   height: "100%",
                 }}
               >
-                {/* Tag row */}
                 <div className="flex items-center justify-between mb-3">
                   <span
                     style={{
                       fontFamily: F.mono,
-                      fontSize: "0.62rem",
+                      fontSize: "0.8rem",
                       color: C.steel,
-                      letterSpacing: "0.1em",
                       fontWeight: 600,
                     }}
                   >
                     {p.tag}
                   </span>
-                  <span
-                    style={{
-                      fontFamily: F.mono,
-                      fontSize: "0.62rem",
-                      fontWeight: 700,
-                      letterSpacing: "0.05em",
-                      color: p.badge === "Beta" ? C.inkSoft : "#fff",
-                      background: p.badge === "Beta" ? C.yellow : C.green,
-                      border: `2px solid ${C.line}`,
-                      padding: "0.15rem 0.5rem",
-                    }}
-                  >
+                  <span className="badge" style={{
+                    background: p.badge === "Beta" ? "#FEF3C7" : "#DCFCE7",
+                    color: p.badge === "Beta" ? "#92400E" : "#166534",
+                  }}>
                     {p.badge}
                   </span>
                 </div>
 
-                {/* Name */}
                 <h3
                   style={{
                     fontFamily: F.display,
                     color: C.ink,
-                    fontSize: "1.2rem",
+                    fontSize: "1.25rem",
                     fontWeight: 700,
                     marginBottom: "0.5rem",
                     letterSpacing: "-0.02em",
@@ -125,31 +111,29 @@ export default function Work() {
                   {p.name}
                 </h3>
 
-                {/* Description */}
                 <p
                   style={{
                     fontFamily: F.body,
                     color: C.inkSoft,
-                    fontSize: "0.88rem",
-                    lineHeight: 1.6,
+                    fontSize: "0.95rem",
+                    lineHeight: 1.55,
                     marginBottom: "1.25rem",
                   }}
                 >
                   {p.desc}
                 </p>
 
-                {/* Link row */}
                 <div
                   className="flex items-center gap-2"
                   style={{
-                    borderTop: `1px solid ${C.line}`,
+                    borderTop: "1px solid #E2E8F0",
                     paddingTop: "0.85rem",
                   }}
                 >
                   <span
                     style={{
                       fontFamily: F.mono,
-                      fontSize: "0.72rem",
+                      fontSize: "0.8rem",
                       color: p.accent,
                       fontWeight: 600,
                     }}
@@ -157,7 +141,7 @@ export default function Work() {
                     {p.url.replace("https://", "")}
                   </span>
                   <ArrowUpRight
-                    size={14}
+                    size={16}
                     color={C.ink}
                     style={{ marginLeft: "auto", flexShrink: 0 }}
                   />

@@ -1,59 +1,85 @@
 import { C, F } from "../constants.js";
 import { Reveal } from "../hooks/useReveal.jsx";
 
-export default function Agitation() {
-  const drains = [
-    { tag: "[DRAIN]", text: "Missed follow-ups and broken handoffs — money walking out the door." },
-    { tag: "[MANUAL]", text: "Paying capable people to do work a system could do in seconds." },
-    { tag: "[RISK]", text: "One person leaves and operations collapse. Unpredictable foundations." },
-  ];
+const PAINS = [
+  {
+    icon: "🌐",
+    title: "Outdated Web & Funnels",
+    body: "Your site was built once and forgotten — costing you leads every day.",
+  },
+  {
+    icon: "🔄",
+    title: "Manual & Repetitive Work",
+    body: "Your team spends hours copying data between tools instead of growing the business.",
+  },
+  {
+    icon: "🛡️",
+    title: "Unchecked Security Risks",
+    body: "One unmonitored vulnerability or compliance gap can disrupt your entire operation.",
+  },
+];
 
+export default function Agitation() {
   return (
-    <section className="px-6" style={{ paddingTop: "2.5rem", paddingBottom: "2.5rem" }}>
+    <section className="px-6" style={{ paddingTop: "3rem", paddingBottom: "3rem", background: "#F8F9FA" }}>
       <div className="max-w-5xl mx-auto">
         <Reveal>
           <h2
             style={{
               fontFamily: F.display,
               color: C.ink,
-              fontSize: "clamp(1.4rem, 3.5vw, 2rem)",
+              fontSize: "clamp(1.5rem, 4vw, 2.25rem)",
               fontWeight: 700,
-              marginBottom: "1.5rem",
-              maxWidth: "20ch",
-              letterSpacing: "-0.02em",
+              marginBottom: "0.5rem",
+              letterSpacing: "-0.03em",
+              lineHeight: 1.1,
             }}
           >
-            You don't have a growth problem. You have a people problem.
+            What's quietly costing you right now?
           </h2>
+          <p
+            style={{
+              fontFamily: F.body,
+              color: C.inkSoft,
+              fontSize: "1.05rem",
+              lineHeight: 1.6,
+              maxWidth: "44ch",
+              marginBottom: "2.5rem",
+            }}
+          >
+            These aren't theoretical problems. They're draining revenue from your
+            business right now.
+          </p>
         </Reveal>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          {drains.map((d, i) => (
-            <Reveal key={i} delay={i * 0.06}>
-              <div
-                className="swiss-card swiss-card-hover"
-                style={{ padding: "1.1rem 1.25rem" }}
-              >
-                <span
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {PAINS.map((p, i) => (
+            <Reveal key={p.title} delay={i * 0.1}>
+              <div className="card card-hover" style={{ padding: "1.5rem" }}>
+                <span style={{ fontSize: "2rem", display: "block", marginBottom: "0.75rem" }}>
+                  {p.icon}
+                </span>
+                <h3
                   style={{
-                    fontFamily: F.mono,
-                    color: C.red,
-                    fontSize: "0.68rem",
+                    fontFamily: F.display,
+                    color: C.ink,
+                    fontSize: "1.15rem",
                     fontWeight: 700,
-                    display: "block",
                     marginBottom: "0.5rem",
+                    letterSpacing: "-0.02em",
                   }}
                 >
-                  {d.tag}
-                </span>
+                  {p.title}
+                </h3>
                 <p
                   style={{
                     fontFamily: F.body,
-                    color: C.ink,
-                    fontSize: "0.88rem",
-                    lineHeight: 1.5,
+                    color: C.inkSoft,
+                    fontSize: "0.95rem",
+                    lineHeight: 1.55,
                   }}
                 >
-                  {d.text}
+                  {p.body}
                 </p>
               </div>
             </Reveal>

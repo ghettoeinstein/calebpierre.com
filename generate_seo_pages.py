@@ -130,6 +130,7 @@ PAGE_TEMPLATE = r"""<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{base_url}/subpage.css">
 <script type="application/ld+json">
 {{
   "@context": "https://schema.org",
@@ -241,7 +242,7 @@ h1 {{ font-family: var(--display); font-size: clamp(1.8rem, 4.5vw, 3rem); font-w
 h2 {{ font-family: var(--display); font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: var(--ink); margin: 48px 0 16px; }}
 .features {{ list-style: none; padding: 0; margin: 0 0 32px; }}
 .features li {{ padding: 14px 14px 14px 36px; position: relative; font-size: 0.92rem; color: var(--ink); border-bottom: 1px solid var(--line); line-height: 1.6; }}
-.features li::before {{ content: "\\25b8"; position: absolute; left: 12px; top: 14px; color: var(--red); font-weight: 700; }}
+.features li::before {{ content: "▸"; position: absolute; left: 12px; top: 14px; color: var(--red); font-weight: 700; }}
 .body-text {{ font-size: 0.95rem; color: var(--steel); line-height: 1.75; max-width: 64ch; margin-bottom: 24px; }}
 .cta-box {{ background: var(--ink); padding: 40px 32px; margin: 48px 0; text-align: center; }}
 .cta-box h2 {{ color: #fff; margin: 0 0 12px; }}
@@ -453,6 +454,10 @@ ARTICLE_TEMPLATE = r"""<!DOCTYPE html>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{article_title} | Caleb Pierre">
 <meta name="twitter:description" content="{article_desc}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{base_url}/subpage.css">
 <script type="application/ld+json">
 {{
   "@context": "https://schema.org",

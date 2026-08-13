@@ -1,0 +1,79 @@
+:root {
+  --paper: #0b0e13 !important;
+  --panel: #11161d !important;
+  --ink: #f4f1e8 !important;
+  --red: #ff4d2e !important;
+  --steel: #979da6 !important;
+  --line: rgba(244,241,232,.15) !important;
+  --display: "Space Grotesk", system-ui, sans-serif !important;
+  --body: "IBM Plex Sans", system-ui, sans-serif !important;
+  --mono: "IBM Plex Mono", ui-monospace, monospace !important;
+}
+html { background: #080a0e !important; }
+body {
+  background:
+    radial-gradient(circle at 80% 5%, rgba(255,77,46,.13), transparent 24%),
+    #080a0e !important;
+  color: var(--ink) !important;
+  font-size: 17px !important;
+}
+.nav {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+  border-bottom: 1px solid var(--line) !important;
+  background: rgba(8,10,14,.86) !important;
+  backdrop-filter: blur(20px) saturate(140%) !important;
+}
+.nav-inner { max-width: 1280px !important; min-height: 78px !important; padding: 12px 24px !important; gap: 28px !important; }
+.nav-brand { gap: 12px !important; }
+.nav-mark { width: 42px !important; height: 42px !important; border: 1px solid rgba(244,241,232,.55) !important; color: var(--ink) !important; }
+.nav-name { color: var(--ink) !important; font: 600 .86rem/1 var(--display) !important; }
+.nav-sub { margin-top: 5px !important; color: #747b84 !important; font-size: .52rem !important; }
+.nav-links { gap: clamp(15px, 1.6vw, 26px) !important; }
+.nav-links a { color: #a4a7aa !important; font-size: .67rem !important; }
+.nav-links a:hover { color: var(--ink) !important; }
+.nav-cta { padding: 12px 16px !important; color: #080a0e !important; background: #dfff63 !important; }
+.nav-mobile-btn { width: 42px !important; height: 42px !important; border: 1px solid var(--line) !important; color: var(--ink) !important; }
+.nav-mobile { background: #080a0e !important; border-top: 1px solid var(--line) !important; }
+.nav-mobile a { min-height: 48px !important; display: flex !important; align-items: center !important; color: #c4c7ca !important; border-bottom: 1px solid var(--line) !important; }
+.wrap { max-width: 900px !important; padding: 0 28px !important; }
+.hero { padding: clamp(90px, 12vw, 150px) 0 72px !important; }
+.eyebrow { color: var(--red) !important; font-size: .67rem !important; letter-spacing: .14em !important; }
+h1 { max-width: 14ch !important; margin-bottom: 28px !important; color: var(--ink) !important; font-size: clamp(3rem, 7vw, 6.7rem) !important; line-height: .95 !important; letter-spacing: -.06em !important; }
+.lead { max-width: 60ch !important; color: #a8adb5 !important; font-size: 1.1rem !important; }
+.price-tag { color: #080a0e !important; border: 0 !important; background: #dfff63 !important; padding: 10px 14px !important; }
+.wrap section:not(.hero) { padding: 30px 0 50px !important; }
+h2 { margin: 64px 0 22px !important; color: var(--ink) !important; font-size: clamp(2rem, 4vw, 3.5rem) !important; letter-spacing: -.05em !important; }
+h3, strong { color: var(--ink) !important; }
+p, li, .body-text { color: #a4aab2 !important; font-size: 1rem !important; line-height: 1.82 !important; }
+.features { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 1px !important; background: var(--line) !important; border: 1px solid var(--line) !important; }
+.features li { min-height: 150px !important; padding: 28px 26px 28px 54px !important; border: 0 !important; background: #0e1218 !important; }
+.features li::before { content: "▸" !important; left: 25px !important; top: 29px !important; color: var(--red) !important; }
+.about-city, .faq-item { border: 1px solid var(--line) !important; background: #11161d !important; }
+.about-city { margin: 28px 0 60px !important; }
+.cta-box { position: relative !important; overflow: hidden !important; margin: 72px 0 !important; padding: 64px 38px !important; border: 1px solid var(--line) !important; background: #11161d !important; }
+.cta-box::before { content: "" !important; position: absolute !important; width: 320px !important; height: 320px !important; right: -120px !important; top: -140px !important; border: 1px solid rgba(255,77,46,.25) !important; border-radius: 50% !important; box-shadow: 0 0 100px rgba(255,77,46,.12) !important; }
+.cta-box h2 { position: relative !important; margin-top: 0 !important; }
+.cta-btn { position: relative !important; color: #080a0e !important; background: var(--red) !important; padding: 14px 20px !important; }
+.faq-item { padding: 26px !important; margin-bottom: 12px !important; }
+.faq-item h3 { font: 600 1.12rem/1.35 var(--display) !important; }
+blockquote { border-color: var(--red) !important; color: #b5bac1 !important; }
+.site-footer, footer { border-top: 1px solid var(--line) !important; background: #05070a !important; }
+.footer-grid { max-width: 1280px !important; }
+.footer-col h4 { color: var(--red) !important; }
+.footer-col a, .footer-bottom a, .links a { color: #7f858d !important; }
+.footer-seo, .footer-bottom { max-width: 1280px !important; }
+@media (max-width: 980px) {
+  .nav-links { display: none !important; }
+  .nav-mobile-btn { display: grid !important; place-items: center !important; }
+}
+@media (max-width: 680px) {
+  .nav-inner { min-height: 68px !important; padding-inline: 14px !important; }
+  .nav-mark { width: 38px !important; height: 38px !important; }
+  .wrap { padding: 0 16px !important; }
+  .hero { padding-top: 80px !important; }
+  .features { grid-template-columns: 1fr !important; }
+  .footer-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation: none !important; transition: none !important; } }

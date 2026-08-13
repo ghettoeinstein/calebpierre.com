@@ -1,58 +1,22 @@
-// Design tokens — calebpierre.com
-// Keith Haring inspired: bold black lines, primary colors, street-art energy
-// Same Schwartz copy, completely new visual skin
-
 export const C = {
-  // Keith Haring palette — bold, primary, unapologetic
-  black: "#0A0A0A",       // primary text, bold outlines, ticker bg
-  white: "#FFFFFF",       // page background
-  red: "#E8382D",         // primary CTA, energy accent
-  yellow: "#FFD93D",      // Haring yellow — highlights, hover states, accents
-  blue: "#0EA5E9",        // Haring blue — secondary accents, links
-  green: "#22C55E",       // Haring green — success states, active items
-  paper: "#FAFAF8",       // warm off-white secondary surface
-  line: "#0A0A0A",        // bold black lines (Haring's signature)
-  redDim: "#F6D9D6",
-  
-  // Legacy aliases
-  bg: "#FFFFFF",
-  bgSoft: "#FAFAF8",
-  panel: "#FAFAF8",
-  panelRaised: "#F0F0EE",
-  ink: "#0A0A0A",
-  inkSoft: "#444444",
-  steel: "#777777",
-  steelDark: "#AAAAAA",
-  redGlow: "rgba(232, 56, 45, 0.12)",
-  redDeep: "#990400",
-  glass: "rgba(0, 0, 0, 0.03)",
-  glassHover: "rgba(0, 0, 0, 0.06)",
-  glassBorder: "#0A0A0A",
-  yellowGlow: "rgba(255, 217, 61, 0.15)",
-  blueGlow: "rgba(14, 165, 233, 0.12)",
+  black: "#05070A", white: "#F4F1E8", red: "#FF4D2E", yellow: "#DFFF63", blue: "#7DDCFF", green: "#B8FF6A",
+  paper: "#0B0E13", bg: "#080A0E", bgSoft: "#0E1218", panel: "#11161D", panelRaised: "#161C24",
+  ink: "#F4F1E8", inkSoft: "#B9B7B0", steel: "#8A9099", steelDark: "#616873",
+  line: "rgba(244,241,232,0.14)", glassBorder: "rgba(244,241,232,0.16)",
+  redGlow: "rgba(255,77,46,0.16)", yellowGlow: "rgba(223,255,99,0.12)", blueGlow: "rgba(125,220,255,0.12)",
+  glass: "rgba(255,255,255,0.04)", glassHover: "rgba(255,255,255,0.07)", redDeep: "#A52211", redDim: "#351411",
+  ctaDark: "#F4F1E8", focusRing: "#DFFF63",
 };
 
 export const F = {
-  // Display: bold, heavy, condensed — Haring's lettering energy
-  display: "'Archivo Black', 'Inter', 'Helvetica Neue', sans-serif",
-  // Body: clean workhorse
-  body: "'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif",
-  // Mono: terminal energy
+  display: "'Space Grotesk', 'Inter', sans-serif",
+  body: "'IBM Plex Sans', 'Inter', sans-serif",
   mono: "'IBM Plex Mono', ui-monospace, monospace",
 };
 
-// Easing — playful but controlled
 export const EASE = {
-  smooth: "cubic-bezier(0.32, 0.72, 0, 1)",
-  swift: "cubic-bezier(0.16, 1, 0.3, 1)",
-  bounce: "cubic-bezier(0.34, 1.56, 0.64, 1)",
-  // Haring energy — quick, springy, alive
-  pop: "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+  smooth: "cubic-bezier(0.32, 0.72, 0, 1)", swift: "cubic-bezier(0.16, 1, 0.3, 1)",
+  bounce: "cubic-bezier(0.34, 1.56, 0.64, 1)", pop: "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
 };
 
-export const BP = {
-  xs: 0,
-  sm: 480,
-  md: 768,
-  lg: 1024,
-};
+export const BP = { xs: 0, sm: 480, md: 768, lg: 1024 };
