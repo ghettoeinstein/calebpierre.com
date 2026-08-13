@@ -30,7 +30,8 @@ export default function Closing() {
                   lineHeight: 1.55,
                 }}
               >
-                Caleb Pierre. 10 years across Tinder, Verizon Media, CHLA, Glass Financial.
+                Caleb Pierre. 20+ years in IT and systems since 2004, including
+                a decade across Tinder, Verizon Media, CHLA, Glass Financial.
                 Web, AI, automation, marketing, support, events — full-stack,
                 documented. No black boxes.
               </p>

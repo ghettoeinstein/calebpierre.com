@@ -1,7 +1,7 @@
 # Caleb Pierre — Business Automation Engineer
 # Caleb Pierre / Los Angeles, CA / Web, AI, Automation, Marketing, Support, Events & Security
 
-> Caleb Pierre is a Business Automation Engineer based in Los Angeles, CA. He builds the web, AI, automation, marketing, and support systems that let a business run itself — for organizations across LA County, from enterprise security teams to nonprofit organizations. 10 years of experience across Tinder (Security Engineer II), Verizon Media, Children's Hospital LA, Glass Financial (CTO), and now Caleb Pierre Ventures.
+> Caleb Pierre is a Business Automation Engineer based in Los Angeles, CA. He builds the web, AI, automation, marketing, and support systems that let a business run itself — for organizations across LA County, from enterprise security teams to nonprofit organizations. 20+ years in IT and systems since 2004, including a decade of production experience across Tinder (Security Engineer II), Verizon Media, Children's Hospital LA, Glass Financial (CTO), and now Caleb Pierre Ventures.
 
 ## Core Services
 - Web Design: Next.js, React, Tailwind — sites built to convert, not just to look nice. Deployed on AWS/GCP with Docker, CI/CD via GitHub Actions.

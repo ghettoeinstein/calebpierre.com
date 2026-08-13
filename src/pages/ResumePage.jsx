@@ -8,9 +8,9 @@ export default function ResumePage() {
       <Nav />
       <header className="resume-intro">
         <div className="site-container">
-          <span className="kicker">FIELD RECORD / 2015—NOW</span>
+          <span className="kicker">FIELD RECORD / 2004—NOW</span>
           <h1>Caleb Pierre.<br /><span>Engineer in the room.</span></h1>
-          <p>AI systems, enterprise security, operational automation, and ten years of production accountability.</p>
+          <p>AI systems, enterprise security, operational automation, and twenty-plus years in IT and systems — a decade of it under production accountability.</p>
         </div>
       </header>
       <main className="resume-content"><Resume /></main>

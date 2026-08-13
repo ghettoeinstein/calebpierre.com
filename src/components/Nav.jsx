@@ -8,6 +8,7 @@ const LINKS = [
   ["Process", "/#process"],
   ["Proof", "/#proof"],
   ["About", "/#about"],
+  ["Portfolio", "/portfolio.html"],
   ["Resume", "/resume.html"],
 ];
 

@@ -285,7 +285,7 @@ export default function App() {
                 <a className="text-link" href="#work">See production outcomes <ArrowDownRight size={16} /></a>
               </div>
               <div className="hero-proof">
-                <div><strong>10+</strong><span>years shipping high-stakes systems</span></div>
+                <div><strong>20+</strong><span>years in IT and systems, since 2004</span></div>
                 <div><strong>5,000+</strong><span>enterprise assets secured</span></div>
                 <div><strong>40–60%</strong><span>manual overhead removed</span></div>
               </div>
@@ -335,6 +335,9 @@ export default function App() {
                 </article>
               ))}
             </div>
+            <a className="text-link" href="/portfolio.html" style={{ marginTop: 26 }}>
+              See selected live projects <ArrowUpRight size={16} />
+            </a>
           </div>
         </section>
 
@@ -448,7 +451,7 @@ export default function App() {
               <span className="kicker">ENGINEERED IN THE REAL WORLD</span>
               <h2>Security depth. Product speed. Operator empathy.</h2>
               <p>
-                A decade across Tinder, Verizon Media, Children’s Hospital Los Angeles, UCLA Health, fintech, and mission-driven organizations taught me the same thing: a system only matters if people can trust it on Monday morning.
+Twenty-plus years in IT and systems — including a decade in production across Tinder, Verizon Media, Children’s Hospital Los Angeles, UCLA Health, fintech, and mission-driven organizations — taught me the same thing: a system only matters if people can trust it on Monday morning.
               </p>
               <a className="text-link" href="/resume.html">Read the full field record <ArrowUpRight size={16} /></a>
             </div>

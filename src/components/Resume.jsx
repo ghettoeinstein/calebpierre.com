@@ -574,7 +574,7 @@ export default function Resume() {
               marginBottom: "2rem",
             }}
           >
-            The Decade — What Changed at Each Stop
+Twenty Years in Systems — What Changed at Each Stop
           </p>
         </Reveal>
         <div>
@@ -604,12 +604,13 @@ export default function Resume() {
                 maxWidth: "52ch",
               }}
             >
-              10 years. 11 roles. Enterprise security at Tinder and Verizon.
-              Fintech CTO. Healthcare compliance. AI agent systems for
-              nonprofits. All of it documented, all of it auditable, all of it
-              built by the same person you'd be talking to. No account managers.
-              No black boxes. The engineer who builds it is the one who picks
-              up the phone.
+              20+ years in IT and systems, since 2004. 11 professional roles
+              since 2015. Enterprise security at Tinder and Verizon. Fintech
+              CTO. Healthcare compliance. AI agent systems for nonprofits. All
+              of it documented, all of it auditable, all of it built by the
+              same person you'd be talking to. No account managers. No black
+              boxes. The engineer who builds it is the one who picks up the
+              phone.
             </p>
             <a
               href="https://linkedin.com/in/calebpierre"

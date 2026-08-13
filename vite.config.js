@@ -13,6 +13,7 @@ export default defineConfig({
         glossary: resolve(__dirname, 'glossary.html'),
         tools: resolve(__dirname, 'tools.html'),
         insights: resolve(__dirname, 'insights.html'),
+        portfolio: resolve(__dirname, 'portfolio.html'),
       },
     },
   },

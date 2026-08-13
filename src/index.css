@@ -16,6 +16,7 @@
   --orange: #ff4d2e;
   --acid: #dfff63;
   --blue: #7ddcff;
+  --purple: #b98eff;
   --pointer-x: 50vw;
   --pointer-y: 50vh;
   font-family: "IBM Plex Sans", Inter, sans-serif;
@@ -452,6 +453,46 @@ input[type="range"]::-webkit-slider-thumb { width: 22px; height: 22px; appearanc
 .footer-grid a:hover { color: var(--ink); }
 .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 24px; border-top: 1px solid var(--line); color: #5e646c; font: 500 .55rem/1.4 "IBM Plex Mono", monospace; letter-spacing: .06em; }
 
+/* Portfolio */
+.portfolio-intro { padding: 110px 0 86px; border-bottom: 1px solid var(--line); background: radial-gradient(circle at 75% 30%, rgba(125,220,255,.14), transparent 26%), var(--night); }
+.portfolio-intro h1 { margin: 20px 0; font: 600 clamp(3.4rem, 7.5vw, 6.4rem)/.9 "Space Grotesk", sans-serif; letter-spacing: -.06em; max-width: 14ch; }
+.portfolio-intro p { max-width: 60ch; color: #959ba4; font-size: 1.05rem; line-height: 1.7; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; padding: 90px 0; }
+.portfolio-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 360px;
+  padding: clamp(24px, 3vw, 38px);
+  border: 1px solid var(--line);
+  background: var(--night-soft);
+  transition: transform .3s ease, border-color .3s ease;
+}
+.portfolio-card:hover { transform: translateY(-6px); border-color: var(--card-accent, var(--acid)); }
+.portfolio-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.portfolio-card-top span { color: var(--card-accent, var(--acid)); font: 600 .64rem/1.4 "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
+.portfolio-card h3 { margin: 18px 0 10px; font: 600 clamp(1.6rem, 2.6vw, 2.3rem)/1.05 "Space Grotesk", sans-serif; letter-spacing: -.03em; }
+.portfolio-card p { color: #9198a1; font-size: .92rem; line-height: 1.6; max-width: 48ch; }
+.portfolio-card .tag-row { margin-top: 20px; }
+.portfolio-card .tag-row span { border-color: var(--line); opacity: 1; color: #8a9099; }
+
+/* Portfolio detail sub-page */
+.portfolio-detail-intro { padding: 110px 0 70px; border-bottom: 1px solid var(--line); background: radial-gradient(circle at 75% 30%, color-mix(in srgb, var(--card-accent, var(--acid)) 16%, transparent), transparent 26%), var(--night); }
+.portfolio-back { display: flex; width: fit-content; align-items: center; gap: 8px; margin-bottom: 26px; color: #8a9099; font: 500 .72rem/1 "IBM Plex Mono", monospace; letter-spacing: .06em; text-transform: uppercase; }
+.portfolio-detail-intro h1 { margin: 14px 0 20px; font: 600 clamp(3rem, 6.5vw, 5.6rem)/.94 "Space Grotesk", sans-serif; letter-spacing: -.05em; max-width: 16ch; }
+.portfolio-detail-intro p { max-width: 62ch; color: #9198a1; font-size: 1.1rem; line-height: 1.75; }
+.portfolio-detail-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 26px; color: var(--card-accent, var(--acid)); font: 600 .78rem/1 "IBM Plex Mono", monospace; letter-spacing: .04em; }
+.portfolio-detail-body { padding: 80px 0; }
+.portfolio-case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; border-top: 1px solid var(--line-dark); }
+.portfolio-case-grid article { padding: 30px 26px; border-right: 1px solid var(--line); }
+.portfolio-case-grid article:last-child { border-right: 0; }
+.portfolio-case-grid span { display: inline-block; margin-bottom: 22px; color: var(--card-accent, var(--acid)); font: 600 .64rem/1 "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
+.portfolio-case-grid p { color: #b9bec6; font-size: .92rem; line-height: 1.7; }
+.portfolio-detail-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 60px; }
+.portfolio-detail-stack span { padding: 8px 12px; border: 1px solid var(--line); color: #8a9099; font: 500 .62rem/1 "IBM Plex Mono", monospace; letter-spacing: .04em; }
+.portfolio-empty { padding: 140px 0; text-align: center; color: #8a9099; }
+
 /* Resume integration */
 .resume-intro { padding: 110px 0 86px; border-bottom: 1px solid var(--line); background: radial-gradient(circle at 75% 30%, rgba(255,77,46,.15), transparent 26%), var(--night); }
 .resume-intro h1 { margin: 20px 0; font: 600 clamp(4rem, 9vw, 9rem)/.85 "Space Grotesk", sans-serif; letter-spacing: -.08em; }
@@ -498,6 +539,9 @@ input[type="range"]::-webkit-slider-thumb { width: 22px; height: 22px; appearanc
   .process-grid article:nth-child(2) { border-right: 0; }
   .process-grid article:nth-child(-n+2) { border-bottom: 1px solid var(--line-dark); }
   .leakage-grid, .judgment-grid, .evidence-grid { grid-template-columns: 1fr; }
+  .portfolio-grid, .portfolio-case-grid { grid-template-columns: 1fr; }
+  .portfolio-case-grid article { border-right: 0; border-bottom: 1px solid var(--line); }
+  .portfolio-case-grid article:last-child { border-bottom: 0; }
 }
 
 @media (max-width: 780px) {
