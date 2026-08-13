@@ -4,18 +4,18 @@ import { Reveal } from "../hooks/useReveal.jsx";
 const PAINS = [
   {
     icon: "🌐",
-    title: "Outdated Web & Funnels",
-    body: "Your site was built once and forgotten — costing you leads every day.",
+    title: "A Website That's Doing Nothing",
+    body: "Built once, forgotten since — it's not converting, it's not ranking, and it's costing you leads every single day.",
   },
   {
     icon: "🔄",
-    title: "Manual & Repetitive Work",
-    body: "Your team spends hours copying data between tools instead of growing the business.",
+    title: "Manual Work Eating Your Week",
+    body: "Your team copies data between tools, chases follow-ups by hand, and calls it a job. A machine should own it.",
   },
   {
     icon: "🛡️",
-    title: "Unchecked Security Risks",
-    body: "One unmonitored vulnerability or compliance gap can disrupt your entire operation.",
+    title: "Risk You Can't See",
+    body: "An unmonitored security gap, a stalled content calendar, an event with no plan B — the stuff that quietly costs you.",
   },
 ];
 

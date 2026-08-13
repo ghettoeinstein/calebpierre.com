@@ -490,14 +490,14 @@ export default function Resume() {
                 fontFamily: F.display,
                 color: C.ink,
                 fontSize: "clamp(2rem, 4.5vw, 3rem)",
-                fontWeight: 700,
+                fontWeight: 900,
                 lineHeight: 1.1,
                 marginBottom: "1.5rem",
                 maxWidth: "20ch",
                 letterSpacing: "-0.03em",
               }}
             >
-              I spent a decade securing other people's systems. Now I build the ones that run themselves.
+              I'm a Business Automation Engineer. Ten years across web, AI, security, and operations built the range to prove it.
             </h2>
             <p
               style={{
@@ -511,10 +511,10 @@ export default function Resume() {
             >
               Most resumes list jobs. This one tells you what changed at each
               one. Ten years inside enterprise security teams, startup CTO
-              roles, and nonprofit infrastructure — finding the holes, closing
-              them, then building the AI systems that replace the manual work I
-              used to audit. Every role below is a chapter in how I got here.
-              Not a bullet point. A result.
+              roles, and nonprofit infrastructure — building the web, AI,
+              automation, and marketing systems that let a business run itself.
+              Every role below is a chapter in how I got here. Not a bullet
+              point. A result.
             </p>
             <a
               href="https://linkedin.com/in/calebpierre"

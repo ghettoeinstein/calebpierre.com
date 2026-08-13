@@ -1,0 +1,151 @@
+[div] Caleb Pierre
+[div] BUSINESS AUTOMATION ENGINEER
+[button] Services
+[button] Articles
+[a] Start the Discovery
+[div] Wanna 10X Your Business? · Los Angeles & Remote
+[h1] I'm your
+[span] Business Automation Engineer.
+[p] Web design, AI programming, business automation, content marketing, remote tech support, and event experience — one operator who builds it, ships it, and answers the phone.
+[span] ⚡ Ex-Tinder Security Engineer
+[span] 🚀 50+ Systems Deployed
+[span] ✅ 99.9% Uptime
+[a] Book a Systems Diagnostic
+[a] View Case Studies
+[p] One Operator. Every System.
+[h2] Web. AI. Automation. Marketing. Support. Events. Security.
+[p] Seven disciplines, one engineer, zero handoffs lost in translation. That's how you actually 10x a business.
+[p] The Ecosystem
+[h2] Things I Built That Are Running Right Now
+[p] Not case studies. Not mockups. Live products serving real people.
+[span] REDESIGN
+[span] Live
+[h3] Eden's Candy
+[p] Women's wellness and yoni ritual brand — full digital identity, store experience, and sacred commerce platform.
+[span] edenscandy.com
+[span] GREENFIELD · SHOPIFY
+[span] Live
+[h3] Hummingbyrd Apparel & Print
+[p] End-to-end Shopify build — product architecture, print-on-demand integration, custom theme, zero to launch.
+[span] hummingbyrdapparelandprint.com
+[span] LIVE BETA
+[span] Beta
+[h3] OutsideTonight
+[p] LA nightlife social OS — real-time venue discovery, viral plan coordination, autonomous event ingestion.
+[span] outsidetonight.com
+[h2] What's quietly costing you right now?
+[p] These aren't theoretical problems. They're draining revenue from your business right now.
+[h3] A Website That's Doing Nothing
+[p] Built once, forgotten since — it's not converting, it's not ranking, and it's costing you leads every single day.
+[h3] Manual Work Eating Your Week
+[p] Your team copies data between tools, chases follow-ups by hand, and calls it a job. A machine should own it.
+[span] 🛡️
+[h3] Risk You Can't See
+[p] An unmonitored security gap, a stalled content calendar, an event with no plan B — the stuff that quietly costs you.
+[p] 7-Minute Discovery
+[h2] Measure the Cost of Your Chaos
+[p] QUESTION
+[h3] What's quietly costing you the most right now?
+[button] Customers fall through the cracks — nobody follows up
+[button] My team drowns in repetitive work that should run itself
+[button] I don't actually know if my business is secure
+[button] I can't see what's happening in my own operations
+[h2] What I Build
+[p] Seven systems. One operator. No handoffs lost in translation.
+[h3] Web Design
+[p] Sites built to convert, not just to look nice — fast, clean, and easy to update yourself.
+[h3] AI Programming
+[p] Custom AI agents and integrations that do real work — not a chatbot demo, a system that ships.
+[h3] Business Automation
+[p] Every repetitive task eliminated. Data flows between tools without a human carrying it.
+[h3] Content Marketing
+[p] Content systems that compound — SEO, social, and email that keep working after you hit publish.
+[h3] Remote Tech Support
+[p] A real engineer on call. Not a ticket number — a person who answers and actually fixes it.
+[h3] Experience / Event Design
+[p] Launches, activations, and experiences designed and run end-to-end — not just decorated.
+[span] 🛡️
+[h3] Cybersecurity
+[p] Full perimeter check, gap closure, continuous monitoring. I find the holes before anyone else does.
+[p] How It Works
+[h4] Audit
+[p] Free 30-minute diagnostic to map what's actually costing you.
+[h4] Blueprint
+[p] Clear scope, deliverables, and fixed pricing — no hidden fees.
+[h4] Deploy
+[p] Production-grade work — web, AI, automation, or marketing — built in weeks.
+[h4] Maintain
+[p] Ongoing support so what's built keeps running without you.
+[p] 50+
+[p] Systems Shipped
+[p] 99.9%
+[p] Uptime
+[p] Black Boxes
+[p] Operator
+[p] Deployed Systems
+[span] LIVE BETA
+[h3] OutsideTonight
+[p] LA nightlife social OS — real-time venue discovery, viral plan coordination, autonomous ingestion.
+[span] FastAPI
+[span] Next.js
+[span] Redis
+[span] H3 Spatial
+[span] outsidetonight.com
+[span] REDESIGN
+[h3] Eden's Candy
+[p] Full visual overhaul of an existing confectionery brand — identity, store, experience.
+[span] Shopify
+[span] Brand
+[span] edenscandy.com
+[span] GREENFIELD
+[h3] Hummingbyrd Apparel
+[p] End-to-end Shopify build — print-on-demand, custom theme, zero to launch.
+[span] Shopify
+[span] Print-on-Demand
+[span] E2E
+[span] hummingbyrdapparelandprint.com
+[h2] I build the machine that replaces the babysitting.
+[p] Caleb Pierre. 10 years across Tinder, Verizon Media, CHLA, Glass Financial. Web, AI, automation, marketing, support, events — full-stack, documented. No black boxes.
+[p] VERIFY THE OPERATOR
+[span] linkedin.com/in/calebpierre
+[h2] The Next Choice Is Yours
+[p] Keep managing chaos — or decide you've paid that tax for the last time.
+[a] Start the Discovery
+[p] Services
+[a] Web Design
+[a] AI Programming
+[a] Business Automation
+[a] Content Marketing
+[a] Remote Tech Support
+[a] Experience / Event Design
+[a] Cybersecurity
+[a] All Services →
+[p] Articles
+[a] Web Design in Los Angeles
+[a] AI Programming in Los Angeles
+[a] Business Automation in LA
+[a] Content Marketing in LA
+[a] Remote Tech Support in LA
+[a] Event Design in LA
+[a] Cybersecurity for LA Businesses
+[p] Cities Served
+[a] Los Angeles
+[a] Long Beach
+[a] Torrance
+[a] Hawthorne
+[a] Inglewood
+[a] Santa Monica
+[a] Pasadena
+[a] Glendale
+[p] Quick Links
+[a] Systems Diagnostic
+[a] Proof of Work
+[a] Book a Call
+[a] LinkedIn
+[a] llms.txt
+[p] Caleb Pierre is a Business Automation Engineer based in Los Angeles, CA — web design, AI programming, business automation, content marketing, remote tech support, experience/event design, and cybersecurity, all built by one operator for organizations across LA County — from nonprofits in Gardena to healthcare practices in Torrance to tech companies in Santa Monica. 10 years of experience across Tinder (Security Engineer II), Verizon Media, Children's Hospital Los Angeles, Glass Financial (CTO), and Caleb Pierre Ventures. Serving Los Angeles, Long Beach, Torrance, Carson, Compton, Hawthorne, Inglewood, Gardena, Santa Monica, Pasadena, Glendale, and Burbank. HIPAA compliant. Remote-first. Book a free systems audit.
+[p] Caleb Pierre Ventures LLC · Los Angeles, CA · Remote-First ·
+[a] llms.txt
+[a] sitemap.xml
+[a] robots.txt
+[a] linkedin.com/in/calebpierre

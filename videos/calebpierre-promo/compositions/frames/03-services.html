@@ -1,0 +1,248 @@
+<template>
+<style>
+  @font-face {
+    font-family: "Inter";
+    src: url("capture/assets/fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: block;
+  }
+  @font-face {
+    font-family: "Inter";
+    src: url("capture/assets/fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuDyYMZg.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: block;
+  }
+
+  #root[data-composition-id="03-services"] {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+  }
+
+  /* ---- full-bleed ground (own clip layer, never on #root) ---- */
+  .h03-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle, rgba(10,10,10,0.16) 1.3px, transparent 1.3px) 0 0 / 24px 24px,
+      #FAFAFA;
+  }
+
+  /* ---- lifted grid-surface panel (card-elevated) ---- */
+  .h03-surface {
+    position: absolute;
+    top: 118px;
+    left: 40px;
+    width: 1000px;
+    height: 404px;
+    background: #FFFFFF;
+    border: 4px solid #0A0A0A;
+    box-shadow: 8px 8px 0 #0A0A0A;
+    transform-origin: center center;
+    will-change: transform, opacity;
+  }
+
+  /* decorative star-burst, tied to the payoff beat */
+  .h03-deco-star {
+    position: absolute;
+    top: 76px;
+    left: 24px;
+    width: 46px;
+    height: 46px;
+    background: #F1837C;
+    border: 3px solid #0A0A0A;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    will-change: transform, opacity;
+  }
+
+  .h03-grid-wrap {
+    position: absolute;
+    top: 140px;
+    left: 60px;
+    width: 960px;
+    height: 320px;
+  }
+
+  .h03-tile {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 202px;
+    height: 132px;
+    background: #FFFFFF;
+    border: 3px solid #0A0A0A;
+    box-shadow: 4px 4px 0 #0A0A0A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    will-change: transform, opacity;
+  }
+  .h03-tile-label {
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #0A0A0A;
+    text-align: center;
+  }
+  .h03-dot {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #0A0A0A;
+  }
+  .h03-tile--filler {
+    border-style: dashed;
+    background: #FAFAFA;
+  }
+  .h03-tile--filler .h03-tile-label {
+    font-size: 40px;
+    color: #0A0A0A;
+  }
+
+  .h03-payoff {
+    position: absolute;
+    top: 588px;
+    left: 60px;
+    width: 960px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0 20px;
+  }
+  .h03-payoff-word {
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 62px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: #E8382D;
+    display: inline-block;
+    will-change: transform, opacity;
+  }
+</style>
+
+<div data-hf-id="hf-mxju" id="root" data-composition-id="03-services" data-width="1080" data-height="1080" data-start="0" data-duration="9.382">
+  <div data-hf-id="hf-hlcn" class="h03-bg clip" data-start="0" data-duration="9.382" data-track-index="0"></div>
+
+  <div data-hf-id="hf-j0ri" class="h03-surface clip" data-start="0" data-duration="9.382" data-track-index="1"></div>
+
+  <div data-hf-id="hf-yks3" class="h03-deco-star clip" data-start="4.4" data-duration="4.982" data-track-index="2"></div>
+
+  <div data-hf-id="hf-xq35" class="h03-grid-wrap">
+    <div data-hf-id="hf-lx1h" class="h03-tile clip" data-target-x="-367.5" data-target-y="-85" data-rotation="-2" data-start="0" data-duration="9.382" data-track-index="3">
+      <span data-hf-id="hf-jlvt" class="h03-dot" style="background:#C0C5CE;"></span>
+      <span data-hf-id="hf-rbak" class="h03-tile-label">Web<br data-hf-id="hf-x5px">Design</span>
+    </div>
+    <div data-hf-id="hf-pydx" class="h03-tile clip" data-target-x="-122.5" data-target-y="-85" data-rotation="2" data-start="0.6" data-duration="8.782" data-track-index="4">
+      <span data-hf-id="hf-c7co" class="h03-dot" style="background:#F9C8C5;"></span>
+      <span data-hf-id="hf-utxm" class="h03-tile-label">AI</span>
+    </div>
+    <div data-hf-id="hf-0bhk" class="h03-tile clip" data-target-x="122.5" data-target-y="-85" data-rotation="-2" data-start="1.233" data-duration="8.149" data-track-index="5">
+      <span data-hf-id="hf-19xo" class="h03-dot" style="background:#F1837C;"></span>
+      <span data-hf-id="hf-pl8j" class="h03-tile-label">Automation</span>
+    </div>
+    <div data-hf-id="hf-0kwe" class="h03-tile clip" data-target-x="367.5" data-target-y="-85" data-rotation="2" data-start="1.867" data-duration="7.515" data-track-index="6">
+      <span data-hf-id="hf-tzyf" class="h03-dot" style="background:#E5E7EB;"></span>
+      <span data-hf-id="hf-qfqk" class="h03-tile-label">Marketing</span>
+    </div>
+    <div data-hf-id="hf-ufmy" class="h03-tile clip" data-target-x="-367.5" data-target-y="85" data-rotation="2" data-start="2.5" data-duration="6.882" data-track-index="7">
+      <span data-hf-id="hf-vhj1" class="h03-dot" style="background:#C0C5CE;"></span>
+      <span data-hf-id="hf-5vib" class="h03-tile-label">Support</span>
+    </div>
+    <div data-hf-id="hf-mfyf" class="h03-tile clip" data-target-x="-122.5" data-target-y="85" data-rotation="-2" data-start="3.133" data-duration="6.249" data-track-index="8">
+      <span data-hf-id="hf-fndc" class="h03-dot" style="background:#F9C8C5;"></span>
+      <span data-hf-id="hf-e92d" class="h03-tile-label">Events</span>
+    </div>
+    <div data-hf-id="hf-mqj7" class="h03-tile clip" data-target-x="122.5" data-target-y="85" data-rotation="2" data-start="3.767" data-duration="5.615" data-track-index="9">
+      <span data-hf-id="hf-x5t0" class="h03-dot" style="background:#F1837C;"></span>
+      <span data-hf-id="hf-302i" class="h03-tile-label">Security</span>
+    </div>
+    <div data-hf-id="hf-ulf9" class="h03-tile h03-tile--filler clip" data-target-x="367.5" data-target-y="85" data-rotation="-2" data-start="4.05" data-duration="5.332" data-track-index="10">
+      <span data-hf-id="hf-ieut" class="h03-tile-label">+</span>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-cb2l" class="h03-payoff">
+    <span data-hf-id="hf-rqfb" class="h03-payoff-word clip" data-start="4.4" data-duration="4.982" data-track-index="11">All</span>
+    <span data-hf-id="hf-qbzh" class="h03-payoff-word clip" data-start="4.55" data-duration="4.832" data-track-index="12">from</span>
+    <span data-hf-id="hf-llaw" class="h03-payoff-word clip" data-start="4.7" data-duration="4.682" data-track-index="13">one</span>
+    <span data-hf-id="hf-rdd2" class="h03-payoff-word clip" data-start="4.85" data-duration="4.532" data-track-index="14">person.</span>
+  </div>
+</div>
+
+<script>
+  window.__timelines = window.__timelines || {};
+  var tl = gsap.timeline({ paused: true });
+  window.__timelines["03-services"] = tl;
+
+  var root = document.querySelector('[data-composition-id="03-services"]');
+
+  // Scene 1 (0.0-0.6s): the grid surface seats — a subtly lifted panel settling in.
+  tl.fromTo(
+    root.querySelector(".h03-surface"),
+    { scale: 0.96, opacity: 0 },
+    { scale: 1, opacity: 1, duration: 0.5, ease: "power3.out" },
+    0
+  );
+
+  // Scenes 1-2: each service tile bursts from the shared grid center outward
+  // to its own cell (center-outward-expansion), one per spoken word.
+  root.querySelectorAll(".h03-tile").forEach(function (el) {
+    var targetX = Number(el.dataset.targetX);
+    var targetY = Number(el.dataset.targetY);
+    var rotation = Number(el.dataset.rotation);
+    var start = Number(el.dataset.start);
+    var isFiller = el.classList.contains("h03-tile--filler");
+    tl.fromTo(
+      el,
+      { xPercent: -50, yPercent: -50, x: 0, y: 0, scale: 0.6, rotation: 0, opacity: 0 },
+      {
+        x: targetX,
+        y: targetY,
+        scale: 1,
+        rotation: rotation,
+        opacity: isFiller ? 0.55 : 1,
+        duration: isFiller ? 0.4 : 0.6,
+        ease: "power3.out",
+      },
+      start
+    );
+  });
+
+  // decorative star-burst pops alongside the payoff line landing
+  tl.fromTo(
+    root.querySelector(".h03-deco-star"),
+    { scale: 0, rotation: -12, opacity: 0 },
+    { scale: 1, rotation: 12, opacity: 1, duration: 0.5, ease: "power3.out" },
+    4.4
+  );
+
+  // Scene 3 (4.4-6.0s): "All from one person" — per-word staggered reveal, power3 settle.
+  root.querySelectorAll(".h03-payoff-word").forEach(function (el) {
+    var start = Number(el.dataset.start);
+    tl.fromTo(
+      el,
+      { y: 26, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+      start
+    );
+  });
+
+  // Full grid + payoff hold still; the lone deliberate settle micro-move (no repeat/yoyo).
+  tl.to(root.querySelector(".h03-surface"), { y: -3, duration: 0.3, ease: "sine.inOut" }, 6.0)
+    .to(root.querySelector(".h03-surface"), { y: 0, duration: 0.4, ease: "sine.inOut" }, 6.3);
+</script>
+</template>

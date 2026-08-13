@@ -1,0 +1,135 @@
+<template>
+<style>
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 800;
+    src: url(capture/assets/fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuDyYMZg.ttf) format("truetype");
+  }
+
+  #root[data-composition-id="07-outro"] {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+  }
+
+  .h07-bg {
+    position: absolute;
+    inset: 0;
+    background: #0A0A0A;
+  }
+
+  .h07-mark-wrap {
+    position: absolute;
+    top: 300px;
+    left: calc(50% - 100px);
+    width: 200px;
+    height: 200px;
+    transform-origin: center center;
+  }
+  .h07-mark-wrap svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+  }
+  .h07-mark-wrap path {
+    fill: none;
+    stroke: #FFFFFF;
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .h07-word-wrap {
+    position: absolute;
+    top: 566px;
+    left: calc(50% - 380px);
+    width: 760px;
+    text-align: center;
+    transform-origin: center center;
+  }
+  .h07-word {
+    display: inline-block;
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 58px;
+    letter-spacing: -0.02em;
+    color: #E8382D;
+  }
+</style>
+
+<div data-hf-id="hf-rasg" id="root" data-composition-id="07-outro" data-width="1080" data-height="1080" data-start="0" data-duration="1.776">
+  <div data-hf-id="hf-bg01" class="h07-bg clip" data-start="0" data-duration="1.776" data-track-index="0"></div>
+
+  <div data-hf-id="hf-6ptp" class="h07-mark-wrap clip" data-start="0" data-duration="1.776" data-track-index="1">
+    <svg data-hf-id="hf-54eb" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+      <path data-hf-id="hf-5spa" id="h07-cp-frame" d="M 24 24 L 216 24 L 216 216 L 24 216 Z" />
+      <path data-hf-id="hf-l3yg" id="h07-cp-c" d="M 132 70 L 92 70 L 92 170 L 132 170" />
+      <path data-hf-id="hf-eakp" id="h07-cp-p" d="M 150 70 L 150 170 M 150 70 L 188 70 L 188 118 L 150 118" />
+    </svg>
+  </div>
+
+  <div data-hf-id="hf-9che" class="h07-word-wrap clip" data-start="0" data-duration="1.776" data-track-index="2">
+    <span data-hf-id="hf-6zum" class="h07-word">calebpierre.com</span>
+  </div>
+</div>
+
+<script>
+  (function () {
+    // Setup: measure each mark path and set its dash pattern (real measured geometry).
+    var markPaths = document.querySelectorAll('.h07-mark-wrap path');
+    markPaths.forEach(function (p) {
+      var len = p.getTotalLength();
+      p.style.strokeDasharray = String(len);
+      p.style.strokeDashoffset = String(len);
+    });
+
+    var markWrap = '.h07-mark-wrap';
+    var wordWrap = '.h07-word-wrap';
+
+    window.__timelines = window.__timelines || {};
+    var tl = gsap.timeline({ paused: true });
+    window.__timelines["07-outro"] = tl;
+
+    // --- Scene 1 (0.0-0.71s): CP mark self-draws (svg-path-draw), white stroke,
+    // centered upper area, power3 settle. ---
+
+    // Mark starts very slightly undersized; grows into place on the settle beat below.
+    tl.set(markWrap, { scale: 0.94 });
+
+    // Segment draws, staggered at ~70-80% of the previous segment's duration so the
+    // eye reads one continuous stroke, not three isolated draws.
+    tl.to('#h07-cp-frame', { strokeDashoffset: 0, duration: 0.24, ease: 'power2.out' }, 0.05);
+    tl.to('#h07-cp-c',     { strokeDashoffset: 0, duration: 0.20, ease: 'power2.out' }, 0.23);
+    tl.to('#h07-cp-p',     { strokeDashoffset: 0, duration: 0.13, ease: 'power2.out' }, 0.38);
+
+    // power3 settle as the last stroke lands.
+    tl.to(markWrap, { scale: 1, duration: 0.20, ease: 'power3.out' }, 0.50);
+
+    // --- Scene 2 (0.71-1.776s): as the mark completes, "calebpierre.com" arrives via
+    // inverse zoom-through -- oversized entry, retracts to rest beneath the mark, red,
+    // the video's final accent. True final frame: real settle-and-hold exit once landed. ---
+
+    // Pre-entrance state: oversized, blurred, dimmed (as if just behind the camera).
+    tl.set(wordWrap, { scale: 1.25, opacity: 0.15, filter: 'blur(10px)' }, 0);
+
+    // Entry: retracts into the focal plane.
+    tl.to(wordWrap, {
+      scale: 1,
+      opacity: 1,
+      filter: 'blur(0px)',
+      duration: 0.5,
+      ease: 'expo.out'
+    }, 0.71);
+
+    // Settle-and-hold: the video's genuine final exit -- a real hold, at most a subtle
+    // jitter, nothing else moves after this.
+    tl.to(wordWrap, { scale: 1.015, duration: 0.08, ease: 'sine.out' }, 1.21);
+    tl.to(wordWrap, { scale: 1, duration: 0.12, ease: 'sine.inOut' }, 1.29);
+    // Remainder of the 1.776s duration (through ~1.776s) holds perfectly still.
+  })();
+</script>
+</template>

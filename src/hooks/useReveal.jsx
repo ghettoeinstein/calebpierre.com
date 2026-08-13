@@ -1,9 +1,5 @@
-import { useRef, useCallback } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+import { useRef, useEffect, useCallback } from "react";
+import anime from "animejs";
 
 /* ── helpers ────────────────────────────────────────────── */
 
@@ -11,38 +7,14 @@ const prefersReducedMotion = () =>
   typeof window !== "undefined" &&
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/**
- * Default fade-up tween — shared by the hook and the component
- * so visuals stay consistent everywhere.
- */
-const animateIn = (target, delay = 0) =>
-  gsap.fromTo(
-    target,
-    { opacity: 0, y: 28 },
-    {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      delay,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: target,
-        start: "top 85%",
-        once: true,
-      },
-    }
-  );
-
 /* ── 3D tilt ────────────────────────────────────────────── */
 
 const attachTilt = (el) => {
   const rotMax = 8; // degrees
-  const persp = 600;
+  el.style.transformPerspective = "600px";
+  el.style.transformStyle = "preserve-3d";
 
-  gsap.set(el, {
-    transformPerspective: persp,
-    transformStyle: "preserve-3d",
-  });
+  let current = null;
 
   const onMove = (e) => {
     const rect = el.getBoundingClientRect();
@@ -50,20 +22,25 @@ const attachTilt = (el) => {
     const yRel = (e.clientY - rect.top) / rect.height;
     const rotY = (xRel - 0.5) * rotMax * 2;
     const rotX = (0.5 - yRel) * rotMax * 2;
-    gsap.to(el, {
-      rotationX: rotX,
-      rotationY: rotY,
-      duration: 0.3,
-      ease: "power2.out",
+
+    if (current) current.pause();
+    current = anime({
+      targets: el,
+      rotateX: rotX,
+      rotateY: rotY,
+      duration: 300,
+      easing: "easeOutQuad",
     });
   };
 
   const onLeave = () => {
-    gsap.to(el, {
-      rotationX: 0,
-      rotationY: 0,
-      duration: 0.5,
-      ease: "power3.out",
+    if (current) current.pause();
+    current = anime({
+      targets: el,
+      rotateX: 0,
+      rotateY: 0,
+      duration: 500,
+      easing: "easeOutCubic",
     });
   };
 
@@ -73,81 +50,126 @@ const attachTilt = (el) => {
   return () => {
     el.removeEventListener("mousemove", onMove);
     el.removeEventListener("mouseleave", onLeave);
-    gsap.set(el, { rotationX: 0, rotationY: 0 });
+    if (current) current.pause();
+    el.style.transform = "";
   };
 };
 
-/* ── useGsapReveal hook ─────────────────────────────────── */
+/* ── useGsapReveal hook (kept the same name — external API is unchanged) ─
+   Runs scroll-triggered fade-up reveals via IntersectionObserver + anime.js,
+   with optional staggered children and optional 3D tilt-on-hover.
 
-/**
- * Advanced hook for custom GSAP reveal animations.
- *
- * @param {object}   opts
- * @param {number}   opts.delay       – seconds to delay the reveal
- * @param {number}   opts.stagger     – seconds between staggered children
- * @param {boolean}  opts.tilt        – attach 3D tilt on hover
- * @param {number}   opts.y           – initial translateY (px), default 28
- * @param {string}   opts.start       – ScrollTrigger start position
- * @returns {function} ref callback to attach to the container element
- */
+   @param {object}   opts
+   @param {number}   opts.delay       – seconds to delay the reveal
+   @param {number}   opts.stagger     – seconds between staggered children
+   @param {boolean}  opts.tilt        – attach 3D tilt on hover
+   @param {number}   opts.y           – initial translateY (px), default 28
+   @param {string}   opts.start       – IntersectionObserver rootMargin bottom offset (unused directly, kept for API compat)
+   @returns {function} ref callback to attach to the container element
+   ─────────────────────────────────────────────────────────── */
 export function useGsapReveal({
   delay = 0,
   stagger = 0,
   tilt = false,
   y = 28,
-  start = "top 85%",
 } = {}) {
-  const scopeRef = useRef(null);
+  const elRef = useRef(null);
   const cleanupTilt = useRef(null);
+  const observerRef = useRef(null);
 
-  useGSAP(
-    () => {
-      const el = scopeRef.current;
-      if (!el) return;
+  const showFinalState = (el) => {
+    el.style.opacity = 1;
+    el.style.transform = "none";
+    Array.from(el.children).forEach((c) => {
+      c.style.opacity = 1;
+      c.style.transform = "none";
+    });
+  };
 
-      if (prefersReducedMotion()) {
-        gsap.set(el, { opacity: 1, y: 0 });
+  const runReveal = useCallback(
+    (el) => {
+      // rAF-driven tweens never advance in a hidden/backgrounded tab —
+      // rather than leave content stuck at its "from" state, skip the
+      // animation and jump straight to the final visible state.
+      if (prefersReducedMotion() || document.hidden) {
+        showFinalState(el);
         return;
       }
 
       if (stagger > 0 && el.children.length > 0) {
-        gsap.fromTo(
-          el.children,
-          { opacity: 0, y },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            delay,
-            stagger,
-            ease: "power3.out",
-            scrollTrigger: { trigger: el, start, once: true },
-          }
-        );
+        anime.set(el, { opacity: 1 });
+        anime({
+          targets: el.children,
+          opacity: [0, 1],
+          translateY: [y, 0],
+          duration: 700,
+          delay: anime.stagger(stagger * 1000, { start: delay * 1000 }),
+          easing: "easeOutCubic",
+        });
       } else {
-        animateIn(el, delay);
+        anime({
+          targets: el,
+          opacity: [0, 1],
+          translateY: [y, 0],
+          duration: 800,
+          delay: delay * 1000,
+          easing: "easeOutCubic",
+        });
       }
+    },
+    [delay, stagger, y]
+  );
+
+  const setRef = useCallback(
+    (node) => {
+      if (elRef.current && observerRef.current) {
+        observerRef.current.disconnect();
+      }
+      if (cleanupTilt.current) {
+        cleanupTilt.current();
+        cleanupTilt.current = null;
+      }
+
+      elRef.current = node;
+      if (!node) return;
 
       if (tilt) {
-        cleanupTilt.current = attachTilt(el);
+        cleanupTilt.current = attachTilt(node);
       }
+
+      // Pre-hide staggered children synchronously so there's no flash
+      // before the IntersectionObserver fires and anime.js takes over.
+      if (stagger > 0 && node.children.length > 0 && !prefersReducedMotion()) {
+        node.style.opacity = 1;
+        Array.from(node.children).forEach((c) => {
+          c.style.opacity = 0;
+          c.style.transform = `translateY(${y}px)`;
+        });
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              runReveal(node);
+              observer.disconnect();
+            }
+          });
+        },
+        { threshold: 0.01, rootMargin: "0px 0px -15% 0px" }
+      );
+      observer.observe(node);
+      observerRef.current = observer;
     },
-    { scope: scopeRef }
+    [tilt, runReveal]
   );
 
-  const setRef = useCallback((node) => {
-    scopeRef.current = node;
+  useEffect(() => {
+    return () => {
+      if (observerRef.current) observerRef.current.disconnect();
+      if (cleanupTilt.current) cleanupTilt.current();
+    };
   }, []);
-
-  // Clean up tilt listeners on unmount
-  useGSAP(
-    () => {
-      return () => {
-        if (cleanupTilt.current) cleanupTilt.current();
-      };
-    },
-    { scope: scopeRef }
-  );
 
   return setRef;
 }
@@ -155,14 +177,12 @@ export function useGsapReveal({
 /* ── Reveal component (same interface as before) ────────── */
 
 /**
- * Drop-in replacement for the old IntersectionObserver Reveal.
+ * Drop-in scroll reveal wrapper.
  *
  * Props:
  *  - children
  *  - delay   (seconds, default 0)
  *  - className
- *
- * Additional props for the new GSAP features:
  *  - stagger  (seconds, default 0)  – animate direct children with stagger
  *  - tilt     (boolean, default false) – 3D tilt on hover
  */

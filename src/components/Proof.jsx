@@ -11,25 +11,28 @@ const STATS = [
 
 const CASE_STUDIES = [
   {
-    tag: "LIVE BETA",
-    title: "OutsideTonight",
-    body: "LA nightlife social OS — real-time venue discovery, viral plan coordination, autonomous ingestion.",
-    url: "https://outsidetonight.com",
-    stack: ["FastAPI", "Next.js", "Redis", "H3 Spatial"],
+    tag: "REAL-TIME · MULTIPLAYER",
+    title: "Last Peg Lose",
+    body: "Real-time multiplayer 2D skirmish game — low-latency WebSockets, guest + JWT auth, Drizzle ORM / Neon Postgres, Railway deploy.",
+    url: "https://lastpeglose.com",
+    stack: ["React", "Express", "WebSocket", "Neon"],
+    accent: C.blue,
   },
   {
-    tag: "REDESIGN",
+    tag: "SERVICES · COMMERCE",
+    title: "Latraderrrs",
+    body: "Elite trading community platform — tiered Diagnose / Calibrate / Execute packages, anime.js motion, Gumroad monetization.",
+    url: "https://latraderrrs.com",
+    stack: ["HTML", "Gumroad", "anime.js", "GitHub Pages"],
+    accent: C.purple,
+  },
+  {
+    tag: "REDESIGN · SQUARESPACE",
     title: "Eden's Candy",
-    body: "Full visual overhaul of an existing confectionery brand — identity, store, experience.",
+    body: "Squarespace redesign + full digital identity for a women's wellness and yoni ritual brand — sacred commerce platform.",
     url: "https://edenscandy.com",
-    stack: ["Shopify", "Brand", "UX"],
-  },
-  {
-    tag: "GREENFIELD",
-    title: "Hummingbyrd Apparel",
-    body: "End-to-end Shopify build — print-on-demand, custom theme, zero to launch.",
-    url: "https://hummingbyrdapparelandprint.com",
-    stack: ["Shopify", "Print-on-Demand", "E2E"],
+    stack: ["Squarespace", "Brand", "UX"],
+    accent: C.red,
   },
 ];
 
@@ -89,8 +92,8 @@ export default function Proof() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {CASE_STUDIES.map((cs) => (
+              <Reveal key={cs.title} tilt>
               <a
-                key={cs.title}
                 href={cs.url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -106,7 +109,7 @@ export default function Proof() {
                     style={{
                       width: 6,
                       height: 6,
-                      backgroundColor: C.red,
+                      backgroundColor: cs.accent,
                       display: "inline-block",
                     }}
                   />
@@ -172,7 +175,7 @@ export default function Proof() {
                     style={{
                       fontFamily: F.mono,
                       fontSize: "0.65rem",
-                      color: C.blue,
+                      color: cs.accent,
                     }}
                   >
                     {cs.url.replace("https://", "")}
@@ -180,6 +183,7 @@ export default function Proof() {
                   <ArrowUpRight size={12} color={C.ink} style={{ marginLeft: "auto" }} />
                 </div>
               </a>
+              </Reveal>
             ))}
           </div>
         </Reveal>

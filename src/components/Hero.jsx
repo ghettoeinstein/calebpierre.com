@@ -12,22 +12,22 @@ export default function Hero() {
       flexDirection: "column",
       justifyContent: "center",
       position: "relative",
-      background: "linear-gradient(180deg, #F8F9FA 0%, #FFFFFF 100%)",
+      background: C.white,
     }}>
       <div className="cp-container" style={{ position: "relative", zIndex: 2, width: "100%" }}>
         <Reveal>
           {/* Status badge */}
           <div className="badge" style={{
             marginBottom: "1.5rem",
-            background: "#DCFCE7",
-            color: "#166534",
+            background: C.black,
+            color: C.white,
             gap: "0.5rem",
           }}>
             <span style={{
               width: 8, height: 8, borderRadius: "50%",
-              background: C.green, display: "inline-block",
+              background: C.red, display: "inline-block",
             }} />
-            Available for Q3 Projects · Los Angeles & Remote
+            Wanna 10X Your Business? · Los Angeles &amp; Remote
           </div>
 
           {/* Headline */}
@@ -36,14 +36,14 @@ export default function Hero() {
               fontFamily: F.display,
               color: C.ink,
               fontSize: "clamp(2.25rem, 6vw, 4.25rem)",
-              lineHeight: 1.05,
-              fontWeight: 800,
+              lineHeight: 1.03,
+              fontWeight: 900,
               marginBottom: "1.5rem",
-              maxWidth: "16ch",
+              maxWidth: "17ch",
               letterSpacing: "-0.03em",
             }}
           >
-            Stop doing manual work. Let's build the systems that run it for you.
+            I'm your <span style={{ color: C.red }}>Business Automation Engineer.</span>
           </h1>
 
           <p
@@ -56,8 +56,9 @@ export default function Hero() {
               marginBottom: "2rem",
             }}
           >
-            Production AI agents, automated workflows, and enterprise-grade
-            security for growing businesses. Built by a forward-deployed engineer
+            Web design, AI programming, business automation, content marketing,
+            remote tech support, and event experience — one operator who
+            builds it, ships it, and answers the phone.
           </p>
 
           {/* Social proof bar */}
@@ -70,7 +71,7 @@ export default function Hero() {
               fontSize: "0.9rem",
               color: C.steel,
               fontFamily: F.body,
-              fontWeight: 500,
+              fontWeight: 600,
             }}
           >
             <span>⚡ Ex-Tinder Security Engineer</span>
@@ -81,11 +82,13 @@ export default function Hero() {
           {/* CTAs */}
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
             <a
-              href="#diagnostic"
+              href="https://calendly.com/calebpierre"
+              target="_blank"
+              rel="noopener noreferrer"
               className="cta-pill cta-pill-primary"
               style={{ justifyContent: "center" }}
             >
-              Book a Systems Diagnostic
+              Start the Discovery
               <span className="cta-icon-circle">
                 <ArrowUpRight size={18} />
               </span>

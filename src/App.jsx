@@ -22,7 +22,7 @@ const SYSTEMS = [
     description:
       "Production agents that read context, make decisions, use your tools, validate their own work, and escalate the edge cases that still require judgment.",
     detail: "RAG · MCP · Multi-agent orchestration",
-    link: "/los-angeles/ai-agents.html",
+    link: "/los-angeles/ai-programming.html",
     icon: BrainCircuit,
   },
   {

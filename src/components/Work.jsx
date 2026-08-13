@@ -4,28 +4,28 @@ import { Reveal } from "../hooks/useReveal.jsx";
 
 const PROJECTS = [
   {
-    name: "Eden's Candy",
-    url: "https://edenscandy.com",
-    tag: "REDESIGN",
-    desc: "Women's wellness and yoni ritual brand — full digital identity, store experience, and sacred commerce platform.",
-    accent: C.red,
-    badge: "Live",
-  },
-  {
-    name: "Hummingbyrd Apparel & Print",
-    url: "https://hummingbyrdapparelandprint.com",
-    tag: "GREENFIELD · SHOPIFY",
-    desc: "End-to-end Shopify build — product architecture, print-on-demand integration, custom theme, zero to launch.",
+    name: "Last Peg Lose",
+    url: "https://lastpeglose.com",
+    tag: "REAL-TIME · MULTIPLAYER",
+    desc: "Engineered a real-time multiplayer 2D skirmish game powered by low-latency WebSockets. Built with secure guest and JWT authentication, backed by a Drizzle ORM and Neon Postgres architecture, and deployed seamlessly via Railway.",
     accent: C.blue,
     badge: "Live",
   },
   {
-    name: "OutsideTonight",
-    url: "https://outsidetonight.com",
-    tag: "LIVE BETA",
-    desc: "LA nightlife social OS — real-time venue discovery, viral plan coordination, autonomous event ingestion.",
-    accent: C.green,
-    badge: "Beta",
+    name: "Latraderrrs",
+    url: "https://latraderrrs.com",
+    tag: "SERVICES · COMMERCE",
+    desc: "Executive technical direction and platform architecture for an elite trading community and investment club. Built a high-converting web platform featuring tiered service packages (Diagnose / Calibrate / Execute), interactive anime.js animations, Gumroad monetization, and lightweight GitHub Pages deployment.",
+    accent: C.purple,
+    badge: "Live",
+  },
+  {
+    name: "Eden's Candy",
+    url: "https://edenscandy.com",
+    tag: "REDESIGN · SQUARESPACE",
+    desc: "Architected a comprehensive Squarespace redesign and complete digital identity for a women's wellness and yoni ritual brand. Engineered an immersive, end-to-end storefront and sacred commerce platform, leveraging custom CSS and third-party application integrations for optimal user experience and brand engagement.",
+    accent: C.red,
+    badge: "Live",
   },
 ];
 
@@ -66,7 +66,7 @@ export default function Work() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {PROJECTS.map((p, i) => (
-            <Reveal key={p.name} delay={i * 0.1}>
+            <Reveal key={p.name} delay={i * 0.1} tilt>
               <a
                 href={p.url}
                 target="_blank"
@@ -91,8 +91,8 @@ export default function Work() {
                     {p.tag}
                   </span>
                   <span className="badge" style={{
-                    background: p.badge === "Beta" ? "#FEF3C7" : "#DCFCE7",
-                    color: p.badge === "Beta" ? "#92400E" : "#166534",
+                    background: p.badge === "Beta" ? C.red : C.black,
+                    color: C.white,
                   }}>
                     {p.badge}
                   </span>
@@ -126,7 +126,7 @@ export default function Work() {
                 <div
                   className="flex items-center gap-2"
                   style={{
-                    borderTop: "1px solid #E2E8F0",
+                    borderTop: `1px solid ${C.line}`,
                     paddingTop: "0.85rem",
                   }}
                 >

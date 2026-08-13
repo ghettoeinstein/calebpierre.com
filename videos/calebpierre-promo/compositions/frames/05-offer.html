@@ -1,0 +1,210 @@
+<template>
+<style>
+  @font-face {
+    font-family: "Inter";
+    src: url("capture/assets/fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Inter";
+    src: url("capture/assets/fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuDyYMZg.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "JetBrains Mono";
+    src: url("capture/assets/fonts/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8FqtjPQ.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  #root[data-composition-id="05-offer"] {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+  }
+
+  /* full-bleed ground — painted on a clip layer, never on #root */
+  .h05-bg {
+    position: absolute;
+    inset: 0;
+    background-color: #FAFAFA;
+    background-image: radial-gradient(#0A0A0A 1.2px, transparent 1.2px);
+    background-size: 24px 24px;
+    background-position: -6px -6px;
+    opacity: 1;
+  }
+  .h05-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(250, 250, 250, 0.94);
+  }
+
+  /* single tilt-deco punctuation mark — the frame's one required decoration */
+  .h05-tilt {
+    position: absolute;
+    top: 76px;
+    right: 84px;
+    width: 42px;
+    height: 42px;
+    background: #F9C8C5;
+    border: 3px solid #0A0A0A;
+    opacity: 0;
+  }
+
+  /* Scene 1 — "New clients only" label-pill, per-word staggered reveal */
+  .h05-label {
+    position: absolute;
+    top: 118px;
+    left: 60px;
+    right: 60px;
+    text-align: center;
+  }
+  .h05-pill {
+    display: inline-block;
+    background: #FFFFFF;
+    border: 3px solid #0A0A0A;
+    box-shadow: 4px 4px 0 #0A0A0A;
+    border-radius: 9999px;
+    padding: 15px 32px;
+  }
+  .h05-word {
+    display: inline-block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0A0A0A;
+    margin: 0 4px;
+  }
+
+  /* Scene 2 — "$250" value-scaled counter, the one loud red accent */
+  .h05-price {
+    position: absolute;
+    top: 392px;
+    left: 60px;
+    right: 60px;
+    text-align: center;
+  }
+  .h05-price-wrap {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    width: 760px; /* fixed width — no layout shift as digit count climbs 0 -> 250 */
+    margin: 0 auto;
+  }
+  .h05-counter {
+    font-variant-numeric: tabular-nums; /* mandatory — equal digit width, no jitter */
+    display: inline-block;
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 240px; /* END_SIZE — static; only transform scale animates */
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: #E8382D;
+    transform-origin: center center;
+    opacity: 0;
+  }
+
+  /* Scene 3 — fine print, per-word staggered reveal, then the breather hold */
+  .h05-fine {
+    position: absolute;
+    top: 758px;
+    left: 60px;
+    right: 60px;
+    text-align: center;
+  }
+  .h05-fword {
+    display: inline-block;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 34px;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #0A0A0A;
+    margin: 0 6px;
+  }
+</style>
+<div data-hf-id="hf-a5zp" id="root" data-composition-id="05-offer" data-width="1080" data-height="1080" data-start="0" data-duration="8.102">
+  <div data-hf-id="hf-bg01" class="h05-bg clip" data-start="0" data-duration="8.102" data-track-index="0"></div>
+
+  <div data-hf-id="hf-tl01" class="h05-tilt clip" data-start="0" data-duration="8.102" data-track-index="1"></div>
+
+  <div data-hf-id="hf-t22p" class="h05-label clip" data-start="0" data-duration="8.102" data-track-index="2">
+    <div data-hf-id="hf-5qrv" class="h05-pill">
+      <span data-hf-id="hf-776d" class="h05-word" id="h05-lw1">New</span><span data-hf-id="hf-qpj2" class="h05-word" id="h05-lw2">clients</span><span data-hf-id="hf-98n9" class="h05-word" id="h05-lw3">only</span>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-gcre" class="h05-price clip" data-start="0" data-duration="8.102" data-track-index="3">
+    <div data-hf-id="hf-ib3i" class="h05-price-wrap">
+      <span data-hf-id="hf-ni6f" class="h05-counter" id="h05-counter">$0</span>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-nuwp" class="h05-fine clip" data-start="0" data-duration="8.102" data-track-index="4">
+    <span data-hf-id="hf-5tta" class="h05-fword" id="h05-fw1">Full</span><span data-hf-id="hf-s77t" class="h05-fword" id="h05-fw2">website.</span><span data-hf-id="hf-fbfa" class="h05-fword" id="h05-fw3">No</span><span data-hf-id="hf-j4ce" class="h05-fword" id="h05-fw4">hidden</span><span data-hf-id="hf-bk10" class="h05-fword" id="h05-fw5">fees.</span>
+  </div>
+</div>
+<script>
+  window.__timelines = window.__timelines || {};
+  var tl05 = gsap.timeline({ paused: true });
+  window.__timelines["05-offer"] = tl05;
+
+  // decoration — tilt-deco square punctures the grid early, then holds still
+  tl05.fromTo(
+    "[data-composition-id='05-offer'] .h05-tilt",
+    { opacity: 0, scale: 0, rotation: -8 },
+    { opacity: 1, scale: 1, rotation: -8, duration: 0.5, ease: "back.out(1.6)" },
+    0.3
+  );
+
+  // Scene 1 (0.0–1.6s): "New clients only" — per-word staggered reveal, power3 settle
+  tl05.fromTo("#h05-lw1", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 0.15);
+  tl05.fromTo("#h05-lw2", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 0.27);
+  tl05.fromTo("#h05-lw3", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 0.39);
+
+  // Scene 2 (1.6–4.0s): "$250" — value-scaled counter (counting-dynamic-scale recipe)
+  // proxy value tween (text only) + synchronized transform-scale tween, same position + ease
+  (function () {
+    var counterEl = document.getElementById("h05-counter");
+    var state = { value: 0 };
+    var END_SIZE = 240;
+    var START_SIZE = 120;
+    var START_SCALE = START_SIZE / END_SIZE; // 0.5
+    var COUNT_DUR = 1.8;
+    var COUNT_EASE = "power3.out";
+    var START_AT = 1.6;
+
+    tl05.fromTo(counterEl, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, START_AT);
+
+    tl05.to(
+      state,
+      {
+        value: 250,
+        duration: COUNT_DUR,
+        ease: COUNT_EASE,
+        onUpdate: function () {
+          counterEl.textContent = "$" + Math.round(state.value).toLocaleString();
+        },
+      },
+      START_AT
+    );
+
+    tl05.fromTo(counterEl, { scale: START_SCALE }, { scale: 1, duration: COUNT_DUR, ease: COUNT_EASE }, START_AT);
+  })();
+
+  // Scene 3 (4.0–6.0s): "Full website. No hidden fees." — per-word staggered reveal, power3 settle
+  // then the video's second designated breather hold: no motion after this lands
+  tl05.fromTo("#h05-fw1", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 4.05);
+  tl05.fromTo("#h05-fw2", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 4.15);
+  tl05.fromTo("#h05-fw3", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 4.25);
+  tl05.fromTo("#h05-fw4", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 4.35);
+  tl05.fromTo("#h05-fw5", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 4.45);
+</script>
+</template>

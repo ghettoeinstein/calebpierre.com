@@ -1,8 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
 
 const columns = [
-  ["SYSTEMS", [["AI agents", "/los-angeles/ai-agents.html"], ["Automation", "/los-angeles/business-automation.html"], ["Cybersecurity", "/los-angeles/cybersecurity.html"]]],
-  ["FIELD NOTES", [["AI agents in LA", "/articles/ai-agents-los-angeles.html"], ["Security in LA", "/articles/cybersecurity-los-angeles.html"], ["Automation in LA", "/articles/business-automation-los-angeles.html"]]],
+  ["SYSTEMS", [["AI programming", "/los-angeles/ai-programming.html"], ["Automation", "/los-angeles/business-automation.html"], ["Cybersecurity", "/los-angeles/cybersecurity.html"]]],
+  ["FIELD NOTES", [["AI programming in LA", "/articles/ai-programming-los-angeles.html"], ["Security in LA", "/articles/cybersecurity-los-angeles.html"], ["Automation in LA", "/articles/business-automation-los-angeles.html"]]],
   ["EXPLORE", [["Selected work", "/#work"], ["Diagnostic", "/#diagnostic"], ["Process", "/#process"], ["Resume", "/resume.html"]]],
 ];
 

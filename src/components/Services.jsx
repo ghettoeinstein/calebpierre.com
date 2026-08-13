@@ -2,19 +2,20 @@ import { C, F } from "../constants.js";
 import { Reveal } from "../hooks/useReveal.jsx";
 
 const SERVICES = [
-  { title: "AI Agent Development", body: "Autonomous systems that run tasks, make decisions, and handle work without human intervention.", icon: "🤖" },
+  { title: "Web Design", body: "Sites built to convert, not just to look nice — fast, clean, and easy to update yourself.", icon: "🌐" },
+  { title: "AI Programming", body: "Custom AI agents and integrations that do real work — not a chatbot demo, a system that ships.", icon: "🤖" },
   { title: "Business Automation", body: "Every repetitive task eliminated. Data flows between tools without a human carrying it.", icon: "⚡" },
-  { title: "Cybersecurity", body: "Full perimeter check, gap closure, continuous monitoring. I find the holes first.", icon: "🛡️" },
-  { title: "Operations Engine", body: "Every workflow, handoff, and follow-up running without you watching it happen.", icon: "⚙️" },
-  { title: "Business Intelligence", body: "Your entire business on one screen. Every number, every status, real time.", icon: "📊" },
-  { title: "Always-On Support", body: "A real engineer on call. Not a ticket number — a person who answers.", icon: "📞" },
+  { title: "Content Marketing", body: "Content systems that compound — SEO, social, and email that keep working after you hit publish.", icon: "📝" },
+  { title: "Remote Tech Support", body: "A real engineer on call. Not a ticket number — a person who answers and actually fixes it.", icon: "📞" },
+  { title: "Experience / Event Design", body: "Launches, activations, and experiences designed and run end-to-end — not just decorated.", icon: "🎉" },
+  { title: "Cybersecurity", body: "Full perimeter check, gap closure, continuous monitoring. I find the holes before anyone else does.", icon: "🛡️" },
 ];
 
 const STEPS = [
-  { n: "01", t: "Audit", d: "Free 30-minute diagnostic to map your broken workflows." },
+  { n: "01", t: "Audit", d: "Free 30-minute diagnostic to map what's actually costing you." },
   { n: "02", t: "Blueprint", d: "Clear scope, deliverables, and fixed pricing — no hidden fees." },
-  { n: "03", t: "Deploy", d: "Production-grade AI, automation, or security built in weeks." },
-  { n: "04", t: "Maintain", d: "Ongoing support and monitoring so your infrastructure scales." },
+  { n: "03", t: "Deploy", d: "Production-grade work — web, AI, automation, or marketing — built in weeks." },
+  { n: "04", t: "Maintain", d: "Ongoing support so what's built keeps running without you." },
 ];
 
 export default function Services() {
@@ -44,14 +45,14 @@ export default function Services() {
               marginBottom: "2.5rem",
             }}
           >
-            Six systems. One operator. No handoffs lost in translation.
+            Seven systems. One operator. No handoffs lost in translation.
           </p>
         </Reveal>
 
         {/* Services grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4" style={{ marginBottom: "3rem" }}>
           {SERVICES.map((s, i) => (
-            <Reveal key={s.title} delay={i * 0.05}>
+            <Reveal key={s.title} delay={i * 0.05} tilt>
               <div className="card card-hover" style={{ padding: "1.5rem", height: "100%" }}>
                 <span style={{ fontSize: "1.75rem", display: "block", marginBottom: "0.75rem" }}>{s.icon}</span>
                 <h3
