@@ -13,6 +13,54 @@ import {
 import Nav from "./components/Nav.jsx";
 import Footer from "./components/Footer.jsx";
 
+const FLOW_STEPS = ["Customer request", "Inbox", "Spreadsheet", "Employee", "Slack", "Manager", "CRM", "ERP"];
+const FLOW_EXCEPTIONS = [
+  "missing attachment", "wrong customer record", "waiting on approval",
+  "copied twice", "forgotten follow-up", "manual re-entry",
+  "“ask Sarah”", "spreadsheet_v4_FINAL_final.xlsx",
+];
+
+const JUDGMENT_COLUMNS = [
+  {
+    label: "SOFTWARE",
+    title: "When the answer should always be the same.",
+    items: ["Deterministic rules", "Validation & routing", "Data movement between systems"],
+  },
+  {
+    label: "INTELLIGENCE",
+    title: "When the work requires interpretation, classification, or judgment.",
+    items: ["Ambiguous inputs", "Pattern & context recognition", "Drafting, not deciding"],
+  },
+  {
+    label: "HUMAN",
+    title: "When context, responsibility, or risk requires a person.",
+    items: ["Accountability & sign-off", "Exceptions & edge cases", "Relationships that matter"],
+  },
+];
+
+const EVAL_ROWS = [
+  ["Normal", "✓", "✓", "✓", "✓"],
+  ["Ambiguous", "✓", "✕", "—", "Human"],
+  ["Missing data", "✕", "—", "—", "Human"],
+  ["High risk", "✓", "✓", "✓", "Human"],
+  ["Edge case", "✓", "✓", "✕", "Stop"],
+];
+
+const EVIDENCE_STATS = [
+  ["96.4%", "validated runs"],
+  ["0", "high-risk autonomous actions"],
+  ["$0.06", "median execution cost"],
+  ["3.2 sec", "median system latency"],
+  ["12.8%", "human escalation rate"],
+];
+
+const DERISK_ITEMS = [
+  "Salesforce can remain Salesforce.",
+  "NetSuite can remain NetSuite.",
+  "Your CRM, your cloud, your credentials — untouched.",
+  "Your team can keep working in the tools they already know.",
+];
+
 const SYSTEMS = [
   {
     id: "agents",
@@ -173,6 +221,25 @@ function CostCalculator() {
   );
 }
 
+function LeakageDiagram() {
+  return (
+    <div className="leakage-grid">
+      <div className="leakage-column">
+        <span className="kicker">THE WORKFLOW, ON PAPER</span>
+        <div className="leakage-flow">
+          {FLOW_STEPS.map((step) => <div key={step}>{step}</div>)}
+        </div>
+      </div>
+      <div className="leakage-column">
+        <span className="kicker leakage-kicker-alt">THE WORKFLOW, IN PRACTICE</span>
+        <div className="leakage-exceptions">
+          {FLOW_EXCEPTIONS.map((ex) => <div key={ex}>{ex}</div>)}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -237,6 +304,17 @@ export default function App() {
           </div>
         </section>
 
+        <section className="leakage-section section" id="leakage">
+          <div className="site-container">
+            <div className="section-heading">
+              <div><span className="kicker">WHERE VALUE LEAKS</span><p>Somewhere inside your company, value is leaking — in the handoffs nobody wrote down.</p></div>
+              <h2>The SOP is not the operation.</h2>
+            </div>
+            <LeakageDiagram />
+            <p className="leakage-note">The real business lives in exceptions, workarounds, judgment calls, handoffs, and the knowledge people carry in their heads.</p>
+          </div>
+        </section>
+
         <section className="work-section section" id="work">
           <div className="site-container">
             <div className="section-heading">
@@ -283,6 +361,24 @@ export default function App() {
           </div>
         </section>
 
+        <section className="judgment-section section" id="judgment">
+          <div className="site-container">
+            <div className="section-heading">
+              <div><span className="kicker">ENGINEERING JUDGMENT</span><p>The goal isn't to put AI everywhere. The goal is to put intelligence exactly where it creates leverage.</p></div>
+              <h2>I don't start with AI. I start with the operation.</h2>
+            </div>
+            <div className="judgment-grid">
+              {JUDGMENT_COLUMNS.map((col) => (
+                <article key={col.label}>
+                  <span className="kicker">{col.label}</span>
+                  <h3>{col.title}</h3>
+                  <ul>{col.items.map((item) => <li key={item}>{item}</li>)}</ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="calculator-section section" id="diagnostic">
           <div className="site-container"><CostCalculator /></div>
         </section>
@@ -300,6 +396,49 @@ export default function App() {
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="evidence-section section" id="evidence">
+          <div className="site-container">
+            <div className="section-heading">
+              <div><span className="kicker">EVIDENCE, NOT DEMOS</span><p>A demo shows that something can work. Evidence shows whether it should be trusted.</p></div>
+              <h2>Intelligence earns autonomy.</h2>
+            </div>
+            <div className="evidence-grid">
+              <div className="evidence-table-wrap">
+                <span className="kicker">EVALUATION SET</span>
+                <table className="evidence-table">
+                  <thead><tr><th>Scenario</th><th>Data</th><th>Decision</th><th>Policy</th><th>Safe</th></tr></thead>
+                  <tbody>
+                    {EVAL_ROWS.map((row) => (
+                      <tr key={row[0]}>{row.map((cell, i) => <td key={i} data-flag={cell === "Human" || cell === "Stop" ? "risk" : undefined}>{cell}</td>)}</tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="evidence-stats">
+                <span className="kicker">DEPLOYMENT EVIDENCE</span>
+                <div className="evidence-stats-grid">
+                  {EVIDENCE_STATS.map(([value, label]) => (
+                    <div key={label}><strong>{value}</strong><span>{label}</span></div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="derisk-section section" id="derisk">
+          <div className="site-container">
+            <div className="section-heading">
+              <div><span className="kicker">DE-RISKING THE DECISION</span><p>I engineer around the reality of your organization rather than forcing your organization around my technology.</p></div>
+              <h2>Your systems do not need to be replaced.</h2>
+            </div>
+            <div className="derisk-list">
+              {DERISK_ITEMS.map((item) => <p key={item}>{item}</p>)}
+            </div>
+            <p className="derisk-tagline">Integrate before migrate.</p>
           </div>
         </section>
 
