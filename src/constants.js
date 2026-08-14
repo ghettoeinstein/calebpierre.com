@@ -6,6 +6,9 @@ export const C = {
   redGlow: "rgba(255,77,46,0.16)", yellowGlow: "rgba(223,255,99,0.12)", blueGlow: "rgba(125,220,255,0.12)",
   glass: "rgba(255,255,255,0.04)", glassHover: "rgba(255,255,255,0.07)", redDeep: "#A52211", redDim: "#351411",
   ctaDark: "#F4F1E8", focusRing: "#DFFF63",
+  // Light-page family (glossary/insights/tools): text and section tokens sized for
+  // dark-on-white contrast, distinct from the ink/steel tokens above which assume a dark section.
+  navy: "#0F1B2E", offWhite: "#EDEAE0",
 };
 
 export const F = {

@@ -14,7 +14,7 @@ function classify(t) {
   if (t.highStakes || t.relational) {
     return {
       verdict: "HUMAN",
-      color: C.riskRed,
+      color: C.red,
       reason: t.highStakes
         ? "The cost of a mistake is high enough, or hard enough to reverse, that accountability needs to sit with a person — even if a system drafts the first pass."
         : "This depends on context or trust that lives in a relationship, not in data. A system can support the person doing this — it shouldn't replace them.",
@@ -23,21 +23,21 @@ function classify(t) {
   if (t.rare) {
     return {
       verdict: "HUMAN (for now)",
-      color: C.riskRed,
+      color: C.red,
       reason: "Infrequent enough that the engineering cost of automating it likely exceeds the value recovered — revisit if volume grows.",
     };
   }
   if (t.ambiguous) {
     return {
       verdict: "INTELLIGENCE",
-      color: C.wire,
+      color: C.steelDark,
       reason: "This needs interpretation or classification a fixed rule can't handle cleanly — a good fit for a model, with a human checkpoint on low-confidence cases.",
     };
   }
   if (t.repetitive) {
     return {
       verdict: "SOFTWARE",
-      color: C.ink,
+      color: C.black,
       reason: "The answer should always be the same. This doesn't need judgment — it needs a deterministic rule, which will be faster, cheaper, and more auditable than a model.",
     };
   }
@@ -56,10 +56,10 @@ export default function JudgmentClassifier() {
     <div id="classifier" style={{ scrollMarginTop: "56px" }}>
       <Reveal>
         <p className="chapter-eyebrow" style={{ color: C.steel, marginBottom: "0.5rem" }}>Tool 03</p>
-        <h2 style={{ fontFamily: F.display, color: C.ink, fontSize: "clamp(1.6rem, 3.5vw, 2.25rem)", fontWeight: 800, letterSpacing: "-0.02em", marginBottom: "0.5rem" }}>
+        <h2 style={{ fontFamily: F.display, color: C.black, fontSize: "clamp(1.6rem, 3.5vw, 2.25rem)", fontWeight: 800, letterSpacing: "-0.02em", marginBottom: "0.5rem" }}>
           Software, Intelligence, or Human?
         </h2>
-        <p style={{ fontFamily: F.body, color: C.inkSoft, fontSize: "0.98rem", lineHeight: 1.6, maxWidth: "58ch", marginBottom: "2rem" }}>
+        <p style={{ fontFamily: F.body, color: C.steelDark, fontSize: "0.98rem", lineHeight: 1.6, maxWidth: "58ch", marginBottom: "2rem" }}>
           Think of one specific task inside a workflow. Check what applies,
           and see where it lands on the same framework used to design
           every system on this site.
@@ -90,7 +90,7 @@ export default function JudgmentClassifier() {
                     onChange={() => setTraits((prev) => ({ ...prev, [t.key]: !prev[t.key] }))}
                     style={{ accentColor: C.navy, width: 16, height: 16, flexShrink: 0 }}
                   />
-                  <span style={{ fontFamily: F.body, fontSize: "0.92rem", color: C.ink }}>{t.label}</span>
+                  <span style={{ fontFamily: F.body, fontSize: "0.92rem", color: C.black }}>{t.label}</span>
                 </label>
               );
             })}
@@ -103,7 +103,7 @@ export default function JudgmentClassifier() {
             <p style={{ fontFamily: F.display, color: result.color, fontWeight: 900, fontSize: "1.75rem", letterSpacing: "-0.02em", marginBottom: "0.75rem" }}>
               {result.verdict}
             </p>
-            <p style={{ fontFamily: F.body, color: C.ink, fontSize: "0.95rem", lineHeight: 1.6 }}>{result.reason}</p>
+            <p style={{ fontFamily: F.body, color: C.black, fontSize: "0.95rem", lineHeight: 1.6 }}>{result.reason}</p>
           </div>
         </Reveal>
       </div>

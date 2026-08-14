@@ -22,13 +22,13 @@ export default function ToolsPage() {
       <section style={{ background: C.white, padding: "clamp(2.5rem, 6vw, 4.5rem) 0 clamp(2rem, 5vw, 3rem)" }}>
         <div className="cp-container">
           <Reveal>
-            <p className="chapter-eyebrow" style={{ color: C.riskRed, marginBottom: "0.75rem" }}>
+            <p className="chapter-eyebrow" style={{ color: C.red, marginBottom: "0.75rem" }}>
               Free, no email required
             </p>
             <h1
               style={{
                 fontFamily: F.display,
-                color: C.ink,
+                color: C.black,
                 fontSize: "clamp(2.25rem, 5.5vw, 3.75rem)",
                 fontWeight: 900,
                 letterSpacing: "-0.03em",
@@ -42,7 +42,7 @@ export default function ToolsPage() {
             <p
               style={{
                 fontFamily: F.body,
-                color: C.inkSoft,
+                color: C.steelDark,
                 fontSize: "1.1rem",
                 lineHeight: 1.65,
                 maxWidth: "58ch",
@@ -75,10 +75,10 @@ export default function ToolsPage() {
               href={`#${t.id}`}
               style={{
                 fontFamily: F.mono,
-                fontSize: "0.7rem",
+                fontSize: "0.85rem",
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
-                color: C.steel,
+                color: C.steelDark,
                 textDecoration: "none",
               }}
             >
@@ -109,7 +109,7 @@ export default function ToolsPage() {
       <section style={{ background: C.navy, padding: "clamp(2.5rem, 6vw, 4rem) 0" }}>
         <div className="cp-container" style={{ textAlign: "center" }}>
           <Reveal>
-            <p style={{ fontFamily: F.display, color: C.navyText, fontSize: "clamp(1.2rem, 2.6vw, 1.6rem)", fontWeight: 700, marginBottom: "1.25rem", maxWidth: "44ch", margin: "0 auto 1.25rem" }}>
+            <p style={{ fontFamily: F.display, color: C.white, fontSize: "clamp(1.2rem, 2.6vw, 1.6rem)", fontWeight: 700, marginBottom: "1.25rem", maxWidth: "44ch", margin: "0 auto 1.25rem" }}>
               These tools give you a model. A Systems Intelligence Sprint gives you a plan built on your real data.
             </p>
             <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener noreferrer" className="cta-pill cta-pill-primary">
