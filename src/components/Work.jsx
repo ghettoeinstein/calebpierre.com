@@ -4,6 +4,14 @@ import { Reveal } from "../hooks/useReveal.jsx";
 
 const PROJECTS = [
   {
+    name: "FreeCreditBot",
+    url: "https://freecreditbot.com",
+    tag: "FINTECH · PRIVACY · OPEN SOURCE",
+    desc: "Designed and engineered a free, privacy-first credit dispute platform that runs entirely in the browser. FreeCreditBot helps people understand credit-report issues, choose a guided workflow, generate personalized dispute letters, and track progress locally—without accounts, subscriptions, or uploading sensitive financial data to a server.",
+    accent: C.green,
+    badge: "Live",
+  },
+  {
     name: "Last Peg Lose",
     url: "https://lastpeglose.com",
     tag: "REAL-TIME · MULTIPLAYER",
@@ -64,7 +72,7 @@ export default function Work() {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {PROJECTS.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.1} tilt>
               <a

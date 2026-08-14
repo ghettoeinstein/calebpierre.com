@@ -65,23 +65,23 @@ export const PROJECTS = [
     },
   },
   {
-    slug: "creditcookbook",
-    name: "Credit Cookbook",
-    url: "creditcookbook.com",
-    href: "https://creditcookbook.com",
-    category: "Open-source fintech education",
-    tagline: "Open-source credit education — free, versioned, inspectable.",
+    slug: "freecreditbot",
+    name: "FreeCreditBot",
+    url: "freecreditbot.com",
+    href: "https://freecreditbot.com",
+    category: "Privacy-first · Open-source fintech",
+    tagline: "Fix your credit. Keep your data private.",
     summary:
-      "Dispute letters, bureau response scripts, and credit-repair playbooks published as an open, Swiss-design static site — the repository itself is the product. Built on Astro, deployed to GitHub Pages, monetized through contextual affiliate partnerships and a newsletter, with zero login and zero client dashboards.",
-    stack: ["Astro", "Swiss / International Typographic Style", "Buttondown", "GitHub Pages"],
+      "A free, browser-native credit dispute engine that helps people understand report issues, choose a guided workflow, generate personalized letters, and track progress locally. Reports are parsed on-device with no account, subscription, backend, or server-side storage.",
+    stack: ["Astro", "PDF.js", "Web Workers", "Local-first JavaScript", "GitHub Pages"],
     accent: "orange",
     caseStudy: {
       challenge:
-        "Credit-repair content online is either paywalled, vague, or written to sell a $99/mo \"credit repair service\" rather than actually help. Trust is the entire product here — and closed, gated content erodes it.",
+        "Credit tools routinely ask people to upload their most sensitive financial records to opaque servers, then put basic help behind subscriptions. For a product built around trust, that model creates the wrong incentives and an unnecessary privacy risk.",
       approach:
-        "Made openness the growth mechanism instead of the liability: the templates, scripts, and playbooks are published directly, versioned, and inspectable — the repo is the product. Design discipline borrowed from Swiss / International Typographic Style (strict grid, one grotesque typeface, hairline rules) to make dense legal and financial content easy to actually read and use.",
+        "Built the workflow local-first: PDF.js parses reports in the browser, Web Workers power responsive search and suggestions, and generated letters remain in client memory until the user downloads them. The public repository makes the product's privacy claims directly inspectable instead of asking users to take them on faith.",
       result:
-        "A 12-page Medical Debt content cluster live (FCRA/HIPAA/FDCPA rights, dispute and validation letter templates, the 2023 $500 threshold rule, bureau response scripts), with Collections, Late Payments, and Hard Inquiries clusters underway.",
+        "A live, zero-login credit workflow with guided issue diagnosis, local PDF processing, dispute-letter generation, privacy safeguards, and an expanding library of practical credit education — all free at FreeCreditBot.com.",
     },
   },
 ];
