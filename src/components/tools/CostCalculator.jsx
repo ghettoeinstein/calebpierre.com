@@ -8,7 +8,7 @@ function Field({ label, value, onChange, suffix, min = 0, step = 1 }) {
       <span className="mono-tag" style={{ color: C.steel, display: "block", marginBottom: "0.4rem" }}>
         {label}
       </span>
-      <div style={{ display: "flex", alignItems: "center", border: `1.5px solid ${C.ink}`, padding: "0.6rem 0.85rem" }}>
+      <div style={{ display: "flex", alignItems: "center", border: `1.5px solid ${C.black}`, padding: "0.6rem 0.85rem" }}>
         <input
           type="number"
           min={min}
@@ -21,7 +21,7 @@ function Field({ label, value, onChange, suffix, min = 0, step = 1 }) {
             fontFamily: F.body,
             fontWeight: 700,
             fontSize: "1.05rem",
-            color: C.ink,
+            color: C.black,
             width: "100%",
             background: "transparent",
           }}
@@ -59,10 +59,10 @@ export default function CostCalculator() {
     <div id="cost-calculator" style={{ scrollMarginTop: "56px" }}>
       <Reveal>
         <p className="chapter-eyebrow" style={{ color: C.steel, marginBottom: "0.5rem" }}>Tool 01</p>
-        <h2 style={{ fontFamily: F.display, color: C.ink, fontSize: "clamp(1.6rem, 3.5vw, 2.25rem)", fontWeight: 800, letterSpacing: "-0.02em", marginBottom: "0.5rem" }}>
+        <h2 style={{ fontFamily: F.display, color: C.black, fontSize: "clamp(1.6rem, 3.5vw, 2.25rem)", fontWeight: 800, letterSpacing: "-0.02em", marginBottom: "0.5rem" }}>
           Workflow Cost Calculator
         </h2>
-        <p style={{ fontFamily: F.body, color: C.inkSoft, fontSize: "0.98rem", lineHeight: 1.6, maxWidth: "58ch", marginBottom: "2rem" }}>
+        <p style={{ fontFamily: F.body, color: C.steelDark, fontSize: "0.98rem", lineHeight: 1.6, maxWidth: "58ch", marginBottom: "2rem" }}>
           Put real numbers on one workflow. This is the same model used in
           an actual engagement — not a generic estimate.
         </p>
@@ -94,22 +94,22 @@ export default function CostCalculator() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div style={{ border: `1.5px solid ${C.ink}`, padding: "1.75rem", background: C.offWhite, height: "100%" }}>
+          <div style={{ border: `1.5px solid ${C.black}`, padding: "1.75rem", background: C.offWhite, height: "100%" }}>
             <p className="mono-tag" style={{ color: C.steel, marginBottom: "1rem" }}>MODELED RESULT</p>
 
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.6rem", borderBottom: `1px dashed ${C.line}`, paddingBottom: "0.6rem" }}>
               <span style={{ fontFamily: F.body, color: C.steel, fontSize: "0.88rem" }}>Current annual cost</span>
-              <span style={{ fontFamily: F.display, color: C.riskRed, fontWeight: 800 }}>${fmt(result.currentAnnual)}</span>
+              <span style={{ fontFamily: F.display, color: C.red, fontWeight: 800 }}>${fmt(result.currentAnnual)}</span>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "1.25rem", borderBottom: `1px dashed ${C.line}`, paddingBottom: "0.6rem" }}>
               <span style={{ fontFamily: F.body, color: C.steel, fontSize: "0.88rem" }}>Engineered annual cost</span>
-              <span style={{ fontFamily: F.display, color: C.ink, fontWeight: 800 }}>${fmt(result.engineeredAnnual)}</span>
+              <span style={{ fontFamily: F.display, color: C.black, fontWeight: 800 }}>${fmt(result.engineeredAnnual)}</span>
             </div>
 
             <p style={{ fontFamily: F.display, color: C.green, fontWeight: 900, fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", letterSpacing: "-0.03em", marginBottom: "0.4rem" }}>
               ${fmt(result.recovered)}
             </p>
-            <p style={{ fontFamily: F.body, color: C.ink, fontSize: "0.9rem", fontWeight: 600 }}>
+            <p style={{ fontFamily: F.body, color: C.black, fontSize: "0.9rem", fontWeight: 600 }}>
               recovered per year on this one workflow
             </p>
           </div>

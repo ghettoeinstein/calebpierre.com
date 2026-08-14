@@ -54,14 +54,14 @@ function verdict(score) {
   if (score <= 4) {
     return {
       tier: "MAP FIRST",
-      color: C.riskRed,
+      color: C.red,
       body: "This workflow isn't ready to engineer yet — it's ready to observe. Before any automation conversation, the process needs to be mapped: what actually happens, where the exceptions live, and what it costs. That mapping work is Chapter 1 of any real engagement, not a detour from it.",
     };
   }
   if (score <= 9) {
     return {
       tier: "PARTIALLY READY",
-      color: C.wire,
+      color: C.steelDark,
       body: "Some structure exists, but the edge cases and cost model are thin. A short discovery pass — mapping the exceptions and pricing the current state — will tell you whether this is worth engineering before you commit to building anything.",
     };
   }
@@ -82,10 +82,10 @@ export default function ReadinessDiagnostic() {
     <div id="readiness" style={{ scrollMarginTop: "56px" }}>
       <Reveal>
         <p className="chapter-eyebrow" style={{ color: C.steel, marginBottom: "0.5rem" }}>Tool 02</p>
-        <h2 style={{ fontFamily: F.display, color: C.ink, fontSize: "clamp(1.6rem, 3.5vw, 2.25rem)", fontWeight: 800, letterSpacing: "-0.02em", marginBottom: "0.5rem" }}>
+        <h2 style={{ fontFamily: F.display, color: C.black, fontSize: "clamp(1.6rem, 3.5vw, 2.25rem)", fontWeight: 800, letterSpacing: "-0.02em", marginBottom: "0.5rem" }}>
           Automation Readiness Diagnostic
         </h2>
-        <p style={{ fontFamily: F.body, color: C.inkSoft, fontSize: "0.98rem", lineHeight: 1.6, maxWidth: "58ch", marginBottom: "2rem" }}>
+        <p style={{ fontFamily: F.body, color: C.steelDark, fontSize: "0.98rem", lineHeight: 1.6, maxWidth: "58ch", marginBottom: "2rem" }}>
           Five questions. No email required. Answer honestly — the point
           is an accurate read, not a flattering one.
         </p>
@@ -94,7 +94,7 @@ export default function ReadinessDiagnostic() {
       <div style={{ display: "flex", flexDirection: "column", gap: "1.75rem", marginBottom: "2rem" }}>
         {QUESTIONS.map((item, qi) => (
           <Reveal key={item.q} delay={qi * 0.05}>
-            <p style={{ fontFamily: F.display, color: C.ink, fontWeight: 700, fontSize: "1.02rem", marginBottom: "0.75rem" }}>
+            <p style={{ fontFamily: F.display, color: C.black, fontWeight: 700, fontSize: "1.02rem", marginBottom: "0.75rem" }}>
               {qi + 1}. {item.q}
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
@@ -111,7 +111,7 @@ export default function ReadinessDiagnostic() {
                       padding: "0.65rem 0.9rem",
                       border: `1.5px solid ${active ? C.navy : C.line}`,
                       background: active ? C.navy : "transparent",
-                      color: active ? C.white : C.ink,
+                      color: active ? C.white : C.black,
                       cursor: "pointer",
                       transition: "all 0.15s ease",
                     }}
@@ -129,7 +129,7 @@ export default function ReadinessDiagnostic() {
         <Reveal>
           <div style={{ border: `1.5px solid ${v.color}`, padding: "1.75rem" }}>
             <p className="mono-tag" style={{ color: v.color, marginBottom: "0.5rem", fontWeight: 700 }}>{v.tier}</p>
-            <p style={{ fontFamily: F.body, color: C.ink, fontSize: "0.98rem", lineHeight: 1.65 }}>{v.body}</p>
+            <p style={{ fontFamily: F.body, color: C.black, fontSize: "0.98rem", lineHeight: 1.65 }}>{v.body}</p>
           </div>
         </Reveal>
       )}

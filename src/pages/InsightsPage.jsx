@@ -15,13 +15,13 @@ export default function InsightsPage() {
       <section style={{ background: C.white, padding: "clamp(2.5rem, 6vw, 4.5rem) 0 clamp(2rem, 5vw, 3rem)" }}>
         <div className="cp-container">
           <Reveal>
-            <p className="chapter-eyebrow" style={{ color: C.riskRed, marginBottom: "0.75rem" }}>
+            <p className="chapter-eyebrow" style={{ color: C.red, marginBottom: "0.75rem" }}>
               Field notes
             </p>
             <h1
               style={{
                 fontFamily: F.display,
-                color: C.ink,
+                color: C.black,
                 fontSize: "clamp(2.25rem, 5.5vw, 3.75rem)",
                 fontWeight: 900,
                 letterSpacing: "-0.03em",
@@ -35,7 +35,7 @@ export default function InsightsPage() {
             <p
               style={{
                 fontFamily: F.body,
-                color: C.inkSoft,
+                color: C.steelDark,
                 fontSize: "1.1rem",
                 lineHeight: 1.65,
                 maxWidth: "58ch",
@@ -68,8 +68,8 @@ export default function InsightsPage() {
                   }}
                 >
                   <span style={{ display: "flex", alignItems: "baseline", gap: "0.85rem", minWidth: 0 }}>
-                    <span className="mono-tag" style={{ color: C.wire, flexShrink: 0 }}>{post.tag}</span>
-                    <span style={{ fontFamily: F.display, color: C.ink, fontWeight: 700, fontSize: "1.02rem" }}>
+                    <span className="mono-tag" style={{ color: C.steelDark, flexShrink: 0 }}>{post.tag}</span>
+                    <span style={{ fontFamily: F.display, color: C.black, fontWeight: 700, fontSize: "1.02rem" }}>
                       {post.title}
                     </span>
                   </span>
@@ -95,11 +95,11 @@ export default function InsightsPage() {
         >
           <div className="cp-container" style={{ maxWidth: 720 }}>
             <Reveal>
-              <p className="chapter-eyebrow" style={{ color: C.wire, marginBottom: "0.6rem" }}>{post.tag}</p>
+              <p className="chapter-eyebrow" style={{ color: C.steelDark, marginBottom: "0.6rem" }}>{post.tag}</p>
               <h2
                 style={{
                   fontFamily: F.display,
-                  color: C.ink,
+                  color: C.black,
                   fontSize: "clamp(1.6rem, 3.5vw, 2.35rem)",
                   fontWeight: 800,
                   letterSpacing: "-0.025em",
@@ -112,7 +112,7 @@ export default function InsightsPage() {
               <p
                 style={{
                   fontFamily: F.body,
-                  color: C.steel,
+                  color: C.steelDark,
                   fontSize: "1.05rem",
                   fontWeight: 600,
                   lineHeight: 1.5,
@@ -126,7 +126,7 @@ export default function InsightsPage() {
                   key={pi}
                   style={{
                     fontFamily: F.body,
-                    color: C.inkSoft,
+                    color: C.steelDark,
                     fontSize: "1.02rem",
                     lineHeight: 1.75,
                     marginBottom: "1.1rem",
@@ -143,7 +143,7 @@ export default function InsightsPage() {
       <section style={{ background: C.navy, padding: "clamp(2.5rem, 6vw, 4rem) 0" }}>
         <div className="cp-container" style={{ textAlign: "center" }}>
           <Reveal>
-            <p style={{ fontFamily: F.display, color: C.navyText, fontSize: "clamp(1.2rem, 2.6vw, 1.6rem)", fontWeight: 700, marginBottom: "1.25rem", maxWidth: "44ch", margin: "0 auto 1.25rem" }}>
+            <p style={{ fontFamily: F.display, color: C.white, fontSize: "clamp(1.2rem, 2.6vw, 1.6rem)", fontWeight: 700, marginBottom: "1.25rem", maxWidth: "44ch", margin: "0 auto 1.25rem" }}>
               If any of this sounds like your operation, the next step is mapping it — not reading about it.
             </p>
             <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener noreferrer" className="cta-pill cta-pill-primary">

@@ -35,13 +35,13 @@ export default function GlossaryPage() {
       <section style={{ background: C.white, padding: "clamp(2.5rem, 6vw, 4.5rem) 0 clamp(2rem, 5vw, 3rem)" }}>
         <div className="cp-container">
           <Reveal>
-            <p className="chapter-eyebrow" style={{ color: C.riskRed, marginBottom: "0.75rem" }}>
+            <p className="chapter-eyebrow" style={{ color: C.red, marginBottom: "0.75rem" }}>
               {ALL_TERMS.length} terms · {GLOSSARY.length} categories
             </p>
             <h1
               style={{
                 fontFamily: F.display,
-                color: C.ink,
+                color: C.black,
                 fontSize: "clamp(2.25rem, 5.5vw, 3.75rem)",
                 fontWeight: 900,
                 letterSpacing: "-0.03em",
@@ -55,7 +55,7 @@ export default function GlossaryPage() {
             <p
               style={{
                 fontFamily: F.body,
-                color: C.inkSoft,
+                color: C.steelDark,
                 fontSize: "1.1rem",
                 lineHeight: 1.65,
                 maxWidth: "58ch",
@@ -73,7 +73,7 @@ export default function GlossaryPage() {
                 display: "flex",
                 alignItems: "center",
                 gap: "0.6rem",
-                border: `1.5px solid ${C.ink}`,
+                border: `1.5px solid ${C.black}`,
                 padding: "0.75rem 1rem",
                 maxWidth: 440,
               }}
@@ -89,7 +89,7 @@ export default function GlossaryPage() {
                   outline: "none",
                   fontFamily: F.body,
                   fontSize: "0.95rem",
-                  color: C.ink,
+                  color: C.black,
                   width: "100%",
                   background: "transparent",
                 }}
@@ -121,10 +121,10 @@ export default function GlossaryPage() {
               href={`#${cat.slug}`}
               style={{
                 fontFamily: F.mono,
-                fontSize: "0.7rem",
+                fontSize: "0.85rem",
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
-                color: C.steel,
+                color: C.steelDark,
                 textDecoration: "none",
               }}
             >
@@ -137,7 +137,7 @@ export default function GlossaryPage() {
       {/* Categories */}
       {filtered.length === 0 ? (
         <div className="cp-container" style={{ padding: "4rem 0", textAlign: "center" }}>
-          <p style={{ fontFamily: F.body, color: C.steel }}>No terms match “{query}.”</p>
+          <p style={{ fontFamily: F.body, color: C.steelDark }}>No terms match “{query}.”</p>
         </div>
       ) : (
         filtered.map((cat, ci) => (
@@ -170,11 +170,11 @@ export default function GlossaryPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {cat.terms.map((t) => (
                   <Reveal key={t.slug}>
-                    <div id={t.slug} style={{ borderLeft: `3px solid ${C.wire}`, paddingLeft: "1.1rem", scrollMarginTop: "70px" }}>
+                    <div id={t.slug} style={{ borderLeft: `3px solid ${C.steelDark}`, paddingLeft: "1.1rem", scrollMarginTop: "70px" }}>
                       <h3
                         style={{
                           fontFamily: F.display,
-                          color: C.ink,
+                          color: C.black,
                           fontSize: "1.15rem",
                           fontWeight: 700,
                           marginBottom: "0.5rem",
@@ -185,7 +185,7 @@ export default function GlossaryPage() {
                       <p
                         style={{
                           fontFamily: F.body,
-                          color: C.inkSoft,
+                          color: C.steelDark,
                           fontSize: "0.92rem",
                           lineHeight: 1.6,
                           marginBottom: "0.6rem",
@@ -202,7 +202,7 @@ export default function GlossaryPage() {
                           fontWeight: 600,
                         }}
                       >
-                        Why it matters: <span style={{ fontWeight: 400, color: C.ink }}>{t.why}</span>
+                        Why it matters: <span style={{ fontWeight: 400, color: C.black }}>{t.why}</span>
                       </p>
                     </div>
                   </Reveal>
@@ -217,7 +217,7 @@ export default function GlossaryPage() {
       <section style={{ background: C.navy, padding: "clamp(2.5rem, 6vw, 4rem) 0" }}>
         <div className="cp-container" style={{ textAlign: "center" }}>
           <Reveal>
-            <p style={{ fontFamily: F.display, color: C.navyText, fontSize: "clamp(1.2rem, 2.6vw, 1.6rem)", fontWeight: 700, marginBottom: "1.25rem", maxWidth: "40ch", margin: "0 auto 1.25rem" }}>
+            <p style={{ fontFamily: F.display, color: C.white, fontSize: "clamp(1.2rem, 2.6vw, 1.6rem)", fontWeight: 700, marginBottom: "1.25rem", maxWidth: "40ch", margin: "0 auto 1.25rem" }}>
               Vocabulary is free. Knowing where your constraint actually is takes a look at your operation.
             </p>
             <a href="https://calendly.com/calebpierre" target="_blank" rel="noopener noreferrer" className="cta-pill cta-pill-primary">
