@@ -5,6 +5,10 @@ import {
   BrainCircuit,
   Check,
   Cpu,
+  Globe,
+  Headphones,
+  Megaphone,
+  PartyPopper,
   Radar,
   ShieldCheck,
   Sparkles,
@@ -12,6 +16,17 @@ import {
 } from "lucide-react";
 import Nav from "./components/Nav.jsx";
 import Footer from "./components/Footer.jsx";
+import { Reveal } from "./hooks/useReveal.jsx";
+
+/* Single source for the marquee copy — edit this list to update the ticker. */
+const MARQUEE_ITEMS = [
+  "ONE OPERATOR",
+  "EVERY DISCIPLINE",
+  "NO FLUFF",
+  "BUILT TO SHIP",
+  "YOUR CODE. YOUR CLOUD.",
+  "HUMAN IN THE LOOP",
+];
 
 const FLOW_STEPS = ["Customer request", "Inbox", "Spreadsheet", "Employee", "Slack", "Manager", "CRM", "ERP"];
 const FLOW_EXCEPTIONS = [
@@ -92,6 +107,51 @@ const SYSTEMS = [
     description:
       "Security architecture built into the operating system—from identity and detection to automated response, HIPAA controls, and audit-ready evidence.",
     detail: "SIEM · SOAR · Zero Trust · HIPAA",
+    link: "/los-angeles/cybersecurity.html",
+    icon: ShieldCheck,
+  },
+];
+
+const DISCIPLINES = [
+  {
+    title: "Web design",
+    description: "Sites built to convert, not just to look nice — fast, clean, and easy to update yourself.",
+    link: "/los-angeles/web-design.html",
+    icon: Globe,
+  },
+  {
+    title: "AI programming",
+    description: "Custom agents and integrations that do real work — not a chatbot demo, a system that ships.",
+    link: "/los-angeles/ai-programming.html",
+    icon: BrainCircuit,
+  },
+  {
+    title: "Business automation",
+    description: "Every repetitive task eliminated. Data flows between tools without a human carrying it.",
+    link: "/los-angeles/business-automation.html",
+    icon: Workflow,
+  },
+  {
+    title: "Content marketing",
+    description: "Content systems that compound — SEO, social, and email that keep working after you hit publish.",
+    link: "/los-angeles/content-marketing.html",
+    icon: Megaphone,
+  },
+  {
+    title: "Remote tech support",
+    description: "A real engineer on call. Not a ticket number — a person who answers and actually fixes it.",
+    link: "/los-angeles/remote-tech-support.html",
+    icon: Headphones,
+  },
+  {
+    title: "Experience / event design",
+    description: "Launches, activations, and experiences designed and run end-to-end — not just decorated.",
+    link: "/los-angeles/event-design.html",
+    icon: PartyPopper,
+  },
+  {
+    title: "Cybersecurity",
+    description: "Full perimeter check, gap closure, continuous monitoring. I find the holes before anyone else does.",
     link: "/los-angeles/cybersecurity.html",
     icon: ShieldCheck,
   },
@@ -273,8 +333,8 @@ export default function App() {
           <div className="site-container hero-layout">
             <div className="hero-copy">
               <div className="availability"><i /> Los Angeles · Available for select builds</div>
-              <p className="hero-index">FORWARD-DEPLOYED AI ENGINEER / SECURITY ARCHITECT</p>
-              <h1>I build systems that <span>think, decide,</span> and ship.</h1>
+              <p className="hero-index">ONE OPERATOR · SEVEN DISCIPLINES · NO HANDOFFS</p>
+              <h1>I build systems that <em className="em-italic">think, decide,</em> and ship.</h1>
               <p className="hero-lede">
                 AI agents, operational automation, and security infrastructure engineered around the way your organization actually works.
               </p>
@@ -292,14 +352,11 @@ export default function App() {
             </div>
             <SystemCore />
           </div>
-          <div className="signal-strip" aria-label="Capabilities">
-            <div>
-              <span>AGENTIC WORKFLOWS</span><i />
-              <span>SECURE BY DESIGN</span><i />
-              <span>HUMAN IN THE LOOP</span><i />
-              <span>YOUR CODE. YOUR CLOUD.</span><i />
-              <span>AGENTIC WORKFLOWS</span><i />
-              <span>SECURE BY DESIGN</span>
+          <div className="signal-strip" aria-label="Positioning">
+            <div aria-hidden="true">
+              {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
+                <span key={i}>{item}<i /></span>
+              ))}
             </div>
           </div>
         </section>
@@ -341,26 +398,28 @@ export default function App() {
           </div>
         </section>
 
-        <section className="systems-section section" id="systems">
+        <section className="disciplines-section section" id="disciplines">
           <div className="site-container">
-            <div className="section-heading section-heading-light">
-              <div><span className="kicker">WHAT I BUILD</span><p>Three capabilities. One accountable engineer.</p></div>
+            <div className="section-heading">
+              <div><span className="kicker">WHAT I BUILD</span><p>Seven disciplines. One accountable engineer. No handoffs lost in translation.</p></div>
               <h2>Not another tool. A new operating advantage.</h2>
             </div>
-            <div className="systems-list">
-              {SYSTEMS.map((system) => {
-                const Icon = system.icon;
+            <Reveal className="discipline-grid" stagger={0.07}>
+              {DISCIPLINES.map((discipline, index) => {
+                const Icon = discipline.icon;
                 return (
-                  <a href={system.link} className="system-row" key={system.id}>
-                    <span className="system-number">{system.index}</span>
-                    <span className="system-icon"><Icon size={24} /></span>
-                    <span className="system-copy"><strong>{system.title}</strong><small>{system.description}</small></span>
-                    <span className="system-detail">{system.detail}</span>
-                    <ArrowUpRight className="system-arrow" size={22} />
+                  <a href={discipline.link} className="discipline-block" key={discipline.title}>
+                    <div className="discipline-top">
+                      <span className="discipline-number">{String(index + 1).padStart(2, "0")}</span>
+                      <span className="discipline-icon"><Icon size={22} /></span>
+                    </div>
+                    <h3 className="discipline-title">{discipline.title}</h3>
+                    <p className="discipline-desc">{discipline.description}</p>
+                    <span className="discipline-link"><span>Explore</span> <ArrowUpRight size={14} /></span>
                   </a>
                 );
               })}
-            </div>
+            </Reveal>
           </div>
         </section>
 
