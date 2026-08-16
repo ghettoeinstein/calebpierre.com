@@ -61,6 +61,53 @@ const DERISK_ITEMS = [
   "Your team can keep working in the tools they already know.",
 ];
 
+// Single source for the marquee ticker copy — update here only.
+const MARQUEE_ITEMS = [
+  "One Operator",
+  "Six Disciplines",
+  "No Fluff",
+  "Built to Ship",
+];
+
+const DISCIPLINES = [
+  {
+    num: "01",
+    name: "AI Systems",
+    description: "Agents that read context, decide, act, and know when to escalate to a person.",
+    link: "/los-angeles/ai-programming.html",
+  },
+  {
+    num: "02",
+    name: "Business Automation",
+    description: "Operational pipelines across intake, CRM, case management, and reporting — collapsed into one loop.",
+    link: "/los-angeles/business-automation.html",
+  },
+  {
+    num: "03",
+    name: "Web Design",
+    description: "Sites and storefronts built to convert, not just to look finished.",
+    link: "/los-angeles/web-design.html",
+  },
+  {
+    num: "04",
+    name: "Cybersecurity",
+    description: "SIEM, SOAR, Zero Trust, and HIPAA controls built into the operating system, not bolted on.",
+    link: "/los-angeles/cybersecurity.html",
+  },
+  {
+    num: "05",
+    name: "Content Systems",
+    description: "Content and SEO pipelines that compound instead of resetting to zero every quarter.",
+    link: "/los-angeles/content-marketing.html",
+  },
+  {
+    num: "06",
+    name: "Remote Systems Support",
+    description: "A real engineer on call — the person who built it is the one who answers.",
+    link: "/los-angeles/remote-tech-support.html",
+  },
+];
+
 const SYSTEMS = [
   {
     id: "agents",
@@ -274,7 +321,7 @@ export default function App() {
             <div className="hero-copy">
               <div className="availability"><i /> Los Angeles · Available for select builds</div>
               <p className="hero-index">FORWARD-DEPLOYED AI ENGINEER / SECURITY ARCHITECT</p>
-              <h1>I build systems that <span>think, decide,</span> and ship.</h1>
+              <h1>I build systems that <em>think, decide,</em> and ship.</h1>
               <p className="hero-lede">
                 AI agents, operational automation, and security infrastructure engineered around the way your organization actually works.
               </p>
@@ -292,17 +339,19 @@ export default function App() {
             </div>
             <SystemCore />
           </div>
-          <div className="signal-strip" aria-label="Capabilities">
-            <div>
-              <span>AGENTIC WORKFLOWS</span><i />
-              <span>SECURE BY DESIGN</span><i />
-              <span>HUMAN IN THE LOOP</span><i />
-              <span>YOUR CODE. YOUR CLOUD.</span><i />
-              <span>AGENTIC WORKFLOWS</span><i />
-              <span>SECURE BY DESIGN</span>
-            </div>
-          </div>
         </section>
+
+        <div className="marquee" aria-label="Positioning">
+          <div className="marquee__track">
+            {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
+              <span key={i}>{item}</span>
+            )).reduce((acc, el, i) => {
+              if (i > 0) acc.push(<i key={`dot-${i}`} aria-hidden="true" />);
+              acc.push(el);
+              return acc;
+            }, [])}
+          </div>
+        </div>
 
         <section className="leakage-section section" id="leakage">
           <div className="site-container">
@@ -341,25 +390,21 @@ export default function App() {
           </div>
         </section>
 
-        <section className="systems-section section" id="systems">
+        <section className="disciplines-section section" id="systems">
           <div className="site-container">
-            <div className="section-heading section-heading-light">
-              <div><span className="kicker">WHAT I BUILD</span><p>Three capabilities. One accountable engineer.</p></div>
-              <h2>Not another tool. A new operating advantage.</h2>
+            <div className="section-heading">
+              <div><span className="kicker">ONE OPERATOR, SIX DISCIPLINES</span><p>Not a generic services grid. A system, numbered.</p></div>
+              <h2>One operator. <em style={{ fontStyle: "italic", color: "var(--red)" }}>Six disciplines.</em></h2>
             </div>
-            <div className="systems-list">
-              {SYSTEMS.map((system) => {
-                const Icon = system.icon;
-                return (
-                  <a href={system.link} className="system-row" key={system.id}>
-                    <span className="system-number">{system.index}</span>
-                    <span className="system-icon"><Icon size={24} /></span>
-                    <span className="system-copy"><strong>{system.title}</strong><small>{system.description}</small></span>
-                    <span className="system-detail">{system.detail}</span>
-                    <ArrowUpRight className="system-arrow" size={22} />
-                  </a>
-                );
-              })}
+            <div className="disciplines-grid">
+              {DISCIPLINES.map((d) => (
+                <a href={d.link} className="discipline-block" key={d.num}>
+                  <span className="discipline-block__num">{d.num}</span>
+                  <h3>{d.name}</h3>
+                  <p>{d.description}</p>
+                  <span className="discipline-block__link">Explore <ArrowUpRight size={14} /></span>
+                </a>
+              ))}
             </div>
           </div>
         </section>
@@ -470,7 +515,7 @@ Twenty-plus years in IT and systems — including a decade in production across 
 
         <section className="about-section section" id="about">
           <div className="site-container about-layout">
-            <div className="portrait-mark" aria-hidden="true"><Cpu size={42} /><span>CP / 10Y</span></div>
+            <div className="portrait-mark" aria-hidden="true"><Cpu size={42} /><span>CP / 20+Y</span></div>
             <div>
               <span className="kicker">ABOUT CALEB PIERRE</span>
               <h2>I work where ambiguity is expensive.</h2>

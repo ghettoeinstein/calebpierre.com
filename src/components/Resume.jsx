@@ -497,7 +497,7 @@ export default function Resume() {
                 letterSpacing: "-0.03em",
               }}
             >
-              I'm a Business Automation Engineer. Ten years across web, AI, security, and operations built the range to prove it.
+              I'm a Business Automation Engineer. Twenty-plus years in IT and systems built the range to prove it.
             </h2>
             <p
               style={{
@@ -510,11 +510,12 @@ export default function Resume() {
               }}
             >
               Most resumes list jobs. This one tells you what changed at each
-              one. Ten years inside enterprise security teams, startup CTO
-              roles, and nonprofit infrastructure — building the web, AI,
-              automation, and marketing systems that let a business run itself.
-              Every role below is a chapter in how I got here. Not a bullet
-              point. A result.
+              one. Twenty-plus years in IT and systems since 2004 — including
+              a decade inside enterprise security teams, startup CTO roles,
+              and nonprofit infrastructure — building the web, AI, automation,
+              and marketing systems that let a business run itself. Every role
+              below is a chapter in how I got here. Not a bullet point. A
+              result.
             </p>
             <a
               href="https://linkedin.com/in/calebpierre"
