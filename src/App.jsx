@@ -323,7 +323,7 @@ export default function App() {
               <p className="hero-index">FORWARD-DEPLOYED AI ENGINEER / SECURITY ARCHITECT</p>
               <h1>I build systems that <em>think, decide,</em> and ship.</h1>
               <p className="hero-lede">
-                AI agents, operational automation, and security infrastructure engineered around the way your organization actually works.
+                AI agents, automation, and security infrastructure — engineered around how your organization actually works.
               </p>
               <div className="hero-actions">
                 <a className="button button-primary" href="https://calendly.com/calebpierre" target="_blank" rel="noreferrer">
@@ -480,7 +480,7 @@ export default function App() {
         <section className="derisk-section section" id="derisk">
           <div className="site-container">
             <div className="section-heading">
-              <div><span className="kicker">DE-RISKING THE DECISION</span><p>I engineer around the reality of your organization rather than forcing your organization around my technology.</p></div>
+              <div><span className="kicker">DE-RISKING THE DECISION</span><p>Your systems bend to fit you. Not the other way around.</p></div>
               <h2>Your systems do not need to be replaced.</h2>
             </div>
             <div className="derisk-list">
@@ -496,7 +496,7 @@ export default function App() {
               <span className="kicker">ENGINEERED IN THE REAL WORLD</span>
               <h2>Security depth. Product speed. Operator empathy.</h2>
               <p>
-Twenty-plus years in IT and systems — including a decade in production across Tinder, Verizon Media, Children’s Hospital Los Angeles, UCLA Health, fintech, and mission-driven organizations — taught me the same thing: a system only matters if people can trust it on Monday morning.
+Twenty-plus years in IT and systems, since 2004 — including a decade in production across Tinder, Verizon Media, Children’s Hospital Los Angeles, UCLA Health, fintech, and mission-driven organizations. One lesson holds: a system only matters if people trust it on Monday morning.
               </p>
               <a className="text-link" href="/resume.html">Read the full field record <ArrowUpRight size={16} /></a>
             </div>
@@ -520,7 +520,7 @@ Twenty-plus years in IT and systems — including a decade in production across 
               <span className="kicker">ABOUT CALEB PIERRE</span>
               <h2>I work where ambiguity is expensive.</h2>
               <p>
-                I’m a Los Angeles–based forward-deployed engineer who can sit with leadership, shadow operators, model the system, write the code, secure the deployment, and hand your team something they can actually run.
+                A Los Angeles–based forward-deployed engineer. I sit with leadership, shadow operators, model the system, write the code, secure the deployment, and hand your team something they can actually run.
               </p>
               <ul>
                 <li><Check size={16} /> Direct access to the engineer doing the work</li>
