@@ -33,7 +33,7 @@ export default function GlossaryPage() {
 
       {/* Hero */}
       <section style={{ background: C.white, padding: "clamp(2.5rem, 6vw, 4.5rem) 0 clamp(2rem, 5vw, 3rem)" }}>
-        <div className="cp-container">
+        <div className="cp-container page-intro">
           <Reveal>
             <p className="chapter-eyebrow" style={{ color: C.riskRed, marginBottom: "0.75rem" }}>
               {ALL_TERMS.length} terms · {GLOSSARY.length} categories

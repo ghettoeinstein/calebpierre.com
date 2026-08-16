@@ -13,7 +13,7 @@ export default function InsightsPage() {
       <Nav />
 
       <section style={{ background: C.white, padding: "clamp(2.5rem, 6vw, 4.5rem) 0 clamp(2rem, 5vw, 3rem)" }}>
-        <div className="cp-container">
+        <div className="cp-container page-intro">
           <Reveal>
             <p className="chapter-eyebrow" style={{ color: C.riskRed, marginBottom: "0.75rem" }}>
               Field notes

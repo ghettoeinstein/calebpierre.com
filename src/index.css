@@ -51,6 +51,8 @@ em, i.emphasis { font-style: italic; }
 
 .site-shell { min-height: 100vh; background: var(--white); overflow: clip; }
 .site-container { width: min(100% - 40px, 1280px); margin-inline: auto; }
+/* Secondary pages (Glossary/Tools/Insights) use this narrower container */
+.cp-container { width: min(100% - 40px, 1080px); margin-inline: auto; }
 .section { padding: clamp(72px, 9vw, 140px) 0; }
 .kicker {
   display: inline-flex;
@@ -556,7 +558,37 @@ input[type="range"]::-webkit-slider-thumb { width: 20px; height: 20px; appearanc
 
 @media (max-width: 780px) {
   .site-container { width: min(100% - 28px, 1280px); }
+  .cp-container { width: min(100% - 28px, 1080px); }
   .section { padding: 64px 0; }
+
+  /* Center primary content on mobile — poster-style, never left-justified */
+  .hero-copy, .section-heading, .section-heading > div,
+  .leakage-note, .work-content, .discipline-block,
+  .judgment-grid article, .proof-copy, .about-layout > div:last-child,
+  .footer-brand, .portfolio-intro, .portfolio-detail-intro, .resume-intro,
+  .evidence-stats, .derisk-list, .calculator-heading,
+  .core-readout, .disciplines-section .section-heading {
+    text-align: center;
+  }
+  .hero-copy h1, .hero-lede, .hero-proof, .hero-actions,
+  .section-heading h2, .section-heading > div p,
+  .availability, .discipline-block a, .work-content p, .tag-row,
+  .judgment-grid ul, .proof-ledger, .footer-brand h2, .footer-call,
+  .about-layout ul, .derisk-list p, .derisk-tagline,
+  .portfolio-intro p, .portfolio-detail-intro p, .portfolio-detail-link, .portfolio-back,
+  .resume-intro p, .calculator-heading h3, .calculator-heading p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-actions, .availability, .tag-row, .footer-call, .portfolio-detail-link, .portfolio-back {
+    justify-content: center;
+  }
+  .discipline-block__link { margin-left: 0; margin-right: 0; justify-content: center; }
+
+  /* Glossary/Tools/Insights hero intro */
+  .page-intro { text-align: center; }
+  .page-intro > * { margin-left: auto; margin-right: auto; }
+  .page-intro div[style*="display: flex"] { justify-content: center; }
   .site-nav { min-height: 68px; padding-block: 10px; }
   .nav-mark { width: 38px; height: 38px; }
   .nav-identity small { display: none; }
