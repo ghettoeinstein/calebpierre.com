@@ -1,17 +1,16 @@
 import { ArrowUpRight } from "lucide-react";
 
 const columns = [
-  ["SYSTEMS", [["AI programming", "/los-angeles/ai-programming.html"], ["Automation", "/los-angeles/business-automation.html"], ["Cybersecurity", "/los-angeles/cybersecurity.html"]]],
-  ["FIELD NOTES", [["AI programming in LA", "/articles/ai-programming-los-angeles.html"], ["Security in LA", "/articles/cybersecurity-los-angeles.html"], ["Automation in LA", "/articles/business-automation-los-angeles.html"]]],
-  ["EXPLORE", [["Selected work", "/#work"], ["Portfolio", "/portfolio.html"], ["Diagnostic", "/#diagnostic"], ["Process", "/#process"], ["Resume", "/resume.html"]]],
+  ["ENTERPRISE OF ONE", [["Method", "/#method"], ["Workshops", "/#workshops"], ["Advisory", "/#advisory"]]],
+  ["EXPLORE", [["Signature ideas", "/#ideas"], ["Ventures and systems", "/portfolio.html"], ["Experience", "/resume.html"]]],
 ];
 
 export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="site-container footer-top">
-        <div className="footer-brand"><span className="nav-mark">CP</span><h2>Systems that return attention to people.</h2></div>
-        <a className="footer-call" href="https://calendly.com/calebpierre" target="_blank" rel="noreferrer">Book a diagnostic <ArrowUpRight size={18} /></a>
+        <div className="footer-brand"><span className="nav-mark">CP</span><h2>Systems that turn capable people into accountable operators.</h2></div>
+        <a className="footer-call" href="https://calendly.com/calebpierre" target="_blank" rel="noreferrer">Inquire to work together <ArrowUpRight size={18} /></a>
       </div>
       <div className="site-container footer-grid">
         {columns.map(([heading, links]) => (

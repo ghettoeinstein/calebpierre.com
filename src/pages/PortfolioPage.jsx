@@ -109,13 +109,13 @@ export default function PortfolioPage() {
         <>
           <header className="portfolio-intro">
             <div className="site-container">
-              <span className="kicker">SELECTED PROJECTS / LIVE</span>
+              <span className="kicker">VENTURES AND SYSTEMS / LIVE</span>
               <h1>Systems I've built, running right now.</h1>
               <p>
-                Not mockups. Not case studies with the names filed off — live
-                products, across game infrastructure, commerce platforms, and
-                open-source fintech content. Click into any one for the full
-                build.
+                Enterprise of One is grounded in things that have to run. These ventures, products, and systems are where CalebOS is tested against customers, constraints, security, money, and maintenance.
+              </p>
+              <p>
+                Not mockups, not case studies with the names filed off: live products across game infrastructure, commerce platforms, and open-source fintech content. Click into any one for the full build.
               </p>
             </div>
           </header>

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -12,276 +12,200 @@ import {
 } from "lucide-react";
 import Nav from "./components/Nav.jsx";
 import Footer from "./components/Footer.jsx";
-
-const FLOW_STEPS = ["Customer request", "Inbox", "Spreadsheet", "Employee", "Slack", "Manager", "CRM", "ERP"];
-const FLOW_EXCEPTIONS = [
-  "missing attachment", "wrong customer record", "waiting on approval",
-  "copied twice", "forgotten follow-up", "manual re-entry",
-  "“ask Sarah”", "spreadsheet_v4_FINAL_final.xlsx",
-];
-
-const JUDGMENT_COLUMNS = [
-  {
-    label: "SOFTWARE",
-    title: "When the answer should always be the same.",
-    items: ["Deterministic rules", "Validation & routing", "Data movement between systems"],
-  },
-  {
-    label: "INTELLIGENCE",
-    title: "When the work requires interpretation, classification, or judgment.",
-    items: ["Ambiguous inputs", "Pattern & context recognition", "Drafting, not deciding"],
-  },
-  {
-    label: "HUMAN",
-    title: "When context, responsibility, or risk requires a person.",
-    items: ["Accountability & sign-off", "Exceptions & edge cases", "Relationships that matter"],
-  },
-];
-
-const EVAL_ROWS = [
-  ["Normal", "✓", "✓", "✓", "✓"],
-  ["Ambiguous", "✓", "✕", "—", "Human"],
-  ["Missing data", "✕", "—", "—", "Human"],
-  ["High risk", "✓", "✓", "✓", "Human"],
-  ["Edge case", "✓", "✓", "✕", "Stop"],
-];
-
-const EVIDENCE_STATS = [
-  ["96.4%", "validated runs"],
-  ["0", "high-risk autonomous actions"],
-  ["$0.06", "median execution cost"],
-  ["3.2 sec", "median system latency"],
-  ["12.8%", "human escalation rate"],
-];
-
-const DERISK_ITEMS = [
-  "Salesforce can remain Salesforce.",
-  "NetSuite can remain NetSuite.",
-  "Your CRM, your cloud, your credentials — untouched.",
-  "Your team can keep working in the tools they already know.",
-];
+import BootSequence, { hasSeenBoot } from "./components/BootSequence.jsx";
 
 // Single source for the marquee ticker copy — update here only.
 const MARQUEE_ITEMS = [
-  "One Operator",
-  "Six Disciplines",
-  "No Fluff",
-  "Built to Ship",
+  "Enterprise of One",
+  "CalebOS",
+  "Operator, Not Labor",
+  "Practiced, Not Theorized",
 ];
 
-const DISCIPLINES = [
+const METHOD_PILLARS = [
   {
-    num: "01",
-    name: "AI Systems",
-    description: "Agents that read context, decide, act, and know when to escalate to a person.",
-    link: "/los-angeles/ai-programming.html",
-  },
-  {
-    num: "02",
-    name: "Business Automation",
-    description: "Operational pipelines across intake, CRM, case management, and reporting — collapsed into one loop.",
-    link: "/los-angeles/business-automation.html",
-  },
-  {
-    num: "03",
-    name: "Web Design",
-    description: "Sites and storefronts built to convert, not just to look finished.",
-    link: "/los-angeles/web-design.html",
-  },
-  {
-    num: "04",
-    name: "Cybersecurity",
-    description: "SIEM, SOAR, Zero Trust, and HIPAA controls built into the operating system, not bolted on.",
-    link: "/los-angeles/cybersecurity.html",
-  },
-  {
-    num: "05",
-    name: "Content Systems",
-    description: "Content and SEO pipelines that compound instead of resetting to zero every quarter.",
-    link: "/los-angeles/content-marketing.html",
-  },
-  {
-    num: "06",
-    name: "Remote Systems Support",
-    description: "A real engineer on call — the person who built it is the one who answers.",
-    link: "/los-angeles/remote-tech-support.html",
-  },
-];
-
-const SYSTEMS = [
-  {
-    id: "agents",
+    id: "reality",
     index: "01",
-    title: "Autonomous AI systems",
-    short: "Agents",
+    title: "Operating reality, mapped",
+    short: "Reality",
     description:
-      "Production agents that read context, make decisions, use your tools, validate their own work, and escalate the edge cases that still require judgment.",
-    detail: "RAG · MCP · Multi-agent orchestration",
-    link: "/los-angeles/ai-programming.html",
-    icon: BrainCircuit,
-  },
-  {
-    id: "automation",
-    index: "02",
-    title: "Business automation",
-    short: "Automation",
-    description:
-      "Operational pipelines that collapse repetitive work across intake, CRM, case management, reporting, and customer communication.",
-    detail: "Python · n8n · Zapier · APIs",
-    link: "/los-angeles/business-automation.html",
+      "How work actually moves: the handoffs, exceptions, informal knowledge, and approvals that the org chart never shows.",
+    detail: "Operating Reality Map",
+    link: "#method",
     icon: Workflow,
   },
   {
-    id: "security",
-    index: "03",
-    title: "Security engineering",
-    short: "Security",
+    id: "authority",
+    index: "02",
+    title: "Decision rights, defined",
+    short: "Authority",
     description:
-      "Security architecture built into the operating system—from identity and detection to automated response, HIPAA controls, and audit-ready evidence.",
-    detail: "SIEM · SOAR · Zero Trust · HIPAA",
-    link: "/los-angeles/cybersecurity.html",
+      "What the operator decides, what software executes on its own, and what still requires a person to approve.",
+    detail: "Decision Rights Matrix",
+    link: "#method",
     icon: ShieldCheck,
   },
-];
-
-const WORK = [
   {
-    number: "40%",
-    label: "manual workload removed",
-    client: "UNION RESCUE MISSION",
-    title: "From disconnected channels to one operating loop.",
-    body: "Connected CRM, email, social, and publishing into an auditable automation system. Staff stopped moving data by hand and got nearly half of the week back.",
-    tags: ["Workflow design", "API orchestration", "Deployment"],
-  },
-  {
-    number: "50%",
-    label: "SOC efficiency increase",
-    client: "TINDER / MATCH GROUP",
-    title: "Threat response measured in seconds, not days.",
-    body: "Designed SOAR playbooks connected to Splunk SIEM, turning repetitive triage into deterministic, logged response flows at consumer scale.",
-    tags: ["Security automation", "SIEM", "Incident response"],
-  },
-  {
-    number: "60%",
-    label: "operational overhead eliminated",
-    client: "LA NONPROFIT SYSTEMS",
-    title: "An AI-native back office people could actually own.",
-    body: "Built intelligent intake, case-management automation, knowledge retrieval, and documentation around the organization’s real workflows—not a generic chatbot.",
-    tags: ["AI agents", "Knowledge systems", "Human handoff"],
+    id: "evidence",
+    index: "03",
+    title: "Evidence, made visible",
+    short: "Evidence",
+    description:
+      "Cost, quality, risk, and outcomes visible enough for the operator to steer the function instead of guessing.",
+    detail: "Evidence Loop",
+    link: "#method",
+    icon: BrainCircuit,
   },
 ];
 
-const PROCESS = [
-  ["01", "Map the operating reality", "I shadow the work, trace every handoff, and quantify where attention, time, and trust are leaking."],
-  ["02", "Design the smallest powerful system", "We choose the few automations that change the economics first, then define controls before code."],
-  ["03", "Ship into production", "I build inside your environment, connect the real tools, instrument the workflow, and train the team."],
-  ["04", "Transfer the capability", "You receive readable source code, operating documentation, observability, and a clear evolution roadmap."],
+const METHOD_COMPONENTS = [
+  {
+    num: "01",
+    name: "Mandate",
+    description: "Define the outcome, boundary, customer, authority, and conditions for escalation.",
+  },
+  {
+    num: "02",
+    name: "Operating Reality",
+    description: "Map how work actually moves, including exceptions, informal knowledge, approvals, and value leaks.",
+  },
+  {
+    num: "03",
+    name: "Decision Rights",
+    description: "Separate what the operator decides, what software executes, and what leadership must approve.",
+  },
+  {
+    num: "04",
+    name: "Leverage System",
+    description: "Use software, automation, AI, and specialist support where each creates measurable capacity.",
+  },
+  {
+    num: "05",
+    name: "Evidence Loop",
+    description: "Make cost, quality, risk, and outcomes visible enough for the operator to steer the function.",
+  },
+  {
+    num: "06",
+    name: "Capability Transfer",
+    description: "Document the system so knowledge compounds and the organization is not dependent on one person.",
+  },
+];
+
+const OFFERS = [
+  {
+    num: "01",
+    id: "keynotes",
+    name: "Keynotes and Executive Briefings",
+    description:
+      "Provocative, practical sessions for leadership teams examining how AI, automation, and new operating models change the unit of work. Each engagement is adapted to the audience while staying grounded in the Enterprise of One thesis.",
+    cta: "Explore Speaking Topics",
+    href: "#ideas",
+  },
+  {
+    num: "02",
+    id: "workshops",
+    name: "Enterprise of One Workshops",
+    description:
+      "Half-day, full-day, and multi-session working formats. A team maps one real function, defines operator authority, separates human judgment from machine execution, and leaves with an implementation charter.",
+    cta: "Request a Workshop Briefing",
+    href: "https://calendly.com/calebpierre",
+    external: true,
+  },
+  {
+    num: "03",
+    id: "advisory",
+    name: "Strategic Advisory and Fractional Architecture",
+    description:
+      "Ongoing guidance for leaders introducing agentic systems, operating-model changes, or internal operator programs. Advisory connects organizational design, technical architecture, security, and measurable control.",
+    cta: "Discuss an Advisory Engagement",
+    href: "https://calendly.com/calebpierre",
+    external: true,
+  },
+];
+
+const SIGNATURE_TALKS = [
+  {
+    title: "The Enterprise of One",
+    premise: "The next unit of transformation is not the department. It is the equipped operator.",
+    abstract:
+      "Organizations have spent decades adding tools around jobs while leaving authority, context, and economic visibility fragmented. Caleb shows how an Enterprise of One operates a bounded function with founder-level ownership and enterprise-grade controls. The audience leaves with a practical model for redesigning work without turning transformation into a software rollout or a headcount exercise.",
+    bestFor: "Executive conferences, future-of-work programs, people leadership, innovation events",
+  },
+  {
+    title: "Intelligence Earns Autonomy",
+    premise: "AI should receive authority only after it demonstrates evidence, boundaries, and a reliable path back to a person.",
+    abstract:
+      "Agentic systems can act, but action is not the same as judgment. Drawing from security engineering and operating-system design, Caleb presents a graduated model for machine authority: what software may observe, recommend, execute, escalate, and never do. Leaders leave with a language for moving past AI experimentation without surrendering accountability.",
+    bestFor: "CTO, CISO, AI governance, regulated-industry, and engineering audiences",
+  },
+  {
+    title: "You Already Have the Talent. You Are Missing the OS.",
+    premise: "Many performance problems are system-design problems wearing employee names.",
+    abstract:
+      "Capable employees often inherit fragmented tools, invisible dependencies, incomplete authority, and metrics disconnected from customer value. Caleb explains how to identify operator potential inside an existing team and build the mandate, decision rights, leverage system, and evidence loop needed for that person to own an outcome.",
+    bestFor: "CHROs, learning leaders, workforce programs, operations teams, and mission-driven organizations",
+  },
+];
+
+const WORKSHOP_LOOP = [
+  ["01", "Choose the function", "Select one bounded workflow, team responsibility, or recurring outcome."],
+  ["02", "Map operating reality", "Capture handoffs, exceptions, decisions, systems, risk, and tacit knowledge."],
+  ["03", "Design the operator model", "Define mandate, decision rights, metrics, automation, evidence, and escalation."],
+  ["04", "Commit the next experiment", "Assign a responsible owner, success measure, review date, and stop condition."],
+];
+
+const WORKSHOP_DELIVERABLES = [
+  "Operating Reality Map",
+  "Enterprise of One Charter",
+  "Decision Rights Matrix",
+  "30-day experiment brief",
+];
+
+const CAREER_EVIDENCE = [
+  ["TINDER / MATCH GROUP", "SOAR and SIEM security engineering at consumer scale", "Consumer technology"],
+  ["VERIZON MEDIA", "Enterprise bug bounty program operations", "Media"],
+  ["CHILDREN'S HOSPITAL LOS ANGELES", "HIPAA-aligned detection engineering", "Healthcare"],
+  ["UCLA HEALTH", "Vulnerability remediation program", "Healthcare"],
+];
+
+const BIO_FACTS = [
+  "Creator of Enterprise of One",
+  "Builder of CalebOS",
+  "Los Angeles-based, remote-first practice",
 ];
 
 function SystemCore() {
   const [active, setActive] = useState(0);
-  const current = SYSTEMS[active];
+  const current = METHOD_PILLARS[active];
 
   return (
-    <div className="system-core" aria-label="Interactive systems capability map">
+    <div className="system-core" aria-label="Interactive CalebOS method map">
       <div className="core-grid" aria-hidden="true" />
       <div className="core-orbit core-orbit-one" aria-hidden="true" />
       <div className="core-orbit core-orbit-two" aria-hidden="true" />
       <div className="core-center">
-        <span className="core-status"><i /> LIVE SYSTEM</span>
+        <span className="core-status"><i /> CALEBOS</span>
         <strong>{current.short}</strong>
         <span>{current.detail}</span>
       </div>
-      {SYSTEMS.map((system, index) => {
-        const Icon = system.icon;
+      {METHOD_PILLARS.map((pillar, index) => {
+        const Icon = pillar.icon;
         return (
           <button
-            key={system.id}
+            key={pillar.id}
             className={`core-node core-node-${index + 1} ${active === index ? "is-active" : ""}`}
             onClick={() => setActive(index)}
             aria-pressed={active === index}
           >
             <Icon size={18} />
-            <span>{system.short}</span>
+            <span>{pillar.short}</span>
           </button>
         );
       })}
       <div className="core-readout">
         <span>{current.index} / 03</span>
         <p>{current.description}</p>
-        <a href={current.link}>Explore system <ArrowUpRight size={15} /></a>
-      </div>
-    </div>
-  );
-}
-
-function CostCalculator() {
-  const [people, setPeople] = useState(8);
-  const [hours, setHours] = useState(9);
-  const [rate, setRate] = useState(48);
-
-  const figures = useMemo(() => {
-    const annual = people * hours * rate * 52;
-    const recoverable = Math.round(annual * 0.6);
-    return { annual, recoverable };
-  }, [people, hours, rate]);
-
-  const money = (value) => new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 0,
-  }).format(value);
-
-  return (
-    <div className="calculator-shell">
-      <div className="calculator-controls">
-        <div className="calculator-heading">
-          <span className="kicker">LIVE DIAGNOSTIC</span>
-          <h3>What is manual work actually costing you?</h3>
-          <p>Move the controls. This is the invisible line item hiding inside payroll.</p>
-        </div>
-        <label>
-          <span><b>People in the workflow</b><em>{people}</em></span>
-          <input type="range" min="1" max="50" value={people} onChange={(e) => setPeople(Number(e.target.value))} />
-        </label>
-        <label>
-          <span><b>Manual hours / person / week</b><em>{hours}h</em></span>
-          <input type="range" min="1" max="30" value={hours} onChange={(e) => setHours(Number(e.target.value))} />
-        </label>
-        <label>
-          <span><b>Loaded hourly cost</b><em>${rate}</em></span>
-          <input type="range" min="20" max="150" step="2" value={rate} onChange={(e) => setRate(Number(e.target.value))} />
-        </label>
-      </div>
-      <div className="calculator-output" aria-live="polite">
-        <span className="kicker">ANNUAL MANUAL-WORK EXPOSURE</span>
-        <strong>{money(figures.annual)}</strong>
-        <div className="recovery-number">
-          <span>Potentially recoverable at 60%</span>
-          <b>{money(figures.recoverable)}</b>
-        </div>
-        <a className="button button-light" href="https://calendly.com/calebpierre" target="_blank" rel="noreferrer">
-          Audit this workflow <ArrowUpRight size={17} />
-        </a>
-      </div>
-    </div>
-  );
-}
-
-function LeakageDiagram() {
-  return (
-    <div className="leakage-grid">
-      <div className="leakage-column">
-        <span className="kicker">THE WORKFLOW, ON PAPER</span>
-        <div className="leakage-flow">
-          {FLOW_STEPS.map((step) => <div key={step}>{step}</div>)}
-        </div>
-      </div>
-      <div className="leakage-column">
-        <span className="kicker leakage-kicker-alt">THE WORKFLOW, IN PRACTICE</span>
-        <div className="leakage-exceptions">
-          {FLOW_EXCEPTIONS.map((ex) => <div key={ex}>{ex}</div>)}
-        </div>
+        <a href={current.link}>Explore the method <ArrowUpRight size={15} /></a>
       </div>
     </div>
   );
@@ -289,6 +213,12 @@ function LeakageDiagram() {
 
 export default function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [booting, setBooting] = useState(() => !hasSeenBoot());
+
+  useEffect(() => {
+    document.body.style.overflow = booting ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [booting]);
 
   useEffect(() => {
     const pointer = (event) => {
@@ -310,6 +240,7 @@ export default function App() {
 
   return (
     <div className="site-shell">
+      {booting && <BootSequence onDone={() => setBooting(false)} />}
       <div className="pointer-aura" aria-hidden="true" />
       <div className="page-progress" style={{ transform: `scaleX(${scrollProgress})` }} aria-hidden="true" />
       <Nav />
@@ -319,22 +250,22 @@ export default function App() {
           <div className="hero-noise" aria-hidden="true" />
           <div className="site-container hero-layout">
             <div className="hero-copy">
-              <div className="availability"><i /> Los Angeles · Available for select builds</div>
-              <p className="hero-index">FORWARD-DEPLOYED AI ENGINEER / SECURITY ARCHITECT</p>
-              <h1>I build systems that <em>think, decide,</em> and ship.</h1>
+              <div className="availability"><i /> Los Angeles · Available for keynotes, workshops, and select advisory engagements</div>
+              <p className="hero-index">SPEAKER · SYSTEMS STRATEGIST · CREATOR OF ENTERPRISE OF ONE</p>
+              <h1>I built an operating system for becoming an <em>Enterprise of One</em>. Now I install the method inside teams.</h1>
               <p className="hero-lede">
-                AI agents, automation, and security infrastructure — engineered around how your organization actually works.
+                Enterprise of One gives a person the context, tools, controls, and bounded authority to run a function as an operator. CalebOS is the method I built by practicing it across my own ventures first.
               </p>
               <div className="hero-actions">
                 <a className="button button-primary" href="https://calendly.com/calebpierre" target="_blank" rel="noreferrer">
-                  Start with the bottleneck <ArrowUpRight size={18} />
+                  Inquire About Speaking <ArrowUpRight size={18} />
                 </a>
-                <a className="text-link" href="#work">See production outcomes <ArrowDownRight size={16} /></a>
+                <a className="text-link" href="#method">Explore the Enterprise of One method <ArrowDownRight size={16} /></a>
               </div>
               <div className="hero-proof">
-                <div><strong>20+</strong><span>years in IT and systems, since 2004</span></div>
-                <div><strong>5,000+</strong><span>enterprise assets secured</span></div>
-                <div><strong>40–60%</strong><span>manual overhead removed</span></div>
+                <div><strong>CalebOS</strong><span>the operating method for a portfolio of ventures</span></div>
+                <div><strong>20+</strong><span>years across IT, security, software, and AI systems</span></div>
+                <div><strong>Enterprise scale</strong><span>experience spanning consumer technology, healthcare, media, and mission-driven organizations</span></div>
               </div>
             </div>
             <SystemCore />
@@ -353,161 +284,135 @@ export default function App() {
           </div>
         </div>
 
-        <section className="leakage-section section" id="leakage">
+        <section className="leakage-section section" id="worldview">
           <div className="site-container">
             <div className="section-heading">
-              <div><span className="kicker">WHERE VALUE LEAKS</span><p>Somewhere inside your company, value is leaking — in the handoffs nobody wrote down.</p></div>
-              <h2>The SOP is not the operation.</h2>
+              <div><span className="kicker">THE ENTERPRISE OF ONE THESIS</span><p>Companies keep hiring around broken operating models instead of fixing what the people they already have can own.</p></div>
+              <h2>Headcount stopped being the only growth lever.</h2>
             </div>
-            <LeakageDiagram />
-            <p className="leakage-note">The real business lives in exceptions, workarounds, judgment calls, handoffs, and the knowledge people carry in their heads.</p>
+            <p className="leakage-note">
+              Meanwhile, capable people work without the context, authority, automation, or economic visibility needed to own an outcome. Enterprise of One changes the unit of transformation. It equips one person to operate a bounded function with the discipline of a founder and the controls of an enterprise.
+            </p>
+            <div className="derisk-list">
+              <p>This is not a program for extracting more labor from fewer people. It is a method for giving people stronger systems, clearer authority, and greater ownership of the value they already create.</p>
+            </div>
           </div>
         </section>
 
-        <section className="work-section section" id="work">
+        <section className="work-section section" id="origin">
           <div className="site-container">
             <div className="section-heading">
-              <div><span className="kicker">SELECTED OUTCOMES</span><p>Proof before promises.</p></div>
-              <h2>Production work with a visible before and after.</h2>
+              <div><span className="kicker">BUILT IN OPERATING REALITY</span><p>The idea did not start as a slide. It started as a problem I had to solve for myself.</p></div>
+              <h2>I needed a system that could hold more than one ambition at a time.</h2>
             </div>
-            <div className="work-grid">
-              {WORK.map((project, index) => (
-                <article className={`work-card work-card-${index + 1}`} key={project.client}>
-                  <div className="work-card-top"><span>{String(index + 1).padStart(2, "0")}</span><ArrowUpRight size={20} /></div>
-                  <div className="work-metric"><strong>{project.number}</strong><span>{project.label}</span></div>
-                  <div className="work-content">
-                    <span className="kicker">{project.client}</span>
-                    <h3>{project.title}</h3>
-                    <p>{project.body}</p>
-                    <div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-                  </div>
-                </article>
-              ))}
-            </div>
+            <p className="leakage-note">
+              I did not create CalebOS in a strategy off-site. I built it because I was operating across software, security, media, education, community work, and new ventures while remaining accountable for what shipped. Ordinary productivity tools could hold tasks. They could not hold the relationships between goals, decisions, money, risk, evidence, and human judgment.
+            </p>
+            <p className="derisk-tagline">CalebOS is the structure I use to decide what deserves attention, what software can own, what requires approval, and what must stop.</p>
             <a className="text-link" href="/portfolio.html" style={{ marginTop: 26 }}>
-              See selected live projects <ArrowUpRight size={16} />
+              See where CalebOS gets tested <ArrowUpRight size={16} />
             </a>
           </div>
         </section>
 
-        <section className="disciplines-section section" id="systems">
+        <section className="disciplines-section section" id="method">
           <div className="site-container">
             <div className="section-heading">
-              <div><span className="kicker">ONE OPERATOR, SIX DISCIPLINES</span><p>Not a generic services grid. A system, numbered.</p></div>
-              <h2>One operator. <em style={{ fontStyle: "italic", color: "var(--red)" }}>Six disciplines.</em></h2>
+              <div><span className="kicker">CALEBOS / OPERATOR METHOD</span><p>Not a generic services grid. Six components that turn responsibility into ownership.</p></div>
+              <h2>Six capabilities turn responsibility into ownership.</h2>
             </div>
             <div className="disciplines-grid">
-              {DISCIPLINES.map((d) => (
-                <a href={d.link} className="discipline-block" key={d.num}>
-                  <span className="discipline-block__num">{d.num}</span>
-                  <h3>{d.name}</h3>
-                  <p>{d.description}</p>
-                  <span className="discipline-block__link">Explore <ArrowUpRight size={14} /></span>
+              {METHOD_COMPONENTS.map((m) => (
+                <div className="discipline-block" key={m.num}>
+                  <span className="discipline-block__num">{m.num}</span>
+                  <h3>{m.name}</h3>
+                  <p>{m.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="judgment-section section" id="offers">
+          <div className="site-container">
+            <div className="section-heading">
+              <div><span className="kicker">WAYS TO WORK WITH CALEB</span><p>Bring the idea into the room. Then put it to work.</p></div>
+              <h2>Speaking, workshops, and advisory.</h2>
+            </div>
+            <div className="disciplines-grid">
+              {OFFERS.map((offer) => (
+                <a
+                  href={offer.href}
+                  target={offer.external ? "_blank" : undefined}
+                  rel={offer.external ? "noreferrer" : undefined}
+                  className="discipline-block"
+                  key={offer.num}
+                  id={offer.id}
+                >
+                  <span className="discipline-block__num">{offer.num}</span>
+                  <h3>{offer.name}</h3>
+                  <p>{offer.description}</p>
+                  <span className="discipline-block__link">{offer.cta} <ArrowUpRight size={14} /></span>
                 </a>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="judgment-section section" id="judgment">
+        <section className="evidence-section section" id="ideas">
           <div className="site-container">
             <div className="section-heading">
-              <div><span className="kicker">ENGINEERING JUDGMENT</span><p>The goal isn't to put AI everywhere. The goal is to put intelligence exactly where it creates leverage.</p></div>
-              <h2>I don't start with AI. I start with the operation.</h2>
+              <div><span className="kicker">SIGNATURE IDEAS</span><p>For organizations navigating the agentic shift.</p></div>
+              <h2>Talks built from practice, not theory.</h2>
             </div>
             <div className="judgment-grid">
-              {JUDGMENT_COLUMNS.map((col) => (
-                <article key={col.label}>
-                  <span className="kicker">{col.label}</span>
-                  <h3>{col.title}</h3>
-                  <ul>{col.items.map((item) => <li key={item}>{item}</li>)}</ul>
+              {SIGNATURE_TALKS.map((talk) => (
+                <article key={talk.title}>
+                  <span className="kicker">{talk.title}</span>
+                  <h3>{talk.premise}</h3>
+                  <ul>
+                    <li>{talk.abstract}</li>
+                    <li>Best for: {talk.bestFor}</li>
+                    <li><a className="text-link" href="https://calendly.com/calebpierre" target="_blank" rel="noreferrer">Inquire About This Talk <ArrowUpRight size={14} /></a></li>
+                  </ul>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="calculator-section section" id="diagnostic">
-          <div className="site-container"><CostCalculator /></div>
-        </section>
-
-        <section className="process-section section" id="process">
+        <section className="process-section section" id="workshop-loop">
           <div className="site-container">
             <div className="section-heading">
-              <div><span className="kicker">THE DEPLOYMENT LOOP</span><p>Fast enough to matter. Controlled enough to trust.</p></div>
-              <h2>From messy reality to an owned production system.</h2>
+              <div><span className="kicker">THE WORKSHOP LOOP</span><p>Fast enough to matter. Controlled enough to trust.</p></div>
+              <h2>Leave with an operating charter, not a motivational afterglow.</h2>
             </div>
             <div className="process-grid">
-              {PROCESS.map(([number, title, body]) => (
+              {WORKSHOP_LOOP.map(([number, title, body]) => (
                 <article key={number}>
                   <span>{number}</span><h3>{title}</h3><p>{body}</p>
                 </article>
               ))}
             </div>
-          </div>
-        </section>
-
-        <section className="evidence-section section" id="evidence">
-          <div className="site-container">
-            <div className="section-heading">
-              <div><span className="kicker">EVIDENCE, NOT DEMOS</span><p>A demo shows that something can work. Evidence shows whether it should be trusted.</p></div>
-              <h2>Intelligence earns autonomy.</h2>
+            <div className="tag-row" style={{ marginTop: 30 }}>
+              {WORKSHOP_DELIVERABLES.map((item) => <span key={item}>{item}</span>)}
             </div>
-            <div className="evidence-grid">
-              <div className="evidence-table-wrap">
-                <span className="kicker">EVALUATION SET</span>
-                <table className="evidence-table">
-                  <thead><tr><th>Scenario</th><th>Data</th><th>Decision</th><th>Policy</th><th>Safe</th></tr></thead>
-                  <tbody>
-                    {EVAL_ROWS.map((row) => (
-                      <tr key={row[0]}>{row.map((cell, i) => <td key={i} data-flag={cell === "Human" || cell === "Stop" ? "risk" : undefined}>{cell}</td>)}</tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <div className="evidence-stats">
-                <span className="kicker">DEPLOYMENT EVIDENCE</span>
-                <div className="evidence-stats-grid">
-                  {EVIDENCE_STATS.map(([value, label]) => (
-                    <div key={label}><strong>{value}</strong><span>{label}</span></div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="derisk-section section" id="derisk">
-          <div className="site-container">
-            <div className="section-heading">
-              <div><span className="kicker">DE-RISKING THE DECISION</span><p>Your systems bend to fit you. Not the other way around.</p></div>
-              <h2>Your systems do not need to be replaced.</h2>
-            </div>
-            <div className="derisk-list">
-              {DERISK_ITEMS.map((item) => <p key={item}>{item}</p>)}
-            </div>
-            <p className="derisk-tagline">Integrate before migrate.</p>
           </div>
         </section>
 
         <section className="proof-section section" id="proof">
           <div className="site-container proof-layout">
             <div className="proof-copy">
-              <span className="kicker">ENGINEERED IN THE REAL WORLD</span>
-              <h2>Security depth. Product speed. Operator empathy.</h2>
+              <span className="kicker">EXPERIENCE BEHIND THE METHOD</span>
+              <h2>Built across environments where reliability, security, and people all matter.</h2>
               <p>
-Twenty-plus years in IT and systems, since 2004 — including a decade in production across Tinder, Verizon Media, Children’s Hospital Los Angeles, UCLA Health, fintech, and mission-driven organizations. One lesson holds: a system only matters if people trust it on Monday morning.
+                Enterprise of One did not emerge from productivity theory. My perspective was shaped by production systems across consumer technology, healthcare, media, security, and mission-driven organizations. Those environments taught me that leverage without controls becomes fragility, and controls without operator empathy become bureaucracy.
               </p>
-              <a className="text-link" href="/resume.html">Read the full field record <ArrowUpRight size={16} /></a>
+              <a className="text-link" href="/resume.html">See the full career record <ArrowUpRight size={16} /></a>
             </div>
             <div className="proof-ledger">
-              {[
-                ["TINDER", "SOAR + SIEM at consumer scale", "50% SOC efficiency"],
-                ["VERIZON MEDIA", "Enterprise bug bounty operations", "70% faster remediation"],
-                ["CHILDREN’S HOSPITAL LA", "HIPAA detection engineering", "100% audit compliance"],
-                ["UCLA HEALTH", "Vulnerability remediation", "5,000+ assets"],
-              ].map(([company, work, result]) => (
-                <div key={company}><span>{company}</span><strong>{work}</strong><em>{result}</em></div>
+              {CAREER_EVIDENCE.map(([company, work, domain]) => (
+                <div key={company}><span>{company}</span><strong>{work}</strong><em>{domain}</em></div>
               ))}
             </div>
           </div>
@@ -515,17 +420,18 @@ Twenty-plus years in IT and systems, since 2004 — including a decade in produc
 
         <section className="about-section section" id="about">
           <div className="site-container about-layout">
-            <div className="portrait-mark" aria-hidden="true"><Cpu size={42} /><span>CP / 20+Y</span></div>
+            <div className="portrait-mark" aria-hidden="true"><Cpu size={42} /><span>CP / EO1</span></div>
             <div>
               <span className="kicker">ABOUT CALEB PIERRE</span>
-              <h2>I work where ambiguity is expensive.</h2>
+              <h2>Systems strategist. Creator of Enterprise of One.</h2>
               <p>
-                A Los Angeles–based forward-deployed engineer. I sit with leadership, shadow operators, model the system, write the code, secure the deployment, and hand your team something they can actually run.
+                I'm a Los Angeles-based systems strategist, technologist, and the creator of Enterprise of One. I developed CalebOS while coordinating a portfolio of software, media, education, and community ventures, then translated that practice into a method teams can use to give people greater operating leverage and accountable authority.
+              </p>
+              <p>
+                My background spans cybersecurity, full-stack software, automation, AI systems, and production environments across consumer technology, healthcare, media, and mission-driven organizations. I speak and advise on the design of human-governed intelligent systems and the operating models forming around them.
               </p>
               <ul>
-                <li><Check size={16} /> Direct access to the engineer doing the work</li>
-                <li><Check size={16} /> Source code, documentation, and control stay with you</li>
-                <li><Check size={16} /> Security and observability designed in from day one</li>
+                {BIO_FACTS.map((fact) => <li key={fact}><Check size={16} /> {fact}</li>)}
               </ul>
             </div>
           </div>
@@ -534,12 +440,17 @@ Twenty-plus years in IT and systems, since 2004 — including a decade in produc
         <section className="closing-section" id="contact">
           <div className="closing-orb" aria-hidden="true"><Radar size={120} /></div>
           <div className="site-container closing-copy">
-            <span className="kicker"><Sparkles size={14} /> ONE CONVERSATION. A CLEARER SYSTEM.</span>
-            <h2>Bring me the workflow everyone hates.</h2>
-            <p>I’ll map the bottleneck, tell you what should—and should not—be automated, and outline the shortest path to production.</p>
-            <a className="button button-primary" href="https://calendly.com/calebpierre" target="_blank" rel="noreferrer">
-              Book the systems diagnostic <ArrowUpRight size={18} />
-            </a>
+            <span className="kicker"><Sparkles size={14} /> ONE IDEA. A CLEAR NEXT CONVERSATION.</span>
+            <h2>Bring Enterprise of One to your stage, leadership team, or operating model.</h2>
+            <p>Share the audience, function, or transformation question you are working through. I will respond with the most useful format: keynote, executive briefing, workshop, or advisory conversation.</p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="https://calendly.com/calebpierre" target="_blank" rel="noreferrer">
+                Inquire About Speaking <ArrowUpRight size={18} />
+              </a>
+              <a className="button button-light" href="https://calendly.com/calebpierre" target="_blank" rel="noreferrer">
+                Request an Executive Briefing <ArrowUpRight size={18} />
+              </a>
+            </div>
           </div>
         </section>
       </main>
