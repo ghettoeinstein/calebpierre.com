@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Last Peg Lose — Real-Time Multiplayer Skirmish Game | Caleb Pierre Technologies</title>
+<meta name="description" content="Last Peg Lose is a real-time multiplayer 2D skirmish game built on a low-latency WebSocket architecture. Play free on web and Android now — iOS is pending App Store review.">
+<meta name="keywords" content="Last Peg Lose, multiplayer skirmish game, real-time WebSocket game, Android game, iOS game pending, Caleb Pierre Technologies">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calebpierre.com/ventures/lastpeglose.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Last Peg Lose — Real-Time Multiplayer Skirmish Game">
+<meta property="og:description" content="A real-time multiplayer 2D skirmish game. Live on web and Android now — iOS pending App Store review.">
+<meta property="og:url" content="https://calebpierre.com/ventures/lastpeglose.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Last Peg Lose",
+  "url": "https://lastpeglose.com",
+  "applicationCategory": "Game",
+  "operatingSystem": "Web, Android, iOS (pending review)",
+  "installUrl": "https://play.google.com/store/apps/details?id=com.lastpeglose.last_peg_lose",
+  "sameAs": ["https://play.google.com/store/apps/details?id=com.lastpeglose.last_peg_lose"],
+  "publisher": {
+    "@type": "Organization",
+    "name": "Caleb Pierre Technologies",
+    "url": "https://calebpierre.com"
+  },
+  "description": "A real-time multiplayer 2D skirmish game with a low-latency WebSocket architecture, guest and JWT authentication, and a Postgres data layer built to hold state under concurrent sessions."
+}
+</script>
+<style>
+  :root{
+    --white:#ffffff; --paper:#f4f2ee; --ink:#0a0a0a; --muted:#5c5c5c;
+    --line:rgba(10,10,10,.12); --line-dark:rgba(10,10,10,.16);
+    --red:#e8382d; --red-dim:#b8241c;
+    --font-display:"General Sans","Inter",sans-serif;
+    --font-body:"Inter",sans-serif;
+    --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--white);color:var(--ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{width:min(100% - 40px,880px);margin-inline:auto;}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid var(--line);}
+  .nav .brand{display:flex;align-items:center;gap:12px;font:600 .86rem/1 var(--font-display);}
+  .mark{width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--ink);font:600 .78rem/1 var(--font-mono);}
+  .nav a.back{color:var(--muted);font:600 .78rem/1 var(--font-body);}
+  header{padding:80px 0 50px;text-align:center;}
+  .kicker{display:inline-flex;align-items:center;gap:8px;color:var(--red);font:700 .82rem/1.2 var(--font-display);letter-spacing:.02em;text-transform:uppercase;}
+  h1{margin:18px 0 22px;font:600 clamp(2.4rem,6vw,4rem)/1.05 var(--font-display);letter-spacing:-.03em;}
+  h1 em{font-style:italic;color:var(--red);}
+  .lede{max-width:56ch;margin-inline:auto;color:var(--muted);font-size:1.05rem;line-height:1.7;}
+  .badges{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:30px;}
+  .badge{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border:1px solid var(--line-dark);font:700 .74rem/1 var(--font-mono);letter-spacing:.03em;text-transform:uppercase;}
+  .badge.live{border-color:var(--red);color:var(--red);}
+  .badge.pending{opacity:.6;}
+  .cta-row{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:36px;}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;font:600 .85rem/1 var(--font-body);}
+  .btn-primary{color:var(--white);background:var(--red);}
+  .btn-light{color:var(--ink);background:var(--white);border:1px solid var(--ink);}
+  main{padding:20px 0 90px;}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;border-top:1px solid var(--line-dark);padding-top:36px;margin-top:36px;}
+  .grid article span{color:var(--red);font:700 .72rem/1.4 var(--font-mono);letter-spacing:.04em;text-transform:uppercase;}
+  .grid article p{margin-top:12px;color:var(--muted);font-size:.92rem;line-height:1.6;}
+  .stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px;}
+  .stack span{padding:7px 10px;border:1px solid var(--line-dark);color:var(--muted);font:600 .72rem/1 var(--font-mono);}
+  footer{padding:30px 0;border-top:1px solid var(--line-dark);text-align:center;color:var(--muted);font:600 .72rem/1.4 var(--font-mono);}
+  @media(max-width:680px){.grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="/"><span class="mark">CP</span> Caleb Pierre Technologies</a>
+      <a class="back" href="/portfolio.html">&larr; ALL VENTURES</a>
+    </nav>
+  </div>
+
+  <header>
+    <div class="wrap">
+      <span class="kicker">REAL-TIME MULTIPLAYER GAME</span>
+      <h1>Last Peg Lose — <em>read the board, run the play</em>.</h1>
+      <p class="lede">A real-time multiplayer 2D skirmish game built on a low-latency WebSocket architecture, with guest and JWT authentication and a Postgres data layer sized for real concurrent sessions.</p>
+      <div class="badges">
+        <span class="badge live">Web — Live</span>
+        <a class="badge live" href="https://play.google.com/store/apps/details?id=com.lastpeglose.last_peg_lose" target="_blank" rel="noreferrer">Android — Live ↗</a>
+        <span class="badge pending">iOS — Pending App Store Review</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://lastpeglose.com" target="_blank" rel="noreferrer">Play on Web ↗</a>
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.lastpeglose.last_peg_lose" target="_blank" rel="noreferrer">Get it on Google Play ↗</a>
+        <a class="btn btn-light" href="/portfolio.html#/lastpeglose">Read the Full Build ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="grid">
+        <article>
+          <span>THE CHALLENGE</span>
+          <p>A real-time multiplayer game needed to feel instant — at anything over ~150ms of lag, a skirmish game stops feeling like a skirmish and starts feeling like a queue.</p>
+        </article>
+        <article>
+          <span>THE APPROACH</span>
+          <p>Built a low-latency WebSocket architecture from the ground up, with guest and JWT authentication so players can jump in without friction, and a Postgres data layer (via Neon + Drizzle) sized for real concurrent game state.</p>
+        </article>
+        <article>
+          <span>THE RESULT</span>
+          <p>Live, multiplayer, and running on web and Android — with iOS in App Store review — the state machine holds under real concurrent sessions, not just a demo lobby.</p>
+        </article>
+      </div>
+      <div class="stack">
+        <span>React</span><span>Express</span><span>WebSocket</span><span>Drizzle ORM</span><span>Neon Postgres</span><span>Railway</span>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">© Caleb Pierre Ventures LLC — CALEBPIERRE.COM</div>
+  </footer>
+</body>
+</html>

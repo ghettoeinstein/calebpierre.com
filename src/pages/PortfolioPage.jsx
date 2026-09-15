@@ -36,6 +36,13 @@ function ProjectCard({ project }) {
           <span key={t}>{t}</span>
         ))}
       </div>
+      {project.platforms && (
+        <div className="platform-badges platform-badges--compact">
+          {project.platforms.map((p) => (
+            <span key={p.label} className={`platform-badge platform-badge--${p.status}`}>{p.label}</span>
+          ))}
+        </div>
+      )}
     </a>
   );
 }
@@ -55,6 +62,26 @@ function ProjectDetail({ project }) {
           <a className="portfolio-detail-link" href={project.href} target="_blank" rel="noreferrer">
             {project.url} <ArrowUpRight size={16} />
           </a>
+          {project.platforms && (
+            <div className="platform-badges">
+              {project.platforms.map((p) => (
+                p.href ? (
+                  <a key={p.label} href={p.href} target="_blank" rel="noreferrer" className={`platform-badge platform-badge--${p.status}`}>
+                    {p.label} <span>{p.status === "live" ? "Live" : "Pending Review"}</span>
+                  </a>
+                ) : (
+                  <span key={p.label} className={`platform-badge platform-badge--${p.status}`}>
+                    {p.label} <span>{p.status === "live" ? "Live" : "Pending Review"}</span>
+                  </span>
+                )
+              ))}
+            </div>
+          )}
+          {project.seoPage && (
+            <a className="text-link" style={{ marginTop: 16 }} href={project.seoPage}>
+              View the dedicated page <ArrowUpRight size={16} />
+            </a>
+          )}
         </div>
       </header>
 
@@ -107,21 +134,29 @@ export default function PortfolioPage() {
         <ProjectDetail project={project} />
       ) : (
         <>
-          <header className="portfolio-intro">
+          <header className="portfolio-intro portfolio-intro--centered">
             <div className="site-container">
-              <span className="kicker">VENTURES AND SYSTEMS / LIVE</span>
-              <h1>Systems I've built, running right now.</h1>
+              <div className="hero-mark" aria-hidden="true">CP</div>
+              <span className="kicker">THE VENTURE PORTFOLIO</span>
+              <h1>Live ventures, not case studies.</h1>
               <p>
-                Enterprise of One is grounded in things that have to run. These ventures, products, and systems are where CalebOS is tested against customers, constraints, security, money, and maintenance.
-              </p>
-              <p>
-                Not mockups, not case studies with the names filed off: live products across game infrastructure, commerce platforms, and open-source fintech content. Click into any one for the full build.
+                Every product here has real users, real constraints, and real money moving through it. Click into
+                any one for the full build.
               </p>
             </div>
           </header>
 
           <main>
             <div className="site-container">
+              <a href="/project357.html" className="venture-row venture-row--feature venture-row--wide">
+                <span className="venture-row-tag">FLAGSHIP — PHYSICAL VENTURE</span>
+                <div className="venture-row-body">
+                  <strong>Ghettoeinstein</strong>
+                  <p>A technology incubator, workforce lab, and media studio at 357 W. Compton Blvd. Project 357 is the campaign funding it.</p>
+                </div>
+                <ArrowUpRight size={20} className="venture-row-arrow" />
+              </a>
+
               {PROJECTS.length === 0 ? (
                 <div className="portfolio-empty">More projects coming soon.</div>
               ) : (

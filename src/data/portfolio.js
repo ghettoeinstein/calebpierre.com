@@ -35,6 +35,12 @@ export const PROJECTS = [
       "Low-latency WebSocket architecture with guest and JWT authentication, a Drizzle ORM / Neon Postgres data layer, and a Railway deployment built to hold state under concurrent sessions.",
     stack: ["React", "Express", "WebSocket", "Drizzle ORM", "Neon Postgres", "Railway"],
     accent: "blue",
+    seoPage: "/ventures/lastpeglose.html",
+    platforms: [
+      { label: "Web", status: "live", href: "https://lastpeglose.com" },
+      { label: "Android", status: "live", href: "https://play.google.com/store/apps/details?id=com.lastpeglose.last_peg_lose" },
+      { label: "iOS", status: "pending", href: null },
+    ],
     caseStudy: {
       challenge:
         "A real-time multiplayer game needed to feel instant — at anything over ~150ms of lag, a skirmish game stops feeling like a skirmish and starts feeling like a queue.",

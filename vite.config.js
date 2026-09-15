@@ -14,6 +14,7 @@ export default defineConfig({
         tools: resolve(__dirname, 'tools.html'),
         insights: resolve(__dirname, 'insights.html'),
         portfolio: resolve(__dirname, 'portfolio.html'),
+        project357: resolve(__dirname, 'project357.html'),
       },
     },
   },

@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 const columns = [
   ["ENTERPRISE OF ONE", [["Method", "/#method"], ["Workshops", "/#workshops"], ["Advisory", "/#advisory"]]],
   ["EXPLORE", [["Signature ideas", "/#ideas"], ["Ventures and systems", "/portfolio.html"], ["Experience", "/resume.html"]]],
+  ["CALEB PIERRE TECHNOLOGIES", [["Ghettoeinstein / CPT Hub", "/project357.html"], ["Book studio & services", "mailto:hello@calebpierre.com"]]],
 ];
 
 export default function Footer() {
