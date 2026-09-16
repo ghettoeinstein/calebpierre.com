@@ -77,15 +77,9 @@ export default function Project357Page() {
               <div><strong>{formatUSD(CAMPAIGN.goalCents)}</strong><span>goal</span></div>
               <div><strong>{pct}%</strong><span>funded</span></div>
             </div>
-            {CAMPAIGN.stripePaymentLink ? (
-              <a className="button button-primary p357-campaign-cta" href={CAMPAIGN.stripePaymentLink} target="_blank" rel="noreferrer">
-                Contribute via Stripe <ArrowUpRight size={16} />
-              </a>
-            ) : (
-              <a className="button button-primary p357-campaign-cta" href="mailto:hello@calebpierre.com?subject=Fund%20Project%20357">
-                Contribute — email to fund <ArrowUpRight size={16} />
-              </a>
-            )}
+            <a className="button button-primary p357-campaign-cta" href={CAMPAIGN.campaignLink} target="_blank" rel="noreferrer">
+              Contribute on IFundWomen <ArrowUpRight size={16} />
+            </a>
             <span className="p357-campaign-note">{CAMPAIGN.deadline}</span>
           </div>
         </Reveal>

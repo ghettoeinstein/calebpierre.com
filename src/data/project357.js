@@ -1,13 +1,11 @@
-// Campaign config — edit these three values to update the fundraiser.
-// STRIPE_PAYMENT_LINK: paste a Stripe Payment Link URL from dashboard.stripe.com/payment-links
-// (Payment Links need no backend — they're the right fit for a static site like this one).
+// Campaign config — edit these values to update the fundraiser.
 export const CAMPAIGN = {
   name: "Project 357",
   goalCents: 2500000, // $25,000 pilot activation goal
-  raisedCents: 0, // update manually, or wire to a Stripe balance/webhook later
+  raisedCents: 0, // update manually, or wire to a live campaign feed later
   contributorCount: 0,
   deadline: "First 90-day activation window",
-  stripePaymentLink: "", // e.g. "https://buy.stripe.com/xxxxxxxx"
+  campaignLink: "https://www.ifundwomen.com/projects/help-launch-cpts-compton-technology-hub",
 };
 
 export const ZONES = [
