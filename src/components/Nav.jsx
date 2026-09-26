@@ -14,7 +14,7 @@ function CampaignBanner() {
 
   return (
     <div className="campaign-banner">
-      <a href="/project357.html#campaign" className="campaign-banner-link">
+      <a href="/donate" className="campaign-banner-link">
         <span className="campaign-banner-tag">PROJECT 357</span>
         Help fund Ghettoeinstein — our first physical venture in Compton.
         <span className="campaign-banner-cta">Contribute <ArrowUpRight size={13} /></span>

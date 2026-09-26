@@ -7,7 +7,7 @@ export const CAMPAIGN = {
   raisedCents: 0, // update manually, or wire to a Stripe balance/webhook later
   contributorCount: 0,
   deadline: "First 90-day activation window",
-  stripePaymentLink: "", // e.g. "https://buy.stripe.com/xxxxxxxx"
+  donateUrl: "/donate", // routes to the live iFundWomen campaign
 };
 
 export const ZONES = [
